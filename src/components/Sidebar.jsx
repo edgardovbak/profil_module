@@ -1,0 +1,18 @@
+import React, { Component } from 'react';
+import Logo from'./Logo';
+import Menu from'./Menu';
+import User from'./User';
+
+class Sidebar extends Component {
+	render () {
+		return (
+			<div className="sidebar">
+				<Logo />
+				<User/>
+				<Menu />
+			</div>
+		)
+	}
+};
+
+export default Sidebar;

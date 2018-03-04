@@ -1,0 +1,94 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    max-width: rem($sidebar_width);
+    width: 100%;
+    background-color: $dark_gray;
+    color : $white;
+    border-right: 1px solid $dark_gray;
+    overflow-y: auto;
+    padding-bottom: rem(20);
+
+    &__logo {
+        height: rem($header_height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $dark_blue;
+    }
+
+    &__user {
+        background-color: $blue;
+        color: $white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: rem(12);
+        margin-bottom: rem(15);
+        border-top: 1px solid $light_blue;
+        border-right: 1px solid $light_blue;
+        border-bottom: 1px solid $light_blue;
+
+        &__avatar {
+            width: rem(100);
+            height: rem(100);
+            margin-right: rem(20);
+            border-radius: 100%;
+            overflow: hidden;
+        }
+
+        &__name {
+
+        }
+    }
+
+    &__menu {
+        padding: rem(15) 0 0;
+
+
+        &__item {
+            height: rem(53);
+            padding: 0 rem(12);
+            // background-color: $dark_gray_2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            transition: all .2s ease;
+
+            &__icon {
+                display: inline-block;
+                background-color: $black;
+                width: rem(48);
+                height: rem(48);
+                border-radius: 100%;
+                text-align: center;
+                line-height: rem(48);
+                vertical-align: middle;
+                margin-right: rem(10);
+                color: $gray_2;
+                transition: all .2s ease;
+                font-size: rem(24);
+            }
+
+            &:hover,
+            &.active {
+                background-color: $dark_gray_2;
+                cursor: pointer;
+                transition: all .2s ease;
+
+                .sidebar__menu__item__icon {
+                    background-color: $gray_3;
+                    color: $white;
+                }
+
+                .sidebar__menu__item__name {
+                    color : $blue;
+                }
+            }
+        }
+
+
+    }
+}

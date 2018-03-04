@@ -1,0 +1,30 @@
+{
+  "name": "profile_module",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-ruby-sass": "^3.0.0",
+    "node-sass-chokidar": "0.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "redux": "3.7.2",
+    "sn-client-auth-google": "^1.0.0",
+    "sn-client-js": "^3.0.3",
+    "sn-redux": "^3.4.3"
+  }
+}
