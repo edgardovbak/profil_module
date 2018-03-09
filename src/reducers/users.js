@@ -1,12 +1,11 @@
-const initialState = [];
+const initialState = {};
 
 
-export default function updateUser(state = initialState, action ) {
+export default function updateInfo(state = initialState, action ) {
     if (action.type === 'UPDATE_LOGINED_USER') {
-        return [
-            ...state,
-             action.payload
-        ];
+        return Object.assign({}, state, {
+            user: action.payload
+      })
     }
     return state;
 }

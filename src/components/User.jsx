@@ -1,6 +1,7 @@
 import React, { Component } 		from 'react';
-import { connect }              from 'react-redux';
-import default_avater 					from '../images/default_avater.svg';
+import { connect }             		from 'react-redux';
+import default_avater 				from '../images/default_avater.svg';
+import { Link } 					from 'react-router-dom'
 
 class User extends Component {
 	constructor(props) {
@@ -11,13 +12,16 @@ class User extends Component {
 	}
 
 	render () {
+
 		return (
-			<div className="sidebar__user">
-				<img src={default_avater} alt="" className="sidebar__user__avatar"/>
-				<div className="sidebar__user__name">
-					{this.props.userName}
+			<Link to={"/user/"+this.props.userName} >
+				<div className="sidebar__user">
+					<img src={default_avater} alt="" className="sidebar__user__avatar"/>
+					<div className="sidebar__user__name">
+						{this.props.userName}
+					</div>
 				</div>
-			</div>
+			</Link>
 		);
 	}
 };

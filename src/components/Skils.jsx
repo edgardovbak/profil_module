@@ -8,15 +8,15 @@ class Skils extends Component {
   	}
 
 	render() {
-		// let slils_list = this.props.skils.map((skil) =>
-		// 	<li className="skils__item" key={skil.toString()}>
-		// 		<a href="/">{skil.toString()}</a>
-		// 	</li>
-		// );
+		let slills_list = this.props.skills.split(";").map((skill) =>
+			<li className="skils__item" key={skill.toString()}>
+				<a href="/">{skill.toString()}</a>
+			</li>
+		);
 
 		return (
 			<ul className="skils">
-				sd
+				{slills_list}
 			</ul>
 		);
 	}

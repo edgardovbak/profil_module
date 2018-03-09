@@ -7,19 +7,19 @@ import thunk                                from 'redux-thunk';
 import './index.css';
 import App                                  from './App';
 import { combineReducers }                  from 'redux';
+// import browserHistory                       from 'ReactRouter/browserHistory';
 import { Repository }                       from 'sn-client-js';
 
 import { Store, Actions, Reducers }         from 'sn-redux';
 
 import user                                 from './reducers/users';
 
-import {
-  HashRouter as Router
-}                                           from 'react-router-dom';
+import { BrowserRouter }                    from 'react-router-dom';
 
 const sensenet = Reducers.sensenet;
 const myReducer = combineReducers({
   sensenet,
+  // new added reducer
   user
 });
 
@@ -37,13 +37,11 @@ const store = Store.configureStore(
 // important
 store.dispatch(Actions.InitSensenetStore('/Root/Sites/Profil', { select: 'all' }));
 
-
-
 ReactDOM.render(
     <Provider store={store}>
-        <Router basename="/">
+        <BrowserRouter basename="/">
             <App repo={repository}/>
-        </Router>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );

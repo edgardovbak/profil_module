@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
-import Avatar from './Avatar';
+import React, { Component } 		from 'react';
+import { connect }              	from 'react-redux';
+import Avatar 						from './Avatar';
+import { Link } 					from 'react-router-dom'
 
 class EditProfil extends Component {
 	render () {
-
-		let user_info = this.props.user.infoList.map((info, index) =>
-			<div key={index} className="user__edit_global_info__item">
-				<label htmlFor="">{info.name}</label>
-				<input id="" type="text" placeholder={info.name} defaultValue={info.value}/>
-			</div>
-		);
 
 		return (
 			<div className="profil">
@@ -18,35 +13,61 @@ class EditProfil extends Component {
 					<div className="user__global_info">
 						<fieldset>
 							<legend>User name</legend>
-							<input id="userName" type="text" placeholder="User name" defaultValue={this.props.user.name} />
+							<input id="userName" type="text" placeholder="User name" defaultValue={this.props.user.FullName} />
 						</fieldset>
 						<fieldset>
 							<legend>Position</legend>
-							<input id="userPosition" type="text" placeholder="Position"  defaultValue={this.props.user.position} />
+							<input id="userPosition" type="text" placeholder="Position"  defaultValue={this.props.user.JobTitle} />
 						</fieldset>
 						<fieldset>
 							<legend>User Info</legend>
 							<div className="user__edit_global_info">
-								{user_info}
+								<div className="user__edit_global_info__item">
+									<label htmlFor="">Email</label>
+									<input id="" type="text" placeholder="Email" defaultValue={this.props.user.Email}/>
+								</div>
+								<div className="user__edit_global_info__item">
+									<label htmlFor="">Languages</label>
+									<input id="" type="text" placeholder="Languages" defaultValue={this.props.user.Languages}/>
+								</div>
+								<div className="user__edit_global_info__item">
+									<label htmlFor="">Phone</label>
+									<input id="" type="text" placeholder="Phone" defaultValue={this.props.user.Phone}/>
+								</div>
+								<div className="user__edit_global_info__item">
+									<label htmlFor="">BirthDate</label>
+									<input id="" type="text" placeholder="Phone" defaultValue={this.props.user.BirthDate}/>
+								</div>
+								<div className="user__edit_global_info__item">
+									<label htmlFor="">Education</label>
+									<input id="" type="text" placeholder="Phone" defaultValue={this.props.user.Education}/>
+								</div>
 							</div>
 						</fieldset>
 					</div>
 				</div>
 
 				<fieldset>
-					<legend>{this.props.user.aboutTitle}</legend>
-					<textarea id="userAbout" rows="10" cols="80" defaultValue={this.props.user.about}>
+					<legend>About</legend>
+					<textarea id="userAbout" rows="10" cols="80" defaultValue={this.props.user.Description}>
 
 					</textarea>
 				</fieldset>
 
-
-				<button className="btn" onClick={this.props.action} >
+				<Link to={"user/"+this.props.user.FullName} className="btn">
 					Save Changes
-				</button>
+				</Link>
 			</div>
 		)
 	}
 };
 
-export default EditProfil;
+const mapStateToProps = (state, match) => {
+	return {
+	  user : state.user.user
+	};
+  };
+
+export default connect(
+	mapStateToProps,
+{})(EditProfil);

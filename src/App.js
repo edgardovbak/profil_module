@@ -5,7 +5,7 @@ import {
   Redirect,
   withRouter
 }                               from 'react-router-dom';
-import { Authentication,ContentTypes }       from 'sn-client-js';
+import { Authentication }       from 'sn-client-js';
 import { Actions, Reducers }    from 'sn-redux';
 
 import './App.css';
@@ -14,12 +14,15 @@ import './App.scss';
 // import page components
 import Sidebar                  from './components/Sidebar';
 import Header                   from './components/Header';
-import Main                     from './components/Main';
+import Profil                   from './components/Profil';
+import EditProfil               from './components/EditProfil';
 import { Login }                from './components/Login';
 
+// import pageActions              from './actions/index';
 
 
-// new action 
+
+// new action
 
 
 class App extends Component {
@@ -28,6 +31,7 @@ class App extends Component {
         this.state = {
             user : {}
         }
+
         this.formSubmit = this.formSubmit.bind(this);
     }
 
@@ -35,37 +39,36 @@ class App extends Component {
         this.props.login(email, password);
     }
 
-  render() { 
+  render() {
 
     let myTask = this.props.repo.Load('/Root/IMS/BuiltIn/Portal/'+this.props.userName, {
-        // filter: ["isof('User')","LoginName eq 'admin'"],
         select: ['Name', 'DisplayName', "JobTitle", "Email", "FullName", "Description", "Languages", "Phone", "Gender", "BirthDate", "Education"],
     }).subscribe(loadedTask => {
-        console.log('Task loaded', loadedTask);
-        // this.setState({user: myTask});
+
+        if(Object.getOwnPropertyNames(this.state.user).length === 0) {
+            this.setState({ user: loadedTask});
+            this.props.onAddTrack(loadedTask);
+        }
     }, error => console.error);
 
-    console.log('Task loaded   lol ',  this.state.user);
-    
     return (
-        <div>
+        <div className="content_to_right">
             <Route
-                exact={true}
                 path="/"
                 render={routerProps => {
                     const status = this.props.loginState !== Authentication.LoginState.Authenticated;
                     return status ?
                       <Redirect key="login" to="/login" />
                       : (
-                        <div className="content_to_right">
-                            <Header />
-                            <Sidebar />
-                            <Main />
+                        <div>
+                            <Header/>
+                            <Sidebar/>
                         </div>
                       );
                 }}
             />
             <Route
+                exact={true}
                 path="/login"
                 render={routerProps => {
                     const status = this.props.loginState !== Authentication.LoginState.Authenticated;
@@ -74,23 +77,34 @@ class App extends Component {
                       : <Redirect key="dashboard" to="/" />;
                 }}
             />
+            <main className="main">
+                <div className="wrapp">
+                    <Route path={"/user/"+this.props.userName} render={ () => {
+                        return <Profil  />
+                    }}  />
+                    <Route path="/edituser" render={ () => {
+                        return <EditProfil />
+                    }}  />
+                </div>
+            </main>
         </div>
     );
   }
-}
-
-
+} 
 
 const mapStateToProps = (state, match) => {
   return {
     loginState: Reducers.getAuthenticationStatus(state.sensenet),
     userName : state.sensenet.session.user.userName,
-    user : state.user
   };
 };
 
 export default withRouter(connect(
-  mapStateToProps,
-  {
-    login: Actions.UserLogin,
- })(App));
+    mapStateToProps,
+    dispatch => ({
+        onAddTrack: (usertt) => {
+            dispatch({ type: 'UPDATE_LOGINED_USER', payload: usertt })
+        },
+        login: Actions.UserLogin,
+    })
+)(App));

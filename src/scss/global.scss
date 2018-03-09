@@ -46,6 +46,7 @@ a {
     border-radius: rem(10);
     text-transform: capitalize;
     line-height: rem(35);
+    display: inline-block;
 
     &:hover {
         background-color: $light_green;

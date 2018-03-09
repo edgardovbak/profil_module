@@ -22,6 +22,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "react-timestamp": "^4.3.1",
     "redux": "3.7.2",
     "sn-client-auth-google": "^1.0.0",
     "sn-client-js": "^3.0.3",

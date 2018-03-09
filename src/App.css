@@ -467,6 +467,7 @@ a {
   border-radius: 0.625rem;
   text-transform: capitalize;
   line-height: 2.1875rem;
+  display: inline-block;
 }
 .btn:hover {
   background-color: #7cc576;
