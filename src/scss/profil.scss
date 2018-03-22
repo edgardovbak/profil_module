@@ -35,6 +35,11 @@
 
                 & > div {
                     width: 50%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    padding-right: rem(15);
+                    box-sizing: border-box;
                 }
             }
         }
@@ -49,7 +54,7 @@
             width: 49%;
             margin-bottom: rem(10);
         }
-    }
+    } 
 
     &__avatar {
         margin-right: rem(30);
@@ -72,19 +77,5 @@
         display: inline-block;
         margin-right: rem(10);
         margin-bottom: rem(10);
-    }
-
-    a {
-        display: block;
-        padding: rem(5) rem(15);
-        border: 3px solid $orange;
-        color:  $orange;
-        border-radius: rem(20);
-
-        &:hover {
-            background-color: $orange;
-            color: $white;
-            border: 3px solid $orange_2;
-        }
     }
 }

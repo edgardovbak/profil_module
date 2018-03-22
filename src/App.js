@@ -1,58 +1,65 @@
-import React, { Component }     from 'react';
-import { connect }              from 'react-redux';
+import React, { Component }                 from 'react';
+import { connect }                          from 'react-redux';
 import {
   Route,
   Redirect,
   withRouter
-}                               from 'react-router-dom';
-import { Authentication }       from 'sn-client-js';
-import { Actions, Reducers }    from 'sn-redux';
+}                                           from 'react-router-dom';
+
+
+import { Authentication }                   from 'sn-client-js';
+import { Actions, Reducers }                from 'sn-redux';
 
 import './App.css';
 import './App.scss';
 
 // import page components
-import Sidebar                  from './components/Sidebar';
-import Header                   from './components/Header';
-import Profil                   from './components/Profil';
-import EditProfil               from './components/EditProfil';
-import { Login }                from './components/Login';
+import Sidebar                              from './components/Sidebar';
+import Header                               from './components/Header';
+import Profil                               from './components/Profil';
+import EditProfil                           from './components/EditProfil';
+import { Login }                            from './components/Login';
 
-// import pageActions              from './actions/index';
-
-
-
-// new action
+// config file
+import DATA                                 from './config.json';
 
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user : {}
+            open : false
         }
 
         this.formSubmit = this.formSubmit.bind(this);
+        this.openMenu = this.openMenu.bind(this);
     }
 
     formSubmit(e, email, password) {
         this.props.login(email, password);
     }
 
+    openMenu() {
+        let menuState = !this.state.open;
+        this.setState({
+            open: menuState
+          })
+    }
+
   render() {
 
-    let myTask = this.props.repo.Load('/Root/IMS/BuiltIn/Portal/'+this.props.userName, {
-        select: ['Name', 'DisplayName', "JobTitle", "Email", "FullName", "Description", "Languages", "Phone", "Gender", "BirthDate", "Education"],
+    this.props.repo.Load(DATA.ims + this.props.userName, {
+        select: ['Name', 'DisplayName', "Skils", "WorkPhone", "Skype", "Linkedin", "GitHub", "JobTitle", "Email", "FullName", "Description", "Languages", "Phone", "Gender", "BirthDate", "Education"],
     }).subscribe(loadedTask => {
 
-        if(Object.getOwnPropertyNames(this.state.user).length === 0) {
-            this.setState({ user: loadedTask});
-            this.props.onAddTrack(loadedTask);
-        }
+            // call custom created action
+            this.props.UserImage(loadedTask.Avatar);
+            this.props.UserInfo(loadedTask);
+        
     }, error => console.error);
 
     return (
-        <div className="content_to_right">
+        <div className={this.state.open ? "content_to_right open" : 'content_to_right'   }>
             <Route
                 path="/"
                 render={routerProps => {
@@ -62,7 +69,8 @@ class App extends Component {
                       : (
                         <div>
                             <Header/>
-                            <Sidebar/>
+                            <Sidebar openMenu={this.openMenu}/>
+                            <div className="sn_overflow" onClick={this.openMenu}></div>
                         </div>
                       );
                 }}
@@ -77,10 +85,10 @@ class App extends Component {
                       : <Redirect key="dashboard" to="/" />;
                 }}
             />
-            <main className="main">
-                <div className="wrapp">
+            <main className="sn_main">
+                <div className="sn_wrapp">
                     <Route path={"/user/"+this.props.userName} render={ () => {
-                        return <Profil  />
+                        return <Profil repo={this.props.repo} />
                     }}  />
                     <Route path="/edituser" render={ () => {
                         return <EditProfil />
@@ -90,7 +98,7 @@ class App extends Component {
         </div>
     );
   }
-} 
+}
 
 const mapStateToProps = (state, match) => {
   return {
@@ -101,10 +109,11 @@ const mapStateToProps = (state, match) => {
 
 export default withRouter(connect(
     mapStateToProps,
-    dispatch => ({
-        onAddTrack: (usertt) => {
-            dispatch({ type: 'UPDATE_LOGINED_USER', payload: usertt })
-        },
+    {
         login: Actions.UserLogin,
-    })
+
+        // new added action
+        UserInfo:   (userInfo) => ({ type: 'UPDATE_LOGINED_USER', payload: userInfo }),
+        UserImage:  (userImage) => ({ type: 'GET_USER_IMAGE', payload: userImage })
+    }
 )(App));

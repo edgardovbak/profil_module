@@ -12,7 +12,7 @@ class Menu extends Component {
 
 	render () {
 		return (
-			<div className="sidebar__menu">
+			<div className="sn_sidebar__menu">
 				<MenuItem name={this.state.menuName[0]} icon={this.state.menuIcon[0]} />
 				<MenuItem name={this.state.menuName[1]} icon={this.state.menuIcon[1]} />
 				<MenuItem name={this.state.menuName[2]} icon={this.state.menuIcon[2]} />

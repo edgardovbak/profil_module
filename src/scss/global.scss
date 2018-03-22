@@ -1,13 +1,15 @@
 .content_to_right {
     padding: rem($header_height) 0 0 rem($sidebar_width);
+    transition: all .3s ease;
 }
 
-.wrapp {
+.sn_wrapp {
     max-width: rem($content_width);
     width: 100%;
     margin: 0 auto;
     padding: 0 rem(15);
     box-sizing: border-box;
+    transition: all .3s ease;
 }
 
 body {
@@ -16,29 +18,52 @@ body {
 }
 
 
-.title {
+.sn_title {
     font-size: rem(36);
     font-weight: 500;
     padding-bottom: rem(10);
     border-bottom: 1px solid $black;
     width: 100%;
+    text-align: left;
+    font-family: $font_fira;
 
     &--description {
         margin-bottom: rem(10);
         display: flex;
         justify-content: space-between;
+        font-family: $font_roboto;
     }
 }
 
 a {
-    color: $blue;
+    color: $link_cl;
     text-decoration: none;
+
+    &:hover {
+        color: $link_cl--hover;
+    }
 }
 
-.btn {
-    background-color: $green_2;
+a.btn_link,
+span.btn_link {
+    display: block;
+    padding: rem(5) rem(15);
+    border: 3px solid $link_btn_border;
+    color:  $link_btn_cl;
+    border-radius: rem(20);
+    background-color: $link_btn_bg;
+
+    &:hover {
+        background-color: $link_btn_bg--hover;
+        color: $link_btn_cl--hover;
+        border: 3px solid $link_btn_border--hover;
+    }
+}
+
+.sn_btn {
+    background-color: $btn_bg_default;
     color: $white;
-    border: 1px solid $green_2;
+    border: 1px solid $btn_bg_default_border;
     font-size: 1rem;
     padding: 0 rem(20);
     box-sizing: border-box;
@@ -49,14 +74,39 @@ a {
     display: inline-block;
 
     &:hover {
-        background-color: $light_green;
+        background-color: $btn_bg_default--hover;
+        color: $white;
     }
+
+    &--error {
+        background-color: $btn_bg_error;
+        border: 1px solid $btn_bg_error_border;
+
+        &:hover {
+            background-color: $btn_bg_error--hover;
+            color: $white;
+        }
+    }
+
+    &--disbled {
+        background-color: $btn_bg_disbled;
+        border: 1px solid $btn_bg_disbled_border;
+
+        &:hover {
+            background-color: $btn_bg_disbled--hover;
+            color: $white;
+        }
+    }
+}
+
+input {
+    height: rem($input_height);
+    line-height: $input_lh;
 }
 
 input,
 textarea {
     width: 100%;
-    line-height: rem(25);
     padding: 0 rem(10);
     box-sizing: border-box;
     margin-bottom: rem(10);
@@ -64,10 +114,12 @@ textarea {
 
 textarea {
     resize: none;
+    line-height: rem(25);
 }
 
 fieldset {
     margin-bottom: rem(10);
+    text-align: left;
 }
 
 legend {
@@ -77,4 +129,36 @@ legend {
 label {
     font-size: rem(13);
     padding: 0 rem(10);
+}
+
+.sn_overflow {
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid $green;
+        padding: rem(5);
+
+        &:first-child {
+            text-align: left;
+        }
+    }
+}
+
+.to_left {
+    text-align: left;
 }

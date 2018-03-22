@@ -14,11 +14,11 @@ class MenuItem extends Component {
 	render() {
 
 		return (
-			<div className="sidebar__menu__item" onClick={this.handleClick.bind(this)}>
-				<span className="sidebar__menu__item__icon">
+			<div className="sn_sidebar__menu__item" onClick={this.handleClick.bind(this)}>
+				<span className="sn_sidebar__menu__item__icon">
 					<i className={this.props.icon}></i>
 				</span>
-				<span className="sidebar__menu__item__name">
+				<span className="sn_sidebar__menu__item__name">
 					{this.props.name}
 				</span>
 			</div>

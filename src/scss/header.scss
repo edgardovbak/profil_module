@@ -1,4 +1,4 @@
-.header {
+.sn_header {
     background: $white;
     position: fixed;
     top: 0;
@@ -8,6 +8,17 @@
     border-bottom: 1px solid $black;
     display: flex;
     align-items: center;
+    transition: all .3s ease;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        display: none;
+    }
 
     &__search {
         position: relative;
@@ -34,6 +45,7 @@
              box-sizing: border-box;
              border-radius: rem(15);
              color: $dark_gray_3;
+             margin-bottom: 0;
         }
     }
 }

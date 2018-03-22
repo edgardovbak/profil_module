@@ -12,22 +12,28 @@ import { Repository }                       from 'sn-client-js';
 
 import { Store, Actions, Reducers }         from 'sn-redux';
 
+// custrom  reducers 
 import user                                 from './reducers/users';
+import userImage                            from './reducers/userImage';
 
 import { BrowserRouter }                    from 'react-router-dom';
+
+import DATA                                 from './config.json';
 
 const sensenet = Reducers.sensenet;
 const myReducer = combineReducers({
   sensenet,
+
   // new added reducer
-  user
+  user,
+  userImage,
 });
 
 const repository = new Repository.SnRepository({
-  RepositoryUrl: 'https://profil_sn7'
+  RepositoryUrl: DATA.domain
 });
 
-const store = Store.configureStore(
+const store = Store.configureStore( 
     myReducer,
     undefined,
     undefined,
@@ -35,7 +41,7 @@ const store = Store.configureStore(
     repository
 );
 // important
-store.dispatch(Actions.InitSensenetStore('/Root/Sites/Profil', { select: 'all' }));
+store.dispatch(Actions.InitSensenetStore(DATA.site, { select: 'all' }));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -6,8 +6,8 @@ import User from'./User';
 class Sidebar extends Component {
 	render () {
 		return (
-			<div className="sidebar">
-				<Logo />
+			<div className="sn_sidebar">
+				<Logo openMenu={this.props.openMenu}/>
 				<User/>
 				<Menu />
 			</div>

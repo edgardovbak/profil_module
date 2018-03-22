@@ -10,7 +10,7 @@ class Skils extends Component {
 	render() {
 		let slills_list = this.props.skills.split(";").map((skill) =>
 			<li className="skils__item" key={skill.toString()}>
-				<a href="/">{skill.toString()}</a>
+				<span className="btn_link">{skill.toString()}</span>
 			</li>
 		);
 

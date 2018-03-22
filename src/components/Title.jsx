@@ -8,7 +8,7 @@ class Title extends Component {
 
 	render () {
 		return (
-			<h2 className="title">
+			<h2 className="sn_title">
 				{this.props.name}
 			</h2>
 		)

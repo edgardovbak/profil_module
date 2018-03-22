@@ -1,15 +1,27 @@
 import React, { Component } 		from 'react';
 import { connect }              	from 'react-redux';
-import Avatar 						from './Avatar';
-import { Link } 					from 'react-router-dom'
+import UserAvatar 					from './UserAvatar';
+import { Link } 					from 'react-router-dom';
 
 class EditProfil extends Component {
+	constructor(props) {
+        super(props);
+
+        this.onSaveChanges = this.onSaveChanges.bind(this);
+	}
+
+	
+
+	onSaveChanges(userInfo) {
+        this.props.saveChanges("Loldon Freeman");
+    }
+	
 	render () {
 
 		return (
 			<div className="profil">
 				<div className="user" >
-					<Avatar />
+					<UserAvatar />
 					<div className="user__global_info">
 						<fieldset>
 							<legend>User name</legend>
@@ -54,7 +66,7 @@ class EditProfil extends Component {
 					</textarea>
 				</fieldset>
 
-				<Link to={"user/"+this.props.user.FullName} className="btn">
+				<Link to={"user/"+this.props.user.Name} className="sn_btn" onClick={this.onSaveChanges}>
 					Save Changes
 				</Link>
 			</div>
@@ -70,4 +82,7 @@ const mapStateToProps = (state, match) => {
 
 export default connect(
 	mapStateToProps,
-{})(EditProfil);
+	{
+		saveChanges:  (userInfo) => ({ type: 'SET_USER_INFO', payload: userInfo })
+	}
+)(EditProfil);
