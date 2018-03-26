@@ -1,9 +1,13 @@
-import React, { Component } 		from 'react';
+import React				 		from 'react';
 import logo 						from '../images/logo.png';
-import { Link } 					from 'react-router-dom'
+import { Link } 					from 'react-router-dom';
 
-class Logo extends Component {
-	constructor(props) {
+export interface MenuTrigger { 
+	openMenu: boolean;
+}
+
+class Logo extends React.Component<MenuTrigger, {}> {
+	constructor(props: MenuTrigger) {
         super(props);
 	}
 	

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
-class MenuItem extends Component {
+export interface props { 
+	name: string,
+	icon: string,
+	handleClick : Function
+}
 
-	constructor(props) {
+class MenuItem extends React.Component<props, {}> {
+
+	constructor(props : props) {
 	    super(props);
-	    this.state = {};
   	}
 
 	handleClick() {
-		console.log(this.props.name + " is not active now!!!");
+		console.log( this.props.name + " is not active now!!!" );
 	}
 
 	render() {
@@ -16,10 +21,10 @@ class MenuItem extends Component {
 		return (
 			<div className="sn_sidebar__menu__item" onClick={this.handleClick.bind(this)}>
 				<span className="sn_sidebar__menu__item__icon">
-					<i className={this.props.icon}></i>
+					<i className={ this.props.icon }></i>
 				</span>
 				<span className="sn_sidebar__menu__item__name">
-					{this.props.name}
+					{ this.props.name }
 				</span>
 			</div>
 		);
