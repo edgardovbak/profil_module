@@ -1,23 +1,22 @@
-import React, { Component } 		from 'react';
+import * as React					from 'react';
 import { connect }              	from 'react-redux';
 import UserAvatar 					from './UserAvatar';
 import { Link } 					from 'react-router-dom';
 
-class EditProfil extends Component {
-	constructor(props) {
-        super(props);
+class EditProfil extends React.Component<any, any> {
 
+	constructor(props: any) {
+		// @ts-ignore
+        super(props);
         this.onSaveChanges = this.onSaveChanges.bind(this);
 	}
 
-	
-
-	onSaveChanges(userInfo) {
-        this.props.saveChanges("Loldon Freeman");
+	onSaveChanges(userInfo: any) {
+        this.props.saveChanges('Loldon Freeman');
     }
 	
 	render () {
-
+ 
 		return (
 			<div className="profil">
 				<div className="user" >
@@ -61,20 +60,18 @@ class EditProfil extends Component {
 
 				<fieldset>
 					<legend>About</legend>
-					<textarea id="userAbout" rows="10" cols="80" defaultValue={this.props.user.Description}>
-
-					</textarea>
+					<textarea id="userAbout" defaultValue={this.props.user.Description} />
 				</fieldset>
 
-				<Link to={"user/"+this.props.user.Name} className="sn_btn" onClick={this.onSaveChanges}>
+				<Link to={'user/' + this.props.user.Name} className="sn_btn" onClick={this.onSaveChanges}>
 					Save Changes
 				</Link>
 			</div>
-		)
+		);
 	}
-};
+}
 
-const mapStateToProps = (state, match) => {
+const mapStateToProps = (state: any, match: any) => {
 	return {
 	  user : state.user.user
 	};
@@ -83,6 +80,6 @@ const mapStateToProps = (state, match) => {
 export default connect(
 	mapStateToProps,
 	{
-		saveChanges:  (userInfo) => ({ type: 'SET_USER_INFO', payload: userInfo })
+		saveChanges:  (userInfo: any) => ({ type: 'SET_USER_INFO', payload: userInfo })
 	}
 )(EditProfil);

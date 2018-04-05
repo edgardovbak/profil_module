@@ -1,24 +1,24 @@
-import React, { Component } 		from 'react';
+import * as React				 	from 'react';
 import { connect }              	from 'react-redux';
 import Title 						from './Title';
 import UserAvatar 					from './UserAvatar';
 import Skils 						from './Skils';
 import About 						from './About';
 import UserInfoListItem 			from './UserInfoListItem';
-import { Link } 					from 'react-router-dom'
+import { Link } 					from 'react-router-dom';
 
-class Profil extends Component {
+class Profil extends React.Component<any, any> {
 	
 	render () {
-
-
 		// phone number 
 		let PhoneNumber;
-		if ( !(this.props.user.Phone === "")) {
-			PhoneNumber = <UserInfoListItem
-			name="Phone"
-			infoType={0}
-			value={this.props.user.Phone} />;
+		if ( !(this.props.user.Phone === '')) {
+			PhoneNumber = (
+			<UserInfoListItem
+				name="Phone"
+				infoType={0}
+				value={this.props.user.Phone} 
+			/>);
 		} 
 
 		return (
@@ -40,57 +40,65 @@ class Profil extends Component {
 								<UserInfoListItem
 									name="Email"
 									infoType={1}
-									value={this.props.user.Email} />
+									value={this.props.user.Email} 
+								/>
 								<UserInfoListItem
 									name="WorkPhone"
 									infoType={0}
-									value={this.props.user.WorkPhone} />
+									value={this.props.user.WorkPhone} 
+								/>
 								
 								{PhoneNumber}
 			
 								<UserInfoListItem
 									name="Skype"
 									infoType={1}
-									value={this.props.user.Skype} />
+									value={this.props.user.Skype} 
+								/>
 								<UserInfoListItem
 									name="Linkedin"
 									infoType={1}
-									value={this.props.user.Linkedin} />
+									value={this.props.user.Linkedin} 
+								/>
 								<UserInfoListItem
 									name="GitHub"
 									infoType={1}
-									value={this.props.user.GitHub} />
+									value={this.props.user.GitHub} 
+								/>
 							</div>
 							<div>
 								<UserInfoListItem
 									name="Languages"
 									infoType={0}
-									value={this.props.user.Languages} />
+									value={this.props.user.Languages} 
+								/>
 								<UserInfoListItem
 									name="Education"
 									infoType={0}
-									value={this.props.user.Education} />
+									value={this.props.user.Education} 
+								/>
 								<UserInfoListItem
 									name="BirthDate"
 									infoType={2}
-									value={this.props.user.BirthDate} />
+									value={this.props.user.BirthDate} 
+								/>
 							</div>
 						</div>
 					</div>
 				</div>
 				
 				<Title name="Skils"/>
-				<Skils skills={""+this.props.user.Skills}/>
+				<Skils skills={'' + this.props.user.Skills} />
 
 				<Title name="About" />
 				<About about={this.props.user.Description} />
 
 			</div>
-		)
+		);
 	}
-};
+}
 
-const mapStateToProps = (state, match) => {
+const mapStateToProps = (state: any, match: any) => {
 	return {
 	  userName : state.sensenet.session.user.userName,
 	  user : state.user.user

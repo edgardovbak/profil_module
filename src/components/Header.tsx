@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import * as React				from 'react';
 
-class Header extends Component {
+class Header extends React.Component<any, any> {
 	render () {
 		return (
 			<header className="sn_header">
@@ -8,13 +8,13 @@ class Header extends Component {
 					<div className="sn_header__search">
 						<input type="text" />
 						<button>
-							<i className="fi flaticon-magnifier"></i>
+							<i className="fi flaticon-magnifier" />
 						</button>
 					</div>
 				</div>
 			</header>
 		);
 	}
-};
+}
 
 export default Header;
