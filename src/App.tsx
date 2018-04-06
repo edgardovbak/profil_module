@@ -21,12 +21,14 @@ import { Login }                            from './components/Login';
 // save config 
 const DATA = require('./config.json');
 
-interface AppProps {
+export interface AppProps {
     login: Function;
     UserInfo: Function;
+    UserInfoGet: Function;
     userName: string;
     loginState: Authentication.LoginState;
-    repo: any;
+    store: any;
+    repository: any;
 }
 
 class App extends React.Component<AppProps, any> {
@@ -43,26 +45,31 @@ class App extends React.Component<AppProps, any> {
     }
 
     formSubmit(e: Event, email: string, password: string) {
-            this.props.login(email, password);
+        this.props.login(email, password);
     }
 
     openMenu() {
         let menuState = !this.state.open;
-        this.setState({
+        this.setState({         
             open: menuState
           });
     }
     
     public render() { 
 
-    let path = DATA.ims + this.props.userName;
-    
-    let userGet = this.props.UserInfo(path, {
-        select : ['Name', 'DisplayName', 'Skils', 'WorkPhone', 'Skype', 'Linkedin', 
-                'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
-                'Gender', 'BirthDate', 'Education'],
-    });
-    console.log(userGet);
+    if ( this.props.userName !== 'Visitor' ) { 
+        let path = DATA.ims + '(\'' + this.props.userName + '\')';
+
+        let userGet = this.props.UserInfo(path, {
+            select : ['Name', 'DisplayName', 'Skils', 'WorkPhone', 'Skype', 'Linkedin', 
+                    'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
+                    'Gender', 'BirthDate', 'Education'],
+        });
+        
+        // this.props.UserInfoGet(userGet);
+
+        console.log(userGet); 
+    }
 
     return (
         <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
@@ -128,5 +135,6 @@ export default withRouter(connect(
         // new added action
         login: (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
         UserInfo:  (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
+        // UserInfoGet:  (userInfo: any) => ({ type: 'UPDATE_LOGINED_USER', payload: userInfo }),
     })
-)(App));
+)(App as any));
