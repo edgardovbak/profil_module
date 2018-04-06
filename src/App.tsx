@@ -7,7 +7,6 @@ import {
 }                                           from 'react-router-dom';
 import { Actions, Reducers }                from '@sensenet/redux';
 import { Authentication }                   from 'sn-client-js';
-// import { Authentication }                       from '@sensenet/client-core';
 
 import './App.css';
 import './App.scss';
@@ -18,6 +17,9 @@ import Header                               from './components/Header';
 import Profil                               from './components/Profil';
 import EditProfil                           from './components/EditProfil';
 import { Login }                            from './components/Login';
+
+// save config 
+const DATA = require('./config.json');
 
 interface AppProps {
     login: Function;
@@ -51,14 +53,16 @@ class App extends React.Component<AppProps, any> {
           });
     }
     
-  render() {
+    public render() { 
 
-    // let path = DATA.ims + this.props.userName;
+    let path = DATA.ims + this.props.userName;
     
-    // let userGet = this.props.UserInfo(path, {
-    //     select : ['Name', 'DisplayName']
-    // });
-    // console.log(userGet);
+    let userGet = this.props.UserInfo(path, {
+        select : ['Name', 'DisplayName', 'Skils', 'WorkPhone', 'Skype', 'Linkedin', 
+                'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
+                'Gender', 'BirthDate', 'Education'],
+    });
+    console.log(userGet);
 
     return (
         <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
@@ -123,6 +127,6 @@ export default withRouter(connect(
     (dispatch) => ({
         // new added action
         login: (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
-        UserInfo:  (path: string) => dispatch(Actions.requestContent( path )),
+        UserInfo:  (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
     })
 )(App));

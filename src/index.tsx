@@ -45,7 +45,7 @@ ReactDOM.render(
     (
         <Provider store={store}>
             <BrowserRouter basename="/">
-                <App />
+                <App repo={repository} />
             </BrowserRouter>
         </Provider>
     ),
