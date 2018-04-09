@@ -12,7 +12,6 @@ class UserAvatar extends React.Component<any, any> {
 
 		let picture = defaultAvatar;
 		if ( this.props.userAvatar !== '' ) {
-			
 			picture = DATA.domain + this.props.userAvatar;
 		}
  
@@ -26,7 +25,7 @@ class UserAvatar extends React.Component<any, any> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar :  	state.userImage.userImageSRC,
+		userAvatar :  	'', // state.user.user.Avatar._deferred,
 		userName : 		state.user.user.FullName
 	};
 };

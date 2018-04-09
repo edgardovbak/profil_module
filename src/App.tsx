@@ -17,18 +17,21 @@ import Header                               from './components/Header';
 import Profil                               from './components/Profil';
 import EditProfil                           from './components/EditProfil';
 import { Login }                            from './components/Login';
+import { PathHelper } from '@sensenet/client-utils';
 
 // save config 
 const DATA = require('./config.json');
 
 export interface AppProps {
     login: Function;
-    UserInfo: Function;
-    UserInfoGet: Function;
+    getUserInfo: Function;
+    addToState: Function;
     userName: string;
     loginState: Authentication.LoginState;
     store: any;
     repository: any;
+    userRoleName: string;
+    updateUser: boolean;
 }
 
 class App extends React.Component<AppProps, any> {
@@ -38,6 +41,8 @@ class App extends React.Component<AppProps, any> {
             open : false,
             user : {},
             loginState: false,
+            userRoleName: this.props.userName,
+            updateUser: true,
         },
 
         this.formSubmit = this.formSubmit.bind(this);
@@ -52,29 +57,43 @@ class App extends React.Component<AppProps, any> {
         let menuState = !this.state.open;
         this.setState({         
             open: menuState
-          });
+          }); 
+    } 
+
+    componentWillReceiveProps(nextProps: AppProps) {
+        this.setState({
+            open : false,
+            user : {},
+            loginState: false,
+            userRoleName: nextProps.userName,
+        });
     }
     
     public render() { 
 
-    if ( this.props.userName !== 'Visitor' ) { 
-        let path = DATA.ims + '(\'' + this.props.userName + '\')';
+    if (this.state.userRoleName !== 'undefined' && this.state.userRoleName !== 'Visitor' && this.state.updateUser) {
 
-        let userGet = this.props.UserInfo(path, {
-            select : ['Name', 'DisplayName', 'Skils', 'WorkPhone', 'Skype', 'Linkedin', 
+        let path = PathHelper.joinPaths(DATA.ims, this.state.userRoleName);
+
+        let userGet = this.props.getUserInfo(path, {
+            select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
-                    'Gender', 'BirthDate', 'Education'],
+                    'Gender', 'BirthDate', 'Education', 'Avatar'],
         });
         
-        // this.props.UserInfoGet(userGet);
+        userGet.then( (result: any) => {
+            this.setState({ updateUser: false});
+            this.props.addToState(result.value.d);
+        });
 
-        console.log(userGet); 
-    }
+        userGet.catch((err: any) => {
+            console.log(err);
+        });
+    }   
 
     return (
         <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
             <Route
-                authorize={['admin']}
                 path="/"
                 render={routerProps => {
                     const status = this.props.loginState !== Authentication.LoginState.Authenticated;
@@ -104,13 +123,11 @@ class App extends React.Component<AppProps, any> {
             <main className="sn_main">
                 <div className="sn_wrapp">
                     <Route 
-                        authorize={['admin']}
                         path={'/user/' + this.props.userName} 
                         render={ () => {
                         return (<Profil />); }}  
                     />
                     <Route 
-                        authorize={['admin']}
                         path="/edituser" 
                         render={ () => {
                         return (<EditProfil />); }}  
@@ -123,18 +140,18 @@ class App extends React.Component<AppProps, any> {
 }
 
 const mapStateToProps = (state: any, match: any) => {
-  return {
-    loginState: Reducers.getAuthenticationStatus(state.sensenet),
-    userName : state.sensenet.session.user.userName,
-  };
+    return {
+        loginState:     Reducers.getAuthenticationStatus(state.sensenet),
+        userName :      state.sensenet.session.user.userName,
+    };
 };
 
 export default withRouter(connect(
     mapStateToProps,
     (dispatch) => ({
         // new added action
-        login: (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
-        UserInfo:  (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
-        // UserInfoGet:  (userInfo: any) => ({ type: 'UPDATE_LOGINED_USER', payload: userInfo }),
+        login:          (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
+        getUserInfo:    (path: string, options: any) => dispatch(Actions.loadContent( path, options )),
+        addToState:     (userInfo: any) => dispatch({ type: 'UPDATE_LOGINED_USER', payload: userInfo }),
     })
 )(App as any));

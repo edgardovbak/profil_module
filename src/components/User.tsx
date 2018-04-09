@@ -7,7 +7,6 @@ const DATA = require('../config.json');
 class User extends React.Component<any, any> {
 
 	render () {
-
 		return (
 			<Link to={'/user/' + this.props.userName} >
 				<div className="sn_sidebar__user">
@@ -31,8 +30,8 @@ class User extends React.Component<any, any> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar : 	state.userImage.userImageSRC,
-		userName : 		state.sensenet.session.user.userName,
+		userAvatar: 	'', // state.user.user.Avatar._deferred,
+		userName: 		state.sensenet.session.user.userName,
 	};
 };
 

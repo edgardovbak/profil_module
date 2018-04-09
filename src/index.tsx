@@ -10,7 +10,6 @@ import { JwtService }                       from '@sensenet/authentication-jwt';
 
 // custrom  reducers  
 import user                                 from './reducers/users';
-import userImage                            from './reducers/userImage';
 
 import { BrowserRouter }                    from 'react-router-dom';
 
@@ -25,7 +24,6 @@ const myReducer = combineReducers({
 
   // new added reducer
   user, 
-  userImage,
 });
 
 const repository = new Repository ({
