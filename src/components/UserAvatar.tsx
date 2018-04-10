@@ -25,7 +25,7 @@ class UserAvatar extends React.Component<any, any> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar :  	'', // state.user.user.Avatar._deferred,
+		userAvatar :  	state.user.user.Avatar._deferred,
 		userName : 		state.user.user.FullName
 	};
 };

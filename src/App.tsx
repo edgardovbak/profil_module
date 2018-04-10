@@ -6,18 +6,17 @@ import {
   withRouter
 }                                           from 'react-router-dom';
 import { Actions, Reducers }                from '@sensenet/redux';
-import { Authentication }                   from 'sn-client-js';
+import { LoginState }                       from '@sensenet/client-core';
 
 import './App.css';
 import './App.scss';
 
 // import page components
-import Sidebar                              from './components/Sidebar';
-import Header                               from './components/Header';
+import Body                                 from './components/Body';
 import Profil                               from './components/Profil';
 import EditProfil                           from './components/EditProfil';
 import { Login }                            from './components/Login';
-import { PathHelper } from '@sensenet/client-utils';
+import { PathHelper }                       from '@sensenet/client-utils';
 
 // save config 
 const DATA = require('./config.json');
@@ -27,7 +26,7 @@ export interface AppProps {
     getUserInfo: Function;
     addToState: Function;
     userName: string;
-    loginState: Authentication.LoginState;
+    loginState: LoginState;
     store: any;
     repository: any;
     userRoleName: string;
@@ -96,17 +95,13 @@ class App extends React.Component<AppProps, any> {
             <Route
                 path="/"
                 render={routerProps => {
-                    const status = this.props.loginState !== Authentication.LoginState.Authenticated;
+                    const status = this.props.loginState !== LoginState.Authenticated;
                     return status ?
                         // not authenticated user is redirected to login page
                         <Redirect key="login" to="/login" />
                       : (
                         // authenticated user
-                        <div>
-                            <Header />
-                            <Sidebar openMenu={this.openMenu}/>
-                            <div className="sn_overflow" onClick={this.openMenu} />
-                        </div>
+                        <Body openMenu={this.openMenu}/>
                     );
                 }}
             />
@@ -114,7 +109,7 @@ class App extends React.Component<AppProps, any> {
                 exact={true}
                 path="/login"
                 render={routerProps => {
-                    const status = this.props.loginState !== Authentication.LoginState.Authenticated;
+                    const status = this.props.loginState !== LoginState.Authenticated;
                     return status ?
                             <Login formSubmit={this.formSubmit} />
                         :   <Redirect key="dashboard" to="/" />;

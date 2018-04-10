@@ -31,7 +31,7 @@ class User extends React.Component<any, any> {
 const mapStateToProps = (state: any) => {
 	return {
 		userAvatar: 	'', // state.user.user.Avatar._deferred,
-		userName: 		state.sensenet.session.user.userName,
+		userName: 		state.sensenet.session.user.userName // state.user.user.FullName,
 	};
 };
 

@@ -16,7 +16,7 @@ import { BrowserRouter }                    from 'react-router-dom';
 import App                                  from './App';
  
 // save config 
-const DATA = require('./config.json');
+// const DATA = require('./config.json');
  
 const sensenet = Reducers.sensenet;
 const myReducer = combineReducers({
@@ -27,7 +27,7 @@ const myReducer = combineReducers({
 });
 
 const repository = new Repository ({
-    repositoryUrl: DATA.domain
+    repositoryUrl: process.env.REACT_APP_SERVICE_URL || 'https://knowledgebase-sn7.test.sensenet.com',
 });
 const jwtService = new JwtService(repository);
 jwtService.checkForUpdate();
