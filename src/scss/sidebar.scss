@@ -40,6 +40,10 @@
         border-right: 1px solid $light_blue;
         border-bottom: 1px solid $light_blue;
 
+        &:hover {
+            background-color: $blue_dark;
+        }
+
         &__avatar {
             width: rem(100);
             height: rem(100);

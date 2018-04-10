@@ -1,12 +1,21 @@
-import * as React					from 'react';
-import { connect }              	from 'react-redux';
-import UserAvatar 					from './UserAvatar';
-import { Link } 					from 'react-router-dom';
+import * as React							from 'react';
+import { connect }              			from 'react-redux';
+import UserAvatar 							from './UserAvatar';
+import { Link } 							from 'react-router-dom';
+import { Actions }                			from '@sensenet/redux';
+import { PathHelper }                       from '@sensenet/client-utils';
 
-class EditProfil extends React.Component<any, any> {
+const DATA = require('../config.json');
+
+export interface Props {
+	updateUser: 		Function;
+	saveChanges:  		Function;
+	user: 				any;
+}
+
+class EditProfil extends React.Component<Props, any> {
 
 	constructor(props: any) {
-		// @ts-ignore
 		super(props);
 	}
 	
@@ -21,8 +30,10 @@ class EditProfil extends React.Component<any, any> {
 		let EducationInput: 		HTMLInputElement;
 		let DescriptionInput: 		HTMLTextAreaElement;
 
+		let userUpdate: any;
+
 		const onSaveChanges = (e: any) => {
-			this.props.saveChanges({
+			let user = {
 				FullName: 		FullNameInput.value,
 				JobTitle: 		JobTitleInput.value,
 				Email: 			EmailInput.value,
@@ -31,6 +42,19 @@ class EditProfil extends React.Component<any, any> {
 				BirthDate: 		BirthDateInput.value,
 				Education: 		EducationInput.value,
 				Description: 	DescriptionInput.value,
+			};
+			
+			// update user info in sensenet app
+			let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
+			this.props.saveChanges(user);
+			userUpdate = this.props.updateUser(path, user);
+			
+			userUpdate.then( (result: any) => {
+				console.log('Update success');
+			});
+	
+			userUpdate.catch((err: any) => {
+				console.log('Error success');
 			});
 		};
 
@@ -125,7 +149,11 @@ class EditProfil extends React.Component<any, any> {
 					<textarea id="userAbout" ref={(input) => {DescriptionInput = input as HTMLTextAreaElement; }} defaultValue={this.props.user.Description} />
 				</fieldset>
 
-				<Link to={'user/' + this.props.user.Name} className="sn_btn" onClick={e => { onSaveChanges(e); }}>
+				{/* <button className="sn_btn" onClick={e => { onSaveChanges(e); }}>
+					Save Changes
+				</button> */}
+				
+				<Link to={'user:' + this.props.user.Name} className="sn_btn" onClick={e => { onSaveChanges(e); }}>
 					Save Changes
 				</Link>
 			</div>
@@ -141,7 +169,8 @@ const mapStateToProps = (state: any, match: any) => {
 
 export default connect(
 	mapStateToProps,
-	{
-		saveChanges:  (userInfo: any) => ({ type: 'SET_USER_INFO', payload: userInfo })
-	}
+	(dispatch) => ({
+		saveChanges:  (userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
+		updateUser:    (path: string, options: any) => dispatch(Actions.updateContent( path, options )),
+	})
 )(EditProfil);

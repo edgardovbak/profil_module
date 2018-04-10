@@ -540,6 +540,7 @@ textarea {
 textarea {
   resize: none;
   line-height: 1.5625rem;
+  min-height: 9.375rem;
 }
 
 fieldset {
@@ -734,6 +735,9 @@ table td:first-child {
   border-top: 1px solid #60c2cf;
   border-right: 1px solid #60c2cf;
   border-bottom: 1px solid #60c2cf;
+}
+.sn_sidebar__user:hover {
+  background-color: #007280;
 }
 .sn_sidebar__user__avatar {
   width: 6.25rem;

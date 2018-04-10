@@ -115,6 +115,7 @@ textarea {
 textarea {
     resize: none;
     line-height: rem(25);
+    min-height: rem(150);
 }
 
 fieldset {

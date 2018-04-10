@@ -118,7 +118,7 @@ class App extends React.Component<AppProps, any> {
             <main className="sn_main">
                 <div className="sn_wrapp">
                     <Route 
-                        path={'/user/' + this.props.userName} 
+                        path={'/user:' + this.props.userName} 
                         render={ () => {
                         return (<Profil />); }}  
                     />
