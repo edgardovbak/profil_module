@@ -14,6 +14,9 @@ export interface Props {
 }
 
 class UserAvatar extends React.Component<Props, any> {
+
+	editor: AvatarEditor;
+
 	constructor(props: Props) {
 		super(props);
 		this.state = {
@@ -26,15 +29,8 @@ class UserAvatar extends React.Component<Props, any> {
 			preview: null,
 			width: 300,
 			height: 300,
+			uploadImage : false,
 		};
-	}
-
-	// save croped image
-	handleSave = () => {
-		// const img = this.editor.getImageScaledToCanvas().toDataURL()
-		// const rect = this.editor.getCroppingRect()
-
-		console.log(123);
 	}
 
 	// add new image
@@ -59,17 +55,22 @@ class UserAvatar extends React.Component<Props, any> {
 	}
 
 	// avatar editor callback functions
-	logCallback(e: any) {
-		console.log('callback', e);
-		console.log(e.target);
+	loadSuccess(imgInfo: any) {
+		this.setState({ uploadImage : true});
+	}
+
+	setEditorRef = (editor: any) => {
+		 if (editor) {
+			this.editor = editor;
+
+			if (this.state.uploadImage) {
+				const img = this.editor.getImageScaledToCanvas().toDataURL();
+				console.log(img);
+			}
+		}
 	}
 
 	render () {
-
-		let editorR: any;
-
-		console.log(this.refs.editor);
-		console.log(editorR);
  
 		return (
 			<div className="user__avatar">
@@ -90,13 +91,9 @@ class UserAvatar extends React.Component<Props, any> {
 							position={this.state.position}
 							borderRadius={this.state.borderRadius}
 							
-							ref={(editor) => editorR = editor}
+							ref={(ref) => this.setEditorRef(ref)}
 
-							onLoadFailure={this.logCallback.bind(this, 'onLoadFailed')}
-
-							onLoadSuccess={this.logCallback.bind(this, 'onLoadSuccess')}
-							  
-							onImageReady={this.logCallback.bind(this, 'onImageReady')}
+							onLoadSuccess={this.loadSuccess}
 						/>
 					</div>
 				</Dropzone>
