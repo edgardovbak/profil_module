@@ -1,11 +1,16 @@
 import * as React				 	from 'react';
 import { connect }              	from 'react-redux';
 import Title 						from './Title';
-import UserAvatar 					from './UserAvatar';
 import Skils 						from './Skils';
 import About 						from './About';
 import UserInfoListItem 			from './UserInfoListItem';
 import { Link } 					from 'react-router-dom';
+
+// save config 
+const DATA = require('../config.json');
+
+// default picture 
+const defaultAvatar = require('../images/default_avater.svg');
 
 class Profil extends React.Component<any, any> {
 	
@@ -24,7 +29,12 @@ class Profil extends React.Component<any, any> {
 		return (
 			<div className="profil">
 				<div className="user" >
-					<UserAvatar />
+					<div className="user__avatar">
+						<img 
+							src={this.props.user.Avatar._deferred !== '' ? DATA.domain + this.props.user.Avatar._deferred : defaultAvatar} 
+							alt={this.props.user.FullName}
+						/>
+					</div>
 					<div className="user__global_info">
 						<h2 className="sn_title sn_title--description">
 							{this.props.user.FullName}

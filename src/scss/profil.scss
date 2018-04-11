@@ -59,11 +59,21 @@
     &__avatar {
         margin-right: rem(30);
 
+        canvas {
+            border: 1px dotted $dark_blue;
+            margin: 0 auto;
+            display: block;
+        }
+
         img {
             width:  rem(300);
             height:  rem(300);
             border-radius: 100%;
             overflow: hidden;
+        }
+
+        label {
+            font-size: rem(16);
         }
     }
 }

@@ -5,6 +5,7 @@ import { Link } 							from 'react-router-dom';
 import { Actions }                			from '@sensenet/redux';
 import { PathHelper }                       from '@sensenet/client-utils';
 
+// save config 
 const DATA = require('../config.json');
 
 export interface Props {
@@ -163,7 +164,8 @@ class EditProfil extends React.Component<Props, any> {
 
 const mapStateToProps = (state: any, match: any) => {
 	return {
-	  user : state.user.user
+	  user : 			state.user.user,
+	  userAvatar :  	state.user.user.Avatar._deferred,
 	};
   };
 
