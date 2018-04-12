@@ -8,6 +8,8 @@ import { PathHelper }                       from '@sensenet/client-utils';
 // save config 
 const DATA = require('../config.json');
 
+const defaultAvatar = require('../images/default_avater.svg');
+
 export interface Props {
 	updateUser: 		Function;
 	saveChanges:  		Function;
@@ -28,6 +30,7 @@ class EditProfil extends React.Component<Props, any> {
 			},
 		};
 		this.b64toBlob = this.b64toBlob.bind(this);
+		this.convertDataURIToBinaryFF = this.convertDataURIToBinaryFF.bind(this);
 	}
 
 	b64toBlob(b64Data: any, contentType: any, sliceSize: any) {
@@ -36,9 +39,10 @@ class EditProfil extends React.Component<Props, any> {
 
 		// let byteCharacters = atob(b64Data);
 		let byteArrays = [];
+		let byteCharacters = this.convertDataURIToBinaryFF(this.state.imageIsChanged.imageBase64);
 
-		for (let offset = 0; offset < b64Data.length; offset += sliceSize) {
-			let slice = b64Data.slice(offset, offset + sliceSize);
+		for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+			let slice = byteCharacters.slice(offset, offset + sliceSize);
 
 			let byteNumbers = new Array(slice.length);
 			for (let i = 0; i < slice.length; i++) {
@@ -62,8 +66,18 @@ class EditProfil extends React.Component<Props, any> {
 				imageBase64: val.imageSrc,
 			}
 		});
+		console.log(this.state.imageIsChanged.imageBase64);
 	}
-	
+
+	convertDataURIToBinaryFF = (dataURI: string) => { 
+		let BASE64_MARKER = ';base64,';
+		let base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length; 
+		let raw = window.atob(dataURI.substring(base64Index));
+		return Uint8Array.from(Array.prototype.map.call(raw, function( x: any ) { 
+				return x.charCodeAt(0); 
+		})); 
+	}
+
 	render () {
 		// *********************************************
 		// user info 
@@ -110,10 +124,12 @@ class EditProfil extends React.Component<Props, any> {
 				console.log('Error success');
 			});
 
-			let imageBlob = this.b64toBlob(this.state.imageIsChanged.imageBase64, '', 512);
-			let imageFile = new File([imageBlob], 'file.txt');
-			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', imageFile, '', true, 'Binary');
-			console.log(imageBlob);
+			// let imageBlob = this.b64toBlob(this.state.imageIsChanged.imageBase64, '', 512);
+			// let imageFile = new File([imageBlob], 'file.txt');
+			// console.log(blobImg);
+			
+			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', defaultAvatar);
+			// console.log(imageBlob);
 		};
 
 		return (
@@ -233,7 +249,6 @@ export default connect(
 	(dispatch) => ({
 		saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
 		updateUser:    			(path: string, options: any) => dispatch(Actions.updateContent( path, options )),
-		updateUserAvatar:  		(parentPath: string, file: any, contentType?: any, overwrite?: boolean, body?: any, propertyName?: string) => 
-								dispatch(Actions.uploadRequest( parentPath, file, contentType, overwrite, body, propertyName)),
+		updateUserAvatar:  		(parentPath: string, file: any) => dispatch(Actions.uploadRequest( parentPath, file)),
 	})
 )(EditProfil);
