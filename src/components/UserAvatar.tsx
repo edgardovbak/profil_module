@@ -11,26 +11,60 @@ const defaultAvatar = require('../images/default_avater.svg');
 
 export interface Props {
 	userAvatar: string;
+	onUpdate: Function;
 }
 
-class UserAvatar extends React.Component<Props, any> {
+interface ImageUpdates {
+    newImage?: 	boolean;
+	isChanged?: boolean;
+	imageSrc?:	any;
+}
+
+export interface State {
+	image: 			string;
+	allowZoomOut: 	boolean;
+	position: 		object;
+	scale: 			number;
+	rotate: 		number;
+	borderRadius: 	number;
+	width: 			number;
+	height: 		number;
+	uploadImage: 	ImageUpdates;
+}
+
+class UserAvatar extends React.Component<Props, State> {
 
 	editor: AvatarEditor;
 
 	constructor(props: Props) {
 		super(props);
 		this.state = {
+			// image resource
 			image: this.props.userAvatar !== '' ? DATA.domain + this.props.userAvatar : defaultAvatar,
 			allowZoomOut: false,
+			// image start position
 			position: { x: 0.5, y: 0.5 },
+			// image default scale
 			scale: 1,
+			// image default rotate
 			rotate: 0,
+			// fixed border radius on preview
 			borderRadius: 300,
-			preview: null,
+			// fix image width
 			width: 300,
+			// fix image height
 			height: 300,
-			uploadImage : false,
+			// user update image
+			uploadImage: {
+				newImage: false,
+				// detect image changes
+				isChanged: false,
+				imageSrc: '',
+			}
 		};
+
+		this.imageChange = this.imageChange.bind(this);
+		this.loadSuccess = this.loadSuccess.bind(this);
 	}
 
 	// add new image
@@ -56,17 +90,29 @@ class UserAvatar extends React.Component<Props, any> {
 
 	// avatar editor callback functions
 	loadSuccess(imgInfo: any) {
-		this.setState({ uploadImage : true});
+		this.setState({ uploadImage : {
+			newImage: true,
+			imageSrc: imgInfo
+		}});
+		this.props.onUpdate(this.state.uploadImage);
+	}
+
+	// rotate picture
+	imageReady = (e: any) => {
+		console.log(this.editor);
+	}
+	// detect image changes
+	imageChange() {
+		this.setState({ uploadImage : {
+			isChanged: true,
+			imageSrc: this.editor.getImageScaledToCanvas().toDataURL()
+		}});
+		this.props.onUpdate(this.state.uploadImage);
 	}
 
 	setEditorRef = (editor: any) => {
 		 if (editor) {
 			this.editor = editor;
-
-			if (this.state.uploadImage) {
-				const img = this.editor.getImageScaledToCanvas().toDataURL();
-				console.log(img);
-			}
 		}
 	}
 
@@ -88,12 +134,12 @@ class UserAvatar extends React.Component<Props, any> {
 							color={[0, 0, 0, 0.6]} 
 							scale={this.state.scale}
 							rotate={this.state.rotate}
-							position={this.state.position}
 							borderRadius={this.state.borderRadius}
-							
+							onImageChange={this.imageChange}
 							ref={(ref) => this.setEditorRef(ref)}
-
+							onImageReady={this.imageReady}
 							onLoadSuccess={this.loadSuccess}
+							onDropFile={this.loadSuccess}
 						/>
 					</div>
 				</Dropzone>
@@ -133,7 +179,7 @@ class UserAvatar extends React.Component<Props, any> {
 }
 
 const mapStateToProps = (state: any) => {
-	console.log(state.user.user.Avatar._deferred);
+	// console.log(state.user.user.Avatar._deferred);
 	return {
 		userAvatar : state.user.user.Avatar._deferred
 	};

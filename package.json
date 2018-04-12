@@ -7,7 +7,7 @@
     "@types/react-avatar-editor": "^10.3.1",
     "@types/react-dropzone": "^4.2.0",
     "@types/react-redux": "^5.0.15",
-    "@types/react-router-dom": "^4.2.5",
+    "@types/react-router-dom": "^4.2.6",
     "autoprefixer": "7.1.6",
     "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",

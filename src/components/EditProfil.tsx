@@ -11,6 +11,7 @@ const DATA = require('../config.json');
 export interface Props {
 	updateUser: 		Function;
 	saveChanges:  		Function;
+	updateUserAvatar:	Function;
 	user: 				any;
 }
 
@@ -18,10 +19,54 @@ class EditProfil extends React.Component<Props, any> {
 
 	constructor(props: any) {
 		super(props);
+		this.state = {
+			imageIsChanged: {
+				newImage: false,
+				// detect image changes
+				isChanged: false,
+				imageBase64: '',
+			},
+		};
+		this.b64toBlob = this.b64toBlob.bind(this);
+	}
+
+	b64toBlob(b64Data: any, contentType: any, sliceSize: any) {
+		contentType = contentType || '';
+		sliceSize = sliceSize || 512;
+
+		// let byteCharacters = atob(b64Data);
+		let byteArrays = [];
+
+		for (let offset = 0; offset < b64Data.length; offset += sliceSize) {
+			let slice = b64Data.slice(offset, offset + sliceSize);
+
+			let byteNumbers = new Array(slice.length);
+			for (let i = 0; i < slice.length; i++) {
+				byteNumbers[i] = slice.charCodeAt(i);
+			}
+
+			let byteArray = new Uint8Array(byteNumbers);
+
+			byteArrays.push(byteArray);
+		}
+
+		let blob = new Blob(byteArrays, { type: contentType });
+		return blob;
+	}
+
+	onUpdateImageChanges = (val: any) => {
+		this.setState({
+			imageIsChanged: {
+				newImage: val.newImage,
+				isChanged: val.isChanged,
+				imageBase64: val.imageSrc,
+			}
+		});
 	}
 	
 	render () {
-
+		// *********************************************
+		// user info 
 		let FullNameInput: 			HTMLInputElement;
 		let JobTitleInput: 			HTMLInputElement;
 		let EmailInput: 			HTMLInputElement;
@@ -30,8 +75,14 @@ class EditProfil extends React.Component<Props, any> {
 		let BirthDateInput: 		HTMLInputElement;
 		let EducationInput: 		HTMLInputElement;
 		let DescriptionInput: 		HTMLTextAreaElement;
+		// *********************************************
 
 		let userUpdate: any;
+
+		// let image = '';
+		// if ( this.state.imageIsChanged.newImage && this.state.imageIsChanged.isChanged ) {
+		// 	image = this.state.imageIsChanged.imageSource;
+		// }
 
 		const onSaveChanges = (e: any) => {
 			let user = {
@@ -43,6 +94,7 @@ class EditProfil extends React.Component<Props, any> {
 				BirthDate: 		BirthDateInput.value,
 				Education: 		EducationInput.value,
 				Description: 	DescriptionInput.value,
+				// ImageData:		image,
 			};
 			
 			// update user info in sensenet app
@@ -57,12 +109,19 @@ class EditProfil extends React.Component<Props, any> {
 			userUpdate.catch((err: any) => {
 				console.log('Error success');
 			});
+
+			let imageBlob = this.b64toBlob(this.state.imageIsChanged.imageBase64, '', 512);
+			let imageFile = new File([imageBlob], 'file.txt');
+			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', imageFile, '', true, 'Binary');
+			console.log(imageBlob);
 		};
 
 		return (
 			<div className="profil">
 				<div className="user" >
-					<UserAvatar />
+					<UserAvatar 
+						onUpdate={this.onUpdateImageChanges}
+					/>
 					<div className="user__global_info">
 						<fieldset>
 							<legend>User name</legend>
@@ -172,7 +231,9 @@ const mapStateToProps = (state: any, match: any) => {
 export default connect(
 	mapStateToProps,
 	(dispatch) => ({
-		saveChanges:  (userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
-		updateUser:    (path: string, options: any) => dispatch(Actions.updateContent( path, options )),
+		saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
+		updateUser:    			(path: string, options: any) => dispatch(Actions.updateContent( path, options )),
+		updateUserAvatar:  		(parentPath: string, file: any, contentType?: any, overwrite?: boolean, body?: any, propertyName?: string) => 
+								dispatch(Actions.uploadRequest( parentPath, file, contentType, overwrite, body, propertyName)),
 	})
 )(EditProfil);
