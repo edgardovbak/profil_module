@@ -7,8 +7,9 @@ import { PathHelper }                       from '@sensenet/client-utils';
 
 // save config 
 const DATA = require('../config.json');
+const atob = require('atob');
 
-const defaultAvatar = require('../images/default_avater.svg');
+// const defaultAvatar = require('../images/default_avater.svg');
 
 export interface Props {
 	updateUser: 		Function;
@@ -30,7 +31,6 @@ class EditProfil extends React.Component<Props, any> {
 			},
 		};
 		this.b64toBlob = this.b64toBlob.bind(this);
-		this.convertDataURIToBinaryFF = this.convertDataURIToBinaryFF.bind(this);
 	}
 
 	b64toBlob(b64Data: any, contentType: any, sliceSize: any) {
@@ -39,7 +39,7 @@ class EditProfil extends React.Component<Props, any> {
 
 		// let byteCharacters = atob(b64Data);
 		let byteArrays = [];
-		let byteCharacters = this.convertDataURIToBinaryFF(this.state.imageIsChanged.imageBase64);
+		var byteCharacters = atob(b64Data);
 
 		for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
 			let slice = byteCharacters.slice(offset, offset + sliceSize);
@@ -50,12 +50,15 @@ class EditProfil extends React.Component<Props, any> {
 			}
 
 			let byteArray = new Uint8Array(byteNumbers);
-
+			
 			byteArrays.push(byteArray);
 		}
 
-		let blob = new Blob(byteArrays, { type: contentType });
-		return blob;
+		let blob: Blob = new Blob(byteArrays, { type: contentType });
+		let nFile = new File([blob], 'lol.png', { type: contentType });
+		console.log(nFile);
+		// return blob;
+		return nFile;
 	}
 
 	onUpdateImageChanges = (val: any) => {
@@ -67,15 +70,6 @@ class EditProfil extends React.Component<Props, any> {
 			}
 		});
 		console.log(this.state.imageIsChanged.imageBase64);
-	}
-
-	convertDataURIToBinaryFF = (dataURI: string) => { 
-		let BASE64_MARKER = ';base64,';
-		let base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length; 
-		let raw = window.atob(dataURI.substring(base64Index));
-		return Uint8Array.from(Array.prototype.map.call(raw, function( x: any ) { 
-				return x.charCodeAt(0); 
-		})); 
 	}
 
 	render () {
@@ -124,11 +118,17 @@ class EditProfil extends React.Component<Props, any> {
 				console.log('Error success');
 			});
 
-			// let imageBlob = this.b64toBlob(this.state.imageIsChanged.imageBase64, '', 512);
-			// let imageFile = new File([imageBlob], 'file.txt');
-			// console.log(blobImg);
+			// Split the base64 string in data and contentType
+			let block = this.state.imageIsChanged.imageBase64.split(';');
+			// Get the content type of the image
+			let contentType = block[0].split(':')[1]; // In this case "image/gif"
+			// get the real base64 content of the file
+			let realData = block[1].split(',')[1]; // In this case "R0lGODlhPQBEAPeoAJosM....",
+
+			let imageBlob = this.b64toBlob(realData, contentType, 512);
+			console.log(imageBlob);
 			
-			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', defaultAvatar);
+			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', imageBlob, 'Image');
 			// console.log(imageBlob);
 		};
 
@@ -249,6 +249,6 @@ export default connect(
 	(dispatch) => ({
 		saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
 		updateUser:    			(path: string, options: any) => dispatch(Actions.updateContent( path, options )),
-		updateUserAvatar:  		(parentPath: string, file: any) => dispatch(Actions.uploadRequest( parentPath, file)),
+		updateUserAvatar:  		(parentPath: string, file: any, contentType: string) => dispatch(Actions.uploadRequest( parentPath, file, contentType)),
 	})
 )(EditProfil);
