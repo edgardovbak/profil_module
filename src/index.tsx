@@ -11,7 +11,9 @@ import { JwtService }                       from '@sensenet/authentication-jwt';
 // custrom  reducers  
 import user                                 from './reducers/users';
 
-import { BrowserRouter }                    from 'react-router-dom';
+import { 
+    BrowserRouter
+}                                           from 'react-router-dom';
 
 import App                                  from './App';
  

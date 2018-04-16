@@ -535,7 +535,6 @@ textarea {
   padding: 0 0.625rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-bottom: 0.625rem;
 }
 
 textarea {
@@ -638,10 +637,13 @@ input[type='file']::-webkit-file-upload-button {
 fieldset {
   margin-bottom: 0.625rem;
   text-align: left;
+  border: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
 }
 
 legend {
-  padding: 0 0.625rem;
+  padding: 0 0 0.625rem;
 }
 
 label {
@@ -715,6 +717,9 @@ table td:first-child {
 }
 .fix_block h1 {
   color: #fff;
+}
+.fix_block input {
+  margin-bottom: 0.9375rem;
 }
 
 .sn_header {

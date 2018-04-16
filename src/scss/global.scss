@@ -110,7 +110,7 @@ textarea {
     width: 100%;
     padding: 0 rem(10);
     box-sizing: border-box;
-    margin-bottom: rem(10);
+    // margin-bottom: rem(10);
 }
 
 textarea {
@@ -206,10 +206,13 @@ input[type='file'] {
 fieldset {
     margin-bottom: rem(10);
     text-align: left;
+    border: none;
+    padding: 0;
+    margin-bottom: rem(20);
 }
 
 legend {
-    padding: 0 rem(10);
+    padding: 0 0 rem(10);
 }
 
 label {

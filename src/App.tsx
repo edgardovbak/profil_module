@@ -3,7 +3,8 @@ import { connect }                          from 'react-redux';
 import {
   Route,
   Redirect,
-  withRouter
+  withRouter,
+//   Router
 }                                           from 'react-router-dom';
 import { Actions, Reducers }                from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
@@ -15,6 +16,7 @@ import './App.scss';
 import Body                                 from './components/Body';
 import Profil                               from './components/Profil';
 import EditProfil                           from './components/EditProfil';
+// import NoMatch                              from './components/NoMatch';
 import { Login }                            from './components/Login';
 import { PathHelper }                       from '@sensenet/client-utils';
 
@@ -77,7 +79,7 @@ class App extends React.Component<AppProps, any> {
         let userGet = this.props.getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
-                    'Gender', 'BirthDate', 'Education', 'Avatar'],
+                    'Gender', 'BirthDate', 'Education', 'Avatar', 'ImageRef', 'ImageData'],
         });
         
         userGet.then( (result: any) => {
@@ -92,6 +94,7 @@ class App extends React.Component<AppProps, any> {
 
     return (
         <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
+            {/* <Route component={NoMatch} /> */}
             <Route
                 path="/"
                 render={routerProps => {

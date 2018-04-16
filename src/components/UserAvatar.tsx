@@ -18,6 +18,7 @@ interface ImageUpdates {
     newImage?: 	boolean;
 	isChanged?: boolean;
 	imageSrc?:	any;
+	changedImg?: any;
 }
 
 export interface State {
@@ -59,7 +60,7 @@ class UserAvatar extends React.Component<Props, State> {
 				newImage: false,
 				// detect image changes
 				isChanged: false,
-				imageSrc: '',
+				// imageSrc: '',
 			}
 		};
 
@@ -94,20 +95,34 @@ class UserAvatar extends React.Component<Props, State> {
 			newImage: true,
 			imageSrc: imgInfo
 		}});
-		this.props.onUpdate(this.state.uploadImage);
+		
+		// let canvas = document.createElement('canvas');
+		// let rect = this.editor.getCroppingRect();
+		// let ctx = canvas.getContext('2d');
+		// ctx.drawImage(
+		// 	this.editor.getImageScaledToCanvas(),
+		// 	0,
+		// 	0,
+		// 	300,
+		// 	300
+		// );
+	
+		// console.log(ctx);
+		// this.props.onUpdate(this.state.uploadImage);
 	}
 
 	// rotate picture
 	imageReady = (e: any) => {
-		console.log(this.editor);
+		console.log(this.editor.getImage());
 	}
 	// detect image changes
 	imageChange() {
 		this.setState({ uploadImage : {
 			isChanged: true,
-			imageSrc: this.editor.getImageScaledToCanvas().toDataURL()
+			changedImg: this.editor.getImage()
 		}});
-		this.props.onUpdate(this.state.uploadImage);
+		console.log(this.editor.getImage());
+		// this.props.onUpdate(this.state.uploadImage);
 	}
 
 	setEditorRef = (editor: any) => {

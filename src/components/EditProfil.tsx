@@ -28,6 +28,7 @@ class EditProfil extends React.Component<Props, any> {
 				// detect image changes
 				isChanged: false,
 				imageBase64: '',
+				// changedImg: '',
 			},
 		};
 		this.b64toBlob = this.b64toBlob.bind(this);
@@ -67,6 +68,7 @@ class EditProfil extends React.Component<Props, any> {
 				newImage: val.newImage,
 				isChanged: val.isChanged,
 				imageBase64: val.imageSrc,
+				changedImg: val.imageSrc,
 			}
 		});
 		console.log(this.state.imageIsChanged.imageBase64);
@@ -102,7 +104,7 @@ class EditProfil extends React.Component<Props, any> {
 				BirthDate: 		BirthDateInput.value,
 				Education: 		EducationInput.value,
 				Description: 	DescriptionInput.value,
-				// ImageData:		image,
+				ImageRef: 		'/Root/Sites/Profil/Avatar/' + 'lol.png'
 			};
 			
 			// update user info in sensenet app
