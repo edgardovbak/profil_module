@@ -1,200 +1,198 @@
 import * as React							from 'react';
 import { connect }              			from 'react-redux';
-import AvatarEditor 						from 'react-avatar-editor';
-import Dropzone 							from 'react-dropzone';
+import Cropper 								from 'react-cropper';
+import 'cropperjs/dist/cropper.css';
 
 // save config 
 const DATA = require('../config.json');
 
+// save config 
+const atob = require('atob');
+
 // default picture 
-const defaultAvatar = require('../images/default_avater.svg');
+// const defaultAvatar = require('../images/default_avater.svg');
 
 export interface Props {
 	userAvatar: string;
 	onUpdate: Function;
 }
 
-interface ImageUpdates {
-    newImage?: 	boolean;
-	isChanged?: boolean;
-	imageSrc?:	any;
-	changedImg?: any;
-}
-
 export interface State {
-	image: 			string;
-	allowZoomOut: 	boolean;
-	position: 		object;
-	scale: 			number;
-	rotate: 		number;
-	borderRadius: 	number;
-	width: 			number;
-	height: 		number;
-	uploadImage: 	ImageUpdates;
+	src: string;
+	cropResult: any;
+	rotate: number;
 }
 
 class UserAvatar extends React.Component<Props, State> {
 
-	editor: AvatarEditor;
+	cropper: Cropper;
 
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			// image resource
-			image: this.props.userAvatar !== '' ? DATA.domain + this.props.userAvatar : defaultAvatar,
-			allowZoomOut: false,
-			// image start position
-			position: { x: 0.5, y: 0.5 },
-			// image default scale
-			scale: 1,
-			// image default rotate
-			rotate: 0,
-			// fixed border radius on preview
-			borderRadius: 300,
-			// fix image width
-			width: 300,
-			// fix image height
-			height: 300,
-			// user update image
-			uploadImage: {
-				newImage: false,
-				// detect image changes
-				isChanged: false,
-				// imageSrc: '',
-			}
+			src: DATA.domain + this.props.userAvatar,
+			cropResult: null,
+			rotate: 3,
 		};
-
-		this.imageChange = this.imageChange.bind(this);
-		this.loadSuccess = this.loadSuccess.bind(this);
+		this.cropImage = 		this.cropImage.bind(this);
+		this.onChangeImage = 	this.onChangeImage.bind(this);
+		this.useDefaultImage = 	this.useDefaultImage.bind(this);
+		this._crop = 			this._crop.bind(this);
+		this.rotateImageR = 	this.rotateImageR.bind(this);
+		this.rotateImageL = 	this.rotateImageL.bind(this);
+		this.b64toBlob = 		this.b64toBlob.bind(this);
+		this.makeid = 			this.makeid.bind(this);
 	}
 
-	// add new image
-	handleNewImage = (e: any) => {
-		this.setState({ image: e.target.files[0] });
-	}
-
-	// zoom picture
-	handleScale = (e: any) => {
-		const scale = parseFloat(e.target.value);
-		this.setState({ scale });
-	}
-
-	// rotate picture
-	handleRotate = (e: any) => {
-		this.setState({ rotate: parseFloat(e.target.value) });
-	}
-
-	// drag and drop image 
-	handleDrop = (acceptedFiles: any) => {
-		this.setState({ image: acceptedFiles[0] });
-	}
-
-	// avatar editor callback functions
-	loadSuccess(imgInfo: any) {
-		this.setState({ uploadImage : {
-			newImage: true,
-			imageSrc: imgInfo
-		}});
-		
-		// let canvas = document.createElement('canvas');
-		// let rect = this.editor.getCroppingRect();
-		// let ctx = canvas.getContext('2d');
-		// ctx.drawImage(
-		// 	this.editor.getImageScaledToCanvas(),
-		// 	0,
-		// 	0,
-		// 	300,
-		// 	300
-		// );
-	
-		// console.log(ctx);
-		// this.props.onUpdate(this.state.uploadImage);
-	}
-
-	// rotate picture
-	imageReady = (e: any) => {
-		console.log(this.editor.getImage());
-	}
-	// detect image changes
-	imageChange() {
-		this.setState({ uploadImage : {
-			isChanged: true,
-			changedImg: this.editor.getImage()
-		}});
-		console.log(this.editor.getImage());
-		// this.props.onUpdate(this.state.uploadImage);
-	}
-
-	setEditorRef = (editor: any) => {
-		 if (editor) {
-			this.editor = editor;
+	onChangeImage = (e: any) => {
+		e.preventDefault();
+		let files;
+		if (e.dataTransfer) {
+		  	files = e.dataTransfer.files;
+		} else if (e.target) {
+		  	files = e.target.files;
 		}
+		const reader = new FileReader();
+		reader.onload = () => {
+			this.setState({ 
+				src: reader.result,
+			});
+		};
+		reader.readAsDataURL(files[0]);
+	}
+
+	makeid = () => {
+		let text = '';
+		let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		for (let index = 0; index < 5; index++) {
+			text += possible.charAt(Math.floor( Math.random() * possible.length) );
+		}
+		return text;
+	}
+
+	b64toBlob = (b64Data: string, sliceSize?: number) => {
+								sliceSize = sliceSize || 512;
+								
+								let block = b64Data.split(';');
+								let dataType = block[0].split(':')[1];
+								let realData = block[1].split(',')[1];
+								let filename = this.makeid() + '.' + dataType.split('/')[1];
+
+								let byteCharacters = atob(realData);
+								let byteArrays = [];
+
+								for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+									let slice = byteCharacters.slice(offset, offset + sliceSize);
+
+									let byteNumbers = new Array(slice.length);
+									for (let i = 0; i < slice.length; i++) {
+										byteNumbers[i] = slice.charCodeAt(i);
+									}
+
+									let byteArray = new Uint8Array(byteNumbers);
+
+									byteArrays.push(byteArray);
+								}
+								console.log(dataType);
+								let blob = new Blob(byteArrays, {type: dataType});
+								let newAvatar = new File([blob], filename);
+								return newAvatar;
+	}
+
+	cropImage = () => {
+		if (typeof this.cropper.getCroppedCanvas() === 'undefined') {
+			return; 
+		}
+		if (this.cropper.getCroppedCanvas() !== null) {
+			this.setState({ 
+				cropResult: this.cropper.getCroppedCanvas().toDataURL(),
+			});
+		}
+		let blobImg = this.b64toBlob(this.state.cropResult);
+		this.props.onUpdate(blobImg);
+	}
+
+	// set image to gefault 
+	useDefaultImage() {
+		this.setState({ src: DATA.domain + this.props.userAvatar });
+		this.cropper.reset();
+	}
+
+	// save image in base64 every time when something is changed
+	_crop = () => {
+		var dataUrl = this.cropper.getCroppedCanvas().toDataURL();
+		this.setState({ cropResult: dataUrl });
+	}
+
+	// rotate image to right 
+	rotateImageR = (e: any) => {
+		this.cropper.rotate(this.state.rotate);
+	}
+
+	// rotate image to left 
+	rotateImageL = (e: any) => {
+		this.cropper.rotate(-this.state.rotate);
+	}
+
+	// set cropper to the references
+	setEditorRef = (cropper: any) => {
+		if (cropper) {
+		   this.cropper = cropper;
+	   	}
 	}
 
 	render () {
- 
+		
 		return (
 			<div className="user__avatar">
-				<Dropzone
-					onDrop={this.handleDrop}
-					disableClick={true}
-					multiple={false}
-					style={{marginBottom: '35px' }}
-				>
+				<div className="user__avatar--blocks">
 					<div>
-						<AvatarEditor
-							image={this.state.image}
-							width={this.state.width}
-							height={this.state.height}
-							color={[0, 0, 0, 0.6]} 
-							scale={this.state.scale}
-							rotate={this.state.rotate}
-							borderRadius={this.state.borderRadius}
-							onImageChange={this.imageChange}
-							ref={(ref) => this.setEditorRef(ref)}
-							onImageReady={this.imageReady}
-							onLoadSuccess={this.loadSuccess}
-							onDropFile={this.loadSuccess}
+						<h1>Original Image</h1>
+						<Cropper
+							ref={(ref: any) => this.setEditorRef(ref)}
+							src={this.state.src}
+							preview=".user__avatar--preview"
+							aspectRatio={1 / 1}
+							guides={false}
+							crop={this._crop} 
+							className="user__avatar--editor"
+							rotatable={true}
 						/>
+						<input type="file" onChange={this.onChangeImage} />
 					</div>
-				</Dropzone>
-				<div>
-					<label htmlFor="newImage">New File:</label>
-					<input name="newImage" id="newImage" type="file" onChange={this.handleNewImage} />
-				</div>
-				<div>
-					<label htmlFor="scale">Zoom:</label>
-					<input 
-						name="scale"
-						id="scale"
-						type="range"
-						onChange={this.handleScale}
-						min="0"
-						max="2"
-						step="0.01"
-						defaultValue="1"
-					/>
-				</div>
-				<div>
-					<label htmlFor="rotate">Rotate:</label>
-					<input 
-						name="rotate"
-						id="rotate"
-						type="range"
-						onChange={this.handleRotate}
-						min="0"
-						max="360"
-						step="0.1"
-						defaultValue="0"
-					/>
-				</div>
+					<div>
+						<h1>Preview</h1>
+						<div className="user__avatar--preview" />
+					</div>
+				</div>	
+
+				<button 
+					onClick={this.rotateImageR} 
+					onKeyDown={this.rotateImageR} 
+					className="sn_btn"
+				>
+					Rotate to Right
+				</button>
+
+				<button 
+					onClick={this.rotateImageL} 
+					onKeyDown={this.rotateImageL} 
+					className="sn_btn"
+				>
+					Rotate to Left
+				</button>
+				<button onClick={this.useDefaultImage} className="sn_btn">
+					Undo Changes
+				</button>
+				<button onClick={this.cropImage} className="sn_btn">
+					Save Image
+				</button>
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = (state: any) => {
-	// console.log(state.user.user.Avatar._deferred);
 	return {
 		userAvatar : state.user.user.Avatar._deferred
 	};

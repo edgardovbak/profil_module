@@ -7,9 +7,6 @@ import { PathHelper }                       from '@sensenet/client-utils';
 
 // save config 
 const DATA = require('../config.json');
-const atob = require('atob');
-
-// const defaultAvatar = require('../images/default_avater.svg');
 
 export interface Props {
 	updateUser: 		Function;
@@ -23,58 +20,18 @@ class EditProfil extends React.Component<Props, any> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			imageIsChanged: {
-				newImage: false,
-				// detect image changes
-				isChanged: false,
-				imageBase64: '',
-				// changedImg: '',
-			},
+			imageIsChanged: ''
 		};
-		this.b64toBlob = this.b64toBlob.bind(this);
-	}
-
-	b64toBlob(b64Data: any, contentType: any, sliceSize: any) {
-		contentType = contentType || '';
-		sliceSize = sliceSize || 512;
-
-		// let byteCharacters = atob(b64Data);
-		let byteArrays = [];
-		var byteCharacters = atob(b64Data);
-
-		for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-			let slice = byteCharacters.slice(offset, offset + sliceSize);
-
-			let byteNumbers = new Array(slice.length);
-			for (let i = 0; i < slice.length; i++) {
-				byteNumbers[i] = slice.charCodeAt(i);
-			}
-
-			let byteArray = new Uint8Array(byteNumbers);
-			
-			byteArrays.push(byteArray);
-		}
-
-		let blob: Blob = new Blob(byteArrays, { type: contentType });
-		let nFile = new File([blob], 'lol.png', { type: contentType });
-		console.log(nFile);
-		// return blob;
-		return nFile;
 	}
 
 	onUpdateImageChanges = (val: any) => {
 		this.setState({
-			imageIsChanged: {
-				newImage: val.newImage,
-				isChanged: val.isChanged,
-				imageBase64: val.imageSrc,
-				changedImg: val.imageSrc,
-			}
+			imageIsChanged: val
 		});
-		console.log(this.state.imageIsChanged.imageBase64);
 	}
 
 	render () {
+		console.log(this.state.imageIsChanged);
 		// *********************************************
 		// user info 
 		let FullNameInput: 			HTMLInputElement;
@@ -104,9 +61,11 @@ class EditProfil extends React.Component<Props, any> {
 				BirthDate: 		BirthDateInput.value,
 				Education: 		EducationInput.value,
 				Description: 	DescriptionInput.value,
-				ImageRef: 		'/Root/Sites/Profil/Avatar/' + 'lol.png'
+				ImageRef: 	 	'/Root/Sites/Profil/Avatar/' + '3syDE.png'
 			};
 			
+			console.log(this.state.imageIsChanged.name);
+
 			// update user info in sensenet app
 			let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
 			this.props.saveChanges(user);
@@ -119,27 +78,19 @@ class EditProfil extends React.Component<Props, any> {
 			userUpdate.catch((err: any) => {
 				console.log('Error success');
 			});
-
-			// Split the base64 string in data and contentType
-			let block = this.state.imageIsChanged.imageBase64.split(';');
-			// Get the content type of the image
-			let contentType = block[0].split(':')[1]; // In this case "image/gif"
-			// get the real base64 content of the file
-			let realData = block[1].split(',')[1]; // In this case "R0lGODlhPQBEAPeoAJosM....",
-
-			let imageBlob = this.b64toBlob(realData, contentType, 512);
-			console.log(imageBlob);
+			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', this.state.imageIsChanged, 'Image');
 			
-			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', imageBlob, 'Image');
-			// console.log(imageBlob);
 		};
 
 		return (
 			<div className="profil">
+
+				<UserAvatar 
+					onUpdate={this.onUpdateImageChanges}
+				/>
+
 				<div className="user" >
-					<UserAvatar 
-						onUpdate={this.onUpdateImageChanges}
-					/>
+					
 					<div className="user__global_info">
 						<fieldset>
 							<legend>User name</legend>
@@ -226,10 +177,6 @@ class EditProfil extends React.Component<Props, any> {
 					<legend>About</legend>
 					<textarea id="userAbout" ref={(input) => {DescriptionInput = input as HTMLTextAreaElement; }} defaultValue={this.props.user.Description} />
 				</fieldset>
-
-				{/* <button className="sn_btn" onClick={e => { onSaveChanges(e); }}>
-					Save Changes
-				</button> */}
 				
 				<Link to={'user:' + this.props.user.Name} className="sn_btn" onClick={e => { onSaveChanges(e); }}>
 					Save Changes

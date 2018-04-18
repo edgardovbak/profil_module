@@ -738,6 +738,7 @@ table td:first-child {
           align-items: center;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
+  z-index: 1;
 }
 .sn_header__content {
   display: -webkit-box;
@@ -1034,16 +1035,25 @@ table td:first-child {
 .user__avatar {
   margin-right: 1.875rem;
 }
-.user__avatar canvas {
-  border: 1px dotted #080e1a;
-  margin: 0 auto;
-  display: block;
+.user__avatar--blocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.user__avatar--preview {
+  width: 18.75rem;
+  height: 18.75rem;
+  overflow: hidden;
+  border: 1px solid #000;
+  border-radius: 100%;
 }
 .user__avatar img {
   width: 18.75rem;
-  height: 18.75rem;
   border-radius: 100%;
   overflow: hidden;
+  opacity: 1 !important;
 }
 .user__avatar label {
   font-size: 1rem;

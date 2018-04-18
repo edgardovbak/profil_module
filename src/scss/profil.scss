@@ -59,17 +59,26 @@
     &__avatar {
         margin-right: rem(30);
 
-        canvas {
-            border: 1px dotted $dark_blue;
-            margin: 0 auto;
-            display: block;
+        &--blocks {
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        &--preview {
+            width: rem(300);
+            height: rem(300);
+            overflow: hidden;
+            border: 1px solid $black;
+            border-radius: 100%;
         }
 
         img {
             width:  rem(300);
-            height:  rem(300);
+            // height:  rem(300);
             border-radius: 100%;
             overflow: hidden;
+            opacity: 1 !important;
         }
 
         label {
