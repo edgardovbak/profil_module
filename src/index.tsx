@@ -18,18 +18,18 @@ import {
 import App                                  from './App';
  
 // save config 
-// const DATA = require('./config.json');
+const DATA = require('./config.json');
  
 const sensenet = Reducers.sensenet;
 const myReducer = combineReducers({
   sensenet,
-
   // new added reducer
   user, 
 });
 
 const repository = new Repository ({
-    repositoryUrl: process.env.REACT_APP_SERVICE_URL || 'https://knowledgebase-sn7.test.sensenet.com',
+    // repositoryUrl: process.env.REACT_APP_SERVICE_URL || 'https://knowledgebase-sn7.test.sensenet.com',
+    repositoryUrl: DATA.domain
 });
 const jwtService = new JwtService(repository);
 jwtService.checkForUpdate();

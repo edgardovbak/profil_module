@@ -4,6 +4,8 @@ import UserAvatar 							from './UserAvatar';
 import { Link } 							from 'react-router-dom';
 import { Actions }                			from '@sensenet/redux';
 import { PathHelper }                       from '@sensenet/client-utils';
+import { User } 							from '@sensenet/default-content-types';
+// import { IODataParams } 					from '@sensenet/client-core/dist/Models/IODataParams';
 
 // save config 
 const DATA = require('../config.json');
@@ -34,13 +36,13 @@ class EditProfil extends React.Component<Props, any> {
 		console.log(this.state.imageIsChanged);
 		// *********************************************
 		// user info 
-		let FullNameInput: 			HTMLInputElement;
-		let JobTitleInput: 			HTMLInputElement;
-		let EmailInput: 			HTMLInputElement;
-		let LanguagesInput: 		HTMLInputElement;
-		let PhoneInput: 			HTMLInputElement;
-		let BirthDateInput: 		HTMLInputElement;
-		let EducationInput: 		HTMLInputElement;
+		// let FullNameInput: 			HTMLInputElement;
+		// let JobTitleInput: 			HTMLInputElement;
+		// let EmailInput: 			HTMLInputElement;
+		// let LanguagesInput: 		HTMLInputElement;
+		// let PhoneInput: 			HTMLInputElement;
+		// let BirthDateInput: 		HTMLInputElement;
+		// let EducationInput: 		HTMLInputElement;
 		let DescriptionInput: 		HTMLTextAreaElement;
 		// *********************************************
 
@@ -53,22 +55,23 @@ class EditProfil extends React.Component<Props, any> {
 
 		const onSaveChanges = (e: any) => {
 			let user = {
-				FullName: 		FullNameInput.value,
-				JobTitle: 		JobTitleInput.value,
-				Email: 			EmailInput.value,
-				Languages: 		LanguagesInput.value,
-				Phone: 			PhoneInput.value,
-				BirthDate: 		BirthDateInput.value,
-				Education: 		EducationInput.value,
+				Id: 				this.props.user.Id,
+				// FullName: 		FullNameInput.value,
+				// JobTitle: 		JobTitleInput.value,
+				// Email: 			EmailInput.value,
+				// Languages: 		LanguagesInput.value,
+				// Phone: 			PhoneInput.value,
+				// BirthDate: 		BirthDateInput.value,
+				// Education: 		EducationInput.value,
 				Description: 	DescriptionInput.value,
-				ImageRef: 	 	'/Root/Sites/Profil/Avatar/' + '3syDE.png'
-			};
-			
-			console.log(this.state.imageIsChanged.name);
+				ImageRef: 	 		5736
+			} as User;
+
+			// console.log(this.state.imageIsChanged.name);
 
 			// update user info in sensenet app
 			let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
-			this.props.saveChanges(user);
+			
 			userUpdate = this.props.updateUser(path, user);
 			
 			userUpdate.then( (result: any) => {
@@ -78,7 +81,9 @@ class EditProfil extends React.Component<Props, any> {
 			userUpdate.catch((err: any) => {
 				console.log('Error success');
 			});
-			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', this.state.imageIsChanged, 'Image');
+			// this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', this.state.imageIsChanged, 'Image');
+
+			// this.props.saveChanges(user);
 			
 		};
 
@@ -89,7 +94,7 @@ class EditProfil extends React.Component<Props, any> {
 					onUpdate={this.onUpdateImageChanges}
 				/>
 
-				<div className="user" >
+				{/* <div className="user" >
 					
 					<div className="user__global_info">
 						<fieldset>
@@ -172,7 +177,7 @@ class EditProfil extends React.Component<Props, any> {
 						</fieldset>
 					</div>
 				</div>
-
+ */}
 				<fieldset>
 					<legend>About</legend>
 					<textarea id="userAbout" ref={(input) => {DescriptionInput = input as HTMLTextAreaElement; }} defaultValue={this.props.user.Description} />
@@ -196,8 +201,8 @@ const mapStateToProps = (state: any, match: any) => {
 export default connect(
 	mapStateToProps,
 	(dispatch) => ({
-		saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
-		updateUser:    			(path: string, options: any) => dispatch(Actions.updateContent( path, options )),
+		// saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
+		updateUser:    			(path: string, options: User) => dispatch(Actions.updateContent( path, options )),
 		updateUserAvatar:  		(parentPath: string, file: any, contentType: string) => dispatch(Actions.uploadRequest( parentPath, file, contentType)),
 	})
 )(EditProfil);
