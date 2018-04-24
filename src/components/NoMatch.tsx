@@ -12,7 +12,7 @@ class NoMatch extends React.Component<any, any> {
                 <p>
                     Not found
                 </p>
-                <Link to="/">
+                <Link to="/"> 
 					Back to home
 				</Link>
 			</div>

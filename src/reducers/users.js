@@ -1,5 +1,5 @@
+
 export default function updateInfo(state = {}, action) {
-    console.log(action);
     if (action.type === 'UPDATE_LOGINED_USER') {
 
         return {

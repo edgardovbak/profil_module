@@ -20,7 +20,7 @@ class User extends React.Component<any, any> {
 					)
 				}
 					<div className="sn_sidebar__user__name">
-						{this.props.userName}
+						{this.props.userFullName}
 					</div>
 				</div>
 			</Link>
@@ -30,8 +30,9 @@ class User extends React.Component<any, any> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar: 	'', // state.user.user.Avatar._deferred,
-		userName: 		state.sensenet.session.user.userName // state.user.user.FullName,
+		userAvatar: 		'', // state.user.user.Avatar._deferred,
+		userName: 			state.sensenet.session.user.userName, // state.user.user.FullName,
+		userFullName: 		state.sensenet.session.user.fullName
 	};
 };
 

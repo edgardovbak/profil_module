@@ -3,8 +3,9 @@ import { connect }                          from 'react-redux';
 import {
   Route,
   Redirect,
+//   Switch,
   withRouter,
-//   Router
+  Router
 }                                           from 'react-router-dom';
 import { Actions, Reducers }                from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
@@ -14,10 +15,13 @@ import './App.scss';
 
 // import page components
 import Body                                 from './components/Body';
-import Profil                               from './components/Profil';
-import EditProfil                           from './components/EditProfil';
-// import NoMatch                              from './components/NoMatch';
+// import Profil                               from './components/Profil';
+// import EditProfil                           from './components/EditProfil';
+import NoMatch                              from './components/NoMatch';
 import { Login }                            from './components/Login';
+import TestUserRoute                        from './components/TestUserRoute';
+import OtherUser                            from './components/OtherUser';
+
 import { PathHelper }                       from '@sensenet/client-utils';
 
 // save config 
@@ -39,7 +43,6 @@ class App extends React.Component<AppProps, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            open : false,
             user : {},
             loginState: false,
             userRoleName: this.props.userName,
@@ -47,19 +50,11 @@ class App extends React.Component<AppProps, any> {
         },
 
         this.formSubmit = this.formSubmit.bind(this);
-        this.openMenu = this.openMenu.bind(this);
     }
 
     formSubmit(e: Event, email: string, password: string) {
         this.props.login(email, password);
     }
-
-    openMenu() {
-        let menuState = !this.state.open;
-        this.setState({         
-            open: menuState
-          }); 
-    } 
 
     componentWillReceiveProps(nextProps: AppProps) {
         this.setState({
@@ -69,7 +64,7 @@ class App extends React.Component<AppProps, any> {
             userRoleName: nextProps.userName,
         });
     }
-    
+
     public render() { 
 
     if (this.state.userRoleName !== 'undefined' && this.state.userRoleName !== 'Visitor' && this.state.updateUser) {
@@ -90,50 +85,60 @@ class App extends React.Component<AppProps, any> {
         userGet.catch((err: any) => {
             console.log(err);
         });
-    }   
+    }  
+    
+    // important 
+    // status - it's a boolean value about user authentication state
+    const status = this.props.loginState !== LoginState.Authenticated;
 
     return (
-        <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
-            {/* <Route component={NoMatch} /> */}
-            <Route
-                path="/"
-                render={routerProps => {
-                    const status = this.props.loginState !== LoginState.Authenticated;
-                    return status ?
-                        // not authenticated user is redirected to login page
-                        <Redirect key="login" to="/login" />
-                      : (
-                        // authenticated user
-                        <Body openMenu={this.openMenu}/>
-                    );
-                }}
-            />
-            <Route
-                exact={true}
-                path="/login"
-                render={routerProps => {
-                    const status = this.props.loginState !== LoginState.Authenticated;
-                    return status ?
-                            <Login formSubmit={this.formSubmit} />
-                        :   <Redirect key="dashboard" to="/" />;
-                }} 
-            />
-            <main className="sn_main">
-                <div className="sn_wrapp">
+        <div>
+            <Router>
+                <Route 
+                    exact={true} 
+                    path="/"    
+                    render={ () => {
+                        return  (
+                            <Body />
+                        );
+                    }}
+                    key="dashboard"
+                /> 
                     <Route 
-                        path={'/user:' + this.props.userName} 
-                        render={ () => {
-                        return (<Profil />); }}  
+                        exact={true} 
+                        path="/login"   
+                        children={routerProps => {
+                            return status ?
+                                    <Login formSubmit={this.formSubmit} />
+                                :   <Redirect key="dashboard" to="/" />;
+                        }} 
+                    />
+                
+                    <Route 
+                        path="/otherUser/:seeAll"  
+                        render={(routerProps) => {
+                            return status ?
+                            <Redirect key="login" to="/login" />
+                            : <OtherUser {...routerProps} />;
+                        }} 
                     />
                     <Route 
-                        path="/edituser" 
-                        render={ () => {
-                        return (<EditProfil />); }}  
+                        path="/user/:user"  
+                        // component={TestUserRoute}
+                        render={(routerProps) => {
+                            return status ?
+                            <Redirect key="login" to="/login" />
+                            : <TestUserRoute {...routerProps} />;
+                        }} 
                     />
-                </div>
-            </main>
-        </div>
-    );
+                    {/* when none of the above match, <NoMatch> will be rendered */}
+                    <Route 
+                        component={NoMatch} 
+                    /> 
+                </Route>  
+            </Router>;
+        </div>;
+    )
   } 
 }
 

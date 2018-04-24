@@ -22,7 +22,7 @@ const DATA = require('./config.json');
  
 const sensenet = Reducers.sensenet;
 const myReducer = combineReducers({
-  sensenet,
+  sensenet, 
   // new added reducer
   user, 
 });

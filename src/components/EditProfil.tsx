@@ -36,13 +36,13 @@ class EditProfil extends React.Component<Props, any> {
 		console.log(this.state.imageIsChanged);
 		// *********************************************
 		// user info 
-		// let FullNameInput: 			HTMLInputElement;
-		// let JobTitleInput: 			HTMLInputElement;
-		// let EmailInput: 			HTMLInputElement;
-		// let LanguagesInput: 		HTMLInputElement;
-		// let PhoneInput: 			HTMLInputElement;
-		// let BirthDateInput: 		HTMLInputElement;
-		// let EducationInput: 		HTMLInputElement;
+		let FullNameInput: 			HTMLInputElement;
+		let JobTitleInput: 			HTMLInputElement;
+		let EmailInput: 			HTMLInputElement;
+		let LanguagesInput: 		HTMLInputElement;
+		let PhoneInput: 			HTMLInputElement;
+		let BirthDateInput: 		HTMLInputElement;
+		let EducationInput: 		HTMLInputElement;
 		let DescriptionInput: 		HTMLTextAreaElement;
 		// *********************************************
 
@@ -55,16 +55,16 @@ class EditProfil extends React.Component<Props, any> {
 
 		const onSaveChanges = (e: any) => {
 			let user = {
-				Id: 				this.props.user.Id,
-				// FullName: 		FullNameInput.value,
-				// JobTitle: 		JobTitleInput.value,
-				// Email: 			EmailInput.value,
-				// Languages: 		LanguagesInput.value,
-				// Phone: 			PhoneInput.value,
-				// BirthDate: 		BirthDateInput.value,
-				// Education: 		EducationInput.value,
+				Id: 			this.props.user.Id,
+				FullName: 		FullNameInput.value,
+				JobTitle: 		JobTitleInput.value,
+				Email: 			EmailInput.value,
+				Languages: 		LanguagesInput.value,
+				Phone: 			PhoneInput.value,
+				BirthDate: 		BirthDateInput.value,
+				Education: 		EducationInput.value,
 				Description: 	DescriptionInput.value,
-				ImageRef: 	 		5736
+				ImageRef: 	 	5736
 			} as User;
 
 			// console.log(this.state.imageIsChanged.name);
@@ -81,7 +81,8 @@ class EditProfil extends React.Component<Props, any> {
 			userUpdate.catch((err: any) => {
 				console.log('Error success');
 			});
-			// this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', this.state.imageIsChanged, 'Image');
+
+			this.props.updateUserAvatar('/Root/Sites/Profil/Avatar', this.state.imageIsChanged, 'Image');
 
 			// this.props.saveChanges(user);
 			
@@ -94,7 +95,7 @@ class EditProfil extends React.Component<Props, any> {
 					onUpdate={this.onUpdateImageChanges}
 				/>
 
-				{/* <div className="user" >
+				<div className="user" >
 					
 					<div className="user__global_info">
 						<fieldset>
@@ -177,7 +178,7 @@ class EditProfil extends React.Component<Props, any> {
 						</fieldset>
 					</div>
 				</div>
- */}
+
 				<fieldset>
 					<legend>About</legend>
 					<textarea id="userAbout" ref={(input) => {DescriptionInput = input as HTMLTextAreaElement; }} defaultValue={this.props.user.Description} />
