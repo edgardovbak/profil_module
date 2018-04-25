@@ -8,6 +8,7 @@ import {
     Switch,
     withRouter,
 }                                           from 'react-router-dom';
+import { LoginState }                       from '@sensenet/client-core';
 import OtherUser                            from './OtherUser';
 import Profil                               from './Profil';
 
@@ -30,6 +31,8 @@ class Body extends React.Component<any, any> {
     } 
 
     render() {
+        const status = this.props.userLoginState !== LoginState.Authenticated;
+
 		return (
 			<div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
                 <Header />
@@ -39,6 +42,7 @@ class Body extends React.Component<any, any> {
                     <div className="sn_wrapp">
                         <Switch>
                             <Route 
+                                exact={true}
                                 path="/otherUser"  
                                 render={(routerProps) => {
                                     return status ?
@@ -49,9 +53,10 @@ class Body extends React.Component<any, any> {
                             <Route 
                                 exact={true}
                                 path="/user/:user"
-                                // component={Profil} 
                                 render={(routerProps) => {
-                                    return (<Profil {...routerProps} />);
+                                    return status ?
+                                    <Redirect key="login" to="/login" />
+                                    : <Profil {...routerProps} />;
                                 }} 
                                 userName={this.props.userName}
                             />
@@ -66,6 +71,7 @@ class Body extends React.Component<any, any> {
 const mapStateToProps = (state: any, match: any) => {
     return {
         userName :      state.sensenet.session.user.userName,
+        userLoginState: 		state.sensenet.session.user.loginState, // state.user.user.FullName,
     };
 };
 

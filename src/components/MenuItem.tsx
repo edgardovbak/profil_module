@@ -10,7 +10,7 @@ class MenuItem extends React.Component<any, {}> {
 	}
 
 	handleClick () { 
-		console.log( this.props.name + ' is not active now!!!' );
+		console.log( this.props.name);
 	}
 
 	render() {

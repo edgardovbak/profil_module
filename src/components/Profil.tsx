@@ -19,6 +19,7 @@ interface State {
     user: 			any;
 	isDataFetched: 	boolean;  
 	userName: 		string;  
+	isForbidden:	boolean;
 }
 
 interface Props {
@@ -36,7 +37,8 @@ class Profil extends React.Component<Props, State> {
         this.state = {
             user: null,
 			isDataFetched: false,
-			userName: this.props.match.params.user
+			userName: this.props.match.params.user,
+			isForbidden: true
 		};
 		
 		this.getUserByName = this.getUserByName.bind(this);
@@ -59,12 +61,18 @@ class Profil extends React.Component<Props, State> {
 				isDataFetched: true,
 				user: result.value.d
 			});
-            this.props.addToState(result.value.d);
+			this.props.addToState(result.value.d);
+
+			// check if current user have permission to edit user
+			let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
+			this.setState({ 
+				isForbidden: editAction.Forbidden
+			});
         });
 
         userGet.catch((err: any) => {
             console.log(err);
-        });
+		});
 	}
 	
 	// run before component is rendered
@@ -75,8 +83,8 @@ class Profil extends React.Component<Props, State> {
 	// run when parameter in url is changed
 	componentWillReceiveProps(nextProps: any) {
 		if (nextProps.match.params.user !== this.state.userName) {
-		  this.setState({ userName: nextProps.match.params.user });
-		  this.getUserByName(nextProps.match.params.user);
+			this.setState({ userName: nextProps.match.params.user });
+			this.getUserByName(nextProps.match.params.user);
 		}
 	}
 	
@@ -109,9 +117,12 @@ class Profil extends React.Component<Props, State> {
 						<div className="user__global_info">
 							<h2 className="sn_title sn_title--description">
 								{this.state.user.FullName}
-								<Link to="/edituser" className="sn_btn">
-									Edit profile
-								</Link>
+								{this.state.isForbidden ? ''  :
+									(<Link to="/edituser" className="sn_btn">
+										Edit profile
+									</Link>)
+								}
+								
 							</h2>
 							<div className="user__global_info__position">
 								{this.state.user.JobTitle}

@@ -52,22 +52,22 @@ class App extends React.Component<AppProps, any> {
         <div>
             <Switch>
                 <Route 
-                    path="/" 
-                    render={(routerProps) => {
-                        return status ?
-                        <Redirect key="login" to="/login" />
-                        : <Body {...routerProps} />;
-                    }} 
-                /> 
-                <Route 
                     exact={true} 
                     path="/login"   
-                    children={routerProps => {
+                    render={routerProps => {
                         return status ?
                                 <Login formSubmit={this.formSubmit} />
                             :   <Redirect key="dashboard" to="/" />;
                     }} 
                 />
+                <Route 
+                    path="/" 
+                    key="dashboard"
+                    render={(routerProps) => {
+                        return (<Body {...routerProps} />);
+                    }} 
+                /> 
+                
             </Switch> 
         </div>
     );

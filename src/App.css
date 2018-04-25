@@ -1114,6 +1114,7 @@ table td:first-child {
           justify-content: flex-start;
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
+  color: #fff;
 }
 .sn_sidebar__menu__item__icon {
   display: inline-block;
@@ -1134,10 +1135,8 @@ table td:first-child {
 }
 .sn_sidebar__menu__item__name {
   opacity: 1;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
-  -webkit-transition-delay: 2s;
-          transition-delay: 2s;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
 }
 .sn_sidebar__menu__item:hover, .sn_sidebar__menu__item.active {
   background-color: #121419;
@@ -1151,6 +1150,7 @@ table td:first-child {
 }
 .sn_sidebar__menu__item:hover .sn_sidebar__menu__item__name, .sn_sidebar__menu__item.active .sn_sidebar__menu__item__name {
   color: #0aa2b5;
+  padding-left: 0.9375rem;
 }
 
 .sn_menu {
