@@ -1,14 +1,15 @@
 import * as React				            from 'react';
-import { Link } 					        from 'react-router-dom';
 import { connect }                          from 'react-redux';
-// import {
-//     Route,
-//     Redirect,
-// }                                           from 'react-router-dom';
 import Sidebar                              from './Sidebar';
 import Header                               from './Header';
-import TestUserRoute                        from './TestUserRoute';
+import {
+    Route,
+    Redirect,
+    Switch,
+    withRouter,
+}                                           from 'react-router-dom';
 import OtherUser                            from './OtherUser';
+import Profil                               from './Profil';
 
 class Body extends React.Component<any, any> {
 
@@ -29,7 +30,6 @@ class Body extends React.Component<any, any> {
     } 
 
     render() {
-        console.log(this.props.children);
 		return (
 			<div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
                 <Header />
@@ -37,17 +37,25 @@ class Body extends React.Component<any, any> {
                 <div className="sn_overflow" onClick={this.props.openMenu} />
                 <main className="sn_main">
                     <div className="sn_wrapp">
-                        <Link to={'/user/:' + this.props.userName} > 
-                            Go to user
-                        </Link>
-                        <br/>
-                        <br/>
-                        <Link to="/otherUser/seeAll" >
-                            Go to Other User
-                        </Link>
-                        <br/>
-                        <TestUserRoute/>
-                        <OtherUser/>
+                        <Switch>
+                            <Route 
+                                path="/otherUser"  
+                                render={(routerProps) => {
+                                    return status ?
+                                    <Redirect key="login" to="/login" />
+                                    : <OtherUser {...routerProps} />;
+                                }} 
+                            />
+                            <Route 
+                                exact={true}
+                                path="/user/:user"
+                                // component={Profil} 
+                                render={(routerProps) => {
+                                    return (<Profil {...routerProps} />);
+                                }} 
+                                userName={this.props.userName}
+                            />
+                        </Switch> 
                     </div>
                 </main>
             </div>
@@ -61,7 +69,7 @@ const mapStateToProps = (state: any, match: any) => {
     };
 };
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
-)(Body as any);
+)(Body as any));
  

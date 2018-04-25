@@ -12,7 +12,7 @@ class TestUserRoute extends React.Component<any, any> {
 			<div>
 				test user with routing
                 <br/>
-                {/* {this.props.match.params.user} */}
+                {this.props.userName}
                 <br/>
                 <br/>
                 <Link to="/" >

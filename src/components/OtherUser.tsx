@@ -6,7 +6,6 @@ import { Actions,
     // Reducers 
 }                                           from '@sensenet/redux';
 // import { PathHelper }                       from '@sensenet/client-utils';
-
 // save config 
 const DATA = require('../config.json');
 
@@ -33,6 +32,7 @@ class OtherUser extends React.Component<Props, Stats> {
         let path = DATA.ims;
         const  options = {
             select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
+            query: 'TypeIs:User',
         };
         let users = this.props.getUsers(path, options);
 
@@ -74,13 +74,10 @@ class OtherUser extends React.Component<Props, Stats> {
 		return (
             
 			<div>
-				test OtherUser with routing
+				<h1>All User</h1>
                 <br/>
                 <br/>
                 {AllUsers}
-                <Link to="/" >
-                    Back Home
-                </Link>
 			</div>
 		);
 	}

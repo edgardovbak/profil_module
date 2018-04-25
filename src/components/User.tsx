@@ -8,7 +8,7 @@ class User extends React.Component<any, any> {
 
 	render () {
 		return (
-			<Link to={'/user:' + this.props.userName} >
+			<Link to={'/user/:' + this.props.userName} >
 				<div className="sn_sidebar__user">
 				{ this.props.userAvatar !== '' ? 
 					(<img src={DATA.domain + this.props.userAvatar} alt={this.props.userName} className="sn_sidebar__user__avatar"/>)
