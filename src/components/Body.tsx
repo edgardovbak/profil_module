@@ -11,6 +11,7 @@ import {
 import { LoginState }                       from '@sensenet/client-core';
 import OtherUser                            from './OtherUser';
 import Profil                               from './Profil';
+import EditProfil                           from './EditProfil';
 
 class Body extends React.Component<any, any> {
 
@@ -32,6 +33,7 @@ class Body extends React.Component<any, any> {
 
     render() {
         const status = this.props.userLoginState !== LoginState.Authenticated;
+        console.log(this.props);
 
 		return (
 			<div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
@@ -60,6 +62,15 @@ class Body extends React.Component<any, any> {
                                 }} 
                                 userName={this.props.userName}
                             />
+                            <Route 
+                                exact={true}
+                                path="/editUser"  
+                                render={(routerProps) => {
+                                    return status ?
+                                    <Redirect key="login" to="/login" />
+                                    : <EditProfil {...routerProps} />;
+                                }} 
+                            />
                         </Switch> 
                     </div>
                 </main>
@@ -70,8 +81,8 @@ class Body extends React.Component<any, any> {
 
 const mapStateToProps = (state: any, match: any) => {
     return {
-        userName :      state.sensenet.session.user.userName,
-        userLoginState: 		state.sensenet.session.user.loginState, // state.user.user.FullName,
+        userName :              state.sensenet.session.user.userName,
+        userLoginState: 		state.sensenet.session.loginState, // state.user.user.FullName,
     };
 };
 

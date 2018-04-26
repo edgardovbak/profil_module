@@ -15,13 +15,10 @@ import { Login }                            from './components/Login';
 
 export interface AppProps {
     login: Function;
-    getUserInfo: Function;
-    addToState: Function;
     userName: string;
     loginState: LoginState;
     store: any;
     repository: any;
-    userRoleName: string;
     updateUser: boolean;
 }
 
@@ -31,7 +28,6 @@ class App extends React.Component<AppProps, any> {
         this.state = {
             user : {},
             loginState: false,
-            // userRoleName: this.props.userName,
             updateUser: true,
         },
 
