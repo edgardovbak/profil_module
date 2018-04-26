@@ -12,7 +12,6 @@ import { JwtService }                       from '@sensenet/authentication-jwt';
 import user                                 from './reducers/users';
 
 import { 
-    // BrowserRouter,
     HashRouter 
 }                                           from 'react-router-dom';
 

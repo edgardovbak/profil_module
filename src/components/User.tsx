@@ -4,14 +4,39 @@ import { Link } 							from 'react-router-dom';
 
 const DATA = require('../config.json');
 
-class User extends React.Component<any, any> {
+interface Props {
+	userName: string;
+	user: any;
+	userAvatar: string;
+	fullName: string;
+}
 
+class User extends React.Component<Props, any> {
+
+	isEmpty(myObject: any) {
+		for (var key in myObject) {
+			if (myObject.hasOwnProperty(key)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	render () {
+
+		let usName = this.props.fullName;
+		let usAvatar = this.props.userAvatar;
+		if ( !this.isEmpty(this.props.user) ) {
+			usName = this.props.user.user.FullName;
+			usAvatar = this.props.user.user.Avatar._deferred;
+			console.log(usAvatar);
+		} 
+		
 		return (
 			<Link to={'/user/:' + this.props.userName} >
 				<div className="sn_sidebar__user">
-				{ this.props.userAvatar !== '' ? 
-					(<img src={DATA.domain + this.props.userAvatar} alt={this.props.userName} className="sn_sidebar__user__avatar"/>)
+				{ usAvatar !== '' ? 
+					(<img src={DATA.domain + usAvatar} alt={usName} className="sn_sidebar__user__avatar"/>)
 				: 
 					(
 						<span className="sn_sidebar__user__avatar--default">
@@ -20,7 +45,7 @@ class User extends React.Component<any, any> {
 					)
 				}
 					<div className="sn_sidebar__user__name">
-						{this.props.userFullName}
+						{usName}
 					</div>
 				</div>
 			</Link>
@@ -32,10 +57,11 @@ const mapStateToProps = (state: any) => {
 	return {
 		userAvatar: 		'', // state.user.user.Avatar._deferred,
 		userName: 			state.sensenet.session.user.userName, // state.user.user.FullName,
-		userFullName: 		state.sensenet.session.user.fullName
+		fullName: 			state.sensenet.session.user.fullName, 
+		user: 				state.user
 	};
 };
 
 export default connect(
 	mapStateToProps
-)(User);
+)(User as any);

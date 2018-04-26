@@ -33,7 +33,6 @@ class Body extends React.Component<any, any> {
 
     render() {
         const status = this.props.userLoginState !== LoginState.Authenticated;
-        console.log(this.props);
 
 		return (
 			<div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>

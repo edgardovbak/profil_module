@@ -67,11 +67,10 @@ class EditProfil extends React.Component<Props, any> {
 			
 			userUpdate.then( (result: any) => {
 				this.props.saveChanges(user);
-				console.log('Update success');
 			});
 	
 			userUpdate.catch((err: any) => {
-				console.log('Error success');
+				console.log(err);
 			});
 		};
 

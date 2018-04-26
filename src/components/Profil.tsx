@@ -61,7 +61,8 @@ class Profil extends React.Component<Props, State> {
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
 					'Gender', 'BirthDate', 'Education', 'Avatar', 'ImageRef', 'ImageData'],
 			expand : ['Actions']
-        });
+		});
+		console.log(userGet);
         
         userGet.then( (result: any) => {
             this.setState({ 

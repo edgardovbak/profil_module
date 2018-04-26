@@ -1089,12 +1089,11 @@ table td:first-child {
   background-color: #007280;
 }
 .sn_sidebar__user__avatar {
-  width: 6.25rem;
-  height: 6.25rem;
+  width: 3.125rem;
+  height: 3.125rem;
   margin-right: 1.25rem;
   border-radius: 100%;
   overflow: hidden;
-  display: none;
 }
 .sn_sidebar__user__avatar--default {
   font-size: 3.125rem;

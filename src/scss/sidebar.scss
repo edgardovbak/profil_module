@@ -45,12 +45,11 @@
         }
 
         &__avatar {
-            width: rem(100);
-            height: rem(100);
-            margin-right: rem(20);
+            width: rem(50); 
+            height: rem(50);
+            margin-right: rem(20); 
             border-radius: 100%;
             overflow: hidden;
-            display: none;
 
             &--default {
                 font-size: rem(50);
