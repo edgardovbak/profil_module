@@ -69,7 +69,6 @@ class Profil extends React.Component<Props, State> {
 				isDataFetched: true,
 				user: result.value.d
 			});
-			console.log(result.value.d.AvatarImageRef.Path);
 			// check if current user have permission to edit user
 			let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
 			this.setState({ 
@@ -122,20 +121,19 @@ class Profil extends React.Component<Props, State> {
 			} 
 
 			let skillsList = this.state.isCurrentUser ? this.props.currentUser.Skills : this.state.user.Skills;
-			
 			return (
 				<div className="profil">
 					<div className="user" >
 						<div className="user__avatar">
 							{this.state.isCurrentUser ? (
 								<img 
-									src={this.props.currentUser.AvatarImageRef.Path !== '' ? DATA.domain + this.props.currentUser.AvatarImageRef.Path : defaultAvatar} 
+									src={!this.props.currentUser.AvatarImageRef ? defaultAvatar : DATA.domain + this.props.currentUser.AvatarImageRef.Path} 
 									alt={this.props.currentUser.FullName}
 								/>
 							) 
 							: (
 								<img 
-									src={this.state.user.AvatarImageRef.Path !== '' ? DATA.domain + this.state.user.AvatarImageRef.Path : defaultAvatar} 
+									src={!this.state.user.AvatarImageRef ? defaultAvatar : DATA.domain + this.state.user.AvatarImageRef.Path} 
 									alt={this.state.user.FullName}
 								/>
 							) }

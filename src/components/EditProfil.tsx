@@ -11,7 +11,7 @@ import Loader 								from './Loader';
 const DATA = require('../config.json');
 
 export interface Props {
-	updateUser: 		Function;
+	updateUserSN: 		Function;
 	saveChanges:  		Function;
 	updateUserAvatar:	Function;
 	user: 				any;
@@ -59,19 +59,21 @@ class EditProfil extends React.Component<Props, any> {
 					// firs save picture in sn
 					let avatarUpdate = this.props.updateUserAvatar(DATA.avatar, this.state.imageIsChanged.newImage, 'Image');
 					// after picture is saved colect the modyfied fields 
-
 					avatarUpdate.then( (result: any) => {
 						console.log(result.value.Path);
-						// update user avatar
+						// update user avatar fild
 						let userWithAvatar = {
+							// !important user id
 							Id: 			this.props.user.Id,
 							AvatarImageRef: result.value.Path
 						} as CSTUser;
-						this.props.saveChanges(userWithAvatar);
-						let path2 = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
-						let something = this.props.updateUser(path2, userWithAvatar);
-						something.then( (Updateresult: any) => {
-							console.log(Updateresult);
+						// path to current user
+						let pathToUser = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
+						// update user info in sensenet
+						let updateUserSNResponse = this.props.updateUserSN(pathToUser, userWithAvatar);
+						updateUserSNResponse.then( (Updateresult: any) => {
+							// update user info in redux
+							this.props.saveChanges(userWithAvatar);
 						});
 					});
 			
@@ -80,7 +82,9 @@ class EditProfil extends React.Component<Props, any> {
 					});
 				}
 				
+				// get all changed fields
 				let user = {
+					// !important user id
 					Id: 			this.props.user.Id,
 					FullName: 		FullNameInput.value,
 					JobTitle: 		JobTitleInput.value,
@@ -95,20 +99,17 @@ class EditProfil extends React.Component<Props, any> {
 
 				// and update user info in sensenet app
 				let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
-				console.log(path);
-				console.log(userUpdate);
-				console.log(user);
-				// userUpdate = this.props.updateUser(path, user);
+				userUpdate = this.props.updateUserSN(path, user);
 				
-				// userUpdate.then( (Updateresult: any) => {
-				// 	// if update in sn is soccess then save changes in redux
-				// 	this.props.saveChanges(user);
-				// });
+				userUpdate.then( (Updateresult: any) => {
+					// if update in sn is soccess then save changes in redux
+					this.props.saveChanges(user);
+				});
 		
-				// userUpdate.catch((err: any) => {
-				// 	// else show error
-				// 	console.log(err);
-				// });
+				userUpdate.catch((err: any) => {
+					// else show error
+					console.log(err);
+				});
 				
 			};
 
@@ -229,7 +230,7 @@ export default connect(
 		// save to redux
 		saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
 		// seva to sensenet
-		updateUser:    			(path: string, options: CSTUser) => dispatch(Actions.updateContent( path, options )),
+		updateUserSN:    		(path: string, options: CSTUser) => dispatch(Actions.updateContent( path, options )),
 		// save image to Avatar folder
 		updateUserAvatar:  		(parentPath: any, file: any, contentType: string) => dispatch(Actions.uploadRequest( parentPath, file, contentType)),
 	})

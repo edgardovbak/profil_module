@@ -70,12 +70,12 @@
             height: rem(300);
             overflow: hidden;
             border: 1px solid $black;
-            border-radius: 100%;
+            border-radius: 100%; 
         }
 
         img {
             width:  rem(300);
-            // height:  rem(300);
+            border: 1px solid $white; 
             border-radius: 100%;
             overflow: hidden;
             opacity: 1 !important;

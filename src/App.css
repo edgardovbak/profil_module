@@ -1458,6 +1458,7 @@ table td:first-child {
   margin-right: 1.25rem;
   border-radius: 100%;
   overflow: hidden;
+  border: 1px solid #fff;
 }
 .sn_sidebar__user__avatar--default {
   font-size: 3.125rem;
@@ -1665,6 +1666,7 @@ table td:first-child {
 }
 .user__avatar img {
   width: 18.75rem;
+  border: 1px solid #fff;
   border-radius: 100%;
   overflow: hidden;
   opacity: 1 !important;

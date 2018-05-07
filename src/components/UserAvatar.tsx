@@ -11,9 +11,6 @@ const DATA = require('../config.json');
 // save config 
 const atob = require('atob');
 
-// default picture 
-// const defaultAvatar = require('../images/default_avater.svg');
-
 export interface Props {
 	userAvatar: string;
 	onUpdate: Function;
@@ -84,18 +81,16 @@ class UserAvatar extends React.Component<Props, State> {
 		return text;
 	}
 
+	// convert base64 to file
 	b64toBlob = (b64Data: string = '', sliceSize?: number) => {
 		sliceSize = sliceSize || 512;
-		
 		if ( b64Data !== null) {
 			let block = b64Data.split(';');
 			let dataType = block[0].split(':')[1];
 			let realData = block[1].split(',')[1];
 			let filename = this.makeid() + '.' + dataType.split('/')[1];
-
 			let byteCharacters = atob(realData);
 			let byteArrays = [];
-
 			for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
 				let slice = byteCharacters.slice(offset, offset + sliceSize);
 
@@ -103,9 +98,7 @@ class UserAvatar extends React.Component<Props, State> {
 				for (let i = 0; i < slice.length; i++) {
 					byteNumbers[i] = slice.charCodeAt(i);
 				}
-
 				let byteArray = new Uint8Array(byteNumbers);
-
 				byteArrays.push(byteArray);
 			}
 			let blob = new Blob(byteArrays, {type: dataType});
@@ -136,28 +129,35 @@ class UserAvatar extends React.Component<Props, State> {
 	   	}
 	}
 
+	// add image with dropp
 	handleDrop = (acceptedFiles: any) => {
 		this.setState({ image: acceptedFiles[0] });
 	}
 
+	// get zoom value fron range
 	handleScale = (e: any) => {
 		const scale = parseFloat(e.target.value);
 		this.setState({ scale });
 	}
 
+	// detect all changes on image ( zoom, rotate )
 	imageChange = () => {
 		this.setState({ 
 			imageUpdates : {
 				isChanged: true,
 		}});
-		
 	}	
 
 	imageReady = (e: any) => {
 		// console.log(this.editor.getImage().toDataURL());
 	}
 
+	// add nev image
 	handleNewImage = (e: any) => {
+		// this function is only fo fix bug with canvas 
+		// when image is uploaded from different domain
+
+		// create a new image, and canvas
 		let img = new Image(),
 			canvas = document.createElement('canvas'),
 			ctx = canvas.getContext('2d');
@@ -165,35 +165,43 @@ class UserAvatar extends React.Component<Props, State> {
 		let reader = new FileReader();
 		reader.readAsDataURL(e.target.files[0]);
 		reader.onload = function () {
+			// get uploaded image 
 			img.src = reader.result;
 		};
+		// set permissions
 		img.crossOrigin = 'anonymous';
 		var that = this;
 		img.onload = () => {
 			canvas.width = img.width;
 			canvas.height = img.height;
+			// draw on canvas uploaded image 
 			!ctx ? console.log('error') : ctx.drawImage(img, 0, 0);
+			// and convert to base64
 			let base64URL = canvas.toDataURL();
 			that.setState({ image: base64URL});
 		};
 	}
 
-	loadSuccess(imgInfo: any) {
-		this.setState({ imageUpdates : {
-			isChanged: true,
-		}});
+	// callback after editor is initialized and image is loaded
+	loadSuccess = (imgInfo: any) => {
+		console.log('Load success');
 	}
 
+	// save changes
 	handleSave = () => {
-		let imageFile = this.b64toBlob(this.editor.getImageScaledToCanvas().toDataURL());
-		console.log(this.editor.getImageScaledToCanvas().toDataURL());
-		this.setState({ imageUpdates : {
-			isChanged: true,
-			newImage: imageFile
-		}}, () => {
-			this.props.onUpdate(this.state.imageUpdates);
-			console.log(this.state.imageUpdates);
-		});
+		// is image is changed (add new, zoom, rotate)
+		if ( this.state.imageUpdates.isChanged) {
+			// convert to file
+			let imageFile = this.b64toBlob(this.editor.getImageScaledToCanvas().toDataURL());
+
+			this.setState({ imageUpdates : {
+				isChanged: true,
+				newImage: imageFile
+			}}, () => {
+				// add to EdutProfile component
+				this.props.onUpdate(this.state.imageUpdates);
+			});
+		}
 	}
 
 	render () {
@@ -201,7 +209,6 @@ class UserAvatar extends React.Component<Props, State> {
 		if ( !this.props.userAvatar ) {
 			return (<Loader/>);
 		} else {
-			// console.log(this.state.imageUpdates);
 			return (
 				<div className="user__avatar">
 					<div className="user__avatar--blocks">

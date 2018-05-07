@@ -50,6 +50,7 @@
             margin-right: rem(20); 
             border-radius: 100%;
             overflow: hidden;
+            border: 1px solid $white;
 
             &--default {
                 font-size: rem(50);
