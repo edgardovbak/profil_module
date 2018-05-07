@@ -7,7 +7,6 @@ const DATA = require('../config.json');
 interface Props {
 	userName: string;
 	user: any;
-	userAvatar: string;
 	fullName: string;
 }
 
@@ -25,11 +24,10 @@ class User extends React.Component<Props, any> {
 	render () {
 
 		let usName = this.props.fullName;
-		let usAvatar = this.props.userAvatar;
+		let usAvatar = '';
 		if ( !this.isEmpty(this.props.user) ) {
 			usName = this.props.user.user.FullName;
-			usAvatar = this.props.user.user.Avatar._deferred;
-			console.log(usAvatar);
+			usAvatar = this.props.user.user.AvatarImageRef.Path;
 		} 
 		
 		return (
@@ -55,7 +53,6 @@ class User extends React.Component<Props, any> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar: 		'', // state.user.user.Avatar._deferred,
 		userName: 			state.sensenet.session.user.userName, // state.user.user.FullName,
 		fullName: 			state.sensenet.session.user.fullName, 
 		user: 				state.user

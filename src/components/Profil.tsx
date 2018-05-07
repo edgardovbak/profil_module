@@ -59,8 +59,8 @@ class Profil extends React.Component<Props, State> {
 		let userGet = this.props.getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 'Actions',
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
-					'Gender', 'BirthDate', 'Education', 'Avatar', 'ImageRef', 'ImageData'],
-			expand : ['Actions']
+					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path'],
+			expand : ['Actions', 'AvatarImageRef']
 		});
 		console.log(userGet);
         
@@ -69,6 +69,7 @@ class Profil extends React.Component<Props, State> {
 				isDataFetched: true,
 				user: result.value.d
 			});
+			console.log(result.value.d.AvatarImageRef.Path);
 			// check if current user have permission to edit user
 			let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
 			this.setState({ 
@@ -128,13 +129,13 @@ class Profil extends React.Component<Props, State> {
 						<div className="user__avatar">
 							{this.state.isCurrentUser ? (
 								<img 
-									src={this.props.currentUser.Avatar._deferred !== '' ? DATA.domain + this.props.currentUser.Avatar._deferred : defaultAvatar} 
+									src={this.props.currentUser.AvatarImageRef.Path !== '' ? DATA.domain + this.props.currentUser.AvatarImageRef.Path : defaultAvatar} 
 									alt={this.props.currentUser.FullName}
 								/>
 							) 
 							: (
 								<img 
-									src={this.state.user.Avatar._deferred !== '' ? DATA.domain + this.state.user.Avatar._deferred : defaultAvatar} 
+									src={this.state.user.AvatarImageRef.Path !== '' ? DATA.domain + this.state.user.AvatarImageRef.Path : defaultAvatar} 
 									alt={this.state.user.FullName}
 								/>
 							) }
