@@ -4,7 +4,8 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background: #292929;
+	position: relative;
+	min-height: rem(300);
 
 	.leftEye,
 	.rightEye {

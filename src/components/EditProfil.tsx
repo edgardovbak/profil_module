@@ -53,7 +53,6 @@ class EditProfil extends React.Component<Props, any> {
 			let userUpdate: any;
 
 			const onSaveChanges = (e: any) => {
-				console.log( this.state.imageIsChanged);
 				// if image was changed then 
 				if ( this.state.imageIsChanged.isChanged) {
 					// firs save picture in sn

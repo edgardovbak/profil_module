@@ -48,7 +48,7 @@ class UserAvatar extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			image: DATA.domain + this.props.userAvatar,
+			image: !this.props.userAvatar ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.userAvatar,
 			allowZoomOut: false,
 			position: { x: 0.5, y: 0.5 },
 			scale: 1,
@@ -206,7 +206,7 @@ class UserAvatar extends React.Component<Props, State> {
 
 	render () {
 		// if user is not updated then show loader
-		if ( !this.props.userAvatar ) {
+		if ( this.props.userAvatar !== null ) {
 			return (<Loader/>);
 		} else {
 			return (
@@ -286,7 +286,7 @@ class UserAvatar extends React.Component<Props, State> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar : state.user.user.AvatarImageRef.Path
+		userAvatar : state.user.user.AvatarImageRef
 	};
 };
 

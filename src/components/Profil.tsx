@@ -13,7 +13,7 @@ import UserInfoListItem 					from './UserInfoListItem';
 const DATA = require('../config.json');
 
 // default picture 
-const defaultAvatar = require('../images/default_avater.svg');
+const defaultAvatar = require('../images/default_avatar.svg');
 
 interface State {
     user: 			any;
