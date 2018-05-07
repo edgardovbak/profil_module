@@ -20,5 +20,10 @@ export declare class CSTUser extends User {
     //  Email?: string;
     //  FullName?: string;
      AvatarImageRef?: ContentReferenceField<GenericContent>;
+     WorkPhone?: number;
+     GitHub?: string;
+     Linkedin?: string;
+     Skype?: string;
+     Skills?: string;
  }
  
