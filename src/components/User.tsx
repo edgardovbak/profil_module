@@ -25,7 +25,7 @@ class User extends React.Component<Props, any> {
 
 		let usName = this.props.fullName;
 		let usAvatar = '';
-		if ( !this.isEmpty(this.props.user) ) {
+		if ( !this.isEmpty(this.props.user) && this.props.user.user.AvatarImageRef ) {
 			usName = this.props.user.user.FullName;
 			usAvatar = this.props.user.user.AvatarImageRef.Path;
 		} 
