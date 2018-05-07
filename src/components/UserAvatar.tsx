@@ -11,13 +11,9 @@ const DATA = require('../config.json');
 // save config 
 const atob = require('atob');
 
-export interface AvatarPath {
-	Path: string;
-}
-
 export interface Props {
-	userAvatar: AvatarPath;
 	onUpdate: Function;
+	user: any;
 }
 
 export interface Point {
@@ -50,7 +46,7 @@ class UserAvatar extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			image: !this.props.userAvatar ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.userAvatar.Path,
+			image: !this.props.user.AvatarImageRef ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.user.AvatarImageRef.Path,
 			allowZoomOut: false,
 			position: { x: 0.5, y: 0.5 },
 			scale: 1,
@@ -113,7 +109,7 @@ class UserAvatar extends React.Component<Props, State> {
 
 	// set image to gefault 
 	useDefaultImage() {
-		this.setState({ image: !this.props.userAvatar ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.userAvatar.Path });
+		this.setState({ image: !this.props.user.AvatarImageRef ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.user.AvatarImageRef.Path });
 		// this.cropper.reset();
 	}
 
@@ -208,8 +204,8 @@ class UserAvatar extends React.Component<Props, State> {
 
 	render () {
 		// if user is not updated then show loader
-		if ( !this.props.userAvatar ) {
-			console.log(this.state.image);
+		if ( !this.props.user ) {
+			console.log(!this.props.user.AvatarImageRef);
 			return (<Loader/>);
 		} else {
 			return (
@@ -241,14 +237,6 @@ class UserAvatar extends React.Component<Props, State> {
 								</div>
 							</Dropzone>
 							<div>
-								<button
-									name="save"
-									onClick={this.handleSave}
-								>
-									Save Avatar
-								</button>
-							</div>
-							<div>
 								<label htmlFor="newImage">New File:</label>
         						<input name="newImage" id="newImage" type="file" onChange={this.handleNewImage} />
 							</div>
@@ -278,6 +266,16 @@ class UserAvatar extends React.Component<Props, State> {
 									defaultValue="0"
 								/>
 							</div>
+							<div>
+								<br/>
+								<button
+									name="save"
+									onClick={this.handleSave}
+									className="sn_btn"
+								>
+									Save Avatar
+								</button>
+							</div>
 						</div>
 						
 					</div>	
@@ -289,7 +287,7 @@ class UserAvatar extends React.Component<Props, State> {
 
 const mapStateToProps = (state: any) => {
 	return {
-		userAvatar : state.user.user.AvatarImageRef
+		user : state.user.user
 	};
 };
 

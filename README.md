@@ -46,3 +46,23 @@ Start compile files with running a simple command gulp
 Done.
 
 All files is in src/scss folder. Do some changes in this files save it. Gulp compile files from this folder and change App.css. After then react-app detect changes in styles and change it in build folder.
+
+
+# Pages
+
+## Home page 
+Contain Sidebar and Header. 
+Content - in progress
+
+## Profile
+Click on user in Sidebar. 
+This page show all info about user (full name, job title, email, phone, ....) and go to edit page.
+
+Also you can open other users profile but cant edit.
+
+## All users
+link to this page is in sidebar menu "All users"
+This page show a list with all users under IMS folder
+
+## Edit Page
+From your profile you can navigate to this page by clicking on "Edit Profile" button.

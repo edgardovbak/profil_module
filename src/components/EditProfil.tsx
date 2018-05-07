@@ -24,8 +24,12 @@ class EditProfil extends React.Component<Props, any> {
 		this.state = {
 			imageIsChanged: ''
 		};
+
+		this.onUpdateImageChanges = this.onUpdateImageChanges.bind(this);
 	}
 
+	// get value about user avatar
+	// newImage : avatar is changed
 	onUpdateImageChanges = (val: any) => {
 		this.setState({
 			imageIsChanged: val
@@ -33,7 +37,7 @@ class EditProfil extends React.Component<Props, any> {
 	}
 
 	render () {
-
+		// if user is empty or not downloaded
 		if ( !this.props.user ) {
 			return (<Loader/>);
 
