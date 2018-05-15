@@ -1,0 +1,7 @@
+Itt van a reset password folyamata és a kód:
+
+Folyamat ábrája:  p:\Projects\Rorweb-2017\docs\RorWeb-User_and_Tech_Manual_v0.50.docx  (58.oldal)
+
+Két page-t kell csinálni és hozzá két custom Odata action-t:
+1.page: ForgottenPassword (ez az az oldal ahol a user megadja az email címét) és hozzá tartozik egy Odata action: RorWebSendChangePasswordMailAction (.cs fájl)
+2.page: ResetPassword (ez az az oldal ahol a user megadja az új jelszavát. Ide az email-ben kapott link alapján kerül) és hozzá tartozik egy Odata action: RorWebSetUserPasswordAction

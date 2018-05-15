@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> shallow rendering Match to snapshot 1`] = `
+<div
+  className="sn_sidebar__logo"
+>
+  <Link
+    replace={false}
+    to="/"
+  >
+    <img
+      alt="site logo"
+      src="logo.png"
+    />
+  </Link>
+  <div
+    className="sn_menu"
+  >
+    <span />
+  </div>
+</div>
+`;

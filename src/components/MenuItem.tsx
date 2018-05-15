@@ -1,7 +1,13 @@
 import * as React				 			from 'react';
 import { Link } 					        from 'react-router-dom';
 
-class MenuItem extends React.Component<any, {}> {
+interface Props {
+	pathTo:  string;
+	name: string;
+	icon: string;
+}
+
+class MenuItem extends React.Component<Props, {}> {
 
 	constructor(props: any) {
 		super(props);
@@ -14,9 +20,9 @@ class MenuItem extends React.Component<any, {}> {
 	}
 
 	render() {
-
+		let path = this.props.pathTo ? '/' : this.props.pathTo;
 		return (
-			<Link to={this.props.pathTo} className="sn_sidebar__menu__item" onClick={this.handleClick}>
+			<Link to={path} className="sn_sidebar__menu__item" onClick={this.handleClick}>
 				<span className="sn_sidebar__menu__item__icon">
 					<i className={this.props.icon} />
 				</span>

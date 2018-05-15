@@ -45,7 +45,8 @@ class Menu extends React.Component<any, any> {
 		if ( !this.state.isDataFetched ) {
             return null;
 		}
-		const status = this.props.userLoginState !== LoginState.Authenticated;
+        const status = this.props.userLoginState !== LoginState.Authenticated;
+        console.log(status);
         let menuItems = this.state.menuItems;
         const menu = Object.keys(menuItems).map( (key: any) => 
             (

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> shallow rendering Match to snapshot 1`] = `
+<header
+  className="sn_header"
+>
+  <div
+    className="sn_wrapp"
+  >
+    <div
+      className="sn_header__search"
+    >
+      <input
+        type="text"
+      />
+      <button>
+        <i
+          className="fi flaticon-magnifier"
+        />
+      </button>
+    </div>
+  </div>
+</header>
+`;

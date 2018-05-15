@@ -3,15 +3,15 @@ export default function updateInfo(state = {}, action) {
     if (action.type === 'UPDATE_LOGINED_USER') {
 
         return {
-            ...state,
+            state,
             user: action.payload
         };
     }
     if (action.type === 'SET_USER_INFO') {
         return  {
-            ...state,
+            state,
             user: {
-                ...state.user,
+
                 FullName :      action.payload.FullName,
                 JobTitle: 		action.payload.JobTitle,
 				Email: 			action.payload.Email,

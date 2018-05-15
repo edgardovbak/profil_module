@@ -40,17 +40,16 @@ class App extends React.Component<AppProps, any> {
 
     public render() {  
     
-    // important 
+    // !important 
     // status - it's a boolean value about user authentication state
     const status = this.props.loginState !== LoginState.Authenticated;
-
     return (
         <div>
             <Switch>
                 <Route 
-                    exact={true} 
+                    exact={true}  
                     path="/login"   
-                    render={routerProps => {
+                    render={routerProps => { 
                         return status ?
                                 <Login formSubmit={this.formSubmit} />
                             :   <Redirect key="dashboard" to="/" />;
@@ -62,7 +61,7 @@ class App extends React.Component<AppProps, any> {
                     render={(routerProps) => {
                         return (<Body {...routerProps} />);
                     }} 
-                /> 
+                />   
                 
             </Switch> 
         </div>

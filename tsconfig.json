@@ -4,6 +4,7 @@
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
+    "baseUrl": "/",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -24,6 +25,8 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts"
+    "src/setupTests.ts",
+    "src/__test__",
+    "src/reducers"
   ]
 }

@@ -6,7 +6,7 @@ import {
     Route,
     Redirect,
     Switch,
-    withRouter,
+    withRouter
 }                                           from 'react-router-dom';
 import { LoginState }                       from '@sensenet/client-core';
 import { Actions }                			from '@sensenet/redux';
@@ -23,7 +23,8 @@ class Body extends React.Component<any, any> {
         super(props);
         this.state = {
             open : false,
-            isDataFetched: false
+            isDataFetched: false,
+            articles: {}
         },
 
         this.openMenu = this.openMenu.bind(this);
@@ -32,8 +33,7 @@ class Body extends React.Component<any, any> {
     openMenu() {
         let menuState = !this.state.open;
         this.setState({         
-            open: menuState,
-            articles: {}
+            open: menuState
           }); 
     } 
 
@@ -74,47 +74,47 @@ class Body extends React.Component<any, any> {
         // );
 
 		return (
-			<div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
-                <Header />
-                <Sidebar openMenu={this.props.openMenu}/>
-                <div className="sn_overflow" onClick={this.props.openMenu} />
-                <main className="sn_main">
-                    <div className="sn_wrapp">
-                        {/* <h1>Home Page</h1>
-                        {homePage} */}
-                        <Switch>
-                            <Route 
-                                exact={true}
-                                path="/otherUser"  
-                                render={(routerProps) => {
-                                    return status ?
-                                    <Redirect key="login" to="/login" />
-                                    : <OtherUser {...routerProps} />;
-                                }} 
-                            />
-                            <Route 
-                                exact={true}
-                                path="/user/:user"
-                                render={(routerProps) => {
-                                    return status ?
-                                    <Redirect key="login" to="/login" />
-                                    : <Profil {...routerProps} />;
-                                }} 
-                                userName={this.props.userName}
-                            />
-                            <Route 
-                                exact={true}
-                                path="/editUser"  
-                                render={(routerProps) => {
-                                    return status ?
-                                    <Redirect key="login" to="/login" />
-                                    : <EditProfil {...routerProps} />;
-                                }} 
-                            />
-                        </Switch> 
-                    </div>
-                </main>
-            </div>
+                <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
+                    <Header />
+                    <Sidebar openMenu={this.props.openMenu}/>
+                    <div className="sn_overflow" onClick={this.props.openMenu} />
+                    <main className="sn_main">
+                        <div className="sn_wrapp">
+                            {/* <h1>Home Page</h1>
+                            {homePage} */}
+                            <Switch>
+                                <Route 
+                                    exact={true}
+                                    path="/otherUser"  
+                                    render={(routerProps) => {
+                                        return status ?
+                                        <Redirect key="login" to="/login" />
+                                        : <OtherUser {...routerProps} />;
+                                    }} 
+                                />
+                                <Route 
+                                    exact={true}
+                                    path="/user/:user"
+                                    render={(routerProps) => {
+                                        return status ?
+                                        <Redirect key="login" to="/login" />
+                                        : <Profil {...routerProps} />;
+                                    }} 
+                                    userName={this.props.userName}
+                                />
+                                <Route 
+                                    exact={true}
+                                    path="/editUser"  
+                                    render={(routerProps) => {
+                                        return status ?
+                                        <Redirect key="login" to="/login" />
+                                        : <EditProfil {...routerProps} />;
+                                    }} 
+                                />
+                            </Switch> 
+                        </div>
+                    </main>
+                </div>
 		);
 	}
 }

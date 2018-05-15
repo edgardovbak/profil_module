@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MenuItem /> shallow rendering Match to snapshot 1`] = `
+<Link
+  className="sn_sidebar__menu__item"
+  onClick={[Function]}
+  replace={false}
+  to="/"
+>
+  <span
+    className="sn_sidebar__menu__item__icon"
+  >
+    <i
+      className="fi "
+    />
+  </span>
+  <span
+    className="sn_sidebar__menu__item__name"
+  >
+    home
+  </span>
+</Link>
+`;
