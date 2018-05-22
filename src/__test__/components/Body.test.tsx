@@ -17,10 +17,10 @@ import {
 configure( {adapter: new Adapter()} );
 
 describe('<Body /> shallow rendering', () => {
-    const body = shallow(
+    const body = shallow( (
         <Router>
             <Body />
-        </Router>); 
+        </Router>)); 
     // test Snapshot 
 	it('Match to snapshot', () => {
         // uconst body = shallow(<Body />); 

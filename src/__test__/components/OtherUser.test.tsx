@@ -19,6 +19,11 @@ configure( {adapter: new Adapter()} );
 
 describe('<Menu /> shallow rendering', () => {
 	let store, otheruser;
+	let path = DATA.ims;
+	const  options = {
+		select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
+		query: 'TypeIs:User',
+	};
 	const mockStore = createMockStore();
 	beforeEach( () => {
         store = mockStore({
@@ -42,22 +47,15 @@ describe('<Menu /> shallow rendering', () => {
         expect(otheruser.props().userName).toBe('TestUser1');
 	});
 	 
-	it('Get all users promise test', () => {
-		let path = DATA.ims;
-        const  options = {
-            select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
-            query: 'TypeIs:User',
-        };
-		
-		// jest.spyOn(otheruser, 'getUsers').mockImplementation(() => Promise.resolve({
-		// 	        data : 'Login user'
-		// }));
-		const listOfUsers = store.dispatch(Actions.requestContent(path, options));
-		console.log(listOfUsers);
-		expect(otheruser.props().getUsers()).toBeCalledWith({
-			username: 'TestUser1', 
-			password: 'abAB12'
-		});
+	it('Get all users action type', () => {
+		const getUsers = otheruser.props().getUsers(path, options);
+		expect(getUsers.type).toEqual('FETCH_CONTENT');
 	});
+
+	// it('Get all users action type', () => {
+	// 	const getUsers = otheruser.props().getUsers(path, options);
+	// 	store.dispatch(otheruser.props().getUsers(path, options));
+	// 	console.log(store.getActions()[0]);
+	// });
 });
  

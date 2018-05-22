@@ -19,7 +19,6 @@ export interface AppProps {
     loginState: LoginState;
     store: any;
     repository: any;
-    updateUser: boolean;
 }
 
 class App extends React.Component<AppProps, any> {
@@ -28,7 +27,6 @@ class App extends React.Component<AppProps, any> {
         this.state = {
             user : {},
             loginState: false,
-            updateUser: true,
         },
 
         this.formSubmit = this.formSubmit.bind(this);

@@ -79,6 +79,7 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-ruby-sass": "^3.0.0",
     "jest": "^22.4.3",
+    "node-sass": "^4.9.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
@@ -87,13 +88,29 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
+    "sass-loader": "^7.0.1",
     "typescript": "^2.7.2",
     "webpack": "^3.8.1"
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/type",
+      "!src/constants"
     ],
+    "collectCoverage": true,
+    "coverageFormats": [
+      "json",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],

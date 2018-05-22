@@ -1,46 +1,100 @@
-import * as React 						from 'react';
-import App 								from '../App';
+jest.unmock('../index.tsx');
+jest.unmock('redux-mock-store');
+
+import * as React 							from 'react';
+import App 									from '../App';
 import { 
 	configure, 
-	shallow } 							from 'enzyme';
-import * as Adapter 					from 'enzyme-adapter-react-16';
-import toJson 				      		from 'enzyme-to-json';
+	shallow,
+	mount } 								from 'enzyme';
+import * as Adapter 						from 'enzyme-adapter-react-16';
+import toJson 				      			from 'enzyme-to-json';
+import * as createMockStore 				from 'redux-mock-store';
+import {
+    BrowserRouter as Router
+} 											from 'react-router-dom';
+import { LoginState, Repository } 			from '@sensenet/client-core';
+import { Actions, Reducers }                from '@sensenet/redux';
+import { JwtService } 						from '@sensenet/authentication-jwt';
 
 configure( {adapter: new Adapter()} );
 
+const repository = new Repository({ repositoryUrl: 'https://dmsservice.demo.sensenet.com/' }, async () => jwtMockResponse);
+const _jwtService = new JwtService(repository);
+
 describe('<App /> shallow rendering', () => {
-	const wrapper = shallow(<App />);
+	let store, app;
+	const mockStore = createMockStore();
+	beforeEach( () => {
+        store = mockStore({
+			sensenet: {
+				session: {
+					loginState: 'Unauthenticated',
+					user: {
+						userName: 'Visitor'
+					}
+				}
+			}
+		});
+        app = shallow(
+			<Router>
+				<App store={store}/>
+			</Router>);
+	}); 
+
 	it('Contain one H1 element ', () => {
-		expect(wrapper.find('h1').length).toBe(0);
+		expect(app.find('h1').length).toBe(0);
 		
 	});
+
 	it('Match to snapshot', () => {
-		const tree = shallow(<App />);
-		expect(toJson(tree)).toMatchSnapshot();
+		expect(toJson(app)).toMatchSnapshot();
+	});
+
+	it('Login state is false by default', () => {
+		const userlogin = Actions.userLogin('Builti/TestUser4', 'TestUser4123');
+		const actionType = userlogin.type;
+		expect(actionType).toBe('USER_LOGIN');
+
+		context('Given repository.authentication.login() resolves', () => {
+			let data;
+			beforeEach(async () => {
+				data = await Actions.userLogin('alba', 'alba').payload(repository);
+			});
+			it('should return a USER_LOGIN action', () => {
+				expect(Actions.userLogin('alba', 'alba')).to.have.property(
+					'type', 'USER_LOGIN',
+				);
+			});
+			it('should return mockdata', () => {
+				// tslint:disable-next-line:no-unused-expression
+				expect(data).to.be.false;
+			});
+		});
 	});
 
 	// it('On button click change h1 text', () => {
-	// 	const button = wrapper.find('button');
-	// 	expect(wrapper.find('button').length).toBe(1);
-	// 	expect(wrapper.find('h1').text()).toBe('No');
+	// 	const button = app.find('button');
+	// 	expect(app.find('button').length).toBe(1);
+	// 	expect(app.find('h1').text()).toBe('No');
 	// 	button.simulate('click');
-	// 	expect(wrapper.find('h1').text()).toBe('Yes');
+	// 	expect(app.find('h1').text()).toBe('Yes');
 	// });
 
 	// it('On input element change text', () => {
-	// 	const input = wrapper.find('input');
-	// 	expect(wrapper.find('input').length).toBe(1);
-	// 	expect(wrapper.find('h2').text()).toBe('');
+	// 	const input = app.find('input');
+	// 	expect(app.find('input').length).toBe(1);
+	// 	expect(app.find('h2').text()).toBe('');
 	// 	input.simulate('change', {target: { value: 'Loldon'}});
-	// 	expect(wrapper.find('h2').text()).toBe('Loldon');
+	// 	expect(app.find('h2').text()).toBe('Loldon');
 	// });
 
 	// it('Update class name with setState', () => {
-	// 	expect(wrapper.find('.blue').length).toBe(1);
-	// 	expect(wrapper.find('.red').length).toBe(0);
-	// 	wrapper.setState({ mainColor: 'red' });
-	// 	expect(wrapper.find('.blue').length).toBe(0);
-	// 	expect(wrapper.find('.red').length).toBe(1);
+	// 	expect(app.find('.blue').length).toBe(1);
+	// 	expect(app.find('.red').length).toBe(0);
+	// 	app.setState({ mainColor: 'red' });
+	// 	expect(app.find('.blue').length).toBe(0);
+	// 	expect(app.find('.red').length).toBe(1);
 	// });
 
 	// it('calls ComponentDidMouint', () => {
