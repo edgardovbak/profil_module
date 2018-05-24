@@ -21,8 +21,12 @@ const wrongEmails = ['somebody@', 'somebody@.', 'somebody@mail', 'somebodymail.c
 const wrongPasswords = ['aaaaaa', 'aaaa@', '@@@@###', 'AAAAAA', 'AAAdfsdd', 'AAA1234', 'gdfdf1234', 'sd'];
 
 describe('<Login /> shallow rendering', () => {
-    
-    const login = shallow(<Login />); 
+    const props = {
+        formSubmit: jest.fn()
+    };
+    const login = shallow(<Login {...props} />); 
+
+    Login.prototype.constructor();
     
 	it('Contain one H1 element ', () => {
 		expect(login.find('h1').length).toBe(1);
@@ -51,6 +55,41 @@ describe('<Login /> shallow rendering', () => {
             const password = updateInput(login, '[data-testid="password"]', wrongPasswords[index]);
             expect(login.state().passwordValid).toBe(false);
         }
+    }); 
+
+    it('Password change calls validation functions', () => {
+        jest.spyOn(Login.prototype, 'handleBlur'); 
+        jest.spyOn(Login.prototype, 'handleUserPassword'); 
+        
+        const input = login.find('[data-testid="password"]');
+        input.simulate('change', {
+            target: {value: 'abAB12'}
+        });
+        expect(Login.prototype.handleBlur.call.length).toBe(1);
+        expect(Login.prototype.handleUserPassword.call.length).toBe(1);
+    }); 
+
+    it('Email change calls validation functions', () => {
+        jest.spyOn(Login.prototype, 'handleBlur'); 
+        jest.spyOn(Login.prototype, 'handleUserEmail'); 
+        
+        const input = login.find('[data-testid="email"]');
+        input.simulate('change', {
+            target: {value: 'abAB12'}
+        });
+        expect(Login.prototype.handleBlur.call.length).toBe(1);
+        expect(Login.prototype.handleUserEmail.call.length).toBe(1);
+        // console.log(Login.prototype.handleUserEmail);
+    }); 
+
+    it('Password is called without errors', () => {
+        jest.spyOn(Login.prototype, 'handleUserPassword'); 
+        
+        const input = login.find('[data-testid="password"]');
+        input.simulate('change', {
+            target: {value: 'abAB12'}
+        });
+        // expect(Login.prototype.handleUserPassword).toHaveBeenCalledWith('abAB12');
     }); 
     
     it('Error message ', () => {

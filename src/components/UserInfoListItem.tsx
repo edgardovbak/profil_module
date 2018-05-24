@@ -19,7 +19,11 @@ class UserInfoListItem extends React.Component<any, any> {
 				break;
 
 			case 2:
-				userValue = this.props.value;
+				userValue = (
+					<select>
+						<option selected={true} value={this.props.value}>{this.props.value}</option> 
+					</select>
+				);
 				break;
 		
 			default:
@@ -28,10 +32,10 @@ class UserInfoListItem extends React.Component<any, any> {
 
 		return (
 			<div className="user__global_info__list__item">
-				<div>
+				<div className="user__global_info__list__item--name">
 					{this.props.name} :
 				</div>
-				<div>
+				<div className="user__global_info__list__item--value">
 					{userValue}
 				</div>
 			</div>

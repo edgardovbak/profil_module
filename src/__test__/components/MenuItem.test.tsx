@@ -15,5 +15,31 @@ describe('<MenuItem /> shallow rendering', () => {
 	it('Match to snapshot', () => {
 		expect(toJson(menuItem)).toMatchSnapshot();
     });
+
+    it('Menu item have a name', () => {
+		expect(menuItem.find('.sn_sidebar__menu__item__name').text()).toBe('home');
+    });
+
+    it('Menu item have a icon', () => {
+        let haveIcon;
+        menuItem.find('.sn_sidebar__menu__item__icon i').filterWhere((item) => {
+            haveIcon = item.hasClass('fi ');
+            return item.hasClass('fi ');
+        });
+        expect(haveIcon).toBe(true);
+    });
+
+    it('Click event', () => {
+        expect(menuItem.state().isClicked).toBe(false);
+        menuItem.simulate('click');
+        expect(menuItem.state().isClicked).toBe(true);
+    });
+
+    it('Test path in href attribute', () => {
+        const menuItem1 = shallow(<MenuItem pathTo="/home" name="home" icon="fi "/>);
+        expect(menuItem1.state().path).toBe('/home');
+        const menuItem2 = shallow(<MenuItem pathTo={null} name="home" icon="fi "/>);
+        expect(menuItem2.state().path).toBe('/');
+    });
 });
  

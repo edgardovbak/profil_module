@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
+<div
+  className="no_mathc"
+>
+  <h1>
+    404
+  </h1>
+  <p>
+    Not found
+  </p>
+  <Link
+    replace={false}
+    to="/"
+  >
+    Back to home
+  </Link>
+</div>
+`;

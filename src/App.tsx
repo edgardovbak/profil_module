@@ -6,9 +6,9 @@ import {
   Switch,
   withRouter,
 }                                           from 'react-router-dom';
-import { Actions, Reducers }                from '@sensenet/redux';
+import { Actions }                from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
-import './App.css';
+// import './App.css';
 import './App.scss';
 import Body                                 from './components/Body';
 import { Login }                            from './components/Login';
@@ -24,15 +24,10 @@ export interface AppProps {
 class App extends React.Component<AppProps, any> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            user : {},
-            loginState: false,
-        },
-
-        this.formSubmit = this.formSubmit.bind(this);
+        this.formSubmitHandler = this.formSubmitHandler.bind(this);
     }
 
-    formSubmit(e: Event, email: string, password: string) {
+    formSubmitHandler = (e: Event, email: string, password: string) => {
         this.props.login(email, password);
     }
 
@@ -49,7 +44,7 @@ class App extends React.Component<AppProps, any> {
                     path="/login"   
                     render={routerProps => { 
                         return status ?
-                                <Login formSubmit={this.formSubmit} />
+                                <Login formSubmit={this.formSubmitHandler} />
                             :   <Redirect key="dashboard" to="/" />;
                     }} 
                 />
@@ -67,9 +62,9 @@ class App extends React.Component<AppProps, any> {
   } 
 }
 
-const mapStateToProps = (state: any, match: any) => {
+export const mapStateToProps = (state: any, match: any) => {
     return {
-        loginState:     Reducers.getAuthenticationStatus(state.sensenet),
+        loginState:     state.sensenet.session.loginState,
         userName :      state.sensenet.session.user.userName,
     };
 };
@@ -77,7 +72,6 @@ const mapStateToProps = (state: any, match: any) => {
 export default withRouter(connect(
     mapStateToProps,
     (dispatch) => ({
-        // new added action
         login:          (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
     })
 )(App as any));

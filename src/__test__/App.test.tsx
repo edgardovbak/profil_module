@@ -1,5 +1,6 @@
 jest.unmock('../index.tsx');
 jest.unmock('redux-mock-store');
+jest.unmock('../App');
 
 import * as React 							from 'react';
 import App 									from '../App';
@@ -16,6 +17,7 @@ import {
 import { LoginState, Repository } 			from '@sensenet/client-core';
 import { Actions, Reducers }                from '@sensenet/redux';
 import { JwtService } 						from '@sensenet/authentication-jwt';
+import { mapStateToProps } 					from '../App';
 
 configure( {adapter: new Adapter()} );
 
@@ -36,9 +38,13 @@ describe('<App /> shallow rendering', () => {
 				}
 			}
 		});
+		const props = {
+			loginState:     'Unauthenticated',
+			userName :      'Visitor'
+		};
         app = shallow(
 			<Router>
-				<App store={store}/>
+				<App store={store} {...props}/>
 			</Router>);
 	}); 
 
@@ -55,23 +61,28 @@ describe('<App /> shallow rendering', () => {
 		const userlogin = Actions.userLogin('Builti/TestUser4', 'TestUser4123');
 		const actionType = userlogin.type;
 		expect(actionType).toBe('USER_LOGIN');
-
-		context('Given repository.authentication.login() resolves', () => {
-			let data;
-			beforeEach(async () => {
-				data = await Actions.userLogin('alba', 'alba').payload(repository);
-			});
-			it('should return a USER_LOGIN action', () => {
-				expect(Actions.userLogin('alba', 'alba')).to.have.property(
-					'type', 'USER_LOGIN',
-				);
-			});
-			it('should return mockdata', () => {
-				// tslint:disable-next-line:no-unused-expression
-				expect(data).to.be.false;
-			});
-		});
 	});
+
+	it('should return a USER_LOGIN action', () => {
+		let data = Actions.userLogin('alba', 'alba').payload(repository);
+		expect(Actions.userLogin('alba', 'alba')).toHaveProperty(
+			'type', 'USER_LOGIN',
+		);
+	});
+
+	it('User name from store is the same as in props', () => {
+		// console.log(app.props());
+		// expect(app.props().userName).toBe('Visitor');
+	});
+
+	it('Spy on form submit function', () => {
+		// const instance = app.instance();
+		// console.log(instance.props());
+		// instance.formSubmitHandler();
+		
+	});
+	
+});
 
 	// it('On button click change h1 text', () => {
 	// 	const button = app.find('button');
@@ -101,4 +112,3 @@ describe('<App /> shallow rendering', () => {
 	// 	jest.spyOn(App.prototype, 'componentDidMount');
 	// 	expect(App.prototype.componentDidMount.call.length).toBe(1);
 	// });
-});

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
+<div
+  className="sn_sidebar"
+>
+  <Logo />
+  <Connect(SidebarUser) />
+  <Connect(Menu) />
+</div>
+`;

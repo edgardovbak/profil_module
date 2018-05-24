@@ -1,16 +1,20 @@
 import * as React			from 'react';
 import Logo 				from './Logo';
 import Menu 				from './Menu';
-import User 				from './User';
+import SidebarUser 				from './SidebarUser';
 
-class Sidebar extends React.Component<any, {}> {
+interface Props {
+	openMenu: Function;
+}
+
+class Sidebar extends React.Component<Props, {}> {
 	
-	render () {
+	public render () {
 		
 		return (
 			<div className="sn_sidebar">
 				<Logo openMenu={this.props.openMenu} />
-				<User/>
+				<SidebarUser/>
 				<Menu />
 			</div>
 		);

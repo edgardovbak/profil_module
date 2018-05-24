@@ -24,6 +24,7 @@ exports[`<App /> shallow rendering Match to snapshot 1`] = `
   }
 >
   <withRouter(Connect(App))
+    loginState="Unauthenticated"
     store={
       Object {
         "clearActions": [Function],
@@ -34,6 +35,7 @@ exports[`<App /> shallow rendering Match to snapshot 1`] = `
         "subscribe": [Function],
       }
     }
+    userName="Visitor"
   />
 </Router>
 `;

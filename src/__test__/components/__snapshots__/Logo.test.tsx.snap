@@ -15,6 +15,7 @@ exports[`<Logo /> shallow rendering Match to snapshot 1`] = `
   </Link>
   <div
     className="sn_menu"
+    onClick={[Function]}
   >
     <span />
   </div>

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Skils /> shallow rendering Match to snapshot 1`] = `
+<ul
+  className="skils"
+>
+  <li
+    className="skils__item"
+    key="item1"
+  >
+    <span
+      className="btn_link"
+    >
+      item1
+    </span>
+  </li>
+  <li
+    className="skils__item"
+    key="item2"
+  >
+    <span
+      className="btn_link"
+    >
+      item2
+    </span>
+  </li>
+  <li
+    className="skils__item"
+    key="item3"
+  >
+    <span
+      className="btn_link"
+    >
+      item3
+    </span>
+  </li>
+  <li
+    className="skils__item"
+    key="item4"
+  >
+    <span
+      className="btn_link"
+    >
+      item4
+    </span>
+  </li>
+</ul>
+`;

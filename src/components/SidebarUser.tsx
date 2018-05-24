@@ -10,7 +10,16 @@ interface Props {
 	fullName: string;
 }
 
-class User extends React.Component<Props, any> {
+class SidebarUser extends React.Component<Props, any> {
+	constructor(props: any) {
+        super(props);
+        this.state = {
+            usName : this.props.fullName,
+            usAvatar: '',
+        },
+
+        this.isEmpty = this.isEmpty.bind(this);
+    }
 
 	isEmpty(myObject: any) {
 		for (var key in myObject) {
@@ -23,18 +32,18 @@ class User extends React.Component<Props, any> {
 	
 	render () {
 
-		let usName = this.props.fullName;
-		let usAvatar = '';
 		if ( !this.isEmpty(this.props.user) && this.props.user.user.AvatarImageRef ) {
-			usName = this.props.user.user.FullName;
-			usAvatar = this.props.user.user.AvatarImageRef.Path;
+			this.setState({
+				usName: this.props.user.user.FullName,
+				usAvatar: this.props.user.user.AvatarImageRef.Path
+			});
 		} 
 		
 		return (
 			<Link to={'/user/:' + this.props.userName} >
 				<div className="sn_sidebar__user">
-				{ usAvatar !== '' ? 
-					(<img src={DATA.domain + usAvatar} alt={usName} className="sn_sidebar__user__avatar"/>)
+				{ this.state.usAvatar !== '' ? 
+					(<img src={DATA.domain + this.state.usAvatar} alt={this.state.usName} className="sn_sidebar__user__avatar"/>)
 				: 
 					(
 						<span className="sn_sidebar__user__avatar--default">
@@ -43,7 +52,7 @@ class User extends React.Component<Props, any> {
 					)
 				}
 					<div className="sn_sidebar__user__name">
-						{usName}
+						{this.state.usName}
 					</div>
 				</div>
 			</Link>
@@ -61,4 +70,4 @@ const mapStateToProps = (state: any) => {
 
 export default connect(
 	mapStateToProps
-)(User as any);
+)(SidebarUser as any);

@@ -28,6 +28,7 @@ export class Login extends React.Component<Props, State> {
         this.onSubmit               = this.onSubmit.bind(this);
         this.handleUserEmail        = this.handleUserEmail.bind(this);
         this.handleUserPassword     = this.handleUserPassword.bind(this);
+        this.handleBlur             = this.handleBlur.bind(this);
     }
     
     onSubmit = (e: any) => {
@@ -74,7 +75,7 @@ export class Login extends React.Component<Props, State> {
         }
     }
 
-    handleBlur = () => {
+    public handleBlur = () => {
         if (this.state.emailValid && this.state.passwordValid) {
             this.setState({
                 error: false

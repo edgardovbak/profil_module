@@ -7,22 +7,31 @@ interface Props {
 	icon: string;
 }
 
-class MenuItem extends React.Component<Props, {}> {
+interface State {
+	isClicked:  boolean;
+	path: string;
+}
+
+class MenuItem extends React.Component<Props, State> {
 
 	constructor(props: any) {
 		super(props);
-
+		this.state = {
+			isClicked: false,
+			path: !this.props.pathTo ? '/' : this.props.pathTo
+		};
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick () { 
-		console.log( this.props.name);
+	handleClick = () => { 
+		this.setState({
+			isClicked: true
+		});
 	}
 
 	render() {
-		let path = this.props.pathTo ? '/' : this.props.pathTo;
 		return (
-			<Link to={path} className="sn_sidebar__menu__item" onClick={this.handleClick}>
+			<Link to={this.state.path} className="sn_sidebar__menu__item" onClick={this.handleClick}>
 				<span className="sn_sidebar__menu__item__icon">
 					<i className={this.props.icon} />
 				</span>

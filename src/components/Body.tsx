@@ -32,6 +32,7 @@ class Body extends React.Component<any, any> {
 
     openMenu() {
         let menuState = !this.state.open;
+        
         this.setState({         
             open: menuState
           }); 
@@ -76,7 +77,7 @@ class Body extends React.Component<any, any> {
 		return (
                 <div className={this.state.open ? 'content_to_right open' : 'content_to_right'}>
                     <Header />
-                    <Sidebar openMenu={this.props.openMenu}/>
+                    <Sidebar openMenu={this.openMenu}/>
                     <div className="sn_overflow" onClick={this.props.openMenu} />
                     <main className="sn_main">
                         <div className="sn_wrapp">
