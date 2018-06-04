@@ -61,3 +61,4 @@ describe('<UserInfoListItem /> shallow rendering', () => {
 		expect(userinfolist4.find('.user__global_info__list__item--value').text()).toBe('');
 	});
 });
+ 

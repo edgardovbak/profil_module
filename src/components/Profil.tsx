@@ -37,7 +37,7 @@ class Profil extends React.Component<Props, State> {
         super(props);
         this.state = {
 			// detect when user info is downloaded
-			isDataFetched: false,
+			isDataFetched: true,
 			// get user name from url ( :UserName )
 			userName: this.props.match.params.user,
 			// edit action is forbidden
@@ -62,18 +62,20 @@ class Profil extends React.Component<Props, State> {
 					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path'],
 			expand : ['Actions', 'AvatarImageRef']
 		});
-		console.log(userGet);
         
         userGet.then( (result: any) => {
             this.setState({ 
-				isDataFetched: true,
+				isDataFetched: false,
 				user: result.value.d
 			});
 			// check if current user have permission to edit user
 			let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
-			this.setState({ 
-				isForbidden: editAction.Forbidden
-			});
+			console.log(result.value.d);
+			if ( editAction !== undefined) {
+				this.setState({ 
+					isForbidden: editAction.Forbidden
+				});
+			}
 			// if curent user its on own page then save info to state
 			if ( !this.state.isForbidden ) {
 				this.props.addToState(result.value.d);
@@ -106,9 +108,9 @@ class Profil extends React.Component<Props, State> {
 	render () {
 		
 		// if user is not updated then show loader
-		if ( !this.state.isDataFetched ) {
+		if ( this.state.isDataFetched ) {
 			return (<Loader/>);
-		} else {
+		} 
 			// phone number 
 			let PhoneNumber;
 			if ( !(this.state.user.Phone === '')) {
@@ -213,7 +215,6 @@ class Profil extends React.Component<Props, State> {
 				</div>
 			);
 		}
-	}
 }
 
 const mapStateToProps = (state: any, match: any) => {

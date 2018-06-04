@@ -28,16 +28,16 @@ class OtherUser extends React.Component<Props, Stats> {
         };
     }
 
-    componentDidMount  () {
+    public componentDidMount  () {
         let path = DATA.ims;
         const  options = {
             select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
             query: 'TypeIs:User',
         };
+        console.log(options);
         let users = this.props.getUsers(path, options);
 
         users.then( (result: any) => {
-            console.log(result);
             this.setState({
                 isDataFetched : true,
                 users: result.value.entities.entities
@@ -58,7 +58,7 @@ class OtherUser extends React.Component<Props, Stats> {
             (
                 <div key={key}>
                     Name: 
-                    <Link to={'/user/:' + usersList[key].Name} >
+                    <Link to={'/user/' + usersList[key].Name} >
                         {usersList[key].Name}
                     </Link>
                     <br/>

@@ -1,23 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Logo /> shallow rendering Match to snapshot 1`] = `
-<div
-  className="sn_sidebar__logo"
->
-  <Link
-    replace={false}
-    to="/"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
   >
-    <img
-      alt="site logo"
-      src="logo.png"
-    />
-  </Link>
-  <div
-    className="sn_menu"
-    onClick={[Function]}
-  >
-    <span />
-  </div>
-</div>
+    <Logo
+      openMenu={[Function]}
+    >
+      <div
+        className="sn_sidebar__logo"
+      >
+        <Link
+          replace={false}
+          to="/"
+        >
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <img
+              alt="site logo"
+              src="logo.png"
+            />
+          </a>
+        </Link>
+        <div
+          className="sn_menu"
+          onClick={[Function]}
+        >
+          <span />
+        </div>
+      </div>
+    </Logo>
+  </Router>
+</BrowserRouter>
 `;

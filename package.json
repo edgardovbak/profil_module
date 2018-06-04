@@ -89,15 +89,19 @@
     "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^7.0.1",
-    "typescript": "^2.7.2",
+    "typescript": "^2.8.3",
     "webpack": "^3.8.1"
   },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!<rootDir>/src/type",
+      "!src/type",
       "!<rootDir>/src/node_modules/",
-      "!<rootDir>/src/constants"
+      "!<rootDir>/src/constants",
+      "!src/index.tsx",
+      "!src/registerServiceWorker.ts",
+      "!__test__/__mocks__",
+      "!src/reducers/users.js"
     ],
     "collectCoverage": true,
     "coverageFormats": [

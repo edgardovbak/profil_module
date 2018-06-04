@@ -16,7 +16,7 @@
         "jsx-no-lambda": false,
         "jsx-no-multiline-js": false,
         "label-position": true,
-        "max-line-length": [ true, 220 ],
+        "max-line-length": [ true, 2220 ],
         "member-ordering": [
             true,
             "public-before-private",

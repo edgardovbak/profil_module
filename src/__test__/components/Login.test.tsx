@@ -98,45 +98,4 @@ describe('<Login /> shallow rendering', () => {
         expect(errorMsg.length).toBe(1);
         login.setState({ error: false });
     }); 
-
-    // it('Submits the form ', () => {
-    //     const loginf = mount(<Login />); 
-    //     jest.spyOn(loginf, 'onSubmit').mockImplementation(() => Promise.resolve({
-    //         data : 'Login user'
-    //     }));
-    //     updateInput(loginf, '[data-testid="email"]', 'edgar@gmail.com');
-    //     updateInput(loginf, '[data-testid="password"]', 'abAB12');
-    //     loginf.find('#submitLoginForm').simulate('click');
-        
-    //     expect(loginf.onSubmit).toBeCalledWith({username: 'edgar@gmail.com', password: 'abAB12'});
-    // }); 
-
-	// it('On button click change h1 text', () => {
-	// 	const button = wrapper.find('button');
-	// 	expect(wrapper.find('button').length).toBe(1);
-	// 	expect(wrapper.find('h1').text()).toBe('No');
-	// 	button.simulate('click');
-	// 	expect(wrapper.find('h1').text()).toBe('Yes');
-	// });
-
-	// it('On input element change text', () => {
-	// 	const input = wrapper.find('input');
-	// 	expect(wrapper.find('input').length).toBe(1);
-	// 	expect(wrapper.find('h2').text()).toBe('');
-	// 	input.simulate('change', {target: { value: 'Loldon'}});
-	// 	expect(wrapper.find('h2').text()).toBe('Loldon');
-	// });
-
-	// it('Update class name with setState', () => {
-	// 	expect(wrapper.find('.blue').length).toBe(1);
-	// 	expect(wrapper.find('.red').length).toBe(0);
-	// 	wrapper.setState({ mainColor: 'red' });
-	// 	expect(wrapper.find('.blue').length).toBe(0);
-	// 	expect(wrapper.find('.red').length).toBe(1);
-	// });
-
-	// it('calls ComponentDidMouint', () => {
-	// 	jest.spyOn(App.prototype, 'componentDidMount');
-	// 	expect(App.prototype.componentDidMount.call.length).toBe(1);
-	// });
 });

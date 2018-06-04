@@ -2,7 +2,7 @@ import * as React							from 'react';
 import { connect }              			from 'react-redux';
 import AvatarEditor 						from 'react-avatar-editor';
 import Loader 								from './Loader';
-import Dropzone 							from 'react-dropzone';
+// import Dropzone 							from 'react-dropzone';
 import 'cropperjs/dist/cropper.css';
 
 // save config 
@@ -66,11 +66,10 @@ class UserAvatar extends React.Component<Props, State> {
 		this.b64toBlob = 		this.b64toBlob.bind(this);
 		this.makeid = 			this.makeid.bind(this);
 		this.imageChange = 		this.imageChange.bind(this);
-		this.loadSuccess = 		this.loadSuccess.bind(this);
 	}
 
 	// generate random names
-	makeid = () => {
+	public makeid = () => {
 		let text = '';
 		let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 		for (let index = 0; index < 7; index++) {
@@ -80,7 +79,7 @@ class UserAvatar extends React.Component<Props, State> {
 	}
 
 	// convert base64 to file
-	b64toBlob = (b64Data: string = '', sliceSize?: number) => {
+	public b64toBlob = (b64Data: string = '', sliceSize?: number) => {
 		sliceSize = sliceSize || 512;
 		if ( b64Data !== null) {
 			let block = b64Data.split(';');
@@ -108,50 +107,45 @@ class UserAvatar extends React.Component<Props, State> {
 	}
 
 	// set image to gefault 
-	useDefaultImage() {
-		this.setState({ image: !this.props.user.AvatarImageRef ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.user.AvatarImageRef.Path });
-		// this.cropper.reset();
+	public useDefaultImage() {
+		this.setState({ image: !this.props.user ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.user.AvatarImageRef.Path });
 	}
 
 	// rotate image to right 
-	handleRotate = (e: any) => {
+	public handleRotate = (e: any) => {
 		this.setState({
 			rotate: parseFloat(e.target.value),
 		});
 	}
 
 	// set cropper to the references
-	setEditorRef = (editor: any) => {
+	public setEditorRef = (editor: any) => {
 		if (editor) {
 		   this.editor = editor;
 	   	}
 	}
 
 	// add image with dropp
-	handleDrop = (acceptedFiles: any) => {
+	public handleDrop = (acceptedFiles: any) => {
 		this.setState({ image: acceptedFiles[0] });
 	}
 
 	// get zoom value fron range
-	handleScale = (e: any) => {
+	public handleScale = (e: any) => {
 		const scale = parseFloat(e.target.value);
 		this.setState({ scale });
 	}
 
 	// detect all changes on image ( zoom, rotate )
-	imageChange = () => {
+	public imageChange = () => {
 		this.setState({ 
 			imageUpdates : {
 				isChanged: true,
 		}});
 	}	
 
-	imageReady = (e: any) => {
-		// console.log(this.editor.getImage().toDataURL());
-	}
-
 	// add nev image
-	handleNewImage = (e: any) => {
+	public handleNewImage = (e: any) => {
 		// this function is only fo fix bug with canvas 
 		// when image is uploaded from different domain
 
@@ -180,13 +174,8 @@ class UserAvatar extends React.Component<Props, State> {
 		};
 	}
 
-	// callback after editor is initialized and image is loaded
-	loadSuccess = (imgInfo: any) => {
-		console.log('Load success');
-	}
-
 	// save changes
-	handleSave = () => {
+	public handleSave = () => {
 		// is image is changed (add new, zoom, rotate)
 		if ( this.state.imageUpdates.isChanged) {
 			// convert to file
@@ -202,10 +191,9 @@ class UserAvatar extends React.Component<Props, State> {
 		}
 	}
 
-	render () {
+	public render () {
 		// if user is not updated then show loader
 		if ( !this.props.user ) {
-			console.log(!this.props.user.AvatarImageRef);
 			return (<Loader/>);
 		} else {
 			return (
@@ -213,12 +201,6 @@ class UserAvatar extends React.Component<Props, State> {
 					<div className="user__avatar--blocks">
 						<div>
 							<h2>Avatar Editor</h2>
-							<Dropzone
-								onDrop={this.handleDrop}
-								disableClick={true}
-								multiple={false}
-								style={{marginBottom: '35px' }}
-							>	
 								<div>
 									<AvatarEditor
 										ref={(ref: any) => this.setEditorRef(ref)}
@@ -229,13 +211,9 @@ class UserAvatar extends React.Component<Props, State> {
 										color={[0, 0, 0, 0.6]} // RGBA
 										rotate={this.state.rotate}
 										scale={this.state.scale}
-										onImageReady={this.imageReady}
-										onLoadSuccess={this.loadSuccess}
-										onDropFile={this.loadSuccess}
 										onImageChange={this.imageChange}
 									/>
 								</div>
-							</Dropzone>
 							<div>
 								<label htmlFor="newImage">New File:</label>
         						<input name="newImage" id="newImage" type="file" onChange={this.handleNewImage} />

@@ -2,22 +2,26 @@ jest.unmock('../index.tsx');
 jest.unmock('redux-mock-store');
 jest.unmock('../App');
 
-import * as React 							from 'react';
-import App 									from '../App';
+import * as React 								from 'react';
+import App 										from '../App';
 import { 
 	configure, 
 	shallow,
-	mount } 								from 'enzyme';
-import * as Adapter 						from 'enzyme-adapter-react-16';
-import toJson 				      			from 'enzyme-to-json';
-import * as createMockStore 				from 'redux-mock-store';
+	mount, 
+	render, 
+	ReactWrapper,
+	ShallowWrapper } 							from 'enzyme';
+import * as Adapter 							from 'enzyme-adapter-react-16';
+import toJson 				      				from 'enzyme-to-json';
+import * as createMockStore						from 'redux-mock-store';
 import {
     BrowserRouter as Router
-} 											from 'react-router-dom';
-import { LoginState, Repository } 			from '@sensenet/client-core';
-import { Actions, Reducers }                from '@sensenet/redux';
-import { JwtService } 						from '@sensenet/authentication-jwt';
-import { mapStateToProps } 					from '../App';
+} 												from 'react-router-dom';
+import { LoginState, Repository } 				from '@sensenet/client-core';
+import { Actions, Reducers }                	from '@sensenet/redux';
+import { JwtService } 							from '@sensenet/authentication-jwt';
+import { mapStateToProps } 						from '../App';
+import { Provider } 							from 'react-redux';
 
 configure( {adapter: new Adapter()} );
 
@@ -25,8 +29,8 @@ const repository = new Repository({ repositoryUrl: 'https://dmsservice.demo.sens
 const _jwtService = new JwtService(repository);
 
 describe('<App /> shallow rendering', () => {
-	let store, app;
-	const mockStore = createMockStore();
+	let store, app: Cheerio, appmount: ShallowWrapper<any, any>;
+	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
         store = mockStore({
 			sensenet: {
@@ -42,9 +46,17 @@ describe('<App /> shallow rendering', () => {
 			loginState:     'Unauthenticated',
 			userName :      'Visitor'
 		};
-        app = shallow(
+        app = render(
 			<Router>
-				<App store={store} {...props}/>
+				<Provider store={store}>
+					<App {...props}/>
+				</Provider>
+			</Router>);
+		appmount = shallow(
+			<Router>
+				<Provider store={store}>
+					<App {...props}/>
+				</Provider>
 			</Router>);
 	}); 
 
@@ -54,61 +66,19 @@ describe('<App /> shallow rendering', () => {
 	});
 
 	it('Match to snapshot', () => {
-		expect(toJson(app)).toMatchSnapshot();
-	});
-
-	it('Login state is false by default', () => {
-		const userlogin = Actions.userLogin('Builti/TestUser4', 'TestUser4123');
-		const actionType = userlogin.type;
-		expect(actionType).toBe('USER_LOGIN');
-	});
-
-	it('should return a USER_LOGIN action', () => {
-		let data = Actions.userLogin('alba', 'alba').payload(repository);
-		expect(Actions.userLogin('alba', 'alba')).toHaveProperty(
-			'type', 'USER_LOGIN',
-		);
+		expect(app).toMatchSnapshot();
 	});
 
 	it('User name from store is the same as in props', () => {
-		// console.log(app.props());
-		// expect(app.props().userName).toBe('Visitor');
+		expect(appmount.children().children().props().userName).toBe('Visitor');
 	});
 
-	it('Spy on form submit function', () => {
-		// const instance = app.instance();
-		// console.log(instance.props());
-		// instance.formSubmitHandler();
+	it('Spy on form submit function', async () => {
 		
+		const lol = appmount.children().children();
+		// console.log(toJson(lol.formSubmitHandler()));
+		// jest.spyOn(lol.prototype, 'formSubmitHandler'); 
+		// expect(App.prototype.formSubmitHandler).toHaveBeenCalledWith('abAB12');
 	});
 	
 });
-
-	// it('On button click change h1 text', () => {
-	// 	const button = app.find('button');
-	// 	expect(app.find('button').length).toBe(1);
-	// 	expect(app.find('h1').text()).toBe('No');
-	// 	button.simulate('click');
-	// 	expect(app.find('h1').text()).toBe('Yes');
-	// });
-
-	// it('On input element change text', () => {
-	// 	const input = app.find('input');
-	// 	expect(app.find('input').length).toBe(1);
-	// 	expect(app.find('h2').text()).toBe('');
-	// 	input.simulate('change', {target: { value: 'Loldon'}});
-	// 	expect(app.find('h2').text()).toBe('Loldon');
-	// });
-
-	// it('Update class name with setState', () => {
-	// 	expect(app.find('.blue').length).toBe(1);
-	// 	expect(app.find('.red').length).toBe(0);
-	// 	app.setState({ mainColor: 'red' });
-	// 	expect(app.find('.blue').length).toBe(0);
-	// 	expect(app.find('.red').length).toBe(1);
-	// });
-
-	// it('calls ComponentDidMouint', () => {
-	// 	jest.spyOn(App.prototype, 'componentDidMount');
-	// 	expect(App.prototype.componentDidMount.call.length).toBe(1);
-	// });

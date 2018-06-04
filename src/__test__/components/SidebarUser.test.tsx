@@ -28,7 +28,7 @@ describe('<SidebarUser /> shallow rendering', () => {
 		select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
 		query: 'TypeIs:User',
 	};
-	const mockStore = createMockStore();
+	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
         store = mockStore({
 			sensenet: {
@@ -76,7 +76,7 @@ describe('<SidebarUser /> shallow rendering', () => {
 		select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
 		query: 'TypeIs:User',
 	};
-	const mockStore = createMockStore();
+	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
         store = mockStore({
             sensenet: {
@@ -94,9 +94,14 @@ describe('<SidebarUser /> shallow rendering', () => {
         sidebaruser = shallow(<SidebarUser store={store}/> );  
     }); 
 	
-	// test Snapshot 
-	it('Match to snapshot', () => {
-		expect(sidebaruser.isEmpty()).toBe(false);
+    // test Snapshot 
+    it('Match to snapshot', () => {
+		expect(sidebaruser).toMatchSnapshot();
+    });
+    
+	it('Test function', () => {
+        expect(sidebaruser.isEmpty({})).toBe(false);
+        expect(sidebaruser.isEmpty({ user: 'one'})).toBe(false);
     });
 });
  

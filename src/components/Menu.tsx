@@ -1,52 +1,51 @@
-import * as React				from 'react';
-import MenuItem 				from './MenuItem';
+import * as React				            from 'react';
+import MenuItem 				            from './MenuItem';
 import { connect }                          from 'react-redux';
 import { Actions
 }                                           from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
-
+import { IODataParams }                     from '@sensenet/client-core/dist/Models/IODataParams';
 const DATA = require('../config.json');
 const fontImportantClass = ' fi ';
 
-class Menu extends React.Component<any, any> {
+interface Props {
+    userLoginState: string;
+    getMenuItems: Function;
+}
+
+class Menu extends React.Component<Props, any> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			menuName : ['All users', 'Login'],
-			menuIcon : ['fi flaticon-lightbulb-idea', 'fi flaticon-family-tree', 
-						'fi flaticon-partners', 'fi flaticon-calendar', 'fi flaticon-discussion', 'fi flaticon-people', 
-						'fi flaticon-folded-newspaper', 'fi flaticon-book'],
 			menuItems: null,
-			isDataFetched: false
+            isDataFetched: false,
+            status: this.props.userLoginState !== LoginState.Authenticated
 		};
 	}
 
-	componentDidMount  () {
+	public componentDidMount  () {
         let path = DATA.menu;
         const  options = {
             select : ['Name', 'IconName', 'Id', 'Path', 'DisplayName']
-        };
-        let users = this.props.getMenuItems(path, options);
+        } as IODataParams<any>;
+        let menuItems = this.props.getMenuItems(path, options);
 
-        users.then( (result: any) => {
-            console.log(result.value.entities.entities);
+        menuItems.then( (result: any) => {
             this.setState({
                 isDataFetched : true,
                 menuItems: result.value.entities.entities
             });
         });
 
-        users.catch((err: any) => {
+        menuItems.catch((err: any) => {
             console.log(err);
         });
     }
 
-	render () {
+	public render () {
 		if ( !this.state.isDataFetched ) {
             return null;
 		}
-        const status = this.props.userLoginState !== LoginState.Authenticated;
-        console.log(status);
         let menuItems = this.state.menuItems;
         const menu = Object.keys(menuItems).map( (key: any) => 
             (
@@ -55,11 +54,11 @@ class Menu extends React.Component<any, any> {
         );
 		return (
 			<div className="sn_sidebar__menu">
-				{status ? '' : 
-					<MenuItem name={this.state.menuName[0]} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/otherUser"/>
+				{this.state.status ? '' : 
+					<MenuItem name={'All users'} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/otherUser"/>
 				}
-				{status ? '' : menu}
-				<MenuItem name={this.state.menuName[1]} icon={this.state.menuIcon[1]} pathTo="/login"/>
+				{this.state.status ? '' : menu}
+				<MenuItem name={'Login'} icon={fontImportantClass + 'flaticon-folded-newspaper'} pathTo="/login"/>
 			</div>
 		);
 	}

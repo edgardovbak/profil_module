@@ -23,3 +23,4 @@ describe('<Skils /> shallow rendering', () => {
 	});
 		
 });
+ 

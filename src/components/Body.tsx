@@ -10,12 +10,12 @@ import {
 }                                           from 'react-router-dom';
 import { LoginState }                       from '@sensenet/client-core';
 import { Actions }                			from '@sensenet/redux';
-import { PathHelper }                       from '@sensenet/client-utils';
+// import { PathHelper }                       from '@sensenet/client-utils';
 import OtherUser                            from './OtherUser';
 import Profil                               from './Profil';
 import EditProfil                           from './EditProfil';
 
-const DATA = require('../config.json');
+// const DATA = require('../config.json');
 
 class Body extends React.Component<any, any> {
 
@@ -23,46 +23,45 @@ class Body extends React.Component<any, any> {
         super(props);
         this.state = {
             open : false,
-            isDataFetched: false,
-            articles: {}
+            isDataFetched: true,
+            articles: {},
+            status: this.props.userLoginState !== LoginState.Authenticated
         },
 
         this.openMenu = this.openMenu.bind(this);
     }
 
-    openMenu() {
+    public openMenu = () => {
         let menuState = !this.state.open;
         
         this.setState({         
             open: menuState
-          }); 
-    } 
+        }); 
+    }
 
-    componentDidMount  () {
-        let path = PathHelper.joinPaths(DATA.home);
-		// get the current user info
-		let userGet = this.props.getHomeContent(path, {
-            query: 'TypeIs:KnowledgeBaseArticle_v_2',
-		});
-		console.log(userGet);
+    // componentDidMount  () {
+    //     let path = PathHelper.joinPaths(DATA.home);
+	// 	// get the current user info
+	// 	let userGet = this.props.getHomeContent(path, {
+    //         query: 'TypeIs:KnowledgeBaseArticle_v_2',
+	// 	});
         
-        userGet.then( (result: any) => {
-				this.setState({ 
-                    isDataFetched : true,
-					articles: result.value.entities.entities
-				});
-        });
+    //     userGet.then( (result: any) => {
+	// 			this.setState({ 
+    //                 isDataFetched : true,
+	// 				articles: result.value.entities.entities
+	// 			});
+    //     });
 
-        userGet.catch((err: any) => {
-            console.log(err);
-		});
-	}
+    //     userGet.catch((err: any) => {
+    //         console.log(err);
+	// 	});
+	// }
 
-    render() {
-        if ( !this.state.isDataFetched ) {
-            return null;
-		}
-        const status = this.props.userLoginState !== LoginState.Authenticated;
+    public render() {
+        // if ( !this.state.isDataFetched ) {
+        //     return null;
+		// }
         
         // let homePageItems = this.state.articles;
         // const homePage = Object.keys(homePageItems).map( (key: any) => 
@@ -88,7 +87,7 @@ class Body extends React.Component<any, any> {
                                     exact={true}
                                     path="/otherUser"  
                                     render={(routerProps) => {
-                                        return status ?
+                                        return this.state.status ?
                                         <Redirect key="login" to="/login" />
                                         : <OtherUser {...routerProps} />;
                                     }} 
@@ -97,7 +96,7 @@ class Body extends React.Component<any, any> {
                                     exact={true}
                                     path="/user/:user"
                                     render={(routerProps) => {
-                                        return status ?
+                                        return this.state.status ?
                                         <Redirect key="login" to="/login" />
                                         : <Profil {...routerProps} />;
                                     }} 
@@ -107,7 +106,7 @@ class Body extends React.Component<any, any> {
                                     exact={true}
                                     path="/editUser"  
                                     render={(routerProps) => {
-                                        return status ?
+                                        return this.state.status ?
                                         <Redirect key="login" to="/login" />
                                         : <EditProfil {...routerProps} />;
                                     }} 

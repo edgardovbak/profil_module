@@ -1,41 +1,3388 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> shallow rendering Match to snapshot 1`] = `
-<Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
-      },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
->
-  <withRouter(Connect(App))
-    loginState="Unauthenticated"
-    store={
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
       Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      }
-    }
-    userName="Visitor"
-  />
-</Router>
+        "attribs": Object {
+          "class": "content_to_right",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "sn_header",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "sn_wrapp",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "sn_header__search",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "type": "text",
+                        },
+                        "children": Array [],
+                        "name": "input",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {},
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "fi flaticon-magnifier",
+                              },
+                              "children": Array [],
+                              "name": "i",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "button",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "type": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "type": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {},
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "class": "fi flaticon-magnifier",
+                            },
+                            "children": Array [],
+                            "name": "i",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "type": "text",
+                          },
+                          "children": Array [],
+                          "name": "input",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "type": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "type": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "header",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "sn_sidebar",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "sn_sidebar__logo",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "/",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "alt": "site logo",
+                            "src": "logo.png",
+                          },
+                          "children": Array [],
+                          "name": "img",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "class": "sn_menu",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
+                    },
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_menu",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {},
+                          "children": Array [],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "href": "/",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "alt": "site logo",
+                              "src": "logo.png",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "href": "/user/:Visitor",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_sidebar__user",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__avatar--default",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-user",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__name",
+                              },
+                              "children": Array [],
+                              "name": "div",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__name",
+                            },
+                            "children": Array [],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__avatar--default",
+                              },
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "class": "fi flaticon-user",
+                                  },
+                                  "children": Array [],
+                                  "name": "i",
+                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "class": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "class": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "a",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "href": "/user/:Visitor",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_sidebar__user",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__avatar--default",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "fi flaticon-user",
+                              },
+                              "children": Array [],
+                              "name": "i",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__name",
+                            },
+                            "children": Array [],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__name",
+                          },
+                          "children": Array [],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__avatar--default",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-user",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "a",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "sn_sidebar__logo",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "href": "/",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "alt": "site logo",
+                              "src": "logo.png",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "class": "sn_menu",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {},
+                              "children": Array [],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {},
+                              "x-attribsPrefix": Object {},
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_menu",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "href": "/",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "alt": "site logo",
+                                "src": "logo.png",
+                              },
+                              "children": Array [],
+                              "name": "img",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                            },
+                          ],
+                          "name": "a",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "href": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "href": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "href": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "href": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "sn_overflow",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "sn_main",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_wrapp",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "main",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "sn_sidebar",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "sn_sidebar__logo",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "href": "/",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "alt": "site logo",
+                          "src": "logo.png",
+                        },
+                        "children": Array [],
+                        "name": "img",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "alt": undefined,
+                          "src": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "alt": undefined,
+                          "src": undefined,
+                        },
+                      },
+                    ],
+                    "name": "a",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "sn_menu",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {},
+                          "children": Array [],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "sn_menu",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {},
+                        "children": Array [],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "href": "/",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "alt": "site logo",
+                            "src": "logo.png",
+                          },
+                          "children": Array [],
+                          "name": "img",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "href": "/user/:Visitor",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_sidebar__user",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__avatar--default",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "fi flaticon-user",
+                              },
+                              "children": Array [],
+                              "name": "i",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__name",
+                            },
+                            "children": Array [],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__name",
+                          },
+                          "children": Array [],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__avatar--default",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-user",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "a",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "href": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "href": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "href": "/user/:Visitor",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "sn_sidebar__user",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_sidebar__user__avatar--default",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "class": "fi flaticon-user",
+                            },
+                            "children": Array [],
+                            "name": "i",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__name",
+                          },
+                          "children": Array [],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_sidebar__user__name",
+                        },
+                        "children": Array [],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__avatar--default",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "fi flaticon-user",
+                              },
+                              "children": Array [],
+                              "name": "i",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "a",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "sn_sidebar__logo",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "/",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "alt": "site logo",
+                            "src": "logo.png",
+                          },
+                          "children": Array [],
+                          "name": "img",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "class": "sn_menu",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
+                    },
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_menu",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {},
+                          "children": Array [],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "href": "/",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "alt": "site logo",
+                              "src": "logo.png",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "href": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "href": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "sn_overflow",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "sn_main",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "sn_wrapp",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "main",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "sn_header",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "sn_wrapp",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_header__search",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "type": "text",
+                          },
+                          "children": Array [],
+                          "name": "input",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Object {
+                            "attribs": Object {},
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-magnifier",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "button",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "type": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "type": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {},
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "fi flaticon-magnifier",
+                              },
+                              "children": Array [],
+                              "name": "i",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "button",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "type": "text",
+                            },
+                            "children": Array [],
+                            "name": "input",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "type": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "type": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "header",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "sn_overflow",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "sn_main",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "sn_wrapp",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "main",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "sn_sidebar",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "sn_sidebar__logo",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "/",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "alt": "site logo",
+                            "src": "logo.png",
+                          },
+                          "children": Array [],
+                          "name": "img",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "alt": undefined,
+                            "src": undefined,
+                          },
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "class": "sn_menu",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
+                    },
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_menu",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {},
+                          "children": Array [],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "href": "/",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "alt": "site logo",
+                              "src": "logo.png",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "href": "/user/:Visitor",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_sidebar__user",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__avatar--default",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-user",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__name",
+                              },
+                              "children": Array [],
+                              "name": "div",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__name",
+                            },
+                            "children": Array [],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__avatar--default",
+                              },
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "class": "fi flaticon-user",
+                                  },
+                                  "children": Array [],
+                                  "name": "i",
+                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "class": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "class": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "a",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "href": "/user/:Visitor",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_sidebar__user",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__avatar--default",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "fi flaticon-user",
+                              },
+                              "children": Array [],
+                              "name": "i",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__name",
+                            },
+                            "children": Array [],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user__name",
+                          },
+                          "children": Array [],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__avatar--default",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-user",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "a",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "sn_sidebar__logo",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "href": "/",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "alt": "site logo",
+                              "src": "logo.png",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "class": "sn_menu",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {},
+                              "children": Array [],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {},
+                              "x-attribsPrefix": Object {},
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_menu",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "href": "/",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "alt": "site logo",
+                                "src": "logo.png",
+                              },
+                              "children": Array [],
+                              "name": "img",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                            },
+                          ],
+                          "name": "a",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "href": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "href": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "href": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "href": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "sn_header",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "sn_wrapp",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_header__search",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "type": "text",
+                            },
+                            "children": Array [],
+                            "name": "input",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": Object {
+                              "attribs": Object {},
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "class": "fi flaticon-magnifier",
+                                  },
+                                  "children": Array [],
+                                  "name": "i",
+                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "class": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "class": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "button",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {},
+                              "x-attribsPrefix": Object {},
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "type": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "type": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-magnifier",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "button",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "type": "text",
+                              },
+                              "children": Array [],
+                              "name": "input",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "type": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "type": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "header",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "sn_main",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "sn_wrapp",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "main",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "sn_overflow",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "sn_sidebar",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "sn_sidebar__logo",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "href": "/",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "alt": "site logo",
+                              "src": "logo.png",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "src": undefined,
+                            },
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "class": "sn_menu",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {},
+                              "children": Array [],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {},
+                              "x-attribsPrefix": Object {},
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_menu",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "href": "/",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "alt": "site logo",
+                                "src": "logo.png",
+                              },
+                              "children": Array [],
+                              "name": "img",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                            },
+                          ],
+                          "name": "a",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "href": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "href": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "href": "/user/:Visitor",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_sidebar__user",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__avatar--default",
+                              },
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "class": "fi flaticon-user",
+                                  },
+                                  "children": Array [],
+                                  "name": "i",
+                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "class": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "class": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": Object {
+                                "attribs": Object {
+                                  "class": "sn_sidebar__user__name",
+                                },
+                                "children": Array [],
+                                "name": "div",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": [Circular],
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__name",
+                              },
+                              "children": Array [],
+                              "name": "div",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": Object {
+                                "attribs": Object {
+                                  "class": "sn_sidebar__user__avatar--default",
+                                },
+                                "children": Array [
+                                  Object {
+                                    "attribs": Object {
+                                      "class": "fi flaticon-user",
+                                    },
+                                    "children": Array [],
+                                    "name": "i",
+                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                    "next": null,
+                                    "parent": [Circular],
+                                    "prev": null,
+                                    "type": "tag",
+                                    "x-attribsNamespace": Object {
+                                      "class": undefined,
+                                    },
+                                    "x-attribsPrefix": Object {
+                                      "class": undefined,
+                                    },
+                                  },
+                                ],
+                                "name": "span",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": [Circular],
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "href": "/user/:Visitor",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "sn_sidebar__user",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__avatar--default",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "class": "fi flaticon-user",
+                                },
+                                "children": Array [],
+                                "name": "i",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "class": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "class": undefined,
+                                },
+                              },
+                            ],
+                            "name": "span",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__name",
+                              },
+                              "children": Array [],
+                              "name": "div",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "class": "sn_sidebar__user__name",
+                            },
+                            "children": Array [],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "class": "sn_sidebar__user__avatar--default",
+                              },
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "class": "fi flaticon-user",
+                                  },
+                                  "children": Array [],
+                                  "name": "i",
+                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "class": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "class": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "a",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "sn_sidebar__logo",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "href": "/",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "alt": "site logo",
+                                "src": "logo.png",
+                              },
+                              "children": Array [],
+                              "name": "img",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "alt": undefined,
+                                "src": undefined,
+                              },
+                            },
+                          ],
+                          "name": "a",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Object {
+                            "attribs": Object {
+                              "class": "sn_menu",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {},
+                                "children": Array [],
+                                "name": "span",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {},
+                                "x-attribsPrefix": Object {},
+                              },
+                            ],
+                            "name": "div",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "href": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "href": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_menu",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {},
+                              "children": Array [],
+                              "name": "span",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {},
+                              "x-attribsPrefix": Object {},
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "href": "/",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "alt": "site logo",
+                                  "src": "logo.png",
+                                },
+                                "children": Array [],
+                                "name": "img",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "alt": undefined,
+                                  "src": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "alt": undefined,
+                                  "src": undefined,
+                                },
+                              },
+                            ],
+                            "name": "a",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "href": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "href": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "sn_header",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "sn_wrapp",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "sn_header__search",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "type": "text",
+                              },
+                              "children": Array [],
+                              "name": "input",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": Object {
+                                "attribs": Object {},
+                                "children": Array [
+                                  Object {
+                                    "attribs": Object {
+                                      "class": "fi flaticon-magnifier",
+                                    },
+                                    "children": Array [],
+                                    "name": "i",
+                                    "namespace": "http://www.w3.org/1999/xhtml",
+                                    "next": null,
+                                    "parent": [Circular],
+                                    "prev": null,
+                                    "type": "tag",
+                                    "x-attribsNamespace": Object {
+                                      "class": undefined,
+                                    },
+                                    "x-attribsPrefix": Object {
+                                      "class": undefined,
+                                    },
+                                  },
+                                ],
+                                "name": "button",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": [Circular],
+                                "type": "tag",
+                                "x-attribsNamespace": Object {},
+                                "x-attribsPrefix": Object {},
+                              },
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "type": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "type": undefined,
+                              },
+                            },
+                            Object {
+                              "attribs": Object {},
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "class": "fi flaticon-magnifier",
+                                  },
+                                  "children": Array [],
+                                  "name": "i",
+                                  "namespace": "http://www.w3.org/1999/xhtml",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "class": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "class": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "button",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": Object {
+                                "attribs": Object {
+                                  "type": "text",
+                                },
+                                "children": Array [],
+                                "name": "input",
+                                "namespace": "http://www.w3.org/1999/xhtml",
+                                "next": [Circular],
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "type": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "type": undefined,
+                                },
+                              },
+                              "type": "tag",
+                              "x-attribsNamespace": Object {},
+                              "x-attribsPrefix": Object {},
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "header",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {},
+    "x-attribsPrefix": Object {},
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
 `;

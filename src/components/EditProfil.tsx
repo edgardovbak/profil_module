@@ -17,32 +17,7 @@ export interface Props {
 	user: 				any;
 }
 
-class EditProfil extends React.Component<Props, any> {
-
-	constructor(props: any) {
-		super(props);
-		this.state = {
-			imageIsChanged: ''
-		};
-
-		this.onUpdateImageChanges = this.onUpdateImageChanges.bind(this);
-	}
-
-	// get value about user avatar
-	// newImage : avatar is changed
-	onUpdateImageChanges = (val: any) => {
-		this.setState({
-			imageIsChanged: val
-		});
-	}
-
-	render () {
-		// if user is empty or not downloaded
-		if ( !this.props.user ) {
-			return (<Loader/>);
-
-		} else {
-			// *********************************************
+// *********************************************
 			// user info 
 			let FullNameInput: 			HTMLInputElement;
 			let JobTitleInput: 			HTMLInputElement;
@@ -56,65 +31,91 @@ class EditProfil extends React.Component<Props, any> {
 
 			let userUpdate: any;
 
-			const onSaveChanges = (e: any) => {
-				// if image was changed then 
-				if ( this.state.imageIsChanged.isChanged) {
-					// firs save picture in sn
-					let avatarUpdate = this.props.updateUserAvatar(DATA.avatar, this.state.imageIsChanged.newImage, 'Image');
-					// after picture is saved colect the modyfied fields 
-					avatarUpdate.then( (result: any) => {
-						console.log(result.value.Path);
-						// update user avatar fild
-						let userWithAvatar = {
-							// !important user id
-							Id: 			this.props.user.Id,
-							AvatarImageRef: result.value.Path
-						} as CSTUser;
-						// path to current user
-						let pathToUser = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
-						// update user info in sensenet
-						let updateUserSNResponse = this.props.updateUserSN(pathToUser, userWithAvatar);
-						updateUserSNResponse.then( (Updateresult: any) => {
-							// update user info in redux
-							this.props.saveChanges(userWithAvatar);
-						});
-					});
-			
-					avatarUpdate.catch((err: any) => {
-						console.log(err);
-					});
-				}
-				
-				// get all changed fields
-				let user = {
+class EditProfil extends React.Component<Props, any> {
+
+	constructor(props: any) {
+		super(props);
+		this.state = {
+			imageIsChanged: ''
+		};
+
+		this.onUpdateImageChanges = this.onUpdateImageChanges.bind(this);
+		this.onSaveChanges = 		this.onSaveChanges.bind(this);
+	}
+
+	// get value about user avatar
+	// newImage : avatar is changed
+	onUpdateImageChanges = (val: any) => {
+		this.setState({
+			imageIsChanged: val
+		});
+	}
+
+	onSaveChanges = (e: any) => {
+		// if image was changed then 
+		if ( this.state.imageIsChanged.isChanged) {
+			// firs save picture in sn
+			let avatarUpdate = this.props.updateUserAvatar(DATA.avatar, this.state.imageIsChanged.newImage, 'Image');
+			// after picture is saved colect the modyfied fields 
+			avatarUpdate.then( (result: any) => {
+				console.log(result.value.Path);
+				// update user avatar fild
+				let userWithAvatar = {
 					// !important user id
 					Id: 			this.props.user.Id,
-					FullName: 		FullNameInput.value,
-					JobTitle: 		JobTitleInput.value,
-					Email: 			EmailInput.value,
-					Languages: 		LanguagesInput.value,
-					Phone: 			PhoneInput.value,
-					BirthDate: 		BirthDateInput.value,
-					Education: 		EducationInput.value,
-					Description: 	DescriptionInput.value,
-					
+					AvatarImageRef: result.value.Path
 				} as CSTUser;
-
-				// and update user info in sensenet app
-				let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
-				userUpdate = this.props.updateUserSN(path, user);
-				
-				userUpdate.then( (Updateresult: any) => {
-					// if update in sn is soccess then save changes in redux
-					this.props.saveChanges(user);
+				// path to current user
+				let pathToUser = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
+				// update user info in sensenet
+				let updateUserSNResponse = this.props.updateUserSN(pathToUser, userWithAvatar);
+				updateUserSNResponse.then( (Updateresult: any) => {
+					// update user info in redux
+					this.props.saveChanges(userWithAvatar);
 				});
+			});
+	
+			avatarUpdate.catch((err: any) => {
+				console.log(err);
+			});
+		}
 		
-				userUpdate.catch((err: any) => {
-					// else show error
-					console.log(err);
-				});
-				
-			};
+		// get all changed fields
+		let user = {
+			// !important user id
+			Id: 			this.props.user.Id,
+			FullName: 		FullNameInput.value,
+			JobTitle: 		JobTitleInput.value,
+			Email: 			EmailInput.value,
+			Languages: 		LanguagesInput.value,
+			Phone: 			PhoneInput.value,
+			BirthDate: 		BirthDateInput.value,
+			Education: 		EducationInput.value,
+			Description: 	DescriptionInput.value,
+			
+		} as CSTUser;
+
+		// and update user info in sensenet app
+		let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
+		userUpdate = this.props.updateUserSN(path, user);
+		
+		userUpdate.then( (Updateresult: any) => {
+			// if update in sn is soccess then save changes in redux
+			this.props.saveChanges(user);
+		});
+
+		userUpdate.catch((err: any) => {
+			// else show error
+			console.log(err);
+		});
+		
+	}
+
+	render () {
+		// if user is empty or not downloaded
+		if ( !this.props.user ) {
+			return (<Loader/>);
+		} else {
 
 			return (
 				
@@ -212,7 +213,7 @@ class EditProfil extends React.Component<Props, any> {
 						<textarea id="userAbout" ref={(input) => {DescriptionInput = input as HTMLTextAreaElement; }} defaultValue={this.props.user.Description} />
 					</fieldset>
 					
-					<Link to={'user/:' + this.props.user.Name} className="sn_btn" onClick={e => { onSaveChanges(e); }}>
+					<Link to={'user/:' + this.props.user.Name} className="sn_btn" onClick={e => { this.onSaveChanges(e); }}>
 						Save Changes
 					</Link>
 				</div>

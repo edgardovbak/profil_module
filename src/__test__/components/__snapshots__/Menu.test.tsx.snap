@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> shallow rendering with user data Match to snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Menu)>
+    <Menu
+      getMenuItems={[Function]}
+      userLoginState="Authorized"
+    />
+  </Connect(Menu)>
+</Provider>
+`;

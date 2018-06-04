@@ -22,12 +22,12 @@ export interface AppProps {
 }
 
 class App extends React.Component<AppProps, any> {
-    constructor(props: any) {
+    constructor(props: AppProps) {
         super(props);
         this.formSubmitHandler = this.formSubmitHandler.bind(this);
     }
 
-    formSubmitHandler = (e: Event, email: string, password: string) => {
+    public formSubmitHandler = (e: Event, email: string, password: string) => {
         this.props.login(email, password);
     }
 
@@ -55,7 +55,6 @@ class App extends React.Component<AppProps, any> {
                         return (<Body {...routerProps} />);
                     }} 
                 />   
-                
             </Switch> 
         </div>
     );

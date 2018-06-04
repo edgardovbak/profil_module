@@ -23,6 +23,19 @@ exports[`<Body /> shallow rendering Match to snapshot 1`] = `
     }
   }
 >
-  <withRouter(Connect(Body)) />
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <withRouter(Connect(Body)) />
+  </Provider>
 </Router>
 `;
