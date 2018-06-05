@@ -3,7 +3,7 @@ jest.unmock('redux-mock-store');
 jest.unmock('../../components/Profil');
 
 import * as React 								from 'react';
-import Profil 									from '../../components/Profil';
+import Profil, { ProfilComponent } 				from '../../components/Profil';
 import { 
 	configure, 
 	shallow,
@@ -57,12 +57,11 @@ const contentMockResponse = {
 	},
 } as Response;
 
-describe('<Profil /> shallow rendering', () => {
+describe('<Profil /> rendering', () => {
 	let store, storewithUser,
 		profilRender: Cheerio, 
-		profilShallowWithUser: ShallowWrapper<any, any>,
 		profilShallow: ShallowWrapper<any, any>,
-		profilMountwWithUser: ReactWrapper<any, any>,
+		profilWithUserMount: ReactWrapper<any, any>,
 		profilMount: ReactWrapper<any, any>;
 	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
@@ -88,7 +87,7 @@ describe('<Profil /> shallow rendering', () => {
 				}
             },
             user: {
-				Phone: '2131231212',
+				Phone: '',
 				FullName: 'loldon freeman',
 				AvatarImageRef: '',
 				JobTitle: 'job',
@@ -100,7 +99,13 @@ describe('<Profil /> shallow rendering', () => {
 				Languages: 'asdasdasd',
 				Education: 'asdasdasd',
 				BirthDate: '123123',
-				Description: 'adas dasd asf asf '
+				Description: 'adas dasd asf asf ',
+				Actions: [
+					{Nmae: 'Delete'},
+					{Nmae: 'NotDelete'},
+					{Nmae: 'AlmostDelete'},
+					{Nmae: 'Edit'}
+				]
 			}
 		});
 		const props = {
@@ -115,19 +120,20 @@ describe('<Profil /> shallow rendering', () => {
         profilRender = render(
 			<Profil {...props} store={store}/>);
 
-		profilShallowWithUser = shallow(
+		profilWithUserMount = mount(
 			<Profil {...props} store={storewithUser}/>);
 		profilShallow = shallow(
 			<Profil {...props} store={store}/>);
 	}); 
 
 	it('Match to snapshot', () => {
-		expect(profilRender).toMatchSnapshot();
+		expect(profilShallow).toMatchSnapshot();
+
 	});
 
 	it('Test componentDidMount', () => {
-		const spy = jest.spyOn(profilShallow.instance(), 'componentDidMount');
-		const ddd = profilShallow.instance().componentDidMount();
+		const spy = jest.spyOn(profilWithUserMount.children().instance(), 'componentDidMount');
+		const ddd = profilWithUserMount.children().instance().componentDidMount();
 		expect(spy).toHaveBeenCalledTimes(1);
 	});
 
@@ -139,12 +145,12 @@ describe('<Profil /> shallow rendering', () => {
 				}
 			}
 		};
-		profilShallow.setState({
+		profilWithUserMount.setState({
 			userName: 'loldon'
 		});
 		const nextContext = {};
-		const spy = jest.spyOn(profilShallow.instance(), 'componentWillReceiveProps');
-		const ddd = profilShallow.instance().componentWillReceiveProps(nextProps , nextContext);
+		const spy = jest.spyOn(profilWithUserMount.children().instance(), 'componentWillReceiveProps');
+		const ddd = profilWithUserMount.children().instance().componentWillReceiveProps(nextProps , nextContext);
 		expect(spy).toHaveBeenCalledTimes(1);
 		expect(spy).toBeCalledWith({
 			match: {
@@ -153,7 +159,6 @@ describe('<Profil /> shallow rendering', () => {
 				}
 			}
 		}, {});
-		// expect(profilShallow).toHaveBeenCalledTimes(1);
 	});
 
 	it('Test addToState ', () => {
@@ -172,15 +177,14 @@ describe('<Profil /> shallow rendering', () => {
 			BirthDate: '123123',
 			Description: 'adas dasd asf asf '
 		};
-		const getUsers = profilShallow.props().addToState(user);
+		const getUsers = profilWithUserMount.children().props().addToState(user);
 		expect(getUsers.type).toEqual('UPDATE_LOGINED_USER');
 		expect(getUsers.payload).toEqual(user);
-		// console.log(getUsers.payload);
 	});
 
 	it('Test getUserInfo ', () => {
 		let path = PathHelper.joinPaths(DATA.ims, 'loldon');
-		const getUsers = profilShallow.props().getUserInfo(path, {
+		const getUsers = profilWithUserMount.children().props().getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 'Actions',
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
 					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path'],
@@ -188,28 +192,13 @@ describe('<Profil /> shallow rendering', () => {
 		});
 		expect(getUsers.type).toEqual('LOAD_CONTENT');	
 	});
-	
-});
 
-describe('<Profil /> shallow rendering with users', () => {
-	let storewithUser,
-		profilMountWithUser: ReactWrapper<any, any>;
-		const repository = new Repository({ repositoryUrl: 'https://dmsservice.demo.sensenet.com/' }, async () => contentMockResponse);
-		const _jwtService = new JwtService(repository);
-		const mockStore = createMockStore([promiseMiddleware(repository)]);
-	beforeEach( () => {
-		
-		storewithUser = mockStore({
-			sensenet: {
-				session: {
-					loginState: 'Unauthenticated',
-					user: {
-						userName: 'Visitor'
-					}
-				}
-            },
-            user: {
-				Phone: '2131231212',
+	it('Match to snapshot else path ', (done) => {
+		profilWithUserMount.setState({
+			isDataFetched: true,
+			isForbidden: false,
+			user: {
+				Phone: '',
 				FullName: 'loldon freeman',
 				AvatarImageRef: '',
 				JobTitle: 'job',
@@ -222,49 +211,18 @@ describe('<Profil /> shallow rendering with users', () => {
 				Education: 'asdasdasd',
 				BirthDate: '123123',
 				Description: 'adas dasd asf asf ',
-				Actions: {
-					1: {
-						Name: 'Edit'
-					}
-				}
+				Actions: [
+					{Nmae: 'Delete'},
+					{Nmae: 'NotDelete'},
+					{Nmae: 'AlmostDelete'},
+					{Nmae: 'Edit'}
+				]
 			}
+		}, () => {
+			console.log(profilWithUserMount.state());
+			expect(profilShallow).toMatchSnapshot();	
+			done();
 		});
-		const props = {
-			match: {
-                params: {
-                    user: 'loldon'
-                }
-			},
-		};
-
-		profilMountWithUser = mount(
-			<Profil {...props} store={storewithUser}/>);
-	}); 
-
-	it('Match to snapshot with user info', () => {
-		// profilMountWithUser.setState({
-		// 	user: {
-		// 		Phone: '2131231212',
-		// 		FullName: 'loldon freeman',
-		// 		AvatarImageRef: '',
-		// 		JobTitle: 'job',
-		// 		Email: 'email',
-		// 		WorkPhone: '1233123',
-		// 		Skype: 'asddasd',
-		// 		Linkedin: 'asdasdasfas',
-		// 		GitHub: 'adasdsd',
-		// 		Languages: 'asdasdasd',
-		// 		Education: 'asdasdasd',
-		// 		BirthDate: '123123',
-		// 		Description: 'adas dasd asf asf ',
-		// 		Actions: {
-		// 			1: {
-		// 				Name: 'Edit'
-		// 			}
-		// 		}
-		// 	}
-		// });
-		expect(profilMountWithUser).toMatchSnapshot();
 	});
-
+	
 });

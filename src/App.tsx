@@ -27,7 +27,7 @@ class App extends React.Component<AppProps, any> {
         this.formSubmitHandler = this.formSubmitHandler.bind(this);
     }
 
-    public formSubmitHandler = (e: Event, email: string, password: string) => {
+    public formSubmitHandler = (email: string, password: string) => {
         this.props.login(email, password);
     }
 

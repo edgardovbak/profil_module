@@ -2,7 +2,7 @@ import * as React                   from 'react';
 const logo = require('../images/logo.png');
 
 interface Props {
-    formSubmit: Function;
+    formSubmit: (email: string, pass: string) => void;
 }
 
 interface State {
@@ -31,13 +31,11 @@ export class Login extends React.Component<Props, State> {
         this.handleBlur             = this.handleBlur.bind(this);
     }
     
-    onSubmit = (e: any) => {
-        e.preventDefault();
-        this.props.formSubmit(e, this.state.emailInput, this.state.passwordInput);
+    public onSubmit = () => {
+        this.props.formSubmit(this.state.emailInput, this.state.passwordInput);
     }
 
-    handleUserEmail = (e: any) => {
-        // const emailValid = e.target.value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    public handleUserEmail = (e: any) => {
         const emailValid = e.target.value.match(/^[A-Za-z\s0-9\\]+$/);
         this.setState({
             emailInput: e.target.value,
@@ -54,7 +52,7 @@ export class Login extends React.Component<Props, State> {
         }
     }
 
-    handleUserPassword = (e: any) => {
+    public handleUserPassword = (e: any) => {
         const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         const special = !e.target.value.match(/[!@#$%\^&*\+]/);
         let passwordValid = regex.test(e.target.value) && special ? true : false;
@@ -83,13 +81,13 @@ export class Login extends React.Component<Props, State> {
         }
     }
 
-    render () {
+    public render () {
         return (
             <div className="fix_block">
                 <img src={logo} alt="site logo" />
                 <div className="login_page">
                     <h1>Login</h1>
-                    <form onSubmit={e => { this.onSubmit(e); }}>
+                    <form onSubmit={e => { this.onSubmit(); }}>
                         <input 
                             type="text" 
                             required={true} 

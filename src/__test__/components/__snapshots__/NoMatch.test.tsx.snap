@@ -1,20 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
-<div
-  className="no_mathc"
->
-  <h1>
-    404
-  </h1>
-  <p>
-    Not found
-  </p>
-  <Link
-    replace={false}
-    to="/"
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
   >
-    Back to home
-  </Link>
-</div>
+    <NoMatch>
+      <div
+        className="no_mathc"
+      >
+        <h1>
+          404
+        </h1>
+        <p>
+          Not found
+        </p>
+        <Link
+          replace={false}
+          to="/"
+        >
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            Back to home
+          </a>
+        </Link>
+      </div>
+    </NoMatch>
+  </Router>
+</BrowserRouter>
 `;

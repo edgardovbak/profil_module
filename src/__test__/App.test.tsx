@@ -29,7 +29,7 @@ const repository = new Repository({ repositoryUrl: 'https://dmsservice.demo.sens
 const _jwtService = new JwtService(repository);
 
 describe('<App /> shallow rendering', () => {
-	let store, app: Cheerio, appmount: ShallowWrapper<any, any>;
+	let store, app: Cheerio, appmount: ReactWrapper<any, any>;
 	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
         store = mockStore({
@@ -52,7 +52,7 @@ describe('<App /> shallow rendering', () => {
 					<App {...props}/>
 				</Provider>
 			</Router>);
-		appmount = shallow(
+		appmount = mount(
 			<Router>
 				<Provider store={store}>
 					<App {...props}/>
@@ -70,15 +70,26 @@ describe('<App /> shallow rendering', () => {
 	});
 
 	it('User name from store is the same as in props', () => {
-		expect(appmount.children().children().props().userName).toBe('Visitor');
+		const appChiltren = appmount.children()
+		.children()
+		.children()
+		.children()
+		.children()
+		.children();
+		expect(appChiltren.props().userName).toBe('Visitor');
 	});
 
 	it('Spy on form submit function', async () => {
-		
-		const lol = appmount.children().children();
-		// console.log(toJson(lol.formSubmitHandler()));
-		// jest.spyOn(lol.prototype, 'formSubmitHandler'); 
-		// expect(App.prototype.formSubmitHandler).toHaveBeenCalledWith('abAB12');
+		const appChiltren = appmount.children()
+		.children()
+		.children()
+		.children()
+		.children()
+		.children();
+		// console.log(toJson(appChiltren));
+		const spy = jest.spyOn(appChiltren.instance() as any, 'formSubmitHandler');
+		const ddd = (appChiltren.instance() as any).formSubmitHandler({}, 'someEamil', '**********'); 
+		expect(spy).toHaveBeenCalledWith({}, 'someEamil', '**********');
 	});
 	
 });

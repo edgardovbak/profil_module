@@ -5,15 +5,21 @@ import { Actions
 }                                           from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
 import { IODataParams }                     from '@sensenet/client-core/dist/Models/IODataParams';
+import { Folder }                           from '@sensenet/default-content-types';
 const DATA = require('../config.json');
 const fontImportantClass = ' fi ';
 
 interface Props {
     userLoginState: string;
-    getMenuItems: Function;
+    getMenuItems: (path: string, options: IODataParams<Folder>) => Promise<{
+            value: {
+                entities: any;
+                result: any;
+            }
+        }>;
 }
 
-class Menu extends React.Component<Props, any> {
+export class MenuComponent extends React.Component<Props, any> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
@@ -23,23 +29,15 @@ class Menu extends React.Component<Props, any> {
 		};
 	}
 
-	public componentDidMount  () {
+	public async componentDidMount  () {
         let path = DATA.menu;
-        const  options = {
-            select : ['Name', 'IconName', 'Id', 'Path', 'DisplayName']
-        } as IODataParams<any>;
-        let menuItems = this.props.getMenuItems(path, options);
-
-        menuItems.then( (result: any) => {
-            this.setState({
-                isDataFetched : true,
-                menuItems: result.value.entities.entities
-            });
+        let menuItems = await this.props.getMenuItems(path, {
+            select : ['Name', 'Id', 'Path', 'DisplayName']
         });
-
-        menuItems.catch((err: any) => {
-            console.log(err);
-        });
+        this.setState({
+            isDataFetched : true,
+            menuItems: menuItems.value.entities.entities
+        });   
     }
 
 	public render () {
@@ -77,4 +75,4 @@ export default connect(
     (dispatch) => ({
         getMenuItems:    (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
     })
-)(Menu as any);
+)(MenuComponent as any);

@@ -37,7 +37,7 @@ jwtService.checkForUpdate();
 const options = {
     rootReducer: myReducer,
     repository,
-} as Store.CreateStoreOptions;
+} as Store.CreateStoreOptions<any>;
   
 const store = Store.createSensenetStore(options);
 

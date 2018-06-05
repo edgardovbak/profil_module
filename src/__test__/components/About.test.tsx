@@ -11,7 +11,7 @@ configure( {adapter: new Adapter()} );
 
 describe('<About /> shallow rendering', () => {
 		
-	const about = shallow(<About />); 
+	const about = mount(<About />); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => {

@@ -11,11 +11,17 @@ configure( {adapter: new Adapter()} );
 
 describe('<NoMatch /> shallow rendering', () => {
 		
-	const title = shallow(<Title />); 
+	const title = mount(<Title />); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => {
 		expect(toJson(title)).toMatchSnapshot();
+	});
+
+	// test Snapshot 
+	it('Have <h2> tag', () => {
+		let tagH2 = title.find('h2');
+		expect(tagH2.length).toBe(1);
 	});
 		
 });

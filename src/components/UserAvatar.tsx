@@ -39,14 +39,21 @@ export interface State {
 	imageUpdates: IsChangedType;
 }
 
-class UserAvatar extends React.Component<Props, State> {
+export class UserAvatarComponent extends React.Component<Props, State> {
 
 	editor: AvatarEditor;
 
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			image: !this.props.user.AvatarImageRef ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.user.AvatarImageRef.Path,
+			image: !this.props.user ? 
+					DATA.domain + DATA.avatar + '/user.png' 
+					: (
+						!this.props.user.AvatarImageRef ? 
+						DATA.domain + DATA.avatar + '/user.png' 
+						:
+						DATA.domain + this.props.user.AvatarImageRef.Path
+					),
 			allowZoomOut: false,
 			position: { x: 0.5, y: 0.5 },
 			scale: 1,
@@ -108,7 +115,14 @@ class UserAvatar extends React.Component<Props, State> {
 
 	// set image to gefault 
 	public useDefaultImage() {
-		this.setState({ image: !this.props.user ? DATA.domain + DATA.avatar + '/user.png' : DATA.domain + this.props.user.AvatarImageRef.Path });
+		this.setState({ image: !this.props.user ? 
+			DATA.domain + DATA.avatar + '/user.png' 
+			: (
+				!this.props.user.AvatarImageRef ? 
+				DATA.domain + DATA.avatar + '/user.png' 
+				:
+				DATA.domain + this.props.user.AvatarImageRef.Path
+			) });
 	}
 
 	// rotate image to right 
@@ -146,31 +160,14 @@ class UserAvatar extends React.Component<Props, State> {
 
 	// add nev image
 	public handleNewImage = (e: any) => {
-		// this function is only fo fix bug with canvas 
-		// when image is uploaded from different domain
-
-		// create a new image, and canvas
-		let img = new Image(),
-			canvas = document.createElement('canvas'),
-			ctx = canvas.getContext('2d');
-
+		let imgSrc;
 		let reader = new FileReader();
+		let that = this;
 		reader.readAsDataURL(e.target.files[0]);
 		reader.onload = function () {
 			// get uploaded image 
-			img.src = reader.result;
-		};
-		// set permissions
-		img.crossOrigin = 'anonymous';
-		var that = this;
-		img.onload = () => {
-			canvas.width = img.width;
-			canvas.height = img.height;
-			// draw on canvas uploaded image 
-			!ctx ? console.log('error') : ctx.drawImage(img, 0, 0);
-			// and convert to base64
-			let base64URL = canvas.toDataURL();
-			that.setState({ image: base64URL});
+			imgSrc = reader.result;
+			that.setState({ image: imgSrc});
 		};
 	}
 
@@ -202,7 +199,7 @@ class UserAvatar extends React.Component<Props, State> {
 						<div>
 							<h2>Avatar Editor</h2>
 								<div>
-									<AvatarEditor
+									{/* <AvatarEditor
 										ref={(ref: any) => this.setEditorRef(ref)}
 										image={this.state.image}
 										width={this.state.width}
@@ -212,7 +209,7 @@ class UserAvatar extends React.Component<Props, State> {
 										rotate={this.state.rotate}
 										scale={this.state.scale}
 										onImageChange={this.imageChange}
-									/>
+									/> */}
 								</div>
 							<div>
 								<label htmlFor="newImage">New File:</label>
@@ -271,4 +268,4 @@ const mapStateToProps = (state: any) => {
 
 export default connect(
 	mapStateToProps
-)(UserAvatar);
+)(UserAvatarComponent);

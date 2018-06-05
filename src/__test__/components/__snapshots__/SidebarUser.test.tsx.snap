@@ -1,162 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SidebarUser /> shallow rendering Match to snapshot 1`] = `
-<SidebarUser
-  dispatch={[Function]}
-  fullName="Test User 1"
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "clear": [Function],
-        "get": [Function],
-        "notify": [Function],
-        "subscribe": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": [Function],
-    }
-  }
-  user={null}
-  userName="TestUser1"
-/>
-`;
-
-exports[`<SidebarUser /> shallow rendering Match to snapshot 2`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(SidebarUser)
-    store={
+exports[`<SidebarUser /> rendering Match to snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
       Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
       }
     }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "dispatch": [Function],
-      "fullName": "Test User 1",
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "storeSubscription": Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
+  >
+    <Provider
+      store={
+        Object {
           "clearActions": [Function],
           "dispatch": [Function],
           "getActions": [Function],
           "getState": [Function],
           "replaceReducer": [Function],
           "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(SidebarUser)>
+        <SidebarUser
+          dispatch={[Function]}
+          fullName="Test User 1"
+          user={null}
+          userName="TestUser1"
+        >
+          <Link
+            replace={false}
+            to="/user/:TestUser1"
+          >
+            <a
+              href="/user/:TestUser1"
+              onClick={[Function]}
+            >
+              <div
+                className="sn_sidebar__user"
+              >
+                <span
+                  className="sn_sidebar__user__avatar--default"
+                >
+                  <i
+                    className="fi flaticon-user"
+                  />
+                </span>
+                <div
+                  className="sn_sidebar__user__name"
+                >
+                  Test User 1
+                </div>
+              </div>
+            </a>
+          </Link>
+        </SidebarUser>
+      </Connect(SidebarUser)>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<SidebarUser /> rendering Match to snapshot 2`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
         },
-        "unsubscribe": [Function],
-      },
-      "user": Object {
-        "fullName": "Test User 2",
-      },
-      "userName": "TestUser1",
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "dispatch": [Function],
-        "fullName": "Test User 1",
-        "store": Object {
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
           "clearActions": [Function],
           "dispatch": [Function],
           "getActions": [Function],
           "getState": [Function],
           "replaceReducer": [Function],
           "subscribe": [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "clearActions": [Function],
-            "dispatch": [Function],
-            "getActions": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-          },
-          "unsubscribe": [Function],
-        },
-        "user": Object {
-          "fullName": "Test User 2",
-        },
-        "userName": "TestUser1",
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+        }
+      }
+    >
+      <Connect(SidebarUser)>
+        <SidebarUser
+          dispatch={[Function]}
+          fullName="Test User 1"
+          user={null}
+          userName="TestUser1"
+        >
+          <Link
+            replace={false}
+            to="/user/:TestUser1"
+          >
+            <a
+              href="/user/:TestUser1"
+              onClick={[Function]}
+            >
+              <div
+                className="sn_sidebar__user"
+              >
+                <span
+                  className="sn_sidebar__user__avatar--default"
+                >
+                  <i
+                    className="fi flaticon-user"
+                  />
+                </span>
+                <div
+                  className="sn_sidebar__user__name"
+                >
+                  Test User 1
+                </div>
+              </div>
+            </a>
+          </Link>
+        </SidebarUser>
+      </Connect(SidebarUser)>
+    </Provider>
+  </Router>
+</BrowserRouter>
 `;

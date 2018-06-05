@@ -11,10 +11,28 @@ import Loader 								from './Loader';
 const DATA = require('../config.json');
 
 export interface Props {
-	updateUserSN: 		Function;
-	saveChanges:  		Function;
-	updateUserAvatar:	Function;
+	updateUserSN: 		(path: string, options: CSTUser) => Promise<{
+		entities: any;
+		result: any;
+	}>;
+	saveChanges:  		(userInfo: CSTUser) => Promise<{
+		entities: any;
+		result: any;
+	}>;
+	updateUserAvatar:	(parentPath: string, file: any, contentType?: any) => Promise<{
+		entities: any;
+		result: any;
+	}>;
 	user: 				any;
+}
+
+export interface ImageUpdate {
+	isChanged?: boolean;
+	newImage?: any;
+}
+
+export interface State {
+	imageIsChanged: ImageUpdate;
 }
 
 // *********************************************
@@ -31,12 +49,15 @@ export interface Props {
 
 			let userUpdate: any;
 
-class EditProfil extends React.Component<Props, any> {
+export class EditProfilComponent extends React.Component<Props, State> {
 
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			imageIsChanged: ''
+			imageIsChanged: {
+				isChanged: false,
+				newImage: ''
+			}
 		};
 
 		this.onUpdateImageChanges = this.onUpdateImageChanges.bind(this);
@@ -51,7 +72,7 @@ class EditProfil extends React.Component<Props, any> {
 		});
 	}
 
-	onSaveChanges = (e: any) => {
+	public async onSaveChanges(e: any) {
 		// if image was changed then 
 		if ( this.state.imageIsChanged.isChanged) {
 			// firs save picture in sn
@@ -96,19 +117,10 @@ class EditProfil extends React.Component<Props, any> {
 		} as CSTUser;
 
 		// and update user info in sensenet app
-		let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
-		userUpdate = this.props.updateUserSN(path, user);
-		
-		userUpdate.then( (Updateresult: any) => {
-			// if update in sn is soccess then save changes in redux
-			this.props.saveChanges(user);
-		});
-
-		userUpdate.catch((err: any) => {
-			// else show error
-			console.log(err);
-		});
-		
+		// let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
+		let pathAlt = DATA.ims + '(\'' + this.props.user.Name + '\')';
+		userUpdate = await this.props.updateUserSN(pathAlt, user);
+		this.props.saveChanges(user);	
 	}
 
 	render () {
@@ -232,10 +244,10 @@ export default connect(
 	mapStateToProps,
 	(dispatch) => ({
 		// save to redux
-		saveChanges:  			(userInfo: any) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
+		saveChanges:  			(userInfo: CSTUser) => dispatch({ type: 'SET_USER_INFO', payload: userInfo }),
 		// seva to sensenet
 		updateUserSN:    		(path: string, options: CSTUser) => dispatch(Actions.updateContent( path, options )),
 		// save image to Avatar folder
-		updateUserAvatar:  		(parentPath: any, file: any, contentType: string) => dispatch(Actions.uploadRequest( parentPath, file, contentType)),
+		updateUserAvatar:  		(parentPath: string, file: any, contentType: string) => dispatch(Actions.uploadRequest( parentPath, file, contentType)),
 	})
-)(EditProfil);
+)(EditProfilComponent);

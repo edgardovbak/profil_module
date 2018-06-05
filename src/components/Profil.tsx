@@ -31,13 +31,13 @@ interface Props {
 	match:			any;
 }
 
-class Profil extends React.Component<Props, State> {
+export class ProfilComponent extends React.Component<Props, State> {
 
 	constructor(props: Props) {
         super(props);
         this.state = {
 			// detect when user info is downloaded
-			isDataFetched: true,
+			isDataFetched: false,
 			// get user name from url ( :UserName )
 			userName: this.props.match.params.user,
 			// edit action is forbidden
@@ -51,43 +51,35 @@ class Profil extends React.Component<Props, State> {
 		this.getUserByName = this.getUserByName.bind(this);
 	}
 
-	getUserByName = (name: string) => {
+	async getUserByName (name: string) {
 		// get the user name from url 
 		let uName = name.substr(1);
         let path = PathHelper.joinPaths(DATA.ims, uName);
 		// get the current user info
-		let userGet = this.props.getUserInfo(path, {
+		let userGet = await this.props.getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 'Actions',
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
 					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path'],
 			expand : ['Actions', 'AvatarImageRef']
 		});
-        
-        userGet.then( (result: any) => {
-            this.setState({ 
-				isDataFetched: false,
-				user: result.value.d
-			});
-			// check if current user have permission to edit user
-			let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
-			console.log(result.value.d);
-			if ( editAction !== undefined) {
-				this.setState({ 
-					isForbidden: editAction.Forbidden
-				});
-			}
-			// if curent user its on own page then save info to state
-			if ( !this.state.isForbidden ) {
-				this.props.addToState(result.value.d);
-				this.setState({ 
-					isCurrentUser: true
-				});
-			}
-        });
-
-        userGet.catch((err: any) => {
-            console.log(err);
+		this.setState({ 
+			isDataFetched: false,
+			user: userGet.result.value.d
 		});
+		// check if current user have permission to edit user
+		let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
+		if ( editAction !== undefined) {
+			this.setState({ 
+				isForbidden: editAction.Forbidden
+			});
+		}
+		// if curent user its on own page then save info to state
+		if ( !this.state.isForbidden ) {
+			this.props.addToState(userGet.result.value.d);
+			this.setState({ 
+				isCurrentUser: true
+			});
+		}
 	}
 	
 	// run before component is rendered
@@ -108,113 +100,111 @@ class Profil extends React.Component<Props, State> {
 	render () {
 		
 		// if user is not updated then show loader
-		if ( this.state.isDataFetched ) {
+		if ( !this.state.isDataFetched ) {
 			return (<Loader/>);
 		} 
-			// phone number 
-			let PhoneNumber;
-			if ( !(this.state.user.Phone === '')) {
-				PhoneNumber = (
-				<UserInfoListItem
-					name="Phone"
-					infoType={0}
-					value={this.state.user.Phone} 
-				/>);
-			} 
+		// phone number 
+		let PhoneNumber;
+		if ( !(this.state.user.Phone === '')) {
+			PhoneNumber = (
+			<UserInfoListItem
+				name="Phone"
+				infoType={0}
+				value={this.state.user.Phone} 
+			/>);
+		} 
 
-			let skillsList = this.state.isCurrentUser ? this.props.currentUser.Skills : this.state.user.Skills;
-			return (
-				<div className="profil">
-					<div className="user" >
-						<div className="user__avatar">
-							{this.state.isCurrentUser ? (
-								<img 
-									src={!this.props.currentUser.AvatarImageRef ? defaultAvatar : DATA.domain + this.props.currentUser.AvatarImageRef.Path} 
-									alt={this.props.currentUser.FullName}
-								/>
-							) 
-							: (
-								<img 
-									src={!this.state.user.AvatarImageRef ? defaultAvatar : DATA.domain + this.state.user.AvatarImageRef.Path} 
-									alt={this.state.user.FullName}
-								/>
-							) }
+		let skillsList = this.state.isCurrentUser ? this.props.currentUser.Skills : this.state.user.Skills;
+		return (
+			<div className="profil">
+				<div className="user" >
+					<div className="user__avatar">
+						{this.state.isCurrentUser ? (
+							<img 
+								src={!this.props.currentUser.AvatarImageRef ? defaultAvatar : DATA.domain + this.props.currentUser.AvatarImageRef.Path} 
+								alt={this.props.currentUser.FullName}
+							/>
+						) 
+						: (
+							<img 
+								src={!this.state.user.AvatarImageRef ? defaultAvatar : DATA.domain + this.state.user.AvatarImageRef.Path} 
+								alt={this.state.user.FullName}
+							/>
+						) }
+						
+					</div>
+					<div className="user__global_info">
+						<h2 className="sn_title sn_title--description">
+							{this.state.isCurrentUser ?  this.props.currentUser.FullName : this.state.user.FullName}
+							{this.state.isForbidden ? ''  :
+								(<Link to="/edituser" className="sn_btn">
+									Edit profile
+								</Link>)
+							}
 							
+						</h2>
+						<div className="user__global_info__position">
+							{this.state.isCurrentUser ?  this.props.currentUser.JobTitle : this.state.user.JobTitle}
 						</div>
-						<div className="user__global_info">
-							<h2 className="sn_title sn_title--description">
-								{this.state.isCurrentUser ?  this.props.currentUser.FullName : this.state.user.FullName}
-								{this.state.isForbidden ? ''  :
-									(<Link to="/edituser" className="sn_btn">
-										Edit profile
-									</Link>)
-								}
-								
-							</h2>
-							<div className="user__global_info__position">
-								{this.state.isCurrentUser ?  this.props.currentUser.JobTitle : this.state.user.JobTitle}
+						<div className="user__global_info__list">
+							<div>
+								<UserInfoListItem
+									name="Email"
+									infoType={1}
+									value={this.state.isCurrentUser ?  this.props.currentUser.Email : this.state.user.Email}
+								/>
+								<UserInfoListItem
+									name="WorkPhone"
+									infoType={0}
+									value={this.state.isCurrentUser ?  this.props.currentUser.WorkPhone : this.state.user.WorkPhone}
+								/>
+								{PhoneNumber}
+								<UserInfoListItem
+									name="Skype"
+									infoType={1}
+									value={this.state.isCurrentUser ?  this.props.currentUser.Skype : this.state.user.Skype}
+								/>
+								<UserInfoListItem
+									name="Linkedin"
+									infoType={1}
+									value={this.state.isCurrentUser ?  this.props.currentUser.Linkedin : this.state.user.Linkedin}
+								/>
+								<UserInfoListItem
+									name="GitHub"
+									infoType={1}
+									value={this.state.isCurrentUser ?  this.props.currentUser.GitHub : this.state.user.GitHub} 
+								/>
 							</div>
-							<div className="user__global_info__list">
-								<div>
-									<UserInfoListItem
-										name="Email"
-										infoType={1}
-										value={this.state.isCurrentUser ?  this.props.currentUser.Email : this.state.user.Email}
-									/>
-									<UserInfoListItem
-										name="WorkPhone"
-										infoType={0}
-										value={this.state.isCurrentUser ?  this.props.currentUser.WorkPhone : this.state.user.WorkPhone}
-									/>
-									
-									{PhoneNumber}
-				
-									<UserInfoListItem
-										name="Skype"
-										infoType={1}
-										value={this.state.isCurrentUser ?  this.props.currentUser.Skype : this.state.user.Skype}
-									/>
-									<UserInfoListItem
-										name="Linkedin"
-										infoType={1}
-										value={this.state.isCurrentUser ?  this.props.currentUser.Linkedin : this.state.user.Linkedin}
-									/>
-									<UserInfoListItem
-										name="GitHub"
-										infoType={1}
-										value={this.state.isCurrentUser ?  this.props.currentUser.GitHub : this.state.user.GitHub} 
-									/>
-								</div>
-								<div>
-									<UserInfoListItem
-										name="Languages"
-										infoType={0}
-										value={this.state.isCurrentUser ?  this.props.currentUser.Languages : this.state.user.Languages}
-									/>
-									<UserInfoListItem
-										name="Education"
-										infoType={0}
-										value={this.state.isCurrentUser ?  this.props.currentUser.Education : this.state.user.Education}
-									/>
-									<UserInfoListItem
-										name="BirthDate"
-										infoType={2}
-										value={this.state.isCurrentUser ?  this.props.currentUser.BirthDate : this.state.user.BirthDate}
-									/>
-								</div>
+							<div>
+								<UserInfoListItem
+									name="Languages"
+									infoType={0}
+									value={this.state.isCurrentUser ?  this.props.currentUser.Languages : this.state.user.Languages}
+								/>
+								<UserInfoListItem
+									name="Education"
+									infoType={0}
+									value={this.state.isCurrentUser ?  this.props.currentUser.Education : this.state.user.Education}
+								/>
+								<UserInfoListItem
+									name="BirthDate"
+									infoType={2}
+									value={this.state.isCurrentUser ?  this.props.currentUser.BirthDate : this.state.user.BirthDate}
+								/>
 							</div>
 						</div>
 					</div>
-					
-					<Title name="Skils"/>
-					<Skils skills={'' + skillsList} />
-
-					<Title name="About" />
-					<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
-
 				</div>
-			);
-		}
+				
+				<Title name="Skils"/>
+				<Skils skills={'' + skillsList} />
+
+				<Title name="About" />
+				<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
+
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = (state: any, match: any) => {
@@ -230,4 +220,4 @@ export default connect(
         getUserInfo:    (path: string, options: any) => dispatch(Actions.loadContent( path, options )),
         addToState:     (userInfo: any) => dispatch({ type: 'UPDATE_LOGINED_USER', payload: userInfo }),
     })
-)(Profil as any);
+)(ProfilComponent as any);

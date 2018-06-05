@@ -2,7 +2,7 @@ jest.unmock('../../index.tsx');
 jest.unmock('redux-mock-store');
 
 import * as React 						  		from 'react';
-import UserAvatar 								from '../../components/UserAvatar';
+import UserAvatar, { UserAvatarComponent } 		from '../../components/UserAvatar';
 import { 
 	    configure, 
 		shallow,
@@ -19,8 +19,8 @@ let base64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfq
 describe('<UserAvatar /> rendering', () => {
 		
 	let store, 
-		useravatarShallow: ShallowWrapper<any, any>,
-		useravatarMount:  ReactWrapper<any, any>;
+		useravatarMount:  ReactWrapper<any, any>,
+		userAvatarComponent: ShallowWrapper<any, any>;
 
 	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
@@ -47,7 +47,17 @@ describe('<UserAvatar /> rendering', () => {
             <Provider store={store}>
             	<UserAvatar {...props}/>
 			</Provider>
-        );
+		);
+		let onUpdate = (value: any) => {
+			return value;
+		};
+		let user = {
+			AvatarImageRef: 'something',
+			Name: 'Test User'
+		};
+		userAvatarComponent = shallow(
+			<UserAvatarComponent onUpdate={onUpdate} user={user}/>
+		);
 	}); 
 		
 	// test Snapshot 
@@ -81,127 +91,93 @@ describe('<UserAvatar /> rendering', () => {
 		expect(useravatarMount.children().children().props().user).toEqual(props);
 	});
 
-	// it('test makeid', () => {
-	// 	const fff = useravatarMount.children().children();
+	it('test makeid', () => {
+		const fff = useravatarMount.children().children();
 		
-	// 	const spy = jest.spyOn(fff.instance(), 'makeid');
-	// 	let makedId = fff.instance().makeid();
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// 	expect(typeof(makedId)).toBe('string');
-	// });
+		const spy = jest.spyOn(fff.instance() as any, 'makeid');
+		let makedId = (fff.instance() as any).makeid();
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(typeof(makedId)).toBe('string');
+	});
 
-	// it('test b64toBlob', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'b64toBlob');
-	// 	let createFile = fff.instance().b64toBlob(base64);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// 	expect(spy).toBeCalledWith(base64);
-	// 	expect(typeof(createFile)).toBe('object');
-	// 	base64 = null;
-	// 	createFile = fff.instance().b64toBlob(base64);
-	// 	expect(spy).toBeCalledWith(base64);
-	// 	expect(createFile).toBe('');
-	// });
+	it('test b64toBlob', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'b64toBlob');
+		let createFile = (fff.instance() as any).b64toBlob(base64);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toBeCalledWith(base64);
+		expect(typeof(createFile)).toBe('object');
+		base64 = null;
+		createFile = (fff.instance() as any).b64toBlob(base64);
+		expect(spy).toBeCalledWith(base64);
+		expect(createFile).toBe('');
+	});
 
-	// it('test useDefaultImage', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'useDefaultImage');
-	// 	fff.instance().useDefaultImage();
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// 	// expect(spy).toBeCalledWith('lol');
-	// });
+	it('test useDefaultImage', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'useDefaultImage');
+		(fff.instance() as any).useDefaultImage();
+		expect(spy).toHaveBeenCalledTimes(1);
+	});
 
-	// it('test handleRotate', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'handleRotate');
-		
-	// 	const event = {target: {name: 'rotate', value: 19}};
-	// 	fff.instance().handleRotate(event);
-	// 	// fff.find('#rotate').simulate('change', event);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// 	expect(spy).toBeCalledWith(event);
-	// });
-
-	// it('test handleDrop', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'handleDrop');
-		
-	// 	const files = {acceptedFiles: [ 'image']};
-	// 	fff.instance().handleDrop(files);
-	// 	// fff.find('#rotate').simulate('change', event);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// 	expect(spy).toBeCalledWith(files);
-	// });
-
-	// it('test handleScale', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'handleScale');
-		
-	// 	const event = {target: {name: 'scale', value: 19}};
-	// 	fff.instance().handleScale(event);
-	// 	// fff.find('#rotate').simulate('change', event);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// 	expect(spy).toBeCalledWith(event);
-	// });
-
-	// it('test imageChange', () => {
-	// 	console.log(toJson(useravatarMount));
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'imageChange');
-
-	// 	fff.instance().imageChange();
-	// 	// fff.find('#rotate').simulate('change', event);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// });
-
-	// it('test handleSave', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'handleSave');
-	// 	fff.instance().handleSave();
-	// 	// fff.find('#rotate').simulate('change', event);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// });
-
-	// it('test setEditorRef', () => {
-	// 	const fff = useravatarMount.children().children();
-	// 	const spy = jest.spyOn(fff.instance(), 'setEditorRef');
-	// 	let editor: any = 'something';
-	// 	fff.instance().setEditorRef(editor);
-	// 	// fff.find('#rotate').simulate('change', event);
-	// 	expect(spy).toHaveBeenCalledTimes(1);
-	// });
-		
-}); 
-
-describe('<UserAvatar /> rendering without user data', () => {
-		
-	let store, 
-		useravatarMount:  ReactWrapper<any, any>;
-
-	const mockStore = (createMockStore as any)();
-	beforeEach( () => {
-        store = mockStore({
-			user: {
-				user: null
-			}
+	it('test handleRotate', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'handleRotate');
+		useravatarMount.setState({
+			rotate: 0
 		});
-		const props = {
-			user: {
-				user: null
-			},
-			onUpdate: Function
-		};
-        
-		useravatarMount = mount(
-            <Provider store={store}>
-            	<UserAvatar {...props}/>
-			</Provider>
-        );
-	}); 
+		const event = {target: {name: 'rotate', value: 19}};
+		(fff.instance() as any).handleRotate(event);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toBeCalledWith(event);
+	});
 
-	// test Snapshot 
-	it('Match to snapshot', () => {
-		expect(toJson(useravatarMount)).toMatchSnapshot();
+	it('test handleDrop', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'handleDrop');
+		
+		const files = {acceptedFiles: [ 'image']};
+		(fff.instance() as any).handleDrop(files);
+		// fff.find('#rotate').simulate('change', event);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toBeCalledWith(files);
+	});
+
+	it('test handleScale', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'handleScale');
+		
+		const event = {target: {name: 'scale', value: 19}};
+		(fff.instance() as any).handleScale(event);
+		// fff.find('#rotate').simulate('change', event);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toBeCalledWith(event);
+	});
+
+	it('test imageChange', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'imageChange');
+
+		(fff.instance() as any).imageChange();
+		// fff.find('#rotate').simulate('change', event);
+		expect(spy).toHaveBeenCalledTimes(1);
+	});
+
+	it('test handleSave', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'handleSave');
+		(fff.instance() as any).handleSave();
+		// fff.find('#rotate').simulate('change', event);
+		expect(spy).toHaveBeenCalledTimes(1);
+	});
+
+	it('test setEditorRef', () => {
+		const fff = useravatarMount.children().children();
+		const spy = jest.spyOn(fff.instance() as any, 'setEditorRef');
+		let editor: any = 'something';
+		(fff.instance() as any).setEditorRef(editor);
+		// fff.find('#rotate').simulate('change', event);
+		expect(spy).toHaveBeenCalledTimes(1);
 	});
 		
-});
+}); 

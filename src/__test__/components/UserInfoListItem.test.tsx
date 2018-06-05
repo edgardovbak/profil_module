@@ -18,7 +18,7 @@ describe('<UserInfoListItem /> shallow rendering', () => {
 		infoType: 0
 	};
 		
-	const userinfolist = shallow(<UserInfoListItem {...props}/>); 
+	const userinfolist = mount(<UserInfoListItem {...props}/>); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => {

@@ -1,41 +1,491 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Body /> shallow rendering Match to snapshot 1`] = `
-<Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
-      },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
->
-  <Provider
-    store={
+exports[`<Body /> mount rendering when data is added Match to snapshot with status flase 1`] = `
+<BrowserRouter>
+  <Router
+    history={
       Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
       }
     }
   >
-    <withRouter(Connect(Body)) />
-  </Provider>
-</Router>
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(Body))
+        loginState="Unauthenticated"
+        userName="Visitor"
+      >
+        <Route
+          render={[Function]}
+        >
+          <Connect(Body)
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            loginState="Unauthenticated"
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            userName="Visitor"
+          >
+            <Body
+              dispatch={[Function]}
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              loginState="Unauthenticated"
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+              userLoginState="Unauthenticated"
+              userName="Visitor"
+            >
+              <div
+                className="content_to_right"
+              >
+                <Header>
+                  <header
+                    className="sn_header"
+                  >
+                    <div
+                      className="sn_wrapp"
+                    >
+                      <div
+                        className="sn_header__search"
+                      >
+                        <input
+                          type="text"
+                        />
+                        <button>
+                          <i
+                            className="fi flaticon-magnifier"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </header>
+                </Header>
+                <Sidebar
+                  openMenu={[Function]}
+                >
+                  <div
+                    className="sn_sidebar"
+                  >
+                    <Logo
+                      openMenu={[Function]}
+                    >
+                      <div
+                        className="sn_sidebar__logo"
+                      >
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            <img
+                              alt="site logo"
+                              src="logo.png"
+                            />
+                          </a>
+                        </Link>
+                        <div
+                          className="sn_menu"
+                          onClick={[Function]}
+                        >
+                          <span />
+                        </div>
+                      </div>
+                    </Logo>
+                    <Connect(SidebarUser)>
+                      <SidebarUser
+                        dispatch={[Function]}
+                        userName="Visitor"
+                      >
+                        <Link
+                          replace={false}
+                          to="/user/:Visitor"
+                        >
+                          <a
+                            href="/user/:Visitor"
+                            onClick={[Function]}
+                          >
+                            <div
+                              className="sn_sidebar__user"
+                            >
+                              <span
+                                className="sn_sidebar__user__avatar--default"
+                              >
+                                <i
+                                  className="fi flaticon-user"
+                                />
+                              </span>
+                              <div
+                                className="sn_sidebar__user__name"
+                              />
+                            </div>
+                          </a>
+                        </Link>
+                      </SidebarUser>
+                    </Connect(SidebarUser)>
+                    <Connect(MenuComponent)>
+                      <MenuComponent
+                        getMenuItems={[Function]}
+                        userLoginState="Unauthenticated"
+                      />
+                    </Connect(MenuComponent)>
+                  </div>
+                </Sidebar>
+                <div
+                  className="sn_overflow"
+                />
+                <main
+                  className="sn_main"
+                >
+                  <div
+                    className="sn_wrapp"
+                  >
+                    <Switch />
+                  </div>
+                </main>
+              </div>
+            </Body>
+          </Connect(Body)>
+        </Route>
+      </withRouter(Connect(Body))>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<Body /> mount rendering when data is added Match to snapshot with status true 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(Body))
+        loginState="Unauthenticated"
+        userName="Visitor"
+      >
+        <Route
+          render={[Function]}
+        >
+          <Connect(Body)
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            loginState="Unauthenticated"
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            userName="Visitor"
+          >
+            <Body
+              dispatch={[Function]}
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              loginState="Unauthenticated"
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+              userLoginState="Unauthenticated"
+              userName="Visitor"
+            >
+              <div
+                className="content_to_right"
+              >
+                <Header>
+                  <header
+                    className="sn_header"
+                  >
+                    <div
+                      className="sn_wrapp"
+                    >
+                      <div
+                        className="sn_header__search"
+                      >
+                        <input
+                          type="text"
+                        />
+                        <button>
+                          <i
+                            className="fi flaticon-magnifier"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </header>
+                </Header>
+                <Sidebar
+                  openMenu={[Function]}
+                >
+                  <div
+                    className="sn_sidebar"
+                  >
+                    <Logo
+                      openMenu={[Function]}
+                    >
+                      <div
+                        className="sn_sidebar__logo"
+                      >
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            <img
+                              alt="site logo"
+                              src="logo.png"
+                            />
+                          </a>
+                        </Link>
+                        <div
+                          className="sn_menu"
+                          onClick={[Function]}
+                        >
+                          <span />
+                        </div>
+                      </div>
+                    </Logo>
+                    <Connect(SidebarUser)>
+                      <SidebarUser
+                        dispatch={[Function]}
+                        userName="Visitor"
+                      >
+                        <Link
+                          replace={false}
+                          to="/user/:Visitor"
+                        >
+                          <a
+                            href="/user/:Visitor"
+                            onClick={[Function]}
+                          >
+                            <div
+                              className="sn_sidebar__user"
+                            >
+                              <span
+                                className="sn_sidebar__user__avatar--default"
+                              >
+                                <i
+                                  className="fi flaticon-user"
+                                />
+                              </span>
+                              <div
+                                className="sn_sidebar__user__name"
+                              />
+                            </div>
+                          </a>
+                        </Link>
+                      </SidebarUser>
+                    </Connect(SidebarUser)>
+                    <Connect(MenuComponent)>
+                      <MenuComponent
+                        getMenuItems={[Function]}
+                        userLoginState="Unauthenticated"
+                      />
+                    </Connect(MenuComponent)>
+                  </div>
+                </Sidebar>
+                <div
+                  className="sn_overflow"
+                />
+                <main
+                  className="sn_main"
+                >
+                  <div
+                    className="sn_wrapp"
+                  >
+                    <Switch />
+                  </div>
+                </main>
+              </div>
+            </Body>
+          </Connect(Body)>
+        </Route>
+      </withRouter(Connect(Body))>
+    </Provider>
+  </Router>
+</BrowserRouter>
 `;

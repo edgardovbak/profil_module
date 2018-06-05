@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
-<h2
-  className="sn_title"
-/>
+<Title>
+  <h2
+    className="sn_title"
+  />
+</Title>
 `;

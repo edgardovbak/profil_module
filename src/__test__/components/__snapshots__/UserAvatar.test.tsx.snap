@@ -1,5 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserAvatar /> rendering Match to snapshot 1`] = `undefined`;
-
-exports[`<UserAvatar /> rendering without user data Match to snapshot 1`] = `undefined`;
+exports[`<UserAvatar /> rendering Match to snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(UserAvatarComponent)
+    onUpdate={[Function]}
+    user={
+      Object {
+        "user": Object {
+          "AvatarImageRef": Object {
+            "Path": "something",
+          },
+        },
+      }
+    }
+  >
+    <UserAvatarComponent
+      dispatch={[Function]}
+      onUpdate={[Function]}
+      user={
+        Object {
+          "AvatarImageRef": "something",
+          "Name": "Test User",
+        }
+      }
+    >
+      <div
+        className="user__avatar"
+      >
+        <div
+          className="user__avatar--blocks"
+        >
+          <div>
+            <h2>
+              Avatar Editor
+            </h2>
+            <div />
+            <div>
+              <label
+                htmlFor="newImage"
+              >
+                New File:
+              </label>
+              <input
+                id="newImage"
+                name="newImage"
+                onChange={[Function]}
+                type="file"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="scale"
+              >
+                Zoom:
+              </label>
+              <input
+                defaultValue="1"
+                id="scale"
+                max="2"
+                min="0"
+                name="scale"
+                onChange={[Function]}
+                step="0.01"
+                type="range"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="rotate"
+              >
+                Rotate:
+              </label>
+              <input
+                defaultValue="0"
+                id="rotate"
+                max="360"
+                min="0"
+                name="rotate"
+                onChange={[Function]}
+                step="0.1"
+                type="range"
+              />
+            </div>
+            <div>
+              <br />
+              <button
+                className="sn_btn"
+                name="save"
+                onClick={[Function]}
+              >
+                Save Avatar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </UserAvatarComponent>
+  </Connect(UserAvatarComponent)>
+</Provider>
+`;

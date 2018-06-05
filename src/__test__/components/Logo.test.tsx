@@ -38,9 +38,8 @@ describe('<Logo /> shallow rendering', () => {
 
 	it('Test clickHandler  ', () => {
 		// console.log(toJson(logo.children().children()));
-		const clickHandler = jest.spyOn(logo.children().children().instance(), 'clickHandler');
-		logo.children().children().instance().clickHandler();
+		const clickHandler = jest.spyOn(logo.children().children().instance() as any, 'clickHandler');
+		(logo.children().children().instance() as any).clickHandler();
 		expect(clickHandler).toHaveBeenCalledTimes(1);
 	});
-	
 });

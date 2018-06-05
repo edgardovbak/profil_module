@@ -6,6 +6,6 @@ exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
 >
   <Logo />
   <Connect(SidebarUser) />
-  <Connect(Menu) />
+  <Connect(MenuComponent) />
 </div>
 `;

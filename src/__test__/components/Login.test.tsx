@@ -3,7 +3,8 @@ import Login 							from '../../components/Login';
 import { 
 	configure, 
     shallow,
-    mount } 							from 'enzyme';
+    mount, 
+    ReactWrapper } 						from 'enzyme';
 import * as Adapter 					from 'enzyme-adapter-react-16';
 import toJson 				      		from 'enzyme-to-json';
 
@@ -20,13 +21,15 @@ const updateInput = (login: any, instance: any, newValue: any) => {
 const wrongEmails = ['somebody@', 'somebody@.', 'somebody@mail', 'somebodymail.com', 'somebody@mail.'];
 const wrongPasswords = ['aaaaaa', 'aaaa@', '@@@@###', 'AAAAAA', 'AAAdfsdd', 'AAA1234', 'gdfdf1234', 'sd'];
 
-describe('<Login /> shallow rendering', () => {
+describe('<Login /> rendering', () => {
     const props = {
-        formSubmit: jest.fn()
+        formSubmit: (emailInput: string, passwordInput: string) => {
+            return 'sucsces';
+        }
     };
-    const login = shallow(<Login {...props} />); 
+    const login: ReactWrapper<any, any> = mount(<Login {...props} />); 
 
-    Login.prototype.constructor();
+    Login.prototype.constructor(); 
     
 	it('Contain one H1 element ', () => {
 		expect(login.find('h1').length).toBe(1);
@@ -70,26 +73,41 @@ describe('<Login /> shallow rendering', () => {
     }); 
 
     it('Email change calls validation functions', () => {
-        jest.spyOn(Login.prototype, 'handleBlur'); 
-        jest.spyOn(Login.prototype, 'handleUserEmail'); 
+        let spyBlur = jest.spyOn(Login.prototype, 'handleBlur'); 
+        let spyEmail = jest.spyOn(Login.prototype, 'handleUserEmail'); 
         
         const input = login.find('[data-testid="email"]');
-        input.simulate('change', {
+        Login.prototype.handleBlur();
+        let event = {
             target: {value: 'abAB12'}
-        });
-        expect(Login.prototype.handleBlur.call.length).toBe(1);
-        expect(Login.prototype.handleUserEmail.call.length).toBe(1);
-        // console.log(Login.prototype.handleUserEmail);
+        };
+        Login.prototype.handleUserEmail(event);
+        input.simulate('change');
+        expect(spyBlur).toHaveBeenCalledTimes(1);
+        expect(spyEmail).toHaveBeenCalledTimes(1);
     }); 
 
     it('Password is called without errors', () => {
-        jest.spyOn(Login.prototype, 'handleUserPassword'); 
+        let spyPass = jest.spyOn(Login.prototype, 'handleUserPassword'); 
         
-        const input = login.find('[data-testid="password"]');
-        input.simulate('change', {
+        let input = login.find('[data-testid="password"]');
+
+        let event = {
             target: {value: 'abAB12'}
-        });
-        // expect(Login.prototype.handleUserPassword).toHaveBeenCalledWith('abAB12');
+        };
+        Login.prototype.handleUserPassword(event);
+        input.simulate('change');
+        expect(spyPass).toHaveBeenCalledWith(event);
+        expect(spyPass).toHaveBeenCalledTimes(1);
+    }); 
+
+    it('onSubmit is called ', () => {
+        let spyPass = jest.spyOn(Login.prototype, 'onSubmit'); 
+        let event = {
+            target: {value: 'nothing'}
+        };
+        Login.prototype.onSubmit();
+        expect(spyPass).toHaveBeenCalledTimes(1);
     }); 
     
     it('Error message ', () => {

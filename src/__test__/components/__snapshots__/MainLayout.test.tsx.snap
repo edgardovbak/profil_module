@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MainLayout /> shallow rendering Match to snapshot 1`] = `
-<div>
-  MainLayout
-</div>
+<MainLayout>
+  <div>
+    MainLayout
+  </div>
+</MainLayout>
 `;

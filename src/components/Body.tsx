@@ -9,7 +9,6 @@ import {
     withRouter
 }                                           from 'react-router-dom';
 import { LoginState }                       from '@sensenet/client-core';
-import { Actions }                			from '@sensenet/redux';
 // import { PathHelper }                       from '@sensenet/client-utils';
 import OtherUser                            from './OtherUser';
 import Profil                               from './Profil';
@@ -128,8 +127,8 @@ const mapStateToProps = (state: any, match: any) => {
 
 export default withRouter(connect(
     mapStateToProps,
-    (dispatch) => ({
-        getHomeContent:    (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
-    })
+    // (dispatch) => ({
+    //     getHomeContent:    (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
+    // })
 )(Body as any));
  

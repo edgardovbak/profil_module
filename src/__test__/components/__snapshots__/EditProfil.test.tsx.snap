@@ -1,3 +1,450 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `undefined`;
+exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Connect(EditProfilComponent)>
+        <EditProfilComponent
+          saveChanges={[Function]}
+          updateUserAvatar={[Function]}
+          updateUserSN={[Function]}
+          user={
+            Object {
+              "BirthDate": "adasdasdasd",
+              "Description": "adasdasdasd",
+              "Education": "adasdasdasd",
+              "Email": "adasdasdasd",
+              "FullName": "adasdasdasd",
+              "Id": 12312,
+              "JobTitle": "adasdasdasd",
+              "Languages": "adasdasdasd",
+              "Phone": "adasdasdasd",
+            }
+          }
+        >
+          <div
+            className="profil"
+          >
+            <div
+              className="user"
+            >
+              <Connect(UserAvatarComponent)
+                onUpdate={[Function]}
+              >
+                <UserAvatarComponent
+                  dispatch={[Function]}
+                  onUpdate={[Function]}
+                  user={
+                    Object {
+                      "BirthDate": "adasdasdasd",
+                      "Description": "adasdasdasd",
+                      "Education": "adasdasdasd",
+                      "Email": "adasdasdasd",
+                      "FullName": "adasdasdasd",
+                      "Id": 12312,
+                      "JobTitle": "adasdasdasd",
+                      "Languages": "adasdasdasd",
+                      "Phone": "adasdasdasd",
+                    }
+                  }
+                >
+                  <div
+                    className="user__avatar"
+                  >
+                    <div
+                      className="user__avatar--blocks"
+                    >
+                      <div>
+                        <h2>
+                          Avatar Editor
+                        </h2>
+                        <div />
+                        <div>
+                          <label
+                            htmlFor="newImage"
+                          >
+                            New File:
+                          </label>
+                          <input
+                            id="newImage"
+                            name="newImage"
+                            onChange={[Function]}
+                            type="file"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="scale"
+                          >
+                            Zoom:
+                          </label>
+                          <input
+                            defaultValue="1"
+                            id="scale"
+                            max="2"
+                            min="0"
+                            name="scale"
+                            onChange={[Function]}
+                            step="0.01"
+                            type="range"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="rotate"
+                          >
+                            Rotate:
+                          </label>
+                          <input
+                            defaultValue="0"
+                            id="rotate"
+                            max="360"
+                            min="0"
+                            name="rotate"
+                            onChange={[Function]}
+                            step="0.1"
+                            type="range"
+                          />
+                        </div>
+                        <div>
+                          <br />
+                          <button
+                            className="sn_btn"
+                            name="save"
+                            onClick={[Function]}
+                          >
+                            Save Avatar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </UserAvatarComponent>
+              </Connect(UserAvatarComponent)>
+              <div
+                className="user__global_info"
+              >
+                <h2>
+                  User Info
+                </h2>
+                <fieldset>
+                  <legend>
+                    User name
+                  </legend>
+                  <input
+                    defaultValue="adasdasdasd"
+                    id="userName"
+                    placeholder="User name"
+                    required={true}
+                    type="text"
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>
+                    Position
+                  </legend>
+                  <input
+                    defaultValue="adasdasdasd"
+                    id="userPosition"
+                    placeholder="Position"
+                    required={true}
+                    type="text"
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>
+                    User Info
+                  </legend>
+                  <div
+                    className="user__edit_global_info"
+                  >
+                    <div
+                      className="user__edit_global_info__item"
+                    >
+                      <label
+                        htmlFor=""
+                      >
+                        Email
+                      </label>
+                      <input
+                        defaultValue="adasdasdasd"
+                        id=""
+                        placeholder="Email"
+                        required={true}
+                        type="text"
+                      />
+                    </div>
+                    <div
+                      className="user__edit_global_info__item"
+                    >
+                      <label
+                        htmlFor=""
+                      >
+                        Languages
+                      </label>
+                      <input
+                        defaultValue="adasdasdasd"
+                        id=""
+                        placeholder="Languages"
+                        type="text"
+                      />
+                    </div>
+                    <div
+                      className="user__edit_global_info__item"
+                    >
+                      <label
+                        htmlFor=""
+                      >
+                        Phone
+                      </label>
+                      <input
+                        defaultValue="adasdasdasd"
+                        id=""
+                        placeholder="Phone"
+                        type="text"
+                      />
+                    </div>
+                    <div
+                      className="user__edit_global_info__item"
+                    >
+                      <label
+                        htmlFor=""
+                      >
+                        BirthDate
+                      </label>
+                      <input
+                        defaultValue="adasdasdasd"
+                        id=""
+                        placeholder="BirthDate"
+                        type="text"
+                      />
+                    </div>
+                    <div
+                      className="user__edit_global_info__item"
+                    >
+                      <label
+                        htmlFor=""
+                      >
+                        Education
+                      </label>
+                      <input
+                        defaultValue="adasdasdasd"
+                        id=""
+                        placeholder="Education"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <fieldset>
+              <legend>
+                About
+              </legend>
+              <textarea
+                defaultValue="adasdasdasd"
+                id="userAbout"
+              />
+            </fieldset>
+            <Link
+              className="sn_btn"
+              onClick={[Function]}
+              replace={false}
+              to="user/:undefined"
+            >
+              <a
+                className="sn_btn"
+                href="user/:undefined"
+                onClick={[Function]}
+              >
+                Save Changes
+              </a>
+            </Link>
+          </div>
+        </EditProfilComponent>
+      </Connect(EditProfilComponent)>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<EditProfil /> shallow rendering Match to snapshot 2`] = `
+<div
+  className="profil"
+>
+  <div
+    className="user"
+  >
+    <Connect(UserAvatarComponent)
+      onUpdate={[Function]}
+    />
+    <div
+      className="user__global_info"
+    >
+      <h2>
+        User Info
+      </h2>
+      <fieldset>
+        <legend>
+          User name
+        </legend>
+        <input
+          defaultValue="adasdasdasd"
+          id="userName"
+          placeholder="User name"
+          required={true}
+          type="text"
+        />
+      </fieldset>
+      <fieldset>
+        <legend>
+          Position
+        </legend>
+        <input
+          defaultValue="adasdasdasd"
+          id="userPosition"
+          placeholder="Position"
+          required={true}
+          type="text"
+        />
+      </fieldset>
+      <fieldset>
+        <legend>
+          User Info
+        </legend>
+        <div
+          className="user__edit_global_info"
+        >
+          <div
+            className="user__edit_global_info__item"
+          >
+            <label
+              htmlFor=""
+            >
+              Email
+            </label>
+            <input
+              defaultValue="adasdasdasd"
+              id=""
+              placeholder="Email"
+              required={true}
+              type="text"
+            />
+          </div>
+          <div
+            className="user__edit_global_info__item"
+          >
+            <label
+              htmlFor=""
+            >
+              Languages
+            </label>
+            <input
+              defaultValue="adasdasdasd"
+              id=""
+              placeholder="Languages"
+              type="text"
+            />
+          </div>
+          <div
+            className="user__edit_global_info__item"
+          >
+            <label
+              htmlFor=""
+            >
+              Phone
+            </label>
+            <input
+              defaultValue="adasdasdasd"
+              id=""
+              placeholder="Phone"
+              type="text"
+            />
+          </div>
+          <div
+            className="user__edit_global_info__item"
+          >
+            <label
+              htmlFor=""
+            >
+              BirthDate
+            </label>
+            <input
+              defaultValue="adasdasdasd"
+              id=""
+              placeholder="BirthDate"
+              type="text"
+            />
+          </div>
+          <div
+            className="user__edit_global_info__item"
+          >
+            <label
+              htmlFor=""
+            >
+              Education
+            </label>
+            <input
+              defaultValue="adasdasdasd"
+              id=""
+              placeholder="Education"
+              type="text"
+            />
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <fieldset>
+    <legend>
+      About
+    </legend>
+    <textarea
+      defaultValue="adasdasdasd"
+      id="userAbout"
+    />
+  </fieldset>
+  <Link
+    className="sn_btn"
+    onClick={[Function]}
+    replace={false}
+    to="user/:undefined"
+  >
+    Save Changes
+  </Link>
+</div>
+`;

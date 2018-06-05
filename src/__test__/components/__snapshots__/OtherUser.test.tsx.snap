@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Menu /> shallow rendering Match to snapshot 1`] = `
+exports[`<OtherUser /> rendering Match to snapshot 1`] = `
 initialize {
   "options": Object {
     "decodeEntities": true,
@@ -11,7 +11,7 @@ initialize {
 }
 `;
 
-exports[`<Menu /> shallow rendering Match to snapshot 2`] = `
+exports[`<OtherUser /> rendering Match to snapshot 2`] = `
 initialize {
   "options": Object {
     "decodeEntities": true,

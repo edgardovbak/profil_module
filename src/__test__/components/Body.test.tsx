@@ -11,7 +11,7 @@ import {
     mount, 
     ShallowWrapper, 
     ReactWrapper, 
-    render } 							    from 'enzyme';
+    render } 							        from 'enzyme';
 import * as Adapter 					        from 'enzyme-adapter-react-16';
 import toJson 				      		        from 'enzyme-to-json';
 import {
@@ -23,37 +23,10 @@ import { Provider } 							from 'react-redux';
 
 configure( {adapter: new Adapter()} );
 
-describe('<Body /> shallow rendering', () => {
-    let store, body;
-    const mockStore = (createMockStore as any)();
-	beforeEach( () => {
-        store = mockStore({
-			sensenet: {
-				session: {
-					loginState: 'Unauthenticated',
-					user: {
-						userName: 'Visitor'
-					}
-				}
-			}
-		});
-        body = shallow( (
-            <Router>
-                <Provider store={store}>
-                <   Body />
-                </Provider>
-            </Router>)); 
-	}); 
-
-    // test Snapshot 
-	it('Match to snapshot', () => {
-		expect(toJson(body)).toMatchSnapshot();
-    });
-});
+const DATA = require('../../config.json');
 
 describe('<Body /> mount rendering when data is added', () => {
     let store, 
-        body: ShallowWrapper<any, any>, 
         bodyMount: ReactWrapper<any, any>;
         
 	const mockStore = (createMockStore as any)();
@@ -81,26 +54,39 @@ describe('<Body /> mount rendering when data is added', () => {
 	});   
 
     // test Snapshot 
-	it('Match to snapshot', () => {
-        bodyMount.setState({
-            isDataFetched: true,
-            status: false
-        });  
+	it('Match to snapshot with status flase', () => {
+        // bodyMount.setState({
+        //     status: false
+        // }); 
         expect(toJson(bodyMount)).toMatchSnapshot();
     });
 
+    // test Snapshot 
+	it('Match to snapshot with status true', () => {
+        bodyMount.setState({
+            status: true
+        }); 
+        bodyMount.update();
+        // console.log(bodyMount.html()); 
+        expect(toJson(bodyMount)).toMatchSnapshot();
+        
+    });
+
     it('Test openMenu  ', () => {
-		const fff = bodyMount
+		const fff = bodyMount.children()
 		.children()
 		.children()
-		.children()
+        .children()
+        .children()
         .children();
-        fff.setState({
+        bodyMount.setState({
             open: false
         });
+        // console.log(bodyMount.state().status);
         const spy = jest.spyOn(fff.instance(), 'openMenu' as any);
 		const ddd = (fff.instance() as any).openMenu();
-		expect(spy).toHaveBeenCalledTimes(1);
-	});
-
+        expect(spy).toHaveBeenCalledTimes(1);
+        // console.log(bodyMount.state().open);
+    });
+    
 });

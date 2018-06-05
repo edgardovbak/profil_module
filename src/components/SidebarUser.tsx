@@ -10,7 +10,7 @@ interface Props {
 	fullName: string;
 }
 
-class SidebarUser extends React.Component<Props, any> {
+export class SidebarUser extends React.Component<Props, any> {
 	constructor(props: any) {
         super(props);
         this.state = {
