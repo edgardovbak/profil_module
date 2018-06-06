@@ -1,7 +1,7 @@
 import * as React 						  	from 'react';
 import Title 							    from '../../components/Title';
 import { 
-	configure, 
+		configure, 
 		shallow,
 		mount } 							from 'enzyme';
 import * as Adapter 					  	from 'enzyme-adapter-react-16';
@@ -12,10 +12,12 @@ configure( {adapter: new Adapter()} );
 describe('<NoMatch /> shallow rendering', () => {
 		
 	const title = mount(<Title />); 
+	const titleShallow = shallow(<Title />); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => {
 		expect(toJson(title)).toMatchSnapshot();
+		expect(toJson(titleShallow)).toMatchSnapshot();
 	});
 
 	// test Snapshot 

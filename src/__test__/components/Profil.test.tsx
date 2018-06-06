@@ -25,41 +25,9 @@ const DATA = require('../../config.json');
 
 configure( {adapter: new Adapter()} );
 
-const contentMockResponse = {
-	ok: true,
-	status: 200,
-	json: async () => {
-		return {
-			d: {
-				entities: {},
-				result: {
-					Phone: '2131231212',
-					FullName: 'loldon freeman',
-					AvatarImageRef: '',
-					JobTitle: 'job',
-					Email: 'email',
-					WorkPhone: '1233123',
-					Skype: 'asddasd',
-					Linkedin: 'asdasdasfas',
-					GitHub: 'adasdsd',
-					Languages: 'asdasdasd',
-					Education: 'asdasdasd',
-					BirthDate: '123123',
-					Description: 'adas dasd asf asf ',
-					Actions: {
-						1: {
-							Name: 'Edit'
-						}
-					}
-				},
-			},
-		};
-	},
-} as Response;
-
 describe('<Profil /> rendering', () => {
 	let store, storewithUser,
-		profilRender: Cheerio, 
+		profilComponentShallow: ShallowWrapper<any, any>,
 		profilShallow: ShallowWrapper<any, any>,
 		profilWithUserMount: ReactWrapper<any, any>,
 		profilMount: ReactWrapper<any, any>;
@@ -110,15 +78,44 @@ describe('<Profil /> rendering', () => {
 		});
 		const props = {
 			loginState:     'Unauthenticated',
-            userName :      'Visitor',
+			userName :      'Visitor',
+			currentUser: 	{
+				DisplayName: 'Someone'
+			},
+			getUserInfo: async () => {
+				return {result: {value: {d: {
+				Phone: '',
+				FullName: 'loldon freeman',
+				AvatarImageRef: '',
+				JobTitle: 'job',
+				Email: 'email',
+				WorkPhone: '1233123',
+				Skype: 'asddasd',
+				Linkedin: 'asdasdasfas',
+				GitHub: 'adasdsd',
+				Languages: 'asdasdasd',
+				Education: 'asdasdasd',
+				BirthDate: '123123',
+				Description: 'adas dasd asf asf ',
+				Actions: [
+					{Nmae: 'Delete'},
+					{Nmae: 'NotDelete'},
+					{Nmae: 'AlmostDelete'},
+					{Nmae: 'Edit'}
+				]
+				}}}};
+			},
+			addToState: async () => {
+				return 'success';
+			},
             match: {
                 params: {
                     user: 'loldon'
                 }
 			},
 		};
-        profilRender = render(
-			<Profil {...props} store={store}/>);
+        profilComponentShallow = shallow(
+			<ProfilComponent {...props} />);
 
 		profilWithUserMount = mount(
 			<Profil {...props} store={storewithUser}/>);
@@ -126,9 +123,96 @@ describe('<Profil /> rendering', () => {
 			<Profil {...props} store={store}/>);
 	}); 
 
-	it('Match to snapshot', () => {
-		expect(profilShallow).toMatchSnapshot();
+	it('Match to snapshot ', () => {
+		expect(profilShallow).toMatchSnapshot('loader');
+	});
 
+	it('Match to snapshot current user', () => {
+		profilComponentShallow.setState({
+			user: {
+				Phone: '',
+				FullName: 'loldon freeman',
+				AvatarImageRef: '',
+				JobTitle: 'job',
+				Email: 'email',
+				WorkPhone: '1233123',
+				Skype: 'asddasd',
+				Linkedin: 'asdasdasfas',
+				GitHub: 'adasdsd',
+				Languages: 'asdasdasd',
+				Education: 'asdasdasd',
+				BirthDate: '123123',
+				Description: 'adas dasd asf asf ',
+				Actions: [
+					{Nmae: 'Delete'},
+					{Nmae: 'NotDelete'},
+					{Nmae: 'AlmostDelete'},
+					{Nmae: 'Edit'}
+				]
+			},
+			isCurrentUser: true,
+			isDataFetched: true
+		});
+		expect(profilComponentShallow).toMatchSnapshot();
+	});
+
+	it('Match to snapshot current user with image', () => {
+		profilComponentShallow.setState({
+			user: {
+				Phone: '1213123123123',
+				FullName: 'loldon freeman',
+				AvatarImageRef: 'some_image.png',
+				JobTitle: 'job',
+				Email: 'email',
+				WorkPhone: '1233123',
+				Skype: 'asddasd',
+				Linkedin: 'asdasdasfas',
+				GitHub: 'adasdsd',
+				Languages: 'asdasdasd',
+				Education: 'asdasdasd',
+				BirthDate: '123123',
+				Description: 'adas dasd asf asf ',
+				Actions: [
+					{Nmae: 'Delete'},
+					{Nmae: 'NotDelete'},
+					{Nmae: 'AlmostDelete'},
+					{Nmae: 'Edit'}
+				]
+			},
+			isCurrentUser: true,
+			isDataFetched: true,
+		});
+		expect(profilComponentShallow).toMatchSnapshot();
+	});
+
+	it('Match to snapshot not current user', () => {
+		profilComponentShallow.setState({
+			user: {
+				Phone: '1213123123123',
+				FullName: 'loldon freeman',
+				AvatarImageRef: 'some_image.png',
+				JobTitle: 'job',
+				Email: 'email',
+				WorkPhone: '1233123',
+				Skype: 'asddasd',
+				Linkedin: 'asdasdasfas',
+				GitHub: 'adasdsd',
+				Languages: 'asdasdasd',
+				Education: 'asdasdasd',
+				BirthDate: '123123',
+				Description: 'adas dasd asf asf ',
+				Actions: [
+					{Nmae: 'Delete'},
+					{Nmae: 'NotDelete'},
+					{Nmae: 'AlmostDelete'},
+					{Nmae: 'Edit'}
+				]
+			},
+			isCurrentUser: false,
+			isDataFetched: true,
+			isForbidden: false
+		});
+		expect(profilComponentShallow).toMatchSnapshot();
 	});
 
 	it('Test componentDidMount', () => {
@@ -191,38 +275,6 @@ describe('<Profil /> rendering', () => {
 			expand : ['Actions', 'AvatarImageRef']
 		});
 		expect(getUsers.type).toEqual('LOAD_CONTENT');	
-	});
-
-	it('Match to snapshot else path ', (done) => {
-		profilWithUserMount.setState({
-			isDataFetched: true,
-			isForbidden: false,
-			user: {
-				Phone: '',
-				FullName: 'loldon freeman',
-				AvatarImageRef: '',
-				JobTitle: 'job',
-				Email: 'email',
-				WorkPhone: '1233123',
-				Skype: 'asddasd',
-				Linkedin: 'asdasdasfas',
-				GitHub: 'adasdsd',
-				Languages: 'asdasdasd',
-				Education: 'asdasdasd',
-				BirthDate: '123123',
-				Description: 'adas dasd asf asf ',
-				Actions: [
-					{Nmae: 'Delete'},
-					{Nmae: 'NotDelete'},
-					{Nmae: 'AlmostDelete'},
-					{Nmae: 'Edit'}
-				]
-			}
-		}, () => {
-			console.log(profilWithUserMount.state());
-			expect(profilShallow).toMatchSnapshot();	
-			done();
-		});
 	});
 	
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Body /> mount rendering when data is added Match to snapshot with status flase 1`] = `
+exports[`<Body /> mount rendering when data is added Match to snapshot 1`] = `
 <BrowserRouter>
   <Router
     history={
@@ -36,14 +36,14 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
         }
       }
     >
-      <withRouter(Connect(Body))
+      <withRouter(Connect(BodyComponent))
         loginState="Unauthenticated"
         userName="Visitor"
       >
         <Route
           render={[Function]}
         >
-          <Connect(Body)
+          <Connect(BodyComponent)
             history={
               Object {
                 "action": "POP",
@@ -83,7 +83,7 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
             }
             userName="Visitor"
           >
-            <Body
+            <BodyComponent
               dispatch={[Function]}
               history={
                 Object {
@@ -156,7 +156,7 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                   <div
                     className="sn_sidebar"
                   >
-                    <Logo
+                    <LogoComponent
                       openMenu={[Function]}
                     >
                       <div
@@ -183,9 +183,9 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                           <span />
                         </div>
                       </div>
-                    </Logo>
-                    <Connect(SidebarUser)>
-                      <SidebarUser
+                    </LogoComponent>
+                    <Connect(SidebarUserComponent)>
+                      <SidebarUserComponent
                         dispatch={[Function]}
                         userName="Visitor"
                       >
@@ -213,8 +213,8 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                             </div>
                           </a>
                         </Link>
-                      </SidebarUser>
-                    </Connect(SidebarUser)>
+                      </SidebarUserComponent>
+                    </Connect(SidebarUserComponent)>
                     <Connect(MenuComponent)>
                       <MenuComponent
                         getMenuItems={[Function]}
@@ -236,10 +236,295 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                   </div>
                 </main>
               </div>
-            </Body>
-          </Connect(Body)>
+            </BodyComponent>
+          </Connect(BodyComponent)>
         </Route>
-      </withRouter(Connect(Body))>
+      </withRouter(Connect(BodyComponent))>
+    </Provider>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<Body /> mount rendering when data is added Match to snapshot 2`] = `
+<div
+  className="content_to_right"
+>
+  <Header />
+  <Sidebar
+    openMenu={[Function]}
+  />
+  <div
+    className="sn_overflow"
+  />
+  <main
+    className="sn_main"
+  >
+    <div
+      className="sn_wrapp"
+    >
+      <Switch>
+        <Route
+          exact={true}
+          path="/otherUser"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/user/:user"
+          render={[Function]}
+          userName="Visitor"
+        />
+        <Route
+          exact={true}
+          path="/editUser"
+          render={[Function]}
+        />
+      </Switch>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`<Body /> mount rendering when data is added Match to snapshot with status flase 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Provider
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <withRouter(Connect(BodyComponent))
+        loginState="Unauthenticated"
+        userName="Visitor"
+      >
+        <Route
+          render={[Function]}
+        >
+          <Connect(BodyComponent)
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            loginState="Unauthenticated"
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            userName="Visitor"
+          >
+            <BodyComponent
+              dispatch={[Function]}
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              loginState="Unauthenticated"
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+              userLoginState="Unauthenticated"
+              userName="Visitor"
+            >
+              <div
+                className="content_to_right"
+              >
+                <Header>
+                  <header
+                    className="sn_header"
+                  >
+                    <div
+                      className="sn_wrapp"
+                    >
+                      <div
+                        className="sn_header__search"
+                      >
+                        <input
+                          type="text"
+                        />
+                        <button>
+                          <i
+                            className="fi flaticon-magnifier"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </header>
+                </Header>
+                <Sidebar
+                  openMenu={[Function]}
+                >
+                  <div
+                    className="sn_sidebar"
+                  >
+                    <LogoComponent
+                      openMenu={[Function]}
+                    >
+                      <div
+                        className="sn_sidebar__logo"
+                      >
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            <img
+                              alt="site logo"
+                              src="logo.png"
+                            />
+                          </a>
+                        </Link>
+                        <div
+                          className="sn_menu"
+                          onClick={[Function]}
+                        >
+                          <span />
+                        </div>
+                      </div>
+                    </LogoComponent>
+                    <Connect(SidebarUserComponent)>
+                      <SidebarUserComponent
+                        dispatch={[Function]}
+                        userName="Visitor"
+                      >
+                        <Link
+                          replace={false}
+                          to="/user/:Visitor"
+                        >
+                          <a
+                            href="/user/:Visitor"
+                            onClick={[Function]}
+                          >
+                            <div
+                              className="sn_sidebar__user"
+                            >
+                              <span
+                                className="sn_sidebar__user__avatar--default"
+                              >
+                                <i
+                                  className="fi flaticon-user"
+                                />
+                              </span>
+                              <div
+                                className="sn_sidebar__user__name"
+                              />
+                            </div>
+                          </a>
+                        </Link>
+                      </SidebarUserComponent>
+                    </Connect(SidebarUserComponent)>
+                    <Connect(MenuComponent)>
+                      <MenuComponent
+                        getMenuItems={[Function]}
+                        userLoginState="Unauthenticated"
+                      />
+                    </Connect(MenuComponent)>
+                  </div>
+                </Sidebar>
+                <div
+                  className="sn_overflow"
+                />
+                <main
+                  className="sn_main"
+                >
+                  <div
+                    className="sn_wrapp"
+                  >
+                    <Switch />
+                  </div>
+                </main>
+              </div>
+            </BodyComponent>
+          </Connect(BodyComponent)>
+        </Route>
+      </withRouter(Connect(BodyComponent))>
     </Provider>
   </Router>
 </BrowserRouter>
@@ -281,14 +566,14 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
         }
       }
     >
-      <withRouter(Connect(Body))
+      <withRouter(Connect(BodyComponent))
         loginState="Unauthenticated"
         userName="Visitor"
       >
         <Route
           render={[Function]}
         >
-          <Connect(Body)
+          <Connect(BodyComponent)
             history={
               Object {
                 "action": "POP",
@@ -328,7 +613,7 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
             }
             userName="Visitor"
           >
-            <Body
+            <BodyComponent
               dispatch={[Function]}
               history={
                 Object {
@@ -401,7 +686,7 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                   <div
                     className="sn_sidebar"
                   >
-                    <Logo
+                    <LogoComponent
                       openMenu={[Function]}
                     >
                       <div
@@ -428,9 +713,9 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                           <span />
                         </div>
                       </div>
-                    </Logo>
-                    <Connect(SidebarUser)>
-                      <SidebarUser
+                    </LogoComponent>
+                    <Connect(SidebarUserComponent)>
+                      <SidebarUserComponent
                         dispatch={[Function]}
                         userName="Visitor"
                       >
@@ -458,8 +743,8 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                             </div>
                           </a>
                         </Link>
-                      </SidebarUser>
-                    </Connect(SidebarUser)>
+                      </SidebarUserComponent>
+                    </Connect(SidebarUserComponent)>
                     <Connect(MenuComponent)>
                       <MenuComponent
                         getMenuItems={[Function]}
@@ -481,10 +766,10 @@ exports[`<Body /> mount rendering when data is added Match to snapshot with stat
                   </div>
                 </main>
               </div>
-            </Body>
-          </Connect(Body)>
+            </BodyComponent>
+          </Connect(BodyComponent)>
         </Route>
-      </withRouter(Connect(Body))>
+      </withRouter(Connect(BodyComponent))>
     </Provider>
   </Router>
 </BrowserRouter>

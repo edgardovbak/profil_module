@@ -101,14 +101,14 @@ describe('<Login /> rendering', () => {
         expect(spyPass).toHaveBeenCalledTimes(1);
     }); 
 
-    it('onSubmit is called ', () => {
-        let spyPass = jest.spyOn(Login.prototype, 'onSubmit'); 
-        let event = {
-            target: {value: 'nothing'}
-        };
-        Login.prototype.onSubmit();
-        expect(spyPass).toHaveBeenCalledTimes(1);
-    }); 
+    // it('onSubmit is called ', () => {
+    //     let spyPass = jest.spyOn(Login.prototype, 'onSubmit'); 
+    //     let event = {
+    //         target: {value: 'nothing'}
+    //     };
+    //     Login.prototype.onSubmit();
+    //     expect(spyPass).toHaveBeenCalledTimes(1);
+    // });  
     
     it('Error message ', () => {
         login.setState({ error: true });

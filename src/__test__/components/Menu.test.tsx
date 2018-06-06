@@ -2,8 +2,7 @@ jest.unmock('../../index.tsx');
 jest.unmock('redux-mock-store');
 
 import * as React 						        from 'react';
-import Menu 							        from '../../components/Menu';
-import { MenuComponent }                        from '../../components/Menu';
+import Menu, { MenuComponent } 				    from '../../components/Menu';
 import { 
 	configure, 
     shallow,
@@ -26,9 +25,9 @@ const  options = {
     select : ['Name', 'IconName', 'Id', 'Path', 'DisplayName']
 };
 configure( {adapter: new Adapter()} );
-describe('<Menu /> shallow rendering with user data', () => {
-    let menuComponent: ReactWrapper<any, any>;
-    let menu: ReactWrapper<any, any>;
+describe('<Menu /> rendering', () => {
+    let menuComponentMount: ReactWrapper<any, any>;
+    let menuComponentShallow: ShallowWrapper<any, any>;
    
 	beforeEach( () => {
         let getMenuItems: MenuComponent['props']['getMenuItems'] = async () => {
@@ -68,25 +67,38 @@ describe('<Menu /> shallow rendering with user data', () => {
             };
         };
 
-        menuComponent = mount(
+        menuComponentMount = mount(
             <Router>
                 <MenuComponent getMenuItems={getMenuItems} userLoginState="alma"/> 
             </Router>
-        );   
-
-        menu = mount(
-            <Router>
-                <MenuComponent getMenuItems={getMenuItems} userLoginState="alma"/> 
-            </Router>
+        );  
+        
+        menuComponentShallow = shallow(
+            <MenuComponent getMenuItems={getMenuItems} userLoginState="alma"/> 
         );   
     }); 
     // test Snapshot 
 	it('Match to snapshot', () => {
-        expect(toJson(menuComponent)).toMatchSnapshot();
+        expect(toJson(menuComponentMount)).toMatchSnapshot();
+    });
+
+	it('Match to snapshot with data', () => {
+        menuComponentMount.setState({
+            isDataFetched: true
+        });
+        expect(toJson(menuComponentMount)).toMatchSnapshot();
+    });
+
+    it('Match to snapshot with status = true ', () => {
+        menuComponentShallow.setState({
+            isDataFetched: true,
+            status : true
+        });
+        expect(toJson(menuComponentShallow)).toMatchSnapshot();
     });
 
     it('Menu have sidebar class', () => {
-        let menuContent = menu.children().children();
+        let menuContent = menuComponentMount.children().children();
         expect(menuContent.find('.sn_sidebar__menu').length).toBe(0);
     });
 

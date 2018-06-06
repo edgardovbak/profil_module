@@ -18,4 +18,4 @@ describe('<MainLayout /> shallow rendering', () => {
 	});
 		
 });
- 
+  

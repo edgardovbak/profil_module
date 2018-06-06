@@ -448,3 +448,5 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 2`] = `
   </Link>
 </div>
 `;
+
+exports[`<EditProfil /> shallow rendering Match to snapshot 3`] = `<Loader />`;

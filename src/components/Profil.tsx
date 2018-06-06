@@ -48,7 +48,7 @@ export class ProfilComponent extends React.Component<Props, State> {
 			isCurrentUser: false
 		};
 		
-		this.getUserByName = this.getUserByName.bind(this);
+		// this.getUserByName = this.getUserByName.bind(this);
 	}
 
 	async getUserByName (name: string) {
@@ -63,8 +63,8 @@ export class ProfilComponent extends React.Component<Props, State> {
 			expand : ['Actions', 'AvatarImageRef']
 		});
 		this.setState({ 
-			isDataFetched: false,
-			user: userGet.result.value.d
+			isDataFetched: true,
+			user: userGet.value.d
 		});
 		// check if current user have permission to edit user
 		let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
@@ -75,7 +75,7 @@ export class ProfilComponent extends React.Component<Props, State> {
 		}
 		// if curent user its on own page then save info to state
 		if ( !this.state.isForbidden ) {
-			this.props.addToState(userGet.result.value.d);
+			this.props.addToState(userGet.value.d);
 			this.setState({ 
 				isCurrentUser: true
 			});
@@ -98,21 +98,10 @@ export class ProfilComponent extends React.Component<Props, State> {
 	}
 	
 	render () {
-		
 		// if user is not updated then show loader
 		if ( !this.state.isDataFetched ) {
 			return (<Loader/>);
-		} 
-		// phone number 
-		let PhoneNumber;
-		if ( !(this.state.user.Phone === '')) {
-			PhoneNumber = (
-			<UserInfoListItem
-				name="Phone"
-				infoType={0}
-				value={this.state.user.Phone} 
-			/>);
-		} 
+		}
 
 		let skillsList = this.state.isCurrentUser ? this.props.currentUser.Skills : this.state.user.Skills;
 		return (
@@ -158,7 +147,13 @@ export class ProfilComponent extends React.Component<Props, State> {
 									infoType={0}
 									value={this.state.isCurrentUser ?  this.props.currentUser.WorkPhone : this.state.user.WorkPhone}
 								/>
-								{PhoneNumber}
+								{this.state.user.Phone !== '' ? (
+									<UserInfoListItem
+										name="Phone"
+										infoType={0}
+										value={this.state.user.Phone} 
+									/>)
+								: '' }
 								<UserInfoListItem
 									name="Skype"
 									infoType={1}

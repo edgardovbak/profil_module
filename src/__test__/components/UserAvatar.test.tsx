@@ -64,6 +64,17 @@ describe('<UserAvatar /> rendering', () => {
 	it('Match to snapshot', () => {
 		expect(toJson(useravatarMount)).toMatchSnapshot();
 	});
+
+	// test Snapshot 
+	it('Match to snapshot', () => {
+		let onUpdate = (value: any) => {
+			return value;
+		};
+		let witoutUserInfo = shallow(
+			<UserAvatarComponent onUpdate={onUpdate} user={null}/>
+		);
+		expect(toJson(witoutUserInfo)).toMatchSnapshot();
+	});
 		
 	it('Test state', () => {
 		expect(useravatarMount.children().children().instance().state.allowZoomOut).toBe(false);
@@ -180,4 +191,4 @@ describe('<UserAvatar /> rendering', () => {
 		expect(spy).toHaveBeenCalledTimes(1);
 	});
 		
-}); 
+});  

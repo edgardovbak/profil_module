@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Menu /> shallow rendering with user data Match to snapshot 1`] = `
+exports[`<Menu /> rendering Match to snapshot 1`] = `
 <BrowserRouter>
   <Router
     history={
@@ -30,4 +30,84 @@ exports[`<Menu /> shallow rendering with user data Match to snapshot 1`] = `
     />
   </Router>
 </BrowserRouter>
+`;
+
+exports[`<Menu /> rendering Match to snapshot with data 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <MenuComponent
+      getMenuItems={[Function]}
+      userLoginState="alma"
+    >
+      <div
+        className="sn_sidebar__menu"
+      >
+        <MenuItem
+          icon=" fi flaticon-folded-newspaper"
+          name="Login"
+          pathTo="/login"
+        >
+          <Link
+            className="sn_sidebar__menu__item"
+            onClick={[Function]}
+            replace={false}
+            to="/login"
+          >
+            <a
+              className="sn_sidebar__menu__item"
+              href="/login"
+              onClick={[Function]}
+            >
+              <span
+                className="sn_sidebar__menu__item__icon"
+              >
+                <i
+                  className=" fi flaticon-folded-newspaper"
+                />
+              </span>
+              <span
+                className="sn_sidebar__menu__item__name"
+              >
+                Login
+              </span>
+            </a>
+          </Link>
+        </MenuItem>
+      </div>
+    </MenuComponent>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<Menu /> rendering Match to snapshot with status = true  1`] = `
+<div
+  className="sn_sidebar__menu"
+>
+  <MenuItem
+    icon=" fi flaticon-folded-newspaper"
+    name="Login"
+    pathTo="/login"
+  />
+</div>
 `;

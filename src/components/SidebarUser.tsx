@@ -10,7 +10,7 @@ interface Props {
 	fullName: string;
 }
 
-export class SidebarUser extends React.Component<Props, any> {
+export class SidebarUserComponent extends React.Component<Props, any> {
 	constructor(props: any) {
         super(props);
         this.state = {
@@ -51,4 +51,4 @@ const mapStateToProps = (state: any) => {
 
 export default connect(
 	mapStateToProps
-)(SidebarUser as any);
+)(SidebarUserComponent as any);

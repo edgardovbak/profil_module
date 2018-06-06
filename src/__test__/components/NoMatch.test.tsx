@@ -23,6 +23,6 @@ describe('<NoMatch /> shallow rendering', () => {
 	it('Match to snapshot', () => {
 		expect(toJson(nomatch)).toMatchSnapshot();
 	});
-		
+		 
 });
  

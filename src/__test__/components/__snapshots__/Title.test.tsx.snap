@@ -7,3 +7,9 @@ exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
   />
 </Title>
 `;
+
+exports[`<NoMatch /> shallow rendering Match to snapshot 2`] = `
+<h2
+  className="sn_title"
+/>
+`;

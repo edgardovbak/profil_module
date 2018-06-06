@@ -36,8 +36,8 @@ exports[`<SidebarUser /> rendering Match to snapshot 1`] = `
         }
       }
     >
-      <Connect(SidebarUser)>
-        <SidebarUser
+      <Connect(SidebarUserComponent)>
+        <SidebarUserComponent
           dispatch={[Function]}
           fullName="Test User 1"
           user={null}
@@ -69,85 +69,31 @@ exports[`<SidebarUser /> rendering Match to snapshot 1`] = `
               </div>
             </a>
           </Link>
-        </SidebarUser>
-      </Connect(SidebarUser)>
+        </SidebarUserComponent>
+      </Connect(SidebarUserComponent)>
     </Provider>
   </Router>
 </BrowserRouter>
 `;
 
-exports[`<SidebarUser /> rendering Match to snapshot 2`] = `
-<BrowserRouter>
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
+exports[`<SidebarUser /> rendering Match to snapshot without avatar 1`] = `
+<Link
+  replace={false}
+  to="/user/:toto"
+>
+  <div
+    className="sn_sidebar__user"
   >
-    <Provider
-      store={
-        Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        }
-      }
+    <img
+      alt="toto to"
+      className="sn_sidebar__user__avatar"
+      src="https://knowledgebase-sn7.test.sensenet.comsomeImage.png"
+    />
+    <div
+      className="sn_sidebar__user__name"
     >
-      <Connect(SidebarUser)>
-        <SidebarUser
-          dispatch={[Function]}
-          fullName="Test User 1"
-          user={null}
-          userName="TestUser1"
-        >
-          <Link
-            replace={false}
-            to="/user/:TestUser1"
-          >
-            <a
-              href="/user/:TestUser1"
-              onClick={[Function]}
-            >
-              <div
-                className="sn_sidebar__user"
-              >
-                <span
-                  className="sn_sidebar__user__avatar--default"
-                >
-                  <i
-                    className="fi flaticon-user"
-                  />
-                </span>
-                <div
-                  className="sn_sidebar__user__name"
-                >
-                  Test User 1
-                </div>
-              </div>
-            </a>
-          </Link>
-        </SidebarUser>
-      </Connect(SidebarUser)>
-    </Provider>
-  </Router>
-</BrowserRouter>
+      toto to
+    </div>
+  </div>
+</Link>
 `;

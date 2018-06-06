@@ -47,8 +47,6 @@ export interface State {
 			let DescriptionInput: 		HTMLTextAreaElement;
 			// *********************************************
 
-			let userUpdate: any;
-
 export class EditProfilComponent extends React.Component<Props, State> {
 
 	constructor(props: any) {
@@ -117,9 +115,9 @@ export class EditProfilComponent extends React.Component<Props, State> {
 		} as CSTUser;
 
 		// and update user info in sensenet app
-		// let path = PathHelper.joinPaths(DATA.ims, this.props.user.Name);
 		let pathAlt = DATA.ims + '(\'' + this.props.user.Name + '\')';
-		userUpdate = await this.props.updateUserSN(pathAlt, user);
+		let userUpdate = await this.props.updateUserSN(pathAlt, user);
+		console.log(userUpdate);
 		this.props.saveChanges(user);	
 	}
 

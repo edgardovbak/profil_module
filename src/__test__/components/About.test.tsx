@@ -21,5 +21,5 @@ describe('<About /> shallow rendering', () => {
 	it('Contain one text element ', () => {
 		expect(about.find('.about').length).toBe(1);
 	});
-		
+		 
 });

@@ -1,10 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Profil /> rendering Match to snapshot 1`] = `
+exports[`<Profil /> rendering Match to snapshot : loader 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Connect(ProfilComponent)
+    addToState={[Function]}
+    currentUser={
+      Object {
+        "DisplayName": "Someone",
+      }
+    }
+    getUserInfo={[Function]}
     loginState="Unauthenticated"
     match={
       Object {
@@ -138,27 +145,24 @@ ShallowWrapper {
 }
 `;
 
-exports[`<Profil /> rendering Match to snapshot else path  1`] = `
+exports[`<Profil /> rendering Match to snapshot current user 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(ProfilComponent)
+  Symbol(enzyme.__unrendered__): <ProfilComponent
+    addToState={[Function]}
+    currentUser={
+      Object {
+        "DisplayName": "Someone",
+      }
+    }
+    getUserInfo={[Function]}
     loginState="Unauthenticated"
     match={
       Object {
         "params": Object {
           "user": "loldon",
         },
-      }
-    }
-    store={
-      Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
       }
     }
     userName="Visitor"
@@ -173,97 +177,3809 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "addToState": [Function],
-      "currentUser": undefined,
-      "getUserInfo": [Function],
-      "loginState": "Unauthenticated",
-      "match": Object {
-        "params": Object {
-          "user": "loldon",
-        },
-      },
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "storeSubscription": Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": [Function],
-      },
-      "userName": "Visitor",
+      "children": Array [
+        <div
+          className="user"
+        >
+          <div
+            className="user__avatar"
+          >
+            <img
+              alt={undefined}
+              src="default_avatar.svg"
+            />
+          </div>
+          <div
+            className="user__global_info"
+          >
+            <h2
+              className="sn_title sn_title--description"
+            >
+              
+            </h2>
+            <div
+              className="user__global_info__position"
+            />
+            <div
+              className="user__global_info__list"
+            >
+              <div>
+                <UserInfoListItem
+                  infoType={1}
+                  name="Email"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="WorkPhone"
+                  value={undefined}
+                />
+                
+                <UserInfoListItem
+                  infoType={1}
+                  name="Skype"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="Linkedin"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="GitHub"
+                  value={undefined}
+                />
+              </div>
+              <div>
+                <UserInfoListItem
+                  infoType={0}
+                  name="Languages"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="Education"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={2}
+                  name="BirthDate"
+                  value={undefined}
+                />
+              </div>
+            </div>
+          </div>
+        </div>,
+        <Title
+          name="Skils"
+        />,
+        <Skils
+          skills="undefined"
+        />,
+        <Title
+          name="About"
+        />,
+        <About
+          about={undefined}
+        />,
+      ],
+      "className": "profil",
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="user__avatar"
+            >
+              <img
+                alt={undefined}
+                src="default_avatar.svg"
+              />
+            </div>,
+            <div
+              className="user__global_info"
+            >
+              <h2
+                className="sn_title sn_title--description"
+              >
+                
+              </h2>
+              <div
+                className="user__global_info__position"
+              />
+              <div
+                className="user__global_info__list"
+              >
+                <div>
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Email"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="WorkPhone"
+                    value={undefined}
+                  />
+                  
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Skype"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Linkedin"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="GitHub"
+                    value={undefined}
+                  />
+                </div>
+                <div>
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Languages"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Education"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={2}
+                    name="BirthDate"
+                    value={undefined}
+                  />
+                </div>
+              </div>
+            </div>,
+          ],
+          "className": "user",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt={undefined}
+                src="default_avatar.svg"
+              />,
+              "className": "user__avatar",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": undefined,
+                "src": "default_avatar.svg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h2
+                  className="sn_title sn_title--description"
+                >
+                  
+                </h2>,
+                <div
+                  className="user__global_info__position"
+                />,
+                <div
+                  className="user__global_info__list"
+                >
+                  <div>
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Email"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="WorkPhone"
+                      value={undefined}
+                    />
+                    
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Skype"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Linkedin"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="GitHub"
+                      value={undefined}
+                    />
+                  </div>
+                  <div>
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Languages"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Education"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={2}
+                      name="BirthDate"
+                      value={undefined}
+                    />
+                  </div>
+                </div>,
+              ],
+              "className": "user__global_info",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    "",
+                  ],
+                  "className": "sn_title sn_title--description",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  "",
+                ],
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "className": "user__global_info__position",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div>
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Email"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="WorkPhone"
+                        value={undefined}
+                      />
+                      
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Skype"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Linkedin"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="GitHub"
+                        value={undefined}
+                      />
+                    </div>,
+                    <div>
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Languages"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Education"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={2}
+                        name="BirthDate"
+                        value={undefined}
+                      />
+                    </div>,
+                  ],
+                  "className": "user__global_info__list",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Email"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="WorkPhone"
+                          value={undefined}
+                        />,
+                        "",
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Skype"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Linkedin"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="GitHub"
+                          value={undefined}
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Email",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "WorkPhone",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      "",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Skype",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Linkedin",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "GitHub",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Languages"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Education"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={2}
+                          name="BirthDate"
+                          value={undefined}
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Languages",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Education",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 2,
+                          "name": "BirthDate",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "name": "Skils",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "skills": "undefined",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "name": "About",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "about": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "addToState": [Function],
-        "currentUser": undefined,
-        "getUserInfo": [Function],
-        "loginState": "Unauthenticated",
-        "match": Object {
-          "params": Object {
-            "user": "loldon",
-          },
-        },
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "clearActions": [Function],
-            "dispatch": [Function],
-            "getActions": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-          },
-          "unsubscribe": [Function],
-        },
-        "userName": "Visitor",
+        "children": Array [
+          <div
+            className="user"
+          >
+            <div
+              className="user__avatar"
+            >
+              <img
+                alt={undefined}
+                src="default_avatar.svg"
+              />
+            </div>
+            <div
+              className="user__global_info"
+            >
+              <h2
+                className="sn_title sn_title--description"
+              >
+                
+              </h2>
+              <div
+                className="user__global_info__position"
+              />
+              <div
+                className="user__global_info__list"
+              >
+                <div>
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Email"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="WorkPhone"
+                    value={undefined}
+                  />
+                  
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Skype"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Linkedin"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="GitHub"
+                    value={undefined}
+                  />
+                </div>
+                <div>
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Languages"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Education"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={2}
+                    name="BirthDate"
+                    value={undefined}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>,
+          <Title
+            name="Skils"
+          />,
+          <Skils
+            skills="undefined"
+          />,
+          <Title
+            name="About"
+          />,
+          <About
+            about={undefined}
+          />,
+        ],
+        "className": "profil",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="user__avatar"
+              >
+                <img
+                  alt={undefined}
+                  src="default_avatar.svg"
+                />
+              </div>,
+              <div
+                className="user__global_info"
+              >
+                <h2
+                  className="sn_title sn_title--description"
+                >
+                  
+                </h2>
+                <div
+                  className="user__global_info__position"
+                />
+                <div
+                  className="user__global_info__list"
+                >
+                  <div>
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Email"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="WorkPhone"
+                      value={undefined}
+                    />
+                    
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Skype"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Linkedin"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="GitHub"
+                      value={undefined}
+                    />
+                  </div>
+                  <div>
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Languages"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Education"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={2}
+                      name="BirthDate"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+              </div>,
+            ],
+            "className": "user",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt={undefined}
+                  src="default_avatar.svg"
+                />,
+                "className": "user__avatar",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": undefined,
+                  "src": "default_avatar.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h2
+                    className="sn_title sn_title--description"
+                  >
+                    
+                  </h2>,
+                  <div
+                    className="user__global_info__position"
+                  />,
+                  <div
+                    className="user__global_info__list"
+                  >
+                    <div>
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Email"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="WorkPhone"
+                        value={undefined}
+                      />
+                      
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Skype"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Linkedin"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="GitHub"
+                        value={undefined}
+                      />
+                    </div>
+                    <div>
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Languages"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Education"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={2}
+                        name="BirthDate"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>,
+                ],
+                "className": "user__global_info",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      "",
+                    ],
+                    "className": "sn_title sn_title--description",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    "",
+                  ],
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": "user__global_info__position",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div>
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Email"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="WorkPhone"
+                          value={undefined}
+                        />
+                        
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Skype"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Linkedin"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="GitHub"
+                          value={undefined}
+                        />
+                      </div>,
+                      <div>
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Languages"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Education"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={2}
+                          name="BirthDate"
+                          value={undefined}
+                        />
+                      </div>,
+                    ],
+                    "className": "user__global_info__list",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Email"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="WorkPhone"
+                            value={undefined}
+                          />,
+                          "",
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Skype"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Linkedin"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="GitHub"
+                            value={undefined}
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Email",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "WorkPhone",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Skype",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Linkedin",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "GitHub",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Languages"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Education"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={2}
+                            name="BirthDate"
+                            value={undefined}
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Languages",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Education",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 2,
+                            "name": "BirthDate",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "name": "Skils",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "skills": "undefined",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "name": "About",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "about": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Profil /> rendering Match to snapshot current user with image 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProfilComponent
+    addToState={[Function]}
+    currentUser={
+      Object {
+        "DisplayName": "Someone",
+      }
+    }
+    getUserInfo={[Function]}
+    loginState="Unauthenticated"
+    match={
+      Object {
+        "params": Object {
+          "user": "loldon",
+        },
+      }
+    }
+    userName="Visitor"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="user"
+        >
+          <div
+            className="user__avatar"
+          >
+            <img
+              alt={undefined}
+              src="default_avatar.svg"
+            />
+          </div>
+          <div
+            className="user__global_info"
+          >
+            <h2
+              className="sn_title sn_title--description"
+            >
+              
+            </h2>
+            <div
+              className="user__global_info__position"
+            />
+            <div
+              className="user__global_info__list"
+            >
+              <div>
+                <UserInfoListItem
+                  infoType={1}
+                  name="Email"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="WorkPhone"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="Phone"
+                  value="1213123123123"
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="Skype"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="Linkedin"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="GitHub"
+                  value={undefined}
+                />
+              </div>
+              <div>
+                <UserInfoListItem
+                  infoType={0}
+                  name="Languages"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="Education"
+                  value={undefined}
+                />
+                <UserInfoListItem
+                  infoType={2}
+                  name="BirthDate"
+                  value={undefined}
+                />
+              </div>
+            </div>
+          </div>
+        </div>,
+        <Title
+          name="Skils"
+        />,
+        <Skils
+          skills="undefined"
+        />,
+        <Title
+          name="About"
+        />,
+        <About
+          about={undefined}
+        />,
+      ],
+      "className": "profil",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="user__avatar"
+            >
+              <img
+                alt={undefined}
+                src="default_avatar.svg"
+              />
+            </div>,
+            <div
+              className="user__global_info"
+            >
+              <h2
+                className="sn_title sn_title--description"
+              >
+                
+              </h2>
+              <div
+                className="user__global_info__position"
+              />
+              <div
+                className="user__global_info__list"
+              >
+                <div>
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Email"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="WorkPhone"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Phone"
+                    value="1213123123123"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Skype"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Linkedin"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="GitHub"
+                    value={undefined}
+                  />
+                </div>
+                <div>
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Languages"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Education"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={2}
+                    name="BirthDate"
+                    value={undefined}
+                  />
+                </div>
+              </div>
+            </div>,
+          ],
+          "className": "user",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt={undefined}
+                src="default_avatar.svg"
+              />,
+              "className": "user__avatar",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": undefined,
+                "src": "default_avatar.svg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h2
+                  className="sn_title sn_title--description"
+                >
+                  
+                </h2>,
+                <div
+                  className="user__global_info__position"
+                />,
+                <div
+                  className="user__global_info__list"
+                >
+                  <div>
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Email"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="WorkPhone"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Phone"
+                      value="1213123123123"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Skype"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Linkedin"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="GitHub"
+                      value={undefined}
+                    />
+                  </div>
+                  <div>
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Languages"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Education"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={2}
+                      name="BirthDate"
+                      value={undefined}
+                    />
+                  </div>
+                </div>,
+              ],
+              "className": "user__global_info",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    "",
+                  ],
+                  "className": "sn_title sn_title--description",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  "",
+                ],
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "className": "user__global_info__position",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div>
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Email"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="WorkPhone"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Phone"
+                        value="1213123123123"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Skype"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Linkedin"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="GitHub"
+                        value={undefined}
+                      />
+                    </div>,
+                    <div>
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Languages"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Education"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={2}
+                        name="BirthDate"
+                        value={undefined}
+                      />
+                    </div>,
+                  ],
+                  "className": "user__global_info__list",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Email"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="WorkPhone"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Phone"
+                          value="1213123123123"
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Skype"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Linkedin"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="GitHub"
+                          value={undefined}
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Email",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "WorkPhone",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Phone",
+                          "value": "1213123123123",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Skype",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Linkedin",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "GitHub",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Languages"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Education"
+                          value={undefined}
+                        />,
+                        <UserInfoListItem
+                          infoType={2}
+                          name="BirthDate"
+                          value={undefined}
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Languages",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Education",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 2,
+                          "name": "BirthDate",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "name": "Skils",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "skills": "undefined",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "name": "About",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "about": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="user"
+          >
+            <div
+              className="user__avatar"
+            >
+              <img
+                alt={undefined}
+                src="default_avatar.svg"
+              />
+            </div>
+            <div
+              className="user__global_info"
+            >
+              <h2
+                className="sn_title sn_title--description"
+              >
+                
+              </h2>
+              <div
+                className="user__global_info__position"
+              />
+              <div
+                className="user__global_info__list"
+              >
+                <div>
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Email"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="WorkPhone"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Phone"
+                    value="1213123123123"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Skype"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Linkedin"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="GitHub"
+                    value={undefined}
+                  />
+                </div>
+                <div>
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Languages"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Education"
+                    value={undefined}
+                  />
+                  <UserInfoListItem
+                    infoType={2}
+                    name="BirthDate"
+                    value={undefined}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>,
+          <Title
+            name="Skils"
+          />,
+          <Skils
+            skills="undefined"
+          />,
+          <Title
+            name="About"
+          />,
+          <About
+            about={undefined}
+          />,
+        ],
+        "className": "profil",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="user__avatar"
+              >
+                <img
+                  alt={undefined}
+                  src="default_avatar.svg"
+                />
+              </div>,
+              <div
+                className="user__global_info"
+              >
+                <h2
+                  className="sn_title sn_title--description"
+                >
+                  
+                </h2>
+                <div
+                  className="user__global_info__position"
+                />
+                <div
+                  className="user__global_info__list"
+                >
+                  <div>
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Email"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="WorkPhone"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Phone"
+                      value="1213123123123"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Skype"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Linkedin"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="GitHub"
+                      value={undefined}
+                    />
+                  </div>
+                  <div>
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Languages"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Education"
+                      value={undefined}
+                    />
+                    <UserInfoListItem
+                      infoType={2}
+                      name="BirthDate"
+                      value={undefined}
+                    />
+                  </div>
+                </div>
+              </div>,
+            ],
+            "className": "user",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt={undefined}
+                  src="default_avatar.svg"
+                />,
+                "className": "user__avatar",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": undefined,
+                  "src": "default_avatar.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h2
+                    className="sn_title sn_title--description"
+                  >
+                    
+                  </h2>,
+                  <div
+                    className="user__global_info__position"
+                  />,
+                  <div
+                    className="user__global_info__list"
+                  >
+                    <div>
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Email"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="WorkPhone"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Phone"
+                        value="1213123123123"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Skype"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Linkedin"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="GitHub"
+                        value={undefined}
+                      />
+                    </div>
+                    <div>
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Languages"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Education"
+                        value={undefined}
+                      />
+                      <UserInfoListItem
+                        infoType={2}
+                        name="BirthDate"
+                        value={undefined}
+                      />
+                    </div>
+                  </div>,
+                ],
+                "className": "user__global_info",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      "",
+                    ],
+                    "className": "sn_title sn_title--description",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    "",
+                  ],
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": "user__global_info__position",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div>
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Email"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="WorkPhone"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Phone"
+                          value="1213123123123"
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Skype"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Linkedin"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="GitHub"
+                          value={undefined}
+                        />
+                      </div>,
+                      <div>
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Languages"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Education"
+                          value={undefined}
+                        />
+                        <UserInfoListItem
+                          infoType={2}
+                          name="BirthDate"
+                          value={undefined}
+                        />
+                      </div>,
+                    ],
+                    "className": "user__global_info__list",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Email"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="WorkPhone"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Phone"
+                            value="1213123123123"
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Skype"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Linkedin"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="GitHub"
+                            value={undefined}
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Email",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "WorkPhone",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Phone",
+                            "value": "1213123123123",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Skype",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Linkedin",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "GitHub",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Languages"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Education"
+                            value={undefined}
+                          />,
+                          <UserInfoListItem
+                            infoType={2}
+                            name="BirthDate"
+                            value={undefined}
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Languages",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Education",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 2,
+                            "name": "BirthDate",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "name": "Skils",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "skills": "undefined",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "name": "About",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "about": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Profil /> rendering Match to snapshot not current user 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProfilComponent
+    addToState={[Function]}
+    currentUser={
+      Object {
+        "DisplayName": "Someone",
+      }
+    }
+    getUserInfo={[Function]}
+    loginState="Unauthenticated"
+    match={
+      Object {
+        "params": Object {
+          "user": "loldon",
+        },
+      }
+    }
+    userName="Visitor"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="user"
+        >
+          <div
+            className="user__avatar"
+          >
+            <img
+              alt="loldon freeman"
+              src="https://knowledgebase-sn7.test.sensenet.comundefined"
+            />
+          </div>
+          <div
+            className="user__global_info"
+          >
+            <h2
+              className="sn_title sn_title--description"
+            >
+              loldon freeman
+              <Link
+                className="sn_btn"
+                replace={false}
+                to="/edituser"
+              >
+                Edit profile
+              </Link>
+            </h2>
+            <div
+              className="user__global_info__position"
+            >
+              job
+            </div>
+            <div
+              className="user__global_info__list"
+            >
+              <div>
+                <UserInfoListItem
+                  infoType={1}
+                  name="Email"
+                  value="email"
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="WorkPhone"
+                  value="1233123"
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="Phone"
+                  value="1213123123123"
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="Skype"
+                  value="asddasd"
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="Linkedin"
+                  value="asdasdasfas"
+                />
+                <UserInfoListItem
+                  infoType={1}
+                  name="GitHub"
+                  value="adasdsd"
+                />
+              </div>
+              <div>
+                <UserInfoListItem
+                  infoType={0}
+                  name="Languages"
+                  value="asdasdasd"
+                />
+                <UserInfoListItem
+                  infoType={0}
+                  name="Education"
+                  value="asdasdasd"
+                />
+                <UserInfoListItem
+                  infoType={2}
+                  name="BirthDate"
+                  value="123123"
+                />
+              </div>
+            </div>
+          </div>
+        </div>,
+        <Title
+          name="Skils"
+        />,
+        <Skils
+          skills="undefined"
+        />,
+        <Title
+          name="About"
+        />,
+        <About
+          about="adas dasd asf asf "
+        />,
+      ],
+      "className": "profil",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="user__avatar"
+            >
+              <img
+                alt="loldon freeman"
+                src="https://knowledgebase-sn7.test.sensenet.comundefined"
+              />
+            </div>,
+            <div
+              className="user__global_info"
+            >
+              <h2
+                className="sn_title sn_title--description"
+              >
+                loldon freeman
+                <Link
+                  className="sn_btn"
+                  replace={false}
+                  to="/edituser"
+                >
+                  Edit profile
+                </Link>
+              </h2>
+              <div
+                className="user__global_info__position"
+              >
+                job
+              </div>
+              <div
+                className="user__global_info__list"
+              >
+                <div>
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Email"
+                    value="email"
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="WorkPhone"
+                    value="1233123"
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Phone"
+                    value="1213123123123"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Skype"
+                    value="asddasd"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Linkedin"
+                    value="asdasdasfas"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="GitHub"
+                    value="adasdsd"
+                  />
+                </div>
+                <div>
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Languages"
+                    value="asdasdasd"
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Education"
+                    value="asdasdasd"
+                  />
+                  <UserInfoListItem
+                    infoType={2}
+                    name="BirthDate"
+                    value="123123"
+                  />
+                </div>
+              </div>
+            </div>,
+          ],
+          "className": "user",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="loldon freeman"
+                src="https://knowledgebase-sn7.test.sensenet.comundefined"
+              />,
+              "className": "user__avatar",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "loldon freeman",
+                "src": "https://knowledgebase-sn7.test.sensenet.comundefined",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h2
+                  className="sn_title sn_title--description"
+                >
+                  loldon freeman
+                  <Link
+                    className="sn_btn"
+                    replace={false}
+                    to="/edituser"
+                  >
+                    Edit profile
+                  </Link>
+                </h2>,
+                <div
+                  className="user__global_info__position"
+                >
+                  job
+                </div>,
+                <div
+                  className="user__global_info__list"
+                >
+                  <div>
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Email"
+                      value="email"
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="WorkPhone"
+                      value="1233123"
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Phone"
+                      value="1213123123123"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Skype"
+                      value="asddasd"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Linkedin"
+                      value="asdasdasfas"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="GitHub"
+                      value="adasdsd"
+                    />
+                  </div>
+                  <div>
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Languages"
+                      value="asdasdasd"
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Education"
+                      value="asdasdasd"
+                    />
+                    <UserInfoListItem
+                      infoType={2}
+                      name="BirthDate"
+                      value="123123"
+                    />
+                  </div>
+                </div>,
+              ],
+              "className": "user__global_info",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "loldon freeman",
+                    <Link
+                      className="sn_btn"
+                      replace={false}
+                      to="/edituser"
+                    >
+                      Edit profile
+                    </Link>,
+                  ],
+                  "className": "sn_title sn_title--description",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "loldon freeman",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Edit profile",
+                      "className": "sn_btn",
+                      "replace": false,
+                      "to": "/edituser",
+                    },
+                    "ref": null,
+                    "rendered": "Edit profile",
+                    "type": [Function],
+                  },
+                ],
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "job",
+                  "className": "user__global_info__position",
+                },
+                "ref": null,
+                "rendered": "job",
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div>
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Email"
+                        value="email"
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="WorkPhone"
+                        value="1233123"
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Phone"
+                        value="1213123123123"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Skype"
+                        value="asddasd"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Linkedin"
+                        value="asdasdasfas"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="GitHub"
+                        value="adasdsd"
+                      />
+                    </div>,
+                    <div>
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Languages"
+                        value="asdasdasd"
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Education"
+                        value="asdasdasd"
+                      />
+                      <UserInfoListItem
+                        infoType={2}
+                        name="BirthDate"
+                        value="123123"
+                      />
+                    </div>,
+                  ],
+                  "className": "user__global_info__list",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Email"
+                          value="email"
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="WorkPhone"
+                          value="1233123"
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Phone"
+                          value="1213123123123"
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Skype"
+                          value="asddasd"
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Linkedin"
+                          value="asdasdasfas"
+                        />,
+                        <UserInfoListItem
+                          infoType={1}
+                          name="GitHub"
+                          value="adasdsd"
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Email",
+                          "value": "email",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "WorkPhone",
+                          "value": "1233123",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Phone",
+                          "value": "1213123123123",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Skype",
+                          "value": "asddasd",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "Linkedin",
+                          "value": "asdasdasfas",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 1,
+                          "name": "GitHub",
+                          "value": "adasdsd",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Languages"
+                          value="asdasdasd"
+                        />,
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Education"
+                          value="asdasdasd"
+                        />,
+                        <UserInfoListItem
+                          infoType={2}
+                          name="BirthDate"
+                          value="123123"
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Languages",
+                          "value": "asdasdasd",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 0,
+                          "name": "Education",
+                          "value": "asdasdasd",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "infoType": 2,
+                          "name": "BirthDate",
+                          "value": "123123",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "name": "Skils",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "skills": "undefined",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "name": "About",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "about": "adas dasd asf asf ",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="user"
+          >
+            <div
+              className="user__avatar"
+            >
+              <img
+                alt="loldon freeman"
+                src="https://knowledgebase-sn7.test.sensenet.comundefined"
+              />
+            </div>
+            <div
+              className="user__global_info"
+            >
+              <h2
+                className="sn_title sn_title--description"
+              >
+                loldon freeman
+                <Link
+                  className="sn_btn"
+                  replace={false}
+                  to="/edituser"
+                >
+                  Edit profile
+                </Link>
+              </h2>
+              <div
+                className="user__global_info__position"
+              >
+                job
+              </div>
+              <div
+                className="user__global_info__list"
+              >
+                <div>
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Email"
+                    value="email"
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="WorkPhone"
+                    value="1233123"
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Phone"
+                    value="1213123123123"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Skype"
+                    value="asddasd"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="Linkedin"
+                    value="asdasdasfas"
+                  />
+                  <UserInfoListItem
+                    infoType={1}
+                    name="GitHub"
+                    value="adasdsd"
+                  />
+                </div>
+                <div>
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Languages"
+                    value="asdasdasd"
+                  />
+                  <UserInfoListItem
+                    infoType={0}
+                    name="Education"
+                    value="asdasdasd"
+                  />
+                  <UserInfoListItem
+                    infoType={2}
+                    name="BirthDate"
+                    value="123123"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>,
+          <Title
+            name="Skils"
+          />,
+          <Skils
+            skills="undefined"
+          />,
+          <Title
+            name="About"
+          />,
+          <About
+            about="adas dasd asf asf "
+          />,
+        ],
+        "className": "profil",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="user__avatar"
+              >
+                <img
+                  alt="loldon freeman"
+                  src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                />
+              </div>,
+              <div
+                className="user__global_info"
+              >
+                <h2
+                  className="sn_title sn_title--description"
+                >
+                  loldon freeman
+                  <Link
+                    className="sn_btn"
+                    replace={false}
+                    to="/edituser"
+                  >
+                    Edit profile
+                  </Link>
+                </h2>
+                <div
+                  className="user__global_info__position"
+                >
+                  job
+                </div>
+                <div
+                  className="user__global_info__list"
+                >
+                  <div>
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Email"
+                      value="email"
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="WorkPhone"
+                      value="1233123"
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Phone"
+                      value="1213123123123"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Skype"
+                      value="asddasd"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="Linkedin"
+                      value="asdasdasfas"
+                    />
+                    <UserInfoListItem
+                      infoType={1}
+                      name="GitHub"
+                      value="adasdsd"
+                    />
+                  </div>
+                  <div>
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Languages"
+                      value="asdasdasd"
+                    />
+                    <UserInfoListItem
+                      infoType={0}
+                      name="Education"
+                      value="asdasdasd"
+                    />
+                    <UserInfoListItem
+                      infoType={2}
+                      name="BirthDate"
+                      value="123123"
+                    />
+                  </div>
+                </div>
+              </div>,
+            ],
+            "className": "user",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="loldon freeman"
+                  src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                />,
+                "className": "user__avatar",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "loldon freeman",
+                  "src": "https://knowledgebase-sn7.test.sensenet.comundefined",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h2
+                    className="sn_title sn_title--description"
+                  >
+                    loldon freeman
+                    <Link
+                      className="sn_btn"
+                      replace={false}
+                      to="/edituser"
+                    >
+                      Edit profile
+                    </Link>
+                  </h2>,
+                  <div
+                    className="user__global_info__position"
+                  >
+                    job
+                  </div>,
+                  <div
+                    className="user__global_info__list"
+                  >
+                    <div>
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Email"
+                        value="email"
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="WorkPhone"
+                        value="1233123"
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Phone"
+                        value="1213123123123"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Skype"
+                        value="asddasd"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="Linkedin"
+                        value="asdasdasfas"
+                      />
+                      <UserInfoListItem
+                        infoType={1}
+                        name="GitHub"
+                        value="adasdsd"
+                      />
+                    </div>
+                    <div>
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Languages"
+                        value="asdasdasd"
+                      />
+                      <UserInfoListItem
+                        infoType={0}
+                        name="Education"
+                        value="asdasdasd"
+                      />
+                      <UserInfoListItem
+                        infoType={2}
+                        name="BirthDate"
+                        value="123123"
+                      />
+                    </div>
+                  </div>,
+                ],
+                "className": "user__global_info",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "loldon freeman",
+                      <Link
+                        className="sn_btn"
+                        replace={false}
+                        to="/edituser"
+                      >
+                        Edit profile
+                      </Link>,
+                    ],
+                    "className": "sn_title sn_title--description",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "loldon freeman",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Edit profile",
+                        "className": "sn_btn",
+                        "replace": false,
+                        "to": "/edituser",
+                      },
+                      "ref": null,
+                      "rendered": "Edit profile",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "job",
+                    "className": "user__global_info__position",
+                  },
+                  "ref": null,
+                  "rendered": "job",
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div>
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Email"
+                          value="email"
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="WorkPhone"
+                          value="1233123"
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Phone"
+                          value="1213123123123"
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Skype"
+                          value="asddasd"
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="Linkedin"
+                          value="asdasdasfas"
+                        />
+                        <UserInfoListItem
+                          infoType={1}
+                          name="GitHub"
+                          value="adasdsd"
+                        />
+                      </div>,
+                      <div>
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Languages"
+                          value="asdasdasd"
+                        />
+                        <UserInfoListItem
+                          infoType={0}
+                          name="Education"
+                          value="asdasdasd"
+                        />
+                        <UserInfoListItem
+                          infoType={2}
+                          name="BirthDate"
+                          value="123123"
+                        />
+                      </div>,
+                    ],
+                    "className": "user__global_info__list",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Email"
+                            value="email"
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="WorkPhone"
+                            value="1233123"
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Phone"
+                            value="1213123123123"
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Skype"
+                            value="asddasd"
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="Linkedin"
+                            value="asdasdasfas"
+                          />,
+                          <UserInfoListItem
+                            infoType={1}
+                            name="GitHub"
+                            value="adasdsd"
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Email",
+                            "value": "email",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "WorkPhone",
+                            "value": "1233123",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Phone",
+                            "value": "1213123123123",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Skype",
+                            "value": "asddasd",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "Linkedin",
+                            "value": "asdasdasfas",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 1,
+                            "name": "GitHub",
+                            "value": "adasdsd",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Languages"
+                            value="asdasdasd"
+                          />,
+                          <UserInfoListItem
+                            infoType={0}
+                            name="Education"
+                            value="asdasdasd"
+                          />,
+                          <UserInfoListItem
+                            infoType={2}
+                            name="BirthDate"
+                            value="123123"
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Languages",
+                            "value": "asdasdasd",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 0,
+                            "name": "Education",
+                            "value": "asdasdasd",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "infoType": 2,
+                            "name": "BirthDate",
+                            "value": "123123",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "name": "Skils",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "skills": "undefined",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "name": "About",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "about": "adas dasd asf asf ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

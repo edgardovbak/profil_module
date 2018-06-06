@@ -100,7 +100,7 @@
       "!src/index.tsx",
       "!src/registerServiceWorker.ts",
       "!__test__/__mocks__",
-      "!src/reducers/users.js",
+      "!src/reducers/users.ts",
       "!src/type/CSTUser.ts"
     ],
     "collectCoverage": true,

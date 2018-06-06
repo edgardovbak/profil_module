@@ -16,7 +16,7 @@ import EditProfil                           from './EditProfil';
 
 // const DATA = require('../config.json');
 
-class Body extends React.Component<any, any> {
+export class BodyComponent extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
@@ -130,5 +130,5 @@ export default withRouter(connect(
     // (dispatch) => ({
     //     getHomeContent:    (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
     // })
-)(Body as any));
+)(BodyComponent as any));
  

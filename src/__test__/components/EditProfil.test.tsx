@@ -24,6 +24,7 @@ describe('<EditProfil /> shallow rendering', () => {
 	let store;
 	let editprofileShallow: ShallowWrapper<any, any>;
 	let editProfilComponentShallow: ShallowWrapper<any, any>;
+	let editProfilComponentShallowWtoutData: ShallowWrapper<any, any>;
 	let editprofileMount: ReactWrapper<any, any>;
 	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
@@ -91,6 +92,14 @@ describe('<EditProfil /> shallow rendering', () => {
 				user={user}
 			/>
 		); 
+		editProfilComponentShallowWtoutData = shallow(
+			<EditProfilComponent 
+				updateUserSN={updateUserSN}
+				saveChanges={saveChanges}
+				updateUserAvatar={updateUserAvatar}
+				user={null}
+			/>
+		); 
 		editprofileMount = mount(
 			<Router>
 				<Provider store={store}>
@@ -102,6 +111,16 @@ describe('<EditProfil /> shallow rendering', () => {
 	it('Match to snapshot', () => {
 		expect(toJson(editprofileMount)).toMatchSnapshot();
 		expect(toJson(editProfilComponentShallow)).toMatchSnapshot();
+	});
+
+	// test Snapshot  
+	it('Match to snapshot', () => {
+		editProfilComponentShallowWtoutData.setState({
+			imageIsChanged: {
+				isChanged: true
+			}
+		});
+		expect(toJson(editProfilComponentShallowWtoutData)).toMatchSnapshot();
 	});
 
 	it('Test saveChanges  ', () => {
@@ -162,7 +181,7 @@ describe('<EditProfil /> shallow rendering', () => {
 		const getUsers = fff.props().updateUserAvatar(DATA.avatar, 'freeman', 'Image');
 		expect(getUsers.type).toEqual('UPLOAD_CONTENT');
 	});
-
+ 
 	it('test onSaveChanges', () => {
 		
 		const fff = editprofileMount

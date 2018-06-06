@@ -29,7 +29,7 @@ export class MenuComponent extends React.Component<Props, any> {
 		};
 	}
 
-	public async componentDidMount  () {
+	public async componentWillMount  () {
         let path = DATA.menu;
         let menuItems = await this.props.getMenuItems(path, {
             select : ['Name', 'Id', 'Path', 'DisplayName']

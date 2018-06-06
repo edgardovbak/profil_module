@@ -5,7 +5,7 @@ interface Props {
 	openMenu: Function;
 }
 
-class Logo extends React.Component<Props, any> {
+export class LogoComponent extends React.Component<Props, any> {
 	constructor(prop: Props) {
 		super(prop);
 
@@ -30,4 +30,4 @@ class Logo extends React.Component<Props, any> {
 	}
 }
 
-export default Logo;
+export default LogoComponent;

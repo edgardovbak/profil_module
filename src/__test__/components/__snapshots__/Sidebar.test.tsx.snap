@@ -4,8 +4,8 @@ exports[`<NoMatch /> shallow rendering Match to snapshot 1`] = `
 <div
   className="sn_sidebar"
 >
-  <Logo />
-  <Connect(SidebarUser) />
+  <LogoComponent />
+  <Connect(SidebarUserComponent) />
   <Connect(MenuComponent) />
 </div>
 `;

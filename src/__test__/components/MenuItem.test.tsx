@@ -41,7 +41,7 @@ describe('<MenuItem /> shallow rendering', () => {
         const menuItem2 = shallow(<MenuItem pathTo={null} name="home" icon="fi "/>);
         expect(menuItem2.state().path).toBe('/');
     });
-
+ 
     it('test handleClick', () => {
 		const spy = jest.spyOn((menuItem.instance() as any), 'handleClick');
 		const ddd = (menuItem.instance() as any).handleClick();

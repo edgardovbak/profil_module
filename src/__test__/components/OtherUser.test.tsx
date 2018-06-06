@@ -112,7 +112,7 @@ describe('<OtherUser /> rendering', () => {
 	it('Get all users action type', () => {
 		const getUsers = otheruserMount.children().props().getUsers(path, options);
 		expect(getUsers.type).toEqual('FETCH_CONTENT');
-	});
+	}); 
 
 	it(`on a React component that loads data into state in componentDidMount`, async () => {
 		let wrapper = otheruserMount.children();

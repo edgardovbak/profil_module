@@ -110,3 +110,5 @@ exports[`<UserAvatar /> rendering Match to snapshot 1`] = `
   </Connect(UserAvatarComponent)>
 </Provider>
 `;
+
+exports[`<UserAvatar /> rendering Match to snapshot 2`] = `<Loader />`;

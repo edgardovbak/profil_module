@@ -3,7 +3,7 @@ jest.unmock('redux-mock-store');
 jest.unmock('../../components/Body');
 
 import * as React 						        from 'react';
-import Body 							        from '../../components/Body';
+import Body, { BodyComponent } 					from '../../components/Body';
 import Logo 							        from '../../components/Logo';
 import { 
 	configure, 
@@ -27,7 +27,8 @@ const DATA = require('../../config.json');
 
 describe('<Body /> mount rendering when data is added', () => {
     let store, 
-        bodyMount: ReactWrapper<any, any>;
+        bodyMount: ReactWrapper<any, any>,
+        bodyComponentShallow: ShallowWrapper<any, any>;
         
 	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
@@ -51,13 +52,25 @@ describe('<Body /> mount rendering when data is added', () => {
                     <Body {...props} />
                 </Provider>
             </Router>)); 
+        bodyComponentShallow = shallow( (
+            // <Router>
+            //     <Provider store={store}>
+                    <BodyComponent {...props} />
+            //     </Provider>
+            // </Router>
+        )); 
 	});   
 
     // test Snapshot 
-	it('Match to snapshot with status flase', () => {
-        // bodyMount.setState({
-        //     status: false
-        // }); 
+	it('Match to snapshot', () => {
+        expect(toJson(bodyMount)).toMatchSnapshot();
+        expect(toJson(bodyComponentShallow)).toMatchSnapshot();
+    });
+
+    it('Match to snapshot with status flase', () => {
+        bodyMount.setState({
+            status: true
+        });
         expect(toJson(bodyMount)).toMatchSnapshot();
     });
 

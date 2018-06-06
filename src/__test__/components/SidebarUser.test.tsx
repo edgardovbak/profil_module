@@ -2,10 +2,13 @@ jest.unmock('../../index.tsx');
 jest.unmock('redux-mock-store');
 
 import * as React 							from 'react';
-import SidebarUser 							from '../../components/SidebarUser';
+import SidebarUser, { SidebarUserComponent } from '../../components/SidebarUser';
 import { 
 	configure, 
-    mount } 								from 'enzyme';
+    mount, 
+    ReactWrapper, 
+    shallow,
+    ShallowWrapper } 						from 'enzyme';
 import * as Adapter 						from 'enzyme-adapter-react-16';
 import toJson 				      			from 'enzyme-to-json';
 import * as createMockStore 				from 'redux-mock-store';
@@ -19,7 +22,9 @@ const DATA = require('../../config.json');
 configure( {adapter: new Adapter()} );
 
 describe('<SidebarUser /> rendering', () => {
-	let store, sidebaruser;
+    let store, 
+        sidebaruser: ReactWrapper<any, any>,
+        sidebaruserComponent: ShallowWrapper<any, any>;
 	let path = DATA.ims;
 	const  options = {
 		select : ['Name', 'DisplayName', 'JobTitle', 'Email', 'Skype'],
@@ -45,15 +50,25 @@ describe('<SidebarUser /> rendering', () => {
                 </Provider>
             </Router>
         ); 
+        sidebaruserComponent = shallow(
+            <SidebarUserComponent 
+                userName={'toto'}
+                user={null}
+                fullName={'toto to'}
+            />
+        );
     }); 
 	
 	// test Snapshot 
 	it('Match to snapshot', () => {
-        expect(toJson(sidebaruser)).toMatchSnapshot();
-        sidebaruser.setState({
-            usAvatar: 'not_empty'
+        expect(toJson(sidebaruser)).toMatchSnapshot();  
+    });
+
+    it('Match to snapshot without avatar', () => {
+        sidebaruserComponent.setState({
+            usAvatar: 'someImage.png'
         });
-        expect(toJson(sidebaruser)).toMatchSnapshot();
+        expect(toJson(sidebaruserComponent)).toMatchSnapshot();  
     });
     
     it('Test props', () => {

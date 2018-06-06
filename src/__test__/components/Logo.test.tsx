@@ -1,8 +1,8 @@
 import * as React 								from 'react';
-import Logo 									from '../../components/Logo';
+import Logo, { LogoComponent } 					from '../../components/Logo';
 import { 
 	configure, 
-		shallow,
+	shallow,
 	mount } 									from 'enzyme';
 import * as Adapter 							from 'enzyme-adapter-react-16';
 import toJson 				      				from 'enzyme-to-json';
@@ -14,7 +14,10 @@ configure( {adapter: new Adapter()} );
 
 describe('<Logo /> shallow rendering', () => {
 		const props = {
-			openMenu: Function
+			openMenu: () => {
+				console.log('success');
+				return 'success';
+			}
 		};
 
 		const logo = mount(
@@ -25,8 +28,8 @@ describe('<Logo /> shallow rendering', () => {
 		
 		// test Snapshot 
 	it('Match to snapshot', () => {
-			expect(toJson(logo)).toMatchSnapshot();
-		});
+		expect(toJson(logo)).toMatchSnapshot();
+	});
 
 	it('Contain one menu element ', () => {
 		expect(logo.find('.sn_menu').length).toBe(1);
@@ -37,7 +40,6 @@ describe('<Logo /> shallow rendering', () => {
 	});
 
 	it('Test clickHandler  ', () => {
-		// console.log(toJson(logo.children().children()));
 		const clickHandler = jest.spyOn(logo.children().children().instance() as any, 'clickHandler');
 		(logo.children().children().instance() as any).clickHandler();
 		expect(clickHandler).toHaveBeenCalledTimes(1);

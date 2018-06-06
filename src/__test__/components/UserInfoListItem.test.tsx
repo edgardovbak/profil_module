@@ -39,7 +39,7 @@ describe('<UserInfoListItem /> shallow rendering', () => {
 		const userinfolist2 = render(<UserInfoListItem {...props2}/>); 
 		expect(userinfolist2.find('.user__global_info__list__item--name').text()).toBe('Test item :');
 		expect(userinfolist2.find('.user__global_info__list__item--value a').text()).toBe('Item 1');
-	});
+	}); 
 
 	it('Get a select box value', () => {
 		const props3 = {
