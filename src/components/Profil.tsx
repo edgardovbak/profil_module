@@ -32,7 +32,6 @@ interface Props {
 }
 
 export class ProfilComponent extends React.Component<Props, State> {
-
 	constructor(props: Props) {
         super(props);
         this.state = {
@@ -47,8 +46,6 @@ export class ProfilComponent extends React.Component<Props, State> {
 			// detect if current user open the page
 			isCurrentUser: false
 		};
-		
-		// this.getUserByName = this.getUserByName.bind(this);
 	}
 
 	async getUserByName (name: string) {
@@ -102,7 +99,7 @@ export class ProfilComponent extends React.Component<Props, State> {
 		if ( !this.state.isDataFetched ) {
 			return (<Loader/>);
 		}
-
+		console.log(this.props.currentUser);
 		let skillsList = this.state.isCurrentUser ? this.props.currentUser.Skills : this.state.user.Skills;
 		return (
 			<div className="profil">
@@ -183,7 +180,7 @@ export class ProfilComponent extends React.Component<Props, State> {
 								/>
 								<UserInfoListItem
 									name="BirthDate"
-									infoType={2}
+									infoType={1}
 									value={this.state.isCurrentUser ?  this.props.currentUser.BirthDate : this.state.user.BirthDate}
 								/>
 							</div>

@@ -1,6 +1,6 @@
 import * as React							from 'react';
 import { connect }              			from 'react-redux';
-import UserAvatar 							from './UserAvatar';
+// import UserAvatar 							from './UserAvatar';
 import { Link } 							from 'react-router-dom';
 import { Actions }                			from '@sensenet/redux';
 import { PathHelper }                       from '@sensenet/client-utils';
@@ -58,22 +58,23 @@ export class EditProfilComponent extends React.Component<Props, State> {
 			}
 		};
 
-		this.onUpdateImageChanges = this.onUpdateImageChanges.bind(this);
+		// this.onUpdateImageChanges = this.onUpdateImageChanges.bind(this);
 		this.onSaveChanges = 		this.onSaveChanges.bind(this);
 	}
 
 	// get value about user avatar
 	// newImage : avatar is changed
-	onUpdateImageChanges = (val: any) => {
-		this.setState({
-			imageIsChanged: val
-		});
-	}
+	// onUpdateImageChanges = (val: any) => {
+	// 	this.setState({
+	// 		imageIsChanged: val
+	// 	});
+	// }
 
 	public async onSaveChanges(e: any) {
 		// if image was changed then 
 		if ( this.state.imageIsChanged.isChanged) {
 			// firs save picture in sn
+			console.log(this.state.imageIsChanged.isChanged);
 			let avatarUpdate = this.props.updateUserAvatar(DATA.avatar, this.state.imageIsChanged.newImage, 'Image');
 			// after picture is saved colect the modyfied fields 
 			avatarUpdate.then( (result: any) => {
@@ -92,10 +93,6 @@ export class EditProfilComponent extends React.Component<Props, State> {
 					// update user info in redux
 					this.props.saveChanges(userWithAvatar);
 				});
-			});
-	
-			avatarUpdate.catch((err: any) => {
-				console.log(err);
 			});
 		}
 		
@@ -132,9 +129,9 @@ export class EditProfilComponent extends React.Component<Props, State> {
 				<div className="profil">
 
 					<div className="user" >
-						<UserAvatar 
+						{/* <UserAvatar 
 							onUpdate={this.onUpdateImageChanges}
-						/>
+						/> */}
 						<div className="user__global_info">
 							<h2>User Info</h2>
 							<fieldset>

@@ -20,6 +20,7 @@ interface Props {
 }
 
 export class MenuComponent extends React.Component<Props, any> {
+    unmount: boolean;
 	constructor(props: any) {
 		super(props);
 		this.state = {
@@ -27,17 +28,23 @@ export class MenuComponent extends React.Component<Props, any> {
             isDataFetched: false,
             status: this.props.userLoginState !== LoginState.Authenticated
 		};
-	}
+    }
+    
+    componentWillUnmount() {
+        this.unmount = true;
+    }
 
-	public async componentWillMount  () {
+	public async componentDidMount  () {
         let path = DATA.menu;
         let menuItems = await this.props.getMenuItems(path, {
             select : ['Name', 'Id', 'Path', 'DisplayName']
         });
-        this.setState({
-            isDataFetched : true,
-            menuItems: menuItems.value.entities.entities
-        });   
+        if (!this.unmount) {
+            this.setState({
+                isDataFetched : true,
+                menuItems: menuItems.value.entities.entities
+            });  
+        }
     }
 
 	public render () {
