@@ -31,7 +31,7 @@ export class SidebarUserComponent extends React.Component<Props, any> {
 	}
 	
 	render () {
-		let imageSrc = !this.props.user.AvatarImageRef ? 'empty' : this.props.user.AvatarImageRef.Path ;
+		let imageSrc = !this.props.user.AvatarImageRef ? '/Root/Sites/Profil/Avatar/user.png' : this.props.user.AvatarImageRef.Path ;
 			return (
 				<Link to={'/user/' + this.props.userName} >
 					<div className="sn_sidebar__user">

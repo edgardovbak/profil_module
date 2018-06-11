@@ -1,5 +1,8 @@
 import * as React                   from 'react';
+import axios                        from 'axios';
 const logo = require('../images/logo.png');
+
+const DATA = require('../config.json');
 
 interface Props {
     formSubmit: (email: string, pass: string) => void;
@@ -29,6 +32,7 @@ export class Login extends React.Component<Props, State> {
         this.handleUserEmail        = this.handleUserEmail.bind(this);
         this.handleUserPassword     = this.handleUserPassword.bind(this);
         this.handleBlur             = this.handleBlur.bind(this);
+        this.clickHandler           = this.clickHandler.bind(this);
     }
     
     public onSubmit = () => {
@@ -81,6 +85,18 @@ export class Login extends React.Component<Props, State> {
         }
     }
 
+    public clickHandler = () => {
+        console.log(123);
+        const userEmail = {
+            UserEmail: 'edgar.dovbak@sensenet.com'
+          };
+        axios.post(DATA.odataDomain + '/Root/Sites/Profil(\'ForgottenPassword\')/BisonProfileSendChangePasswordMail', userEmail)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        });
+    }
+
     public render () {
         return (
             <div className="fix_block">
@@ -116,6 +132,9 @@ export class Login extends React.Component<Props, State> {
                         >
                             login
                         </button>
+                        <div onClick={this.clickHandler}>
+                            Forgott password
+                        </div>
                         { this.state.error ? 
                             ( 
                                 <div className="error">

@@ -1,6 +1,7 @@
 {
 	"domain2" :  	"https://profil_sn7",
 	"domain" : 		"https://knowledgebase-sn7.test.sensenet.com",
+	"odataDomain":  "https://knowledgebase-sn7.test.sensenet.com/odata.svc",
 	"site" : 		"/Root/Sites/Profil",
 	"ims" : 		"/Root/IMS/BuiltIn/Portal",
 	"menu" : 		"/Root/Sites/Profil/Menu",
