@@ -199,7 +199,7 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 						<div>
 							<h2>Avatar Editor</h2>
 								<div>
-									{/* <AvatarEditor
+									<AvatarEditor
 										ref={(ref: any) => this.setEditorRef(ref)}
 										image={this.state.image}
 										width={this.state.width}
@@ -209,7 +209,7 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 										rotate={this.state.rotate}
 										scale={this.state.scale}
 										onImageChange={this.imageChange}
-									/> */}
+									/>
 								</div>
 							<div>
 								<label htmlFor="newImage">New File:</label>

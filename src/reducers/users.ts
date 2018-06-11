@@ -17,7 +17,7 @@ export default function updateInfo(state: {isLoading: boolean, user: User, loade
     if (action.type === 'UPDATE_LOGINED_USER') {
 
         return {
-            state,
+            ...state,
             user: action.payload
         };
     }
@@ -47,17 +47,20 @@ export default function updateInfo(state: {isLoading: boolean, user: User, loade
     
     if (action.type === 'SET_USER_INFO') {
         return  {
-            state,
+            ...state,
             user: {
-
-                FullName :      action.payload.FullName,
-                JobTitle: 		action.payload.JobTitle,
-				Email: 			action.payload.Email,
-				Languages: 		action.payload.Languages,
-				Phone: 			action.payload.Phone,
-				BirthDate: 		action.payload.BirthDate,
-				Education: 		action.payload.Education,
-				Description: 	action.payload.Description,
+                ...state.user,
+                FullName :          action.payload.FullName,
+                JobTitle: 		    action.payload.JobTitle,
+				Email: 			    action.payload.Email,
+				Languages: 		    action.payload.Languages,
+				Phone: 			    action.payload.Phone,
+				BirthDate: 		    action.payload.BirthDate,
+				Education: 		    action.payload.Education,
+                Description: 	    action.payload.Description,
+                AvatarImageRef: 	{
+                    Path: action.payload.AvatarImageRef,
+                }
             }
         };
     }

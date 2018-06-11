@@ -50,8 +50,7 @@ export class ProfilComponent extends React.Component<Props, State> {
 
 	async getUserByName (name: string) {
 		// get the user name from url 
-		let uName = name.substr(1);
-        let path = PathHelper.joinPaths(DATA.ims, uName);
+        let path = PathHelper.joinPaths(DATA.ims, name);
 		// get the current user info
 		let userGet = await this.props.getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 'Actions',
@@ -99,7 +98,6 @@ export class ProfilComponent extends React.Component<Props, State> {
 		if ( !this.state.isDataFetched ) {
 			return (<Loader/>);
 		}
-		console.log(this.props.currentUser);
 		let skillsList = this.state.isCurrentUser ? this.props.currentUser.Skills : this.state.user.Skills;
 		return (
 			<div className="profil">

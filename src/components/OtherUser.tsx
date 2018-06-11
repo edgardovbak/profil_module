@@ -13,8 +13,8 @@ const DATA = require('../config.json');
 
 interface Props {
     getUsers: (path: string, options: IODataParams<User>) => Promise<{
-        entities: any;
-        result: any;
+        action: any;
+        value: any;
     }>;
 }
 
@@ -40,9 +40,10 @@ export class OtherUserComponent extends React.Component<Props, Stats> {
             query: 'TypeIs:User',
         } as IODataParams<User>;
         let users = await this.props.getUsers(path, options);
+        console.log(users);
         this.setState({
             isDataFetched : true,
-            users: users.result.value.entities.entities
+            users: users.value.entities.entities
         });
     }
 
