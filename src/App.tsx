@@ -8,8 +8,8 @@ import {
 }                                           from 'react-router-dom';
 import { Actions }                from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
-// import './App.css';
-import './App.scss';
+import './App.css';
+// import './App.scss';
 import Body                                 from './components/Body';
 import { Login }                            from './components/Login';
 
