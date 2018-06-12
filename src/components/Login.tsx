@@ -57,7 +57,7 @@ export class Login extends React.Component<Props, State> {
     }
 
     public handleUserPassword = (e: any) => {
-        const regex = /(?=.*\d)(?=.*[a-z]).{6,}/;
+        const regex = /^[A-Za-z\s0-9\\]+$/;
         const special = !e.target.value.match(/[!@#$%\^&*\+]/);
         let passwordValid = regex.test(e.target.value) && special ? true : false;
         this.setState({

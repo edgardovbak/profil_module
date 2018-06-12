@@ -38,7 +38,6 @@ export class Usermanagement extends React.Component<any, State> {
             console.log(res);
             console.log(res.data);
         });
-        console.log(actionName + ' ' + guid);
     }
 
     blurHandler = () => {
