@@ -128,7 +128,6 @@ export class Login extends React.Component<Props, State> {
                             className="sn_btn"
                             id="submitLoginForm"
                             disabled={this.state.passwordValid && this.state.emailValid ? false : true}
-                            type="button"
                         >
                             login
                         </button>
