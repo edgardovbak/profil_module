@@ -11,6 +11,7 @@ import { LoginState }                       from '@sensenet/client-core';
 import './App.css';
 import Body                                 from './components/Body';
 import { Login }                            from './components/Login';
+// import Usermanagement                       from './components/Usermanagement';
 
 export interface AppProps {
     login: Function;
@@ -26,8 +27,8 @@ class App extends React.Component<AppProps, any> {
         this.formSubmitHandler = this.formSubmitHandler.bind(this);
     }
 
-    public formSubmitHandler = (email: string, password: string) => {
-        this.props.login(email, password);
+    public async formSubmitHandler(email: string, password: string) {
+        await this.props.login(email, password); 
     }
 
     public render() {  
@@ -53,7 +54,7 @@ class App extends React.Component<AppProps, any> {
                     render={(routerProps) => {
                         return (<Body {...routerProps} />);
                     }} 
-                />   
+                />      
             </Switch> 
         </div>
     );

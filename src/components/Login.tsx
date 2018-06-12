@@ -57,7 +57,7 @@ export class Login extends React.Component<Props, State> {
     }
 
     public handleUserPassword = (e: any) => {
-        const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        const regex = /(?=.*\d)(?=.*[a-z]).{6,}/;
         const special = !e.target.value.match(/[!@#$%\^&*\+]/);
         let passwordValid = regex.test(e.target.value) && special ? true : false;
         this.setState({
@@ -86,7 +86,6 @@ export class Login extends React.Component<Props, State> {
     }
 
     public clickHandler = () => {
-        console.log(123);
         const userEmail = {
             UserEmail: 'edgar.dovbak@sensenet.com'
           };

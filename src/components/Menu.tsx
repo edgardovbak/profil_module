@@ -11,12 +11,13 @@ const fontImportantClass = ' fi ';
 
 interface Props {
     userLoginState: string;
+    logout: Function;
     getMenuItems: (path: string, options: IODataParams<Folder>) => Promise<{
-            value: {
-                entities: any;
-                result: any;
-            }
-        }>;
+        value: {
+            entities: any;
+            result: any;
+        }
+    }>;
 }
 
 export class MenuComponent extends React.Component<Props, any> {
@@ -27,7 +28,9 @@ export class MenuComponent extends React.Component<Props, any> {
 			menuItems: null,
             isDataFetched: false,
             status: this.props.userLoginState !== LoginState.Authenticated
-		};
+        };
+        
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
     
     componentWillUnmount() {
@@ -47,6 +50,11 @@ export class MenuComponent extends React.Component<Props, any> {
         }
     }
 
+    handleLogoutClick = (e: any) => {
+        console.log(12);
+        this.props.logout();
+    }
+
 	public render () {
 		if ( !this.state.isDataFetched ) {
             return null;
@@ -60,10 +68,18 @@ export class MenuComponent extends React.Component<Props, any> {
 		return (
 			<div className="sn_sidebar__menu">
 				{this.state.status ? '' : 
-					<MenuItem name={'All users'} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/otherUser"/>
-				}
-				{this.state.status ? '' : menu}
-				<MenuItem name={'Login'} icon={fontImportantClass + 'flaticon-folded-newspaper'} pathTo="/login"/>
+                    <MenuItem name={'All users'} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/otherUser"/>
+                }
+                {this.state.status ? '' : 
+                    <MenuItem name={'Change Password'} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/changePass"/>
+                }
+                {this.state.status ? '' : menu}
+                {this.state.status ? 
+                    <MenuItem name={'Login'} icon={fontImportantClass + 'flaticon-folded-newspaper'} pathTo="/login"/>
+                    : 
+                    <MenuItem name={'Log Out'} onClick={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
+                }
+				
 			</div>
 		);
 	}
@@ -80,6 +96,7 @@ const mapStateToProps = (state: any, match: any) => {
 export default connect(
     mapStateToProps,
     (dispatch) => ({
-        getMenuItems:    (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
+        getMenuItems:       (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
+        logout:             () => dispatch(Actions.userLogout()),
     })
 )(MenuComponent as any);

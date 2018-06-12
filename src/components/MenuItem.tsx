@@ -5,6 +5,7 @@ interface Props {
 	pathTo:  string;
 	name: string;
 	icon: string;
+	onClick?: Function;
 }
 
 interface State {

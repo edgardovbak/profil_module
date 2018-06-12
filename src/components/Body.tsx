@@ -13,6 +13,7 @@ import { LoginState }                       from '@sensenet/client-core';
 import OtherUser                            from './OtherUser';
 import Profil                               from './Profil';
 import EditProfil                           from './EditProfil';
+import Usermanagement                       from './Usermanagement';
 
 // const DATA = require('../config.json');
 
@@ -108,6 +109,20 @@ export class BodyComponent extends React.Component<any, any> {
                                         return this.state.status ?
                                         <Redirect key="login" to="/login" />
                                         : <EditProfil {...routerProps} />;
+                                    }} 
+                                />
+                                <Route  
+                                    path="/Usermanagement/:action/:guid" 
+                                    key="usermanagement"
+                                    component={Usermanagement}
+                                />
+                                <Route 
+                                    exact={true}
+                                    path="/changePass"  
+                                    render={(routerProps) => {
+                                        return this.state.status ?
+                                        <Redirect key="login" to="/login" />
+                                        : <Usermanagement {...routerProps} />;
                                     }} 
                                 />
                             </Switch> 
