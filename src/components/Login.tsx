@@ -1,5 +1,6 @@
 import * as React                   from 'react';
 import axios                        from 'axios';
+import { Link }                     from 'react-router-dom';
 const logo = require('../images/logo.png');
 
 const DATA = require('../config.json');
@@ -99,7 +100,9 @@ export class Login extends React.Component<Props, State> {
     public render () {
         return (
             <div className="fix_block">
-                <img src={logo} alt="site logo" />
+                <Link to="/" >
+                    <img src={logo} alt="site logo" />
+                </Link>
                 <div className="login_page">
                     <h1>Login</h1>
                     <form onSubmit={e => { this.onSubmit(); }}>
