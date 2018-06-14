@@ -4,7 +4,7 @@ import Sidebar                              from './Sidebar';
 import Header                               from './Header';
 import {
     Route,
-    Redirect,
+    // Redirect,
     Switch,
     withRouter
 }                                           from 'react-router-dom';
@@ -86,29 +86,38 @@ export class BodyComponent extends React.Component<any, any> {
                                 <Route 
                                     exact={true}
                                     path="/otherUser"  
+                                    // render={(routerProps) => {
+                                    //     return this.state.status ?
+                                    //     <Redirect key="login" to="/login" />
+                                    //     : <OtherUser {...routerProps} />;
+                                    // }} 
                                     render={(routerProps) => {
-                                        return this.state.status ?
-                                        <Redirect key="login" to="/login" />
-                                        : <OtherUser {...routerProps} />;
+                                        return <OtherUser {...routerProps} />;
                                     }} 
                                 />
                                 <Route 
                                     exact={true}
                                     path="/user/:user"
+                                    // render={(routerProps) => {
+                                    //     return this.state.status ?
+                                    //     <Redirect key="login" to="/login" />
+                                    //     : <Profil {...routerProps} />;
+                                    // }} 
                                     render={(routerProps) => {
-                                        return this.state.status ?
-                                        <Redirect key="login" to="/login" />
-                                        : <Profil {...routerProps} />;
+                                        return <Profil {...routerProps} />;
                                     }} 
                                     userName={this.props.userName}
                                 />
                                 <Route 
                                     exact={true}
                                     path="/editUser"  
+                                    // render={(routerProps) => {
+                                    //     return this.state.status ?
+                                    //     <Redirect key="login" to="/login" />
+                                    //     : <EditProfil {...routerProps} />;
+                                    // }} 
                                     render={(routerProps) => {
-                                        return this.state.status ?
-                                        <Redirect key="login" to="/login" />
-                                        : <EditProfil {...routerProps} />;
+                                        return <EditProfil {...routerProps} />;
                                     }} 
                                 />
                                 <Route  
@@ -119,10 +128,13 @@ export class BodyComponent extends React.Component<any, any> {
                                 <Route 
                                     exact={true}
                                     path="/changePass"  
+                                    // render={(routerProps) => {
+                                    //     return this.state.status ?
+                                    //     <Redirect key="login" to="/login" />
+                                    //     : <Usermanagement {...routerProps} />;
+                                    // }} 
                                     render={(routerProps) => {
-                                        return this.state.status ?
-                                        <Redirect key="login" to="/login" />
-                                        : <Usermanagement {...routerProps} />;
+                                        return <Usermanagement {...routerProps} />;
                                     }} 
                                 />
                             </Switch> 

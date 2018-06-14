@@ -2,7 +2,7 @@ import * as React                           from 'react';
 import { connect }                          from 'react-redux';
 import {
   Route,
-  Redirect,
+//   Redirect,
   Switch,
   withRouter,
 }                                           from 'react-router-dom';
@@ -35,17 +35,20 @@ class App extends React.Component<AppProps, any> {
     
     // !important 
     // status - it's a boolean value about user authentication state
-    const status = this.props.loginState !== LoginState.Authenticated;
+    // const status = this.props.loginState !== LoginState.Authenticated;
     return (
         <div>
             <Switch>
                 <Route 
                     exact={true}  
                     path="/login"   
+                    // render={routerProps => { 
+                    //     return status ?
+                    //             <Login formSubmit={this.formSubmitHandler} />
+                    //         :   <Redirect key="dashboard" to="/" />;
+                    // }} 
                     render={routerProps => { 
-                        return status ?
-                                <Login formSubmit={this.formSubmitHandler} />
-                            :   <Redirect key="dashboard" to="/" />;
+                        return <Login formSubmit={this.formSubmitHandler} />;
                     }} 
                 />
                 <Route 
