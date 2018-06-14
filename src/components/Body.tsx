@@ -88,7 +88,7 @@ export class BodyComponent extends React.Component<any, any> {
                                     path="/otherUser"  
                                     render={(routerProps) => {
                                         return this.state.status ?
-                                        <Redirect key="login" to="/login" />
+                                        <Redirect key="login:email?" to="/login" />
                                         : <OtherUser {...routerProps} />;
                                     }} 
                                 />
@@ -97,7 +97,7 @@ export class BodyComponent extends React.Component<any, any> {
                                     path="/user/:user"
                                     render={(routerProps) => {
                                         return this.state.status ?
-                                        <Redirect key="login" to="/login" />
+                                        <Redirect key="login:email?" to="/login" />
                                         : <Profil {...routerProps} />;
                                     }} 
                                     userName={this.props.userName}
@@ -107,7 +107,7 @@ export class BodyComponent extends React.Component<any, any> {
                                     path="/editUser"  
                                     render={(routerProps) => {
                                         return this.state.status ?
-                                        <Redirect key="login" to="/login" />
+                                        <Redirect key="login:email?" to="/login" />
                                         : <EditProfil {...routerProps} />;
                                     }} 
                                 />
@@ -121,7 +121,7 @@ export class BodyComponent extends React.Component<any, any> {
                                     path="/changePass"  
                                     render={(routerProps) => {
                                         return this.state.status ?
-                                        <Redirect key="login" to="/login" />
+                                        <Redirect key="login:email?" to="/login" />
                                         : <Usermanagement {...routerProps} />;
                                     }} 
                                 />
