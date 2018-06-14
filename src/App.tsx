@@ -41,7 +41,7 @@ class App extends React.Component<AppProps, any> {
             <Switch>
                 <Route 
                     exact={true}  
-                    path="/login"   
+                    path="/login?"   
                     render={routerProps => { 
                         return status ?
                                 <Login formSubmit={this.formSubmitHandler} />
