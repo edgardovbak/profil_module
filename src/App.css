@@ -1046,6 +1046,11 @@ table td:first-child {
   text-align: left;
 }
 
+.error {
+  color: #e06767;
+  margin-top: 0.625rem;
+}
+
 .loader {
   width: 100%;
   height: 100%;
@@ -1336,6 +1341,19 @@ table td:first-child {
 }
 .fix_block input {
   margin-bottom: 0.9375rem;
+}
+
+.forgott_pass {
+  color: #fff;
+  cursor: pointer;
+  text-align: right;
+}
+.forgott_pass:hover {
+  text-decoration: underline;
+}
+
+.sn_change_password {
+  color: #fff;
 }
 
 .sn_header {

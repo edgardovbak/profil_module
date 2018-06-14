@@ -127,6 +127,9 @@ export class Login extends React.Component<Props, State> {
                             value={this.state.passwordInput}
                             onBlur={this.handleBlur}
                         />
+                        <div className="forgott_pass" onClick={this.clickHandler}>
+                            Forgott password
+                        </div>
                         <button 
                             className="sn_btn"
                             id="submitLoginForm"
@@ -134,9 +137,7 @@ export class Login extends React.Component<Props, State> {
                         >
                             login
                         </button>
-                        <div onClick={this.clickHandler}>
-                            Forgott password
-                        </div>
+                        
                         { this.state.error ? 
                             ( 
                                 <div className="error">

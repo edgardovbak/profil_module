@@ -31,3 +31,13 @@
         margin-bottom: rem(15);
     }
 }
+
+.forgott_pass {
+    color: $white;
+    cursor: pointer;
+    text-align: right;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

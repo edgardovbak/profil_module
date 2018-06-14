@@ -25,10 +25,7 @@ export class Usermanagement extends React.Component<any, State> {
     }
     
     clickHandler = () => {
-        let actionName = this.props.match.params.action;
         let guid = this.props.match.params.guid;
-        console.log(actionName);
-        console.log(guid);
         const passChange = {
             UserPsw: this.state.newPass,
             UserId: guid
