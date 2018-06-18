@@ -1,13 +1,9 @@
 import * as React                   from 'react';
 import { Link }                     from 'react-router-dom';
-import { connect }                  from 'react-redux';
-import { Actions }                  from '@sensenet/redux';
-
 const logo = require('../images/logo.png');
 
 interface Props {
-    userLogin: Function;
-    loginState: string;
+    formSubmit: (email: string, pass: string) => void;
 }
 
 interface State {
@@ -20,7 +16,7 @@ interface State {
 
 export class Login extends React.Component<Props, State> {
 
-    constructor(props: Props) {
+    constructor(props: any) {
         super(props);
         this.state = {
             emailInput: '', 
@@ -36,11 +32,9 @@ export class Login extends React.Component<Props, State> {
         this.handleBlur             = this.handleBlur.bind(this);
     }
     
-    public onSubmit(e: any) {
+    public onSubmit = (e: any) => {
         e.preventDefault();
-        console.log(this.props.userLogin);
-        let eol = this.props.userLogin(this.state.emailInput, this.state.passwordInput);
-        console.log(eol);
+        this.props.formSubmit(this.state.emailInput, this.state.passwordInput);
     }
 
     public handleUserEmail = (e: any) => {
@@ -90,6 +84,7 @@ export class Login extends React.Component<Props, State> {
     }
 
     public render () {
+        console.log('render');
         return (
             <div className="fix_block">
                 <Link to="/" >
@@ -146,16 +141,4 @@ export class Login extends React.Component<Props, State> {
     }
 }
 
-export const mapStateToProps = (state: any, match: any) => {
-    return {
-        loginState:     state.sensenet.session.loginState,
-    };
-};
-
-// export default Login; 
-export default connect(
-    mapStateToProps,
-    {
-        userLogin:          Actions.userLogin,
-    }
-)(Login as any);
+export default Login; 
