@@ -36,7 +36,9 @@ export class Login extends React.Component<Props, State> {
         this.handleBlur             = this.handleBlur.bind(this);
     }
     
-    public onSubmit() {
+    public onSubmit(e: any) {
+        e.preventDefault();
+        console.log(this.props.userLogin);
         let eol = this.props.userLogin(this.state.emailInput, this.state.passwordInput);
         console.log(eol);
     }
@@ -95,7 +97,7 @@ export class Login extends React.Component<Props, State> {
                 </Link>
                 <div className="login_page">
                     <h1>Login</h1>
-                    <form onSubmit={e => { this.onSubmit(); }}>
+                    <form onSubmit={e => { this.onSubmit(e); }}>
                         <input 
                             type="text" 
                             required={true} 
@@ -153,7 +155,7 @@ export const mapStateToProps = (state: any, match: any) => {
 // export default Login; 
 export default connect(
     mapStateToProps,
-    (dispatch) => ({
-        userLogin:          (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
-    })
+    {
+        userLogin:          Actions.userLogin,
+    }
 )(Login as any);
