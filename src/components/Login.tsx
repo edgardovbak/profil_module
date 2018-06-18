@@ -36,8 +36,8 @@ export class Login extends React.Component<Props, State> {
         this.handleBlur             = this.handleBlur.bind(this);
     }
     
-    public async onSubmit() {
-        let eol = await this.props.userLogin(this.state.emailInput, this.state.passwordInput);
+    public onSubmit() {
+        let eol = this.props.userLogin(this.state.emailInput, this.state.passwordInput);
         console.log(eol);
     }
 
