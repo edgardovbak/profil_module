@@ -10,8 +10,7 @@ import { Actions }                          from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
 import './App.css';
 import Body                                 from './components/Body';
-import { Login }                            from './components/Login';
-// import Usermanagement                       from './components/Usermanagement';
+import Login                                from './components/Login';
 
 export interface AppProps {
     login: Function;
@@ -24,18 +23,20 @@ export interface AppProps {
 class App extends React.Component<AppProps, any> {
     constructor(props: AppProps) {
         super(props);
-        this.formSubmitHandler = this.formSubmitHandler.bind(this);
+        this.state = {
+            status: this.props.loginState !== LoginState.Authenticated
+        };
+        // this.formSubmitHandler = this.formSubmitHandler.bind(this);
     }
 
-    public async formSubmitHandler(email: string, password: string) {
-        await this.props.login(email, password); 
-    }
+    // public formSubmitHandler(email: string, password: string) {
+    //     this.props.login(email, password); 
+    // }
 
     public render() {  
-    
-    // !important 
-    // status - it's a boolean value about user authentication state
-    const status = this.props.loginState !== LoginState.Authenticated;
+        
+    console.log(this.props.loginState);
+    console.log(LoginState.Authenticated);
     return (
         <div>
             <Switch>
@@ -43,8 +44,9 @@ class App extends React.Component<AppProps, any> {
                     exact={true}  
                     path="/login"   
                     render={routerProps => { 
-                        return status ?
-                                <Login formSubmit={this.formSubmitHandler} />
+                        return this.state.status ?
+                                // <Login formSubmit={this.formSubmitHandler} />
+                                <Login {...routerProps} />
                             :   <Redirect key="dashboard" to="/" />;
                     }} 
                     // render={routerProps => { 

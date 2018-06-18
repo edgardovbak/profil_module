@@ -26,7 +26,7 @@ class UserInfoListItem extends React.Component<any, any> {
 				);
 				break;
 		
-			default:
+			default: 
 				break;
 		}
 

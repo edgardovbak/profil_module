@@ -1,21 +1,40 @@
 import * as React				 	from 'react';
 import Title                        from './Title';
-import                              axios from 'axios';
+import axios                        from 'axios';
+import { connect }                  from 'react-redux';
+
+interface ParamList {
+    guid: string;
+}
+
+interface Params {
+    params: ParamList;
+}
+
+interface Props {
+    pageTitle: string;
+    match: Params;
+    actionType: boolean; // false - forrgot, true - change password
+    userId: number;
+    history: any;
+}
 
 interface State {
     newPass: string;
     repeaPass: string;
     notEqual: boolean;
+    oldPass: string;
 }
 
 const DATA = require('../config.json');
 
-export class Usermanagement extends React.Component<any, State> {
-	constructor(prop: any) {
+export class Usermanagement extends React.Component<Props, State> {
+	constructor(prop: Props) {
         super(prop);
         this.state = {
             newPass: '',
             repeaPass: '',
+            oldPass: '',
             notEqual: false
         };
         
@@ -26,14 +45,24 @@ export class Usermanagement extends React.Component<any, State> {
     
     clickHandler = () => {
         let guid = this.props.match.params.guid;
-        const passChange = {
-            UserPsw: this.state.newPass,
-            UserId: guid
-          };
+        let passChange;
+        if ( this.props.actionType ) {
+            console.log(this.props.userId);
+            passChange = {
+                UserPsw: this.state.newPass,
+                // UserId: this.props.userId,
+                OldPsw: this.state.oldPass
+            };
+        } else {
+            passChange = {
+                UserPsw: this.state.newPass,
+                UserId: guid
+            };
+        }
         axios.post(DATA.odataDomain + '/Root/Sites/Profil(\'ForgottenPassword\')/BisonProfileSetUserPassword', passChange)
         .then(res => {
             console.log(res);
-            console.log(res.data);
+            this.props.history.push('/login');
         });
     }
 
@@ -62,6 +91,11 @@ export class Usermanagement extends React.Component<any, State> {
                     repeaPass: e.target.value
                 });
                 break;
+            case 'OldPasssword':
+                this.setState({
+                    oldPass: e.target.value
+                });
+                break;
             default:
                 break;
         }
@@ -70,7 +104,23 @@ export class Usermanagement extends React.Component<any, State> {
 	public render () {
 		return (
 			<div className="sn_change_password">
-                <Title name="Forgotten password" />
+                <Title name={this.props.pageTitle} />
+                {this.props.actionType ? 
+                    (   
+                        <div>
+                            <label htmlFor="OldPasssword">Enter old password</label>
+                            <input 
+                                type="password" 
+                                id="OldPasssword"
+                                name="OldPasssword"
+                                autoComplete="nope"
+                                onChange={this.changeHandler}
+                                onBlur={this.blurHandler}
+                                required={true}
+                            />
+                        </div>
+                    )
+                : '' }
                 <label htmlFor="NewPasssword">Enter New password</label>
                 <input 
                     type="password" 
@@ -110,4 +160,12 @@ export class Usermanagement extends React.Component<any, State> {
 	}
 }
 
-export default Usermanagement;
+export const mapStateToProps = (state: any, match: any) => {
+    return {
+        userId :      state.user.user.Id,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+)(Usermanagement as any);

@@ -14,6 +14,7 @@ import OtherUser                            from './OtherUser';
 import Profil                               from './Profil';
 import EditProfil                           from './EditProfil';
 import Usermanagement                       from './Usermanagement';
+import ForgottenPass                        from './ForgottenPass';
 
 // const DATA = require('../config.json');
 
@@ -111,19 +112,25 @@ export class BodyComponent extends React.Component<any, any> {
                                 <Route 
                                     exact={true}
                                     path="/editUser"  
-                                    render={(routerProps) => {
-                                        return this.state.status ?
-                                        <Redirect key="login" to="/login" />
-                                        : <EditProfil {...routerProps} />;
-                                    }} 
                                     // render={(routerProps) => {
-                                    //     return <EditProfil {...routerProps} />;
+                                    //     return this.state.status ?
+                                    //     <Redirect key="login" to="/login" />
+                                    //     : <EditProfil {...routerProps} />;
                                     // }} 
+                                    render={(routerProps) => {
+                                        return <EditProfil {...routerProps} />;
+                                    }} 
                                 />
                                 <Route  
                                     path="/Usermanagement/:action/:guid" 
                                     key="usermanagement"
-                                    component={Usermanagement}
+                                    render={(routerProps) => {
+                                        return <Usermanagement 
+                                            {...routerProps} 
+                                            actionType={false}
+                                            pageTitle="Forgotten Password"
+                                        />;
+                                    }} 
                                 />
                                 <Route 
                                     exact={true}
@@ -131,12 +138,26 @@ export class BodyComponent extends React.Component<any, any> {
                                     render={(routerProps) => {
                                         return this.state.status ?
                                         <Redirect key="login" to="/login" />
-                                        : <Usermanagement {...routerProps} />;
+                                        : <Usermanagement 
+                                            {...routerProps} 
+                                            actionType={true}
+                                            pageTitle="Change Password"
+                                        />;
                                     }} 
                                     // render={(routerProps) => {
                                     //     return <Usermanagement {...routerProps} />;
                                     // }} 
                                 />
+                                <Route  
+                                    path="/forgottenPassword" 
+                                    key="usermanagement"
+                                    render={(routerProps) => {
+                                        return <ForgottenPass 
+                                            {...routerProps} 
+                                        />;
+                                    }} 
+                                />
+                                
                             </Switch> 
                         </div>
                     </main>

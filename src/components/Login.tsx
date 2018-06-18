@@ -1,12 +1,13 @@
 import * as React                   from 'react';
-import axios                        from 'axios';
 import { Link }                     from 'react-router-dom';
+import { connect }                  from 'react-redux';
+import { Actions }                  from '@sensenet/redux';
+
 const logo = require('../images/logo.png');
 
-const DATA = require('../config.json');
-
 interface Props {
-    formSubmit: (email: string, pass: string) => void;
+    userLogin: Function;
+    loginState: string;
 }
 
 interface State {
@@ -19,7 +20,7 @@ interface State {
 
 export class Login extends React.Component<Props, State> {
 
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             emailInput: '', 
@@ -33,11 +34,11 @@ export class Login extends React.Component<Props, State> {
         this.handleUserEmail        = this.handleUserEmail.bind(this);
         this.handleUserPassword     = this.handleUserPassword.bind(this);
         this.handleBlur             = this.handleBlur.bind(this);
-        this.clickHandler           = this.clickHandler.bind(this);
     }
     
-    public onSubmit = () => {
-        this.props.formSubmit(this.state.emailInput, this.state.passwordInput);
+    public async onSubmit() {
+        let eol = await this.props.userLogin(this.state.emailInput, this.state.passwordInput);
+        console.log(eol);
     }
 
     public handleUserEmail = (e: any) => {
@@ -86,17 +87,6 @@ export class Login extends React.Component<Props, State> {
         }
     }
 
-    public clickHandler = () => {
-        const userEmail = {
-            UserEmail: 'edgar.dovbak@sensenet.com'
-          };
-        axios.post(DATA.odataDomain + '/Root/Sites/Profil(\'ForgottenPassword\')/BisonProfileSendChangePasswordMail', userEmail)
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-        });
-    }
-
     public render () {
         return (
             <div className="fix_block">
@@ -127,9 +117,6 @@ export class Login extends React.Component<Props, State> {
                             value={this.state.passwordInput}
                             onBlur={this.handleBlur}
                         />
-                        <div className="forgott_pass" onClick={this.clickHandler}>
-                            Forgott password
-                        </div>
                         <button 
                             className="sn_btn"
                             id="submitLoginForm"
@@ -137,6 +124,9 @@ export class Login extends React.Component<Props, State> {
                         >
                             login
                         </button>
+                        <Link to="/forgottenPassword" className="forgott_pass" >
+                            Forgott password
+                        </Link>
                         
                         { this.state.error ? 
                             ( 
@@ -154,4 +144,16 @@ export class Login extends React.Component<Props, State> {
     }
 }
 
-export default Login; 
+export const mapStateToProps = (state: any, match: any) => {
+    return {
+        loginState:     state.sensenet.session.loginState,
+    };
+};
+
+// export default Login; 
+export default connect(
+    mapStateToProps,
+    (dispatch) => ({
+        userLogin:          (username: string, password: string) => dispatch(Actions.userLogin(username, password)),
+    })
+)(Login as any);

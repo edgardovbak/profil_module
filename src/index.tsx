@@ -2,7 +2,7 @@ import * as React                           from 'react';
 import * as ReactDOM                        from 'react-dom';
 import { Provider }                         from 'react-redux';
 import { combineReducers }                  from 'redux';
-
+// import ReduxThunk                           from 'redux-thunk';
 import { Reducers, Store }                  from '@sensenet/redux';
 import { Repository }                       from '@sensenet/client-core';
 import { JwtService }                       from '@sensenet/authentication-jwt';
@@ -11,7 +11,8 @@ import { JwtService }                       from '@sensenet/authentication-jwt';
 import user                                 from './reducers/users';
 
 import { 
-    BrowserRouter
+    BrowserRouter,
+    // HashRouter
 }                                           from 'react-router-dom';
 
 import App                                  from './App';
@@ -35,6 +36,7 @@ jwtService.checkForUpdate();
 
 const options = {
     rootReducer: myReducer,
+    logger: true,
     repository,
 } as Store.CreateStoreOptions<any>;
   

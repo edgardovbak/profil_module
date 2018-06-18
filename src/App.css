@@ -1347,13 +1347,14 @@ table td:first-child {
   color: #fff;
   cursor: pointer;
   text-align: right;
+  float: right;
 }
 .forgott_pass:hover {
   text-decoration: underline;
 }
 
 .sn_change_password {
-  color: #fff;
+  display: block;
 }
 
 .sn_header {
