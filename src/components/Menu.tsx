@@ -5,14 +5,14 @@ import { Actions
 }                                           from '@sensenet/redux';
 import { LoginState }                       from '@sensenet/client-core';
 import { IODataParams }                     from '@sensenet/client-core/dist/Models/IODataParams';
-import { Folder }                           from '@sensenet/default-content-types';
+import { MenuItemType }                     from '../type/MenuItemType';
 const DATA = require('../config.json');
 const fontImportantClass = ' fi ';
 
 interface Props {
     userLoginState: string;
     logout: Function;
-    getMenuItems: (path: string, options: IODataParams<Folder>) => Promise<{
+    getMenuItems: (path: string, options: IODataParams<MenuItemType>) => Promise<{
         value: {
             entities: any;
             result: any;
@@ -40,7 +40,7 @@ export class MenuComponent extends React.Component<Props, any> {
 	public async componentDidMount  () {
         let path = DATA.menu;
         let menuItems = await this.props.getMenuItems(path, {
-            select : ['Name', 'Id', 'Path', 'DisplayName']
+            select : ['Name', 'Id', 'Path', 'DisplayName', 'IconName']
         });
         if (!this.unmount) {
             this.setState({

@@ -50,7 +50,7 @@ export class Usermanagement extends React.Component<Props, State> {
             console.log(this.props.userId);
             passChange = {
                 UserPsw: this.state.newPass,
-                // UserId: this.props.userId,
+                UserId: this.props.userId,
                 OldPsw: this.state.oldPass
             };
         } else {
