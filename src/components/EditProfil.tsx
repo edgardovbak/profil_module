@@ -3,7 +3,7 @@ import { connect }              			from 'react-redux';
 import UserAvatar 							from './UserAvatar';
 import { Link } 							from 'react-router-dom';
 import { Actions }                			from '@sensenet/redux';
-import { PathHelper }                       from '@sensenet/client-utils';
+// import { PathHelper }                       from '@sensenet/client-utils';
 import { CSTUser } 							from '../type/CSTUser';
 import Loader 								from './Loader';
 
