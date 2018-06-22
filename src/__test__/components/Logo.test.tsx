@@ -15,7 +15,6 @@ configure( {adapter: new Adapter()} );
 describe('<Logo /> shallow rendering', () => {
 		const props = {
 			openMenu: () => {
-				console.log('success');
 				return 'success';
 			}
 		};
@@ -45,3 +44,4 @@ describe('<Logo /> shallow rendering', () => {
 		expect(clickHandler).toHaveBeenCalledTimes(1);
 	});
 });
+ 

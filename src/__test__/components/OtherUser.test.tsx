@@ -121,3 +121,4 @@ describe('<OtherUser /> rendering', () => {
 		expect(spy).toHaveBeenCalledTimes(1);
 	});
 }); 
+ 

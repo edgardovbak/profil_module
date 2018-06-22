@@ -26,4 +26,4 @@ describe('<NoMatch /> shallow rendering', () => {
 		expect(tagH2.length).toBe(1);
 	});
 		
-});
+}); 

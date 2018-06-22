@@ -4,7 +4,7 @@ import axios                        from 'axios';
 
 const DATA = require('../config.json');
 
-class ForgottenPass extends React.Component<any, any> {
+export class ForgottenPassComponent extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -18,10 +18,8 @@ class ForgottenPass extends React.Component<any, any> {
         const userEmail = {
             UserEmail:  this.state.email
         };
-        console.log(this.state.email);
         axios.post(DATA.odataDomain + '/Root/Sites/Profil(\'ForgottenPassword\')/BisonProfileSendChangePasswordMail', userEmail)
         .then(res => {
-            console.log(res);
             this.props.history.push('/login');
         });
     }
@@ -56,5 +54,5 @@ class ForgottenPass extends React.Component<any, any> {
 	}
 }
 
-export default ForgottenPass;
+export default ForgottenPassComponent;
  

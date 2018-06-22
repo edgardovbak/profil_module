@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Usermanagement /> shallow rendering Match to snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(UsermanagementComponent)
+    actionType={false}
+    match={
+      Object {
+        "params": Object {
+          "guid": "some GUI - d",
+        },
+      }
+    }
+  >
+    <UsermanagementComponent
+      actionType={false}
+      dispatch={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "guid": "some GUI - d",
+          },
+        }
+      }
+      userId={12312}
+    >
+      <div
+        className="sn_change_password"
+      >
+        <Title>
+          <h2
+            className="sn_title"
+          />
+        </Title>
+        <label
+          htmlFor="NewPasssword"
+        >
+          Enter New password
+        </label>
+        <input
+          autoComplete="nope"
+          id="NewPasssword"
+          name="NewPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="RepeatPasssword"
+        >
+          Repeat password
+        </label>
+        <input
+          autoComplete="nope"
+          id="RepeatPasssword"
+          name="RepeatPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <p />
+        <button
+          className="sn_btn"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Change Password
+        </button>
+      </div>
+    </UsermanagementComponent>
+  </Connect(UsermanagementComponent)>
+</Provider>
+`;
+
+exports[`<Usermanagement /> shallow rendering Match to snapshot 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(UsermanagementComponent)
+    actionType={false}
+    match={
+      Object {
+        "params": Object {
+          "guid": "some GUI - d",
+        },
+      }
+    }
+  >
+    <UsermanagementComponent
+      actionType={false}
+      dispatch={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "guid": "some GUI - d",
+          },
+        }
+      }
+      userId={12312}
+    >
+      <div
+        className="sn_change_password"
+      >
+        <Title>
+          <h2
+            className="sn_title"
+          />
+        </Title>
+        <label
+          htmlFor="NewPasssword"
+        >
+          Enter New password
+        </label>
+        <input
+          autoComplete="nope"
+          id="NewPasssword"
+          name="NewPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="RepeatPasssword"
+        >
+          Repeat password
+        </label>
+        <input
+          autoComplete="nope"
+          id="RepeatPasssword"
+          name="RepeatPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <p />
+        <button
+          className="sn_btn"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Change Password
+        </button>
+      </div>
+    </UsermanagementComponent>
+  </Connect(UsermanagementComponent)>
+</Provider>
+`;
+
+exports[`<Usermanagement /> shallow rendering Match to snapshot 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(UsermanagementComponent)
+    actionType={true}
+    match={
+      Object {
+        "params": Object {
+          "guid": "some GUI - d",
+        },
+      }
+    }
+  >
+    <UsermanagementComponent
+      actionType={true}
+      dispatch={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "guid": "some GUI - d",
+          },
+        }
+      }
+      userId={12312}
+    >
+      <div
+        className="sn_change_password"
+      >
+        <Title>
+          <h2
+            className="sn_title"
+          />
+        </Title>
+        <div>
+          <label
+            htmlFor="OldPasssword"
+          >
+            Enter old password
+          </label>
+          <input
+            autoComplete="nope"
+            id="OldPasssword"
+            name="OldPasssword"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="password"
+          />
+        </div>
+        <label
+          htmlFor="NewPasssword"
+        >
+          Enter New password
+        </label>
+        <input
+          autoComplete="nope"
+          id="NewPasssword"
+          name="NewPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="RepeatPasssword"
+        >
+          Repeat password
+        </label>
+        <input
+          autoComplete="nope"
+          id="RepeatPasssword"
+          name="RepeatPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <p />
+        <button
+          className="sn_btn"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Change Password
+        </button>
+      </div>
+    </UsermanagementComponent>
+  </Connect(UsermanagementComponent)>
+</Provider>
+`;
+
+exports[`<Usermanagement /> shallow rendering Match to snapshot 4`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(UsermanagementComponent)
+    actionType={true}
+    match={
+      Object {
+        "params": Object {
+          "guid": "some GUI - d",
+        },
+      }
+    }
+  >
+    <UsermanagementComponent
+      actionType={true}
+      dispatch={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "guid": "some GUI - d",
+          },
+        }
+      }
+      userId={12312}
+    >
+      <div
+        className="sn_change_password"
+      >
+        <Title>
+          <h2
+            className="sn_title"
+          />
+        </Title>
+        <div>
+          <label
+            htmlFor="OldPasssword"
+          >
+            Enter old password
+          </label>
+          <input
+            autoComplete="nope"
+            id="OldPasssword"
+            name="OldPasssword"
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            type="password"
+          />
+        </div>
+        <label
+          htmlFor="NewPasssword"
+        >
+          Enter New password
+        </label>
+        <input
+          autoComplete="nope"
+          id="NewPasssword"
+          name="NewPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="RepeatPasssword"
+        >
+          Repeat password
+        </label>
+        <input
+          autoComplete="nope"
+          id="RepeatPasssword"
+          name="RepeatPasssword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          type="password"
+        />
+        <p />
+        <button
+          className="sn_btn"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Change Password
+        </button>
+      </div>
+    </UsermanagementComponent>
+  </Connect(UsermanagementComponent)>
+</Provider>
+`;

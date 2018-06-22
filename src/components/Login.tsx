@@ -84,7 +84,6 @@ export class Login extends React.Component<Props, State> {
     }
 
     public render () {
-        console.log('render');
         return (
             <div className="fix_block">
                 <Link to="/" >

@@ -28,7 +28,7 @@ interface State {
 
 const DATA = require('../config.json');
 
-export class Usermanagement extends React.Component<Props, State> {
+export class UsermanagementComponent extends React.Component<Props, State> {
 	constructor(prop: Props) {
         super(prop);
         this.state = {
@@ -168,4 +168,4 @@ export const mapStateToProps = (state: any, match: any) => {
 
 export default connect(
     mapStateToProps,
-)(Usermanagement as any);
+)(UsermanagementComponent as any);

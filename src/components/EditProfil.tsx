@@ -73,7 +73,7 @@ export class EditProfilComponent extends React.Component<Props, State> {
 		});
 	}
 
-	changeHandler = (e: any) => {
+	public changeHandler = (e: any) => {
 		switch (e.target.name) {
 			case 'userName':
 				this.setState({
