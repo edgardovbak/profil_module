@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ForgottenPass /> shallow rendering Match to snapshot 1`] = `
+<ForgottenPassComponent>
+  <div
+    className=""
+  >
+    <label
+      htmlFor="Email"
+    >
+      Enter your email
+    </label>
+    <input
+      autoComplete="nope"
+      id="Email"
+      name="Email"
+      onChange={[Function]}
+      required={true}
+      type="email"
+    />
+    <p />
+    <button
+      className="sn_btn"
+      onClick={[Function]}
+    >
+      Send
+    </button>
+  </div>
+</ForgottenPassComponent>
+`;

@@ -144,7 +144,6 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                           <button
                             className="sn_btn"
                             name="save"
-                            onClick={[Function]}
                           >
                             Save Avatar
                           </button>
@@ -166,7 +165,8 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                   </legend>
                   <input
                     defaultValue="adasdasdasd"
-                    id="userName"
+                    name="userName"
+                    onChange={[Function]}
                     placeholder="User name"
                     required={true}
                     type="text"
@@ -178,7 +178,8 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                   </legend>
                   <input
                     defaultValue="adasdasdasd"
-                    id="userPosition"
+                    name="userPosition"
+                    onChange={[Function]}
                     placeholder="Position"
                     required={true}
                     type="text"
@@ -201,7 +202,8 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                       </label>
                       <input
                         defaultValue="adasdasdasd"
-                        id=""
+                        name="userEmail"
+                        onChange={[Function]}
                         placeholder="Email"
                         required={true}
                         type="text"
@@ -217,7 +219,8 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                       </label>
                       <input
                         defaultValue="adasdasdasd"
-                        id=""
+                        name="userLanguages"
+                        onChange={[Function]}
                         placeholder="Languages"
                         type="text"
                       />
@@ -232,9 +235,10 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                       </label>
                       <input
                         defaultValue="adasdasdasd"
-                        id=""
+                        name="userPhone"
+                        onChange={[Function]}
                         placeholder="Phone"
-                        type="text"
+                        type="number"
                       />
                     </div>
                     <div
@@ -247,7 +251,8 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                       </label>
                       <input
                         defaultValue="adasdasdasd"
-                        id=""
+                        name="userBirthDate"
+                        onChange={[Function]}
                         placeholder="BirthDate"
                         type="text"
                       />
@@ -262,7 +267,8 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
                       </label>
                       <input
                         defaultValue="adasdasdasd"
-                        id=""
+                        name="userEducation"
+                        onChange={[Function]}
                         placeholder="Education"
                         type="text"
                       />
@@ -277,18 +283,19 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
               </legend>
               <textarea
                 defaultValue="adasdasdasd"
-                id="userAbout"
+                name="userAbout"
+                onChange={[Function]}
               />
             </fieldset>
             <Link
               className="sn_btn"
               onClick={[Function]}
               replace={false}
-              to="user/:undefined"
+              to="user/undefined"
             >
               <a
                 className="sn_btn"
-                href="user/:undefined"
+                href="user/undefined"
                 onClick={[Function]}
               >
                 Save Changes
@@ -303,150 +310,31 @@ exports[`<EditProfil /> shallow rendering Match to snapshot 1`] = `
 `;
 
 exports[`<EditProfil /> shallow rendering Match to snapshot 2`] = `
-<div
-  className="profil"
->
-  <div
-    className="user"
-  >
-    <Connect(UserAvatarComponent)
-      onUpdate={[Function]}
-    />
-    <div
-      className="user__global_info"
-    >
-      <h2>
-        User Info
-      </h2>
-      <fieldset>
-        <legend>
-          User name
-        </legend>
-        <input
-          defaultValue="adasdasdasd"
-          id="userName"
-          placeholder="User name"
-          required={true}
-          type="text"
-        />
-      </fieldset>
-      <fieldset>
-        <legend>
-          Position
-        </legend>
-        <input
-          defaultValue="adasdasdasd"
-          id="userPosition"
-          placeholder="Position"
-          required={true}
-          type="text"
-        />
-      </fieldset>
-      <fieldset>
-        <legend>
-          User Info
-        </legend>
-        <div
-          className="user__edit_global_info"
-        >
-          <div
-            className="user__edit_global_info__item"
-          >
-            <label
-              htmlFor=""
-            >
-              Email
-            </label>
-            <input
-              defaultValue="adasdasdasd"
-              id=""
-              placeholder="Email"
-              required={true}
-              type="text"
-            />
-          </div>
-          <div
-            className="user__edit_global_info__item"
-          >
-            <label
-              htmlFor=""
-            >
-              Languages
-            </label>
-            <input
-              defaultValue="adasdasdasd"
-              id=""
-              placeholder="Languages"
-              type="text"
-            />
-          </div>
-          <div
-            className="user__edit_global_info__item"
-          >
-            <label
-              htmlFor=""
-            >
-              Phone
-            </label>
-            <input
-              defaultValue="adasdasdasd"
-              id=""
-              placeholder="Phone"
-              type="text"
-            />
-          </div>
-          <div
-            className="user__edit_global_info__item"
-          >
-            <label
-              htmlFor=""
-            >
-              BirthDate
-            </label>
-            <input
-              defaultValue="adasdasdasd"
-              id=""
-              placeholder="BirthDate"
-              type="text"
-            />
-          </div>
-          <div
-            className="user__edit_global_info__item"
-          >
-            <label
-              htmlFor=""
-            >
-              Education
-            </label>
-            <input
-              defaultValue="adasdasdasd"
-              id=""
-              placeholder="Education"
-              type="text"
-            />
-          </div>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-  <fieldset>
-    <legend>
-      About
-    </legend>
-    <textarea
-      defaultValue="adasdasdasd"
-      id="userAbout"
-    />
-  </fieldset>
-  <Link
-    className="sn_btn"
-    onClick={[Function]}
-    replace={false}
-    to="user/:undefined"
-  >
-    Save Changes
-  </Link>
-</div>
+<EditProfilComponent
+  saveChanges={[Function]}
+  updateUserAvatar={[Function]}
+  updateUserSN={[Function]}
+  user={
+    Object {
+      "BirthDate": "adasdasdasd",
+      "Description": "adasdasdasd",
+      "Education": "adasdasdasd",
+      "Email": "adasdasdasd",
+      "FullName": "adasdasdasd",
+      "Id": 12312,
+      "JobTitle": "adasdasdasd",
+      "Languages": "adasdasdasd",
+      "Phone": "adasdasdasd",
+    }
+  }
+/>
 `;
 
-exports[`<EditProfil /> shallow rendering Match to snapshot 3`] = `<Loader />`;
+exports[`<EditProfil /> shallow rendering Match to snapshot 3`] = `
+<EditProfilComponent
+  saveChanges={[Function]}
+  updateUserAvatar={[Function]}
+  updateUserSN={[Function]}
+  user={null}
+/>
+`;

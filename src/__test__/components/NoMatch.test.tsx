@@ -25,4 +25,4 @@ describe('<NoMatch /> shallow rendering', () => {
 	});
 		 
 });
- 
+  

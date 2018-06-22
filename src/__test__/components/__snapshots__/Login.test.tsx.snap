@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> rendering Match to snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Login
+      formSubmit={[Function]}
+    >
+      <div
+        className="fix_block"
+      >
+        <Link
+          replace={false}
+          to="/"
+        >
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <img
+              alt="site logo"
+              src="logo.png"
+            />
+          </a>
+        </Link>
+        <div
+          className="login_page"
+        >
+          <h1>
+            Login
+          </h1>
+          <form
+            onSubmit={[Function]}
+          >
+            <input
+              data-testid="email"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="loginname"
+              required={true}
+              type="text"
+              value=""
+            />
+            <input
+              className="login__password"
+              data-testid="password"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="password"
+              required={true}
+              type="password"
+              value=""
+            />
+            <button
+              className="sn_btn"
+              disabled={false}
+              id="submitLoginForm"
+            >
+              login
+            </button>
+            <Link
+              className="forgott_pass"
+              replace={false}
+              to="/forgottenPassword"
+            >
+              <a
+                className="forgott_pass"
+                href="/forgottenPassword"
+                onClick={[Function]}
+              >
+                Forgott password
+              </a>
+            </Link>
+          </form>
+        </div>
+      </div>
+    </Login>
+  </Router>
+</BrowserRouter>
+`;

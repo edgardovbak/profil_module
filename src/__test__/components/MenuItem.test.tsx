@@ -47,6 +47,6 @@ describe('<MenuItem /> shallow rendering', () => {
 		const ddd = (menuItem.instance() as any).handleClick();
         expect(spy).toHaveBeenCalledTimes(1);
         expect(menuItem.state().isClicked).toBe(true);
-	});
+	}); 
 }); 
  

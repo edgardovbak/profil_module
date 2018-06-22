@@ -21,29 +21,29 @@ configure( {adapter: new Adapter()} );
 const DATA = require('../../config.json');
 
 describe('<EditProfil /> shallow rendering', () => {
-	let store;
+	let store, storeUserEmpty;
 	let editprofileShallow: ShallowWrapper<any, any>;
 	let editProfilComponentShallow: ShallowWrapper<any, any>;
-	let editProfilComponentShallowWtoutData: ShallowWrapper<any, any>;
+	let editProfilComponentShallowEmpty: ShallowWrapper<any, any>;
 	let editprofileMount: ReactWrapper<any, any>;
 	const mockStore = (createMockStore as any)();
 	beforeEach( () => {
 		let updateUserSN: EditProfilComponent['props']['updateUserSN'] = async () => {
             return {
-                    entities: {},
-                    result: {}
+				action: {},
+				result: {}
             };
 		};
 		let saveChanges: EditProfilComponent['props']['saveChanges'] = async () => {
             return {
-                    entities: {},
-                    result: {}
+				entities: {},
+				result: {}
             };
 		};
 		let updateUserAvatar: EditProfilComponent['props']['updateUserAvatar'] = async () => {
             return {
-                    entities: {},
-                    result: {}
+				action: {},
+				value: {}
             };
         };
         store = mockStore({
@@ -69,6 +69,18 @@ describe('<EditProfil /> shallow rendering', () => {
 				}
 			}
 		});
+
+		storeUserEmpty = mockStore({
+			sensenet: {
+				session: {
+					loginState: 'Unauthenticated',
+					user: {
+						userName: 'Visitor'
+					}
+				}
+            },
+			user: null
+		});
 		const user = {
 			Id: 12312,
 			FullName: 		'adasdasdasd',
@@ -85,20 +97,24 @@ describe('<EditProfil /> shallow rendering', () => {
 				<EditProfil/>
 			</Provider>); 
 		editProfilComponentShallow = shallow(
-			<EditProfilComponent 
-				updateUserSN={updateUserSN}
-				saveChanges={saveChanges}
-				updateUserAvatar={updateUserAvatar}
-				user={user}
-			/>
+			<Provider store={store}>
+				<EditProfilComponent 
+					updateUserSN={updateUserSN}
+					saveChanges={saveChanges}
+					updateUserAvatar={updateUserAvatar}
+					user={user}
+				/>
+			</Provider>
 		); 
-		editProfilComponentShallowWtoutData = shallow(
-			<EditProfilComponent 
-				updateUserSN={updateUserSN}
-				saveChanges={saveChanges}
-				updateUserAvatar={updateUserAvatar}
-				user={null}
-			/>
+		editProfilComponentShallowEmpty = shallow(
+			<Provider store={storeUserEmpty}>
+				<EditProfilComponent 
+					updateUserSN={updateUserSN}
+					saveChanges={saveChanges}
+					updateUserAvatar={updateUserAvatar}
+					user={null}
+				/>
+			</Provider>
 		); 
 		editprofileMount = mount(
 			<Router>
@@ -111,16 +127,7 @@ describe('<EditProfil /> shallow rendering', () => {
 	it('Match to snapshot', () => {
 		expect(toJson(editprofileMount)).toMatchSnapshot();
 		expect(toJson(editProfilComponentShallow)).toMatchSnapshot();
-	});
-
-	// test Snapshot  
-	it('Match to snapshot', () => {
-		editProfilComponentShallowWtoutData.setState({
-			imageIsChanged: {
-				isChanged: true
-			}
-		});
-		expect(toJson(editProfilComponentShallowWtoutData)).toMatchSnapshot();
+		expect(toJson(editProfilComponentShallowEmpty)).toMatchSnapshot();
 	});
 
 	it('Test saveChanges  ', () => {
@@ -183,7 +190,6 @@ describe('<EditProfil /> shallow rendering', () => {
 	});
  
 	it('test onSaveChanges', () => {
-		
 		const fff = editprofileMount
 		.children()
 		.children()
@@ -192,6 +198,33 @@ describe('<EditProfil /> shallow rendering', () => {
 		const spy = jest.spyOn((fff.instance() as any), 'onSaveChanges');
 		const ddd = (fff.instance() as any).onSaveChanges();
 		expect(spy).toHaveBeenCalledTimes(1);
+	});
+
+	it('test changeHandler ', () => {
+		
+		const fff = editprofileMount
+		.children()
+		.children()
+		.children()
+		.children();
+		const spy = jest.spyOn(fff.instance(), 'changeHandler'  as any);
+		let eventItems = [
+			{e: {target: {name: 'userName', value: 'Loldon Freeman'}}},
+			{e: {target: {name: 'userPosition', value: 'Epic Developer'}}},
+			{e: {target: {name: 'userEmail', value: 'loldon@mail.ru'}}},
+			{e: {target: {name: 'userLanguages', value: 'Ingles'}}},
+			{e: {target: {name: 'userPhone', value: '+123124233'}}},
+			{e: {target: {name: 'userBirthDate', value: '0000.00.00'}}},
+			{e: {target: {name: 'userEducation', value: 'Stupid'}}},
+			{e: {target: {name: 'userAbout', value: 'Nothing'}}},
+			{e: {target: {name: 'Nowhere', value: ''}}},
+		];
+		for (let index = 0; index < eventItems.length - 1; index++) {
+			const ddd = (fff.instance() as any).changeHandler(eventItems[index].e);
+			expect(spy).toBeCalledWith(eventItems[index].e);
+			expect(fff.instance().state[eventItems[index].e.target.name]).toBe(eventItems[index].e.target.value);
+		}
+		
 	});
 		
 });
