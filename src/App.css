@@ -1484,6 +1484,14 @@ table td:first-child {
   font-size: 3.125rem;
   margin-right: 1.25rem;
 }
+.sn_sidebar__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 12.5rem;
+  overflow-y: auto;
+}
 .sn_sidebar__menu__item {
   height: 3.3125rem;
   padding: 0 0.75rem;

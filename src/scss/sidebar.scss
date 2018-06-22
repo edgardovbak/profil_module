@@ -60,6 +60,12 @@
     }
 
     &__menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: rem(200);
+        overflow-y: auto;
 
         &__item {
             height: rem(53);
