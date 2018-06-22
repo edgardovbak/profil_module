@@ -8,6 +8,7 @@ import Skils 								from './Skils';
 import About 								from './About';
 import Loader 								from './Loader';
 import UserInfoListItem 					from './UserInfoListItem';
+import { ProfileGroupComponent }			from './ProfileGroup';
 
 // save config 
 const DATA = require('../config.json');
@@ -191,7 +192,8 @@ export class ProfilComponent extends React.Component<Props, State> {
 
 				<Title name="About" />
 				<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
-
+				<Title name="Group" />
+			    <ProfileGroupComponent />				
 			</div>
 		);
 	}
