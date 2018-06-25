@@ -77,7 +77,7 @@ export class MenuComponent extends React.Component<Props, any> {
                 {this.state.status ? 
                     <MenuItem name={'Login'} icon={fontImportantClass + 'flaticon-folded-newspaper'} pathTo="/login"/>
                     : 
-                    <MenuItem name={'Log Out'} onClick={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
+                    <MenuItem name={'Log Out'} logoutEvent={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
                 }
 				
 			</div>

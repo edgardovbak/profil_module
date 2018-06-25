@@ -101,7 +101,8 @@
       "!src/registerServiceWorker.ts",
       "!__test__/__mocks__",
       "!src/reducers/users.ts",
-      "!src/type/CSTUser.ts"
+      "!src/type/CSTUser.ts",
+      "!src/type/MenuItemType.ts"
     ],
     "collectCoverage": true,
     "coverageFormats": [
