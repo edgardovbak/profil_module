@@ -14,23 +14,18 @@ class Home extends React.Component<any, any> {
         };
     }
 
-    componentDidMount  () {
+    async componentDidMount  () {
         let path = PathHelper.joinPaths(DATA.home);
 		// get the current user info
-		let userGet = this.props.getHomeContent(path, {
+		let userGet = await this.props.getHomeContent(path, {
             query: 'TypeIs:KnowledgeBaseArticle_v_2',
 		});
         
-        userGet.then( (result: any) => {
-				this.setState({ 
-                    isDataFetched : true,
-					articles: result.value.entities.entities
-				});
+        console.log(userGet);
+        this.setState({ 
+            isDataFetched : true,
+            articles: userGet.value.entities.entities
         });
-
-        userGet.catch((err: any) => {
-            console.log(err);
-		});
     }
     
     render() {
@@ -39,6 +34,7 @@ class Home extends React.Component<any, any> {
 		}
         
         let homePageItems = this.state.articles;
+        console.log(homePageItems);
         const homePage = Object.keys(homePageItems).map( (key: any) => 
             (
                 <div key={key}>

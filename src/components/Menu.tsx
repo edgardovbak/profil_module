@@ -40,7 +40,7 @@ export class MenuComponent extends React.Component<Props, any> {
 	public async componentDidMount  () {
         let path = DATA.menu;
         let menuItems = await this.props.getMenuItems(path, {
-            select : ['Name', 'Id', 'Path', 'DisplayName', 'IconName']
+            select : ['Name', 'Id', 'Path', 'DisplayName', 'IconClassName']
         });
         if (!this.unmount) {
             this.setState({
@@ -62,7 +62,7 @@ export class MenuComponent extends React.Component<Props, any> {
         let menuItems = this.state.menuItems;
         const menu = Object.keys(menuItems).map( (key: any) => 
             (
-                <MenuItem key={key} name={menuItems[key].DisplayName} icon={fontImportantClass + this.state.menuItems[key].IconName} pathTo="/"/>
+                <MenuItem key={key} name={menuItems[key].DisplayName} icon={fontImportantClass + this.state.menuItems[key].IconClassName} pathTo="/"/>
             )
         );
 		return (
