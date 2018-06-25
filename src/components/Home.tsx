@@ -29,8 +29,8 @@ export class HomeComponent extends React.Component<Props, any> {
 		// get the current user info
 		let userGet = await this.props.getHomeContent(path, {
             query: 'TypeIs:KnowledgeBaseArticle_v_2',
-        });
-        console.log(userGet);
+		});
+        
         this.setState({ 
             isDataFetched : true,
             articles: userGet.value.entities.entities

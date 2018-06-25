@@ -77,7 +77,38 @@ exports[`<Home /> shallow rendering Match to snapshot 2`] = `
 `;
 
 exports[`<Home /> shallow rendering Match to snapshot 3`] = `
-<Connect(HomeComponent)
-  getHomeContent={[Function]}
-/>
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(HomeComponent)>
+    <HomeComponent
+      getHomeContent={[Function]}
+    >
+      <Loader>
+        <div
+          className="loader"
+        >
+          <div
+            className="leftEye"
+          />
+          <div
+            className="rightEye"
+          />
+          <div
+            className="mouth"
+          />
+        </div>
+      </Loader>
+    </HomeComponent>
+  </Connect(HomeComponent)>
+</Provider>
 `;

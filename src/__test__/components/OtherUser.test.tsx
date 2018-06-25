@@ -44,37 +44,35 @@ describe('<OtherUser /> rendering', () => {
 			}
 		});
 		let getUsers: OtherUserComponent['props']['getUsers'] = async () => {
-            return {
-                    entities: {},
-                    result: {
-						value: {
+				return {
+					action: {},
+					value: {
+						entities: {
 							entities: {
-								entities: {
-									3892: {
-										'Id': 3892,
-										'Email': '/Root/Sites/Profil/Menu/MenuItem1',
-										'Name': 'MenuItem1',
-										'JobTitle': 'ProfilMenuItem',
-										'Skype': 'flaticon-pirate',
-										'DisplayName': 'Menu Item 1'
-									  },
-									  3891: {
-										'Id': 3892,
-										'Email': '/Root/Sites/Profil/Menu/MenuItem1',
-										'Name': 'MenuItem1',
-										'JobTitle': 'ProfilMenuItem',
-										'Skype': 'flaticon-pirate',
-										'DisplayName': 'Menu Item 2'
-									  },
-									  3893: {
-										'Id': 3892,
-										'Email': '/Root/Sites/Profil/Menu/MenuItem1',
-										'Name': 'MenuItem1',
-										'JobTitle': 'ProfilMenuItem',
-										'Skype': 'flaticon-pirate',
-										'DisplayName': 'Menu Item 3'
-									  }
-								}
+								3892: {
+									'Id': 3892,
+									'Email': '/Root/Sites/Profil/Menu/MenuItem1',
+									'Name': 'MenuItem1',
+									'JobTitle': 'ProfilMenuItem',
+									'Skype': 'flaticon-pirate',
+									'DisplayName': 'Menu Item 1'
+									},
+									3891: {
+									'Id': 3892,
+									'Email': '/Root/Sites/Profil/Menu/MenuItem1',
+									'Name': 'MenuItem1',
+									'JobTitle': 'ProfilMenuItem',
+									'Skype': 'flaticon-pirate',
+									'DisplayName': 'Menu Item 2'
+									},
+									3893: {
+									'Id': 3892,
+									'Email': '/Root/Sites/Profil/Menu/MenuItem1',
+									'Name': 'MenuItem1',
+									'JobTitle': 'ProfilMenuItem',
+									'Skype': 'flaticon-pirate',
+									'DisplayName': 'Menu Item 3'
+									}
 							}
 						}
 					}

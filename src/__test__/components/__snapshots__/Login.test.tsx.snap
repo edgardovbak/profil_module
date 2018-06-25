@@ -101,3 +101,32 @@ exports[`<Login /> rendering Match to snapshot 1`] = `
   </Router>
 </BrowserRouter>
 `;
+
+exports[`<Login /> rendering Match to snapshot 2`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Login
+    formSubmit={[Function]}
+  />
+</Router>
+`;

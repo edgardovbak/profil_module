@@ -21,3 +21,62 @@ exports[`<MenuItem /> shallow rendering Match to snapshot 1`] = `
   </span>
 </Link>
 `;
+
+exports[`<MenuItem /> shallow rendering Match to snapshot 2`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <MenuItem
+      icon="fi "
+      name="home"
+      pathTo="/"
+    >
+      <Link
+        className="sn_sidebar__menu__item"
+        onClick={[Function]}
+        replace={false}
+        to="/"
+      >
+        <a
+          className="sn_sidebar__menu__item"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="sn_sidebar__menu__item__icon"
+          >
+            <i
+              className="fi "
+            />
+          </span>
+          <span
+            className="sn_sidebar__menu__item__name"
+          >
+            home
+          </span>
+        </a>
+      </Link>
+    </MenuItem>
+  </Router>
+</BrowserRouter>
+`;

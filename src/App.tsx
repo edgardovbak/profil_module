@@ -28,6 +28,7 @@ class App extends React.Component<AppProps, any> {
     }
 
     public async formSubmitHandler(email: string, password: string) {
+        console.log(email);
         await this.props.login(email, password); 
     }
 

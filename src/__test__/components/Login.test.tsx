@@ -4,7 +4,8 @@ import {
 	configure, 
     shallow,
     mount, 
-    ReactWrapper } 						        from 'enzyme';
+    ReactWrapper, 
+    ShallowWrapper } 						    from 'enzyme';
 import * as Adapter 					        from 'enzyme-adapter-react-16';
 import toJson 				      		        from 'enzyme-to-json';
 import {
@@ -36,6 +37,12 @@ describe('<Login /> rendering', () => {
         </Router>
     ); 
 
+    const loginShallow: ShallowWrapper<any, any> = shallow(
+        <Router>
+            <Login {...props} />
+        </Router>
+    ); 
+
     Login.prototype.constructor(); 
     
 	it('Contain one H1 element ', () => {
@@ -43,7 +50,8 @@ describe('<Login /> rendering', () => {
     });
     // test Snapshot 
 	it('Match to snapshot', () => {
-		expect(toJson(login)).toMatchSnapshot();
+        expect(toJson(login)).toMatchSnapshot();
+        expect(toJson(loginShallow)).toMatchSnapshot();
     });
      
     it('Income values are same as in state ', () => {
@@ -98,7 +106,7 @@ describe('<Login /> rendering', () => {
         let spyPass = jest.spyOn(Login.prototype, 'handleUserPassword'); 
         
         let input = login.find('[data-testid="password"]');
-
+ 
         let event = {
             target: {value: 'abAB12'}
         };

@@ -11,7 +11,7 @@ const fontImportantClass = ' fi ';
 
 interface Props {
     userLoginState: string;
-    logout: Function;
+    logoutEvent: Function;
     getMenuItems: (path: string, options: IODataParams<MenuItemType>) => Promise<{
         value: {
             entities: any;
@@ -40,7 +40,7 @@ export class MenuComponent extends React.Component<Props, any> {
 	public async componentDidMount  () {
         let path = DATA.menu;
         let menuItems = await this.props.getMenuItems(path, {
-            select : ['Name', 'Id', 'Path', 'DisplayName', 'IconName']
+            select : ['Name', 'Id', 'Path', 'DisplayName', 'IconClassName']
         });
         if (!this.unmount) {
             this.setState({
@@ -52,7 +52,6 @@ export class MenuComponent extends React.Component<Props, any> {
 
     handleLogoutClick = (e: any) => {
         console.log(12);
-        this.props.logout();
     }
 
 	public render () {
@@ -62,7 +61,7 @@ export class MenuComponent extends React.Component<Props, any> {
         let menuItems = this.state.menuItems;
         const menu = Object.keys(menuItems).map( (key: any) => 
             (
-                <MenuItem key={key} name={menuItems[key].DisplayName} icon={fontImportantClass + this.state.menuItems[key].IconName} pathTo="/"/>
+                <MenuItem key={key} name={menuItems[key].DisplayName} icon={fontImportantClass + this.state.menuItems[key].IconClassName} pathTo="/"/>
             )
         );
 		return (
@@ -77,7 +76,7 @@ export class MenuComponent extends React.Component<Props, any> {
                 {this.state.status ? 
                     <MenuItem name={'Login'} icon={fontImportantClass + 'flaticon-folded-newspaper'} pathTo="/login"/>
                     : 
-                    <MenuItem name={'Log Out'} onClick={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
+                    <MenuItem name={'Log Out'} logoutEvent={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
                 }
 				
 			</div>

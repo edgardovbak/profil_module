@@ -11,6 +11,7 @@ import * as createMockStore					from 'redux-mock-store';
 import * as Adapter 					  	from 'enzyme-adapter-react-16';
 import toJson 				      			from 'enzyme-to-json';
 import { Provider } from 'react-redux';
+import { instanceOf } from 'prop-types';
 
 configure( {adapter: new Adapter()} );
 
@@ -18,6 +19,7 @@ describe('<Home /> shallow rendering', () => {
 	let store;
 	let homeMount: ReactWrapper<any, any>;
 	let homeComponentMount: ReactWrapper<any, any>;
+	let homeComponentShallow: ShallowWrapper<any, any>;
 	let homeShallow: ShallowWrapper<any, any>;
 
 	const mockStore = (createMockStore as any)();
@@ -25,7 +27,7 @@ describe('<Home /> shallow rendering', () => {
 		let getHomeContent: HomeComponent['props']['getHomeContent'] = async () => {
             return {
 				action: {},
-				result: {}
+				value: {}
             };
 		};
         store = mockStore({
@@ -78,6 +80,12 @@ describe('<Home /> shallow rendering', () => {
 					getHomeContent={getHomeContent}
 				/>
 			</Provider>); 
+		homeComponentShallow = shallow(
+			<Provider store={store}>
+				<Home 
+					getHomeContent={getHomeContent}
+				/>
+			</Provider>); 
 	});
 		
 	// test Snapshot 
@@ -88,10 +96,13 @@ describe('<Home /> shallow rendering', () => {
 
 	// test Snapshot 
 	it('Match to snapshot', () => {
-		homeShallow.setState({
-			isDataFetched: false
+		// homeMount.setState({
+		// 	isDataFetched: true
+		// });
+		homeMount.children().children().instance().setState({
+			isDataFetched: true
 		});
-		expect(toJson(homeShallow)).toMatchSnapshot();
+		expect(toJson(homeMount)).toMatchSnapshot();
 	});
 
 	it('Test componentDidMount', () => {

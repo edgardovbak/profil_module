@@ -20,7 +20,7 @@ describe('<Usermanagement /> shallow rendering', () => {
 	let umcMount: ReactWrapper<any, any>;
     let umShallow: ShallowWrapper<any, any>;
     let umMount2: ReactWrapper<any, any>;
-	let umcMount2: ReactWrapper<any, any>;
+	let umcMount2: ReactWrapper<any, any>; 
 	let umShallow2: ShallowWrapper<any, any>;
 
 	const mockStore = (createMockStore as any)();

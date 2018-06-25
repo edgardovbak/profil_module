@@ -19,10 +19,12 @@ describe('<UserInfoListItem /> shallow rendering', () => {
 	};
 		
 	const userinfolist = mount(<UserInfoListItem {...props}/>); 
+	const userinfolistShallow = shallow(<UserInfoListItem {...props}/>); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => { 
 		expect(toJson(userinfolist)).toMatchSnapshot();
+		expect(toJson(userinfolistShallow)).toMatchSnapshot();
 	});
 
 	it('Get a simple text value', () => {

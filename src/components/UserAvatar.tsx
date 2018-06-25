@@ -1,6 +1,6 @@
 import * as React							from 'react';
 import { connect }              			from 'react-redux';
-import AvatarEditor 						from 'react-avatar-editor';
+// import AvatarEditor 						from 'react-avatar-editor';
 import Loader 								from './Loader';
 // import Dropzone 							from 'react-dropzone';
 import 'cropperjs/dist/cropper.css';
@@ -41,7 +41,7 @@ export interface State {
 
 export class UserAvatarComponent extends React.Component<Props, State> {
 
-	editor: AvatarEditor;
+	// editor: AvatarEditor;
 
 	constructor(props: Props) {
 		super(props);
@@ -133,11 +133,11 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 	}
 
 	// set cropper to the references
-	public setEditorRef = (editor: any) => {
-		if (editor) {
-		   this.editor = editor;
-	   	}
-	}
+	// public setEditorRef = (editor: any) => {
+	// 	if (editor) {
+	// 	   this.editor = editor;
+	//    	}
+	// }
 
 	// add image with dropp
 	public handleDrop = (acceptedFiles: any) => {
@@ -172,21 +172,21 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 	}
 
 	// save changes
-	public handleSave = () => {
-		// is image is changed (add new, zoom, rotate)
-		if ( this.state.imageUpdates.isChanged) {
-			// convert to file
-			let imageFile = this.b64toBlob(this.editor.getImageScaledToCanvas().toDataURL());
+	// public handleSave = () => {
+	// 	// is image is changed (add new, zoom, rotate)
+	// 	if ( this.state.imageUpdates.isChanged) {
+	// 		// convert to file
+	// 		let imageFile = this.b64toBlob(this.editor.getImageScaledToCanvas().toDataURL());
 
-			this.setState({ imageUpdates : {
-				isChanged: true,
-				newImage: imageFile
-			}}, () => {
-				// add to EdutProfile component
-				this.props.onUpdate(this.state.imageUpdates);
-			});
-		}
-	}
+	// 		this.setState({ imageUpdates : {
+	// 			isChanged: true,
+	// 			newImage: imageFile
+	// 		}}, () => {
+	// 			// add to EdutProfile component
+	// 			this.props.onUpdate(this.state.imageUpdates);
+	// 		});
+	// 	}
+	// }
 
 	public render () {
 		// if user is not updated then show loader
@@ -199,7 +199,7 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 						<div>
 							<h2>Avatar Editor</h2>
 								<div>
-									<AvatarEditor
+									{/* <AvatarEditor
 										ref={(ref: any) => this.setEditorRef(ref)}
 										image={this.state.image}
 										width={this.state.width}
@@ -209,7 +209,7 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 										rotate={this.state.rotate}
 										scale={this.state.scale}
 										onImageChange={this.imageChange}
-									/>
+									/> */}
 								</div>
 							<div>
 								<label htmlFor="newImage">New File:</label>
@@ -245,7 +245,7 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 								<br/>
 								<button
 									name="save"
-									onClick={this.handleSave}
+									// onClick={this.handleSave}
 									className="sn_btn"
 								>
 									Save Avatar
