@@ -1,6 +1,32 @@
 import { User } from '@sensenet/default-content-types';
 import { IODataParams, Repository } from '@sensenet/client-core';
 
+export interface ChangePasswordBody {
+    UserPsw: string;
+    OldPsw: string;
+}
+
+export interface ChangePasswordReturns {
+    value: string;
+}
+
+export const updatePass = (path: string, options: IODataParams<User> = {}, body: ChangePasswordBody) => ({
+    type: 'UPDATE_PASSWORD',
+    // tslint:disable:completed-docs
+    async payload(repository: Repository) {
+        const actionResult =  await repository.executeAction<ChangePasswordBody, ChangePasswordReturns>({
+            name: 'BisonProfileSetUserPassword',
+            idOrPath: path,
+            method: 'POST',
+            body: {
+                UserPsw: body.UserPsw,
+                OldPsw: body.OldPsw,
+            }
+        });
+        return actionResult;
+    },
+});
+
 export const loadUsers = (path: string, options: IODataParams<User> = {}) => ({
     type: 'LOAD_USERS',
     // tslint:disable:completed-docs
@@ -13,15 +39,30 @@ export const loadUsers = (path: string, options: IODataParams<User> = {}) => ({
     },
 });
 
-export default function updateInfo(state: {isLoading: boolean, user: User, loadedUsers: User[]} = {isLoading: true, user: {} as any, loadedUsers: []}, action: any) {
+export default function updateInfo(
+    state: {
+        isLoading: boolean, 
+        isPassUpdated: boolean,
+        user: User, 
+        loadedUsers: User[],
+        updatePass: User[]
+    } = {
+        isLoading: true, 
+        isPassUpdated: false,
+        user: {} as any, 
+        loadedUsers: [],
+        updatePass: []
+    }, action: any) {
+        
+    // save logined user info
     if (action.type === 'UPDATE_LOGINED_USER') {
-
         return {
             ...state,
             user: action.payload
         };
     }
 
+    // load other users info 
     if (action.type === 'LOAD_USERS') {
         return {
             ...state,
@@ -30,7 +71,6 @@ export default function updateInfo(state: {isLoading: boolean, user: User, loade
     }
 
     if (action.type === 'LOAD_USERS_SUCCESS') {
-        /** */
         return {
             ...state,
             isLoading: false,
@@ -44,7 +84,31 @@ export default function updateInfo(state: {isLoading: boolean, user: User, loade
             isLoading: false,
         };
     }   
+
+    // password update
+    if (action.type === 'UPDATE_PASSWORD') {
+        return {
+            ...state,
+            isPassUpdated: false,
+        };
+    }   
+
+    if (action.type === 'UPDATE_PASSWORD_SUCCESS') {
+        return {
+            ...state,
+            isPassUpdated: true,
+            updatePass: action.payload.updatePass
+        };
+    }   
+
+    if (action.type === 'UPDATE_PASSWORD_FAIL') {
+        return {
+            ...state,
+            isPassUpdated: false,
+        };
+    }   
     
+    // update current user info
     if (action.type === 'SET_USER_INFO') {
         return  {
             ...state,
