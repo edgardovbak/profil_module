@@ -23,7 +23,7 @@ describe('<ForgottenPass /> shallow rendering', () => {
 		const fff = forgottenPass;
 		const spy = jest.spyOn((fff.instance() as any), 'handleChange');
 		let e = {
-			target: {
+			target: { 
 				value: 'email@test.test'
 			}
 		};

@@ -25,7 +25,6 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 1`] = `
   >
     <UsermanagementComponent
       actionType={false}
-      dispatch={[Function]}
       match={
         Object {
           "params": Object {
@@ -33,7 +32,9 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 1`] = `
           },
         }
       }
+      updatePassword={[Function]}
       userId={12312}
+      userLogout={[Function]}
     >
       <div
         className="sn_change_password"
@@ -110,7 +111,6 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 2`] = `
   >
     <UsermanagementComponent
       actionType={false}
-      dispatch={[Function]}
       match={
         Object {
           "params": Object {
@@ -118,7 +118,9 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 2`] = `
           },
         }
       }
+      updatePassword={[Function]}
       userId={12312}
+      userLogout={[Function]}
     >
       <div
         className="sn_change_password"
@@ -195,7 +197,6 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 3`] = `
   >
     <UsermanagementComponent
       actionType={true}
-      dispatch={[Function]}
       match={
         Object {
           "params": Object {
@@ -203,7 +204,9 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 3`] = `
           },
         }
       }
+      updatePassword={[Function]}
       userId={12312}
+      userLogout={[Function]}
     >
       <div
         className="sn_change_password"
@@ -296,7 +299,6 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 4`] = `
   >
     <UsermanagementComponent
       actionType={true}
-      dispatch={[Function]}
       match={
         Object {
           "params": Object {
@@ -304,7 +306,9 @@ exports[`<Usermanagement /> shallow rendering Match to snapshot 4`] = `
           },
         }
       }
+      updatePassword={[Function]}
       userId={12312}
+      userLogout={[Function]}
     >
       <div
         className="sn_change_password"

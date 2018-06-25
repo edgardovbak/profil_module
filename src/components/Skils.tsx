@@ -20,3 +20,4 @@ class Skils extends React.Component<any, any> {
 }
 
 export default Skils;
+ 

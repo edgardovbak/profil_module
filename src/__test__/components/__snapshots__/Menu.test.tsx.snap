@@ -26,6 +26,7 @@ exports[`<Menu /> rendering Match to snapshot 1`] = `
   >
     <MenuComponent
       getMenuItems={[Function]}
+      logoutEvent={[Function]}
       userLoginState="alma"
     />
   </Router>
@@ -58,6 +59,7 @@ exports[`<Menu /> rendering Match to snapshot with data 1`] = `
   >
     <MenuComponent
       getMenuItems={[Function]}
+      logoutEvent={[Function]}
       userLoginState="alma"
     >
       <div
@@ -110,4 +112,127 @@ exports[`<Menu /> rendering Match to snapshot with status = true  1`] = `
     pathTo="/login"
   />
 </div>
+`;
+
+exports[`<Menu /> rendering Test to snapshot with status changing 1`] = `
+MenuComponent {
+  "context": Object {},
+  "handleLogoutClick": [Function],
+  "props": Object {
+    "getMenuItems": [Function],
+    "logoutEvent": [Function],
+    "userLoginState": "alma",
+  },
+  "refs": Object {},
+  "state": Object {
+    "isDataFetched": true,
+    "menuItems": Object {
+      "3891": Object {
+        "DisplayName": "Menu Item 100",
+        "IconName": "flaticon-island",
+        "Id": 3891,
+        "Name": "MenuItem100",
+        "Path": "/Root/Sites/Profil/Menu/MenuItem100",
+        "Type": "ProfilMenuItem",
+      },
+      "3892": Object {
+        "DisplayName": "Menu Item 1",
+        "IconName": "flaticon-pirate",
+        "Id": 3892,
+        "Name": "MenuItem1",
+        "Path": "/Root/Sites/Profil/Menu/MenuItem1",
+        "Type": "ProfilMenuItem",
+      },
+      "3893": Object {
+        "DisplayName": "Menu Item 2",
+        "IconName": "flaticon-youtube",
+        "Id": 3893,
+        "Name": "Menu Item 2",
+        "Path": "/Root/Sites/Profil/Menu/Menu Item 2",
+        "Type": "ProfilMenuItem",
+      },
+    },
+    "status": false,
+  },
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_element": <MenuComponent
+        getMenuItems={[Function]}
+        logoutEvent={[Function]}
+        userLoginState="alma"
+      />,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_newState": Object {
+        "isDataFetched": true,
+        "menuItems": Object {
+          "3891": Object {
+            "DisplayName": "Menu Item 100",
+            "IconName": "flaticon-island",
+            "Id": 3891,
+            "Name": "MenuItem100",
+            "Path": "/Root/Sites/Profil/Menu/MenuItem100",
+            "Type": "ProfilMenuItem",
+          },
+          "3892": Object {
+            "DisplayName": "Menu Item 1",
+            "IconName": "flaticon-pirate",
+            "Id": 3892,
+            "Name": "MenuItem1",
+            "Path": "/Root/Sites/Profil/Menu/MenuItem1",
+            "Type": "ProfilMenuItem",
+          },
+          "3893": Object {
+            "DisplayName": "Menu Item 2",
+            "IconName": "flaticon-youtube",
+            "Id": 3893,
+            "Name": "Menu Item 2",
+            "Path": "/Root/Sites/Profil/Menu/Menu Item 2",
+            "Type": "ProfilMenuItem",
+          },
+        },
+        "status": false,
+      },
+      "_rendered": <div
+        className="sn_sidebar__menu"
+      >
+        <MenuItem
+          icon=" fi flaticon-group-of-businessmen"
+          name="All users"
+          pathTo="/otherUser"
+        />
+        <MenuItem
+          icon=" fi flaticon-group-of-businessmen"
+          name="Change Password"
+          pathTo="/changePass"
+        />
+        <MenuItem
+          icon=" fi undefined"
+          name="Menu Item 100"
+          pathTo="/"
+        />
+        <MenuItem
+          icon=" fi undefined"
+          name="Menu Item 1"
+          pathTo="/"
+        />
+        <MenuItem
+          icon=" fi undefined"
+          name="Menu Item 2"
+          pathTo="/"
+        />
+        <MenuItem
+          icon=" fi flaticon-group-of-businessmen"
+          logoutEvent={[Function]}
+          name="Log Out"
+          pathTo="/"
+        />
+      </div>,
+      "_rendering": false,
+      "_updater": [Circular],
+    },
+  },
+}
 `;

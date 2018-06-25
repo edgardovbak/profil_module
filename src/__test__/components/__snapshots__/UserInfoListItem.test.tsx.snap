@@ -23,3 +23,21 @@ exports[`<UserInfoListItem /> shallow rendering Match to snapshot 1`] = `
   </div>
 </UserInfoListItem>
 `;
+
+exports[`<UserInfoListItem /> shallow rendering Match to snapshot 2`] = `
+<div
+  className="user__global_info__list__item"
+>
+  <div
+    className="user__global_info__list__item--name"
+  >
+    Test item
+     :
+  </div>
+  <div
+    className="user__global_info__list__item--value"
+  >
+    Item 1
+  </div>
+</div>
+`;
