@@ -40,6 +40,11 @@ describe('<App /> shallow rendering', () => {
 						userName: 'Visitor'
 					}
 				}
+			},
+			user: {
+				user: {
+
+				}
 			}
 		});
 		const props = {
@@ -59,11 +64,6 @@ describe('<App /> shallow rendering', () => {
 				</Provider>
 			</Router>);
 	}); 
-
-	it('Contain one H1 element ', () => {
-		expect(app.find('h1').length).toBe(0);
-		
-	});
 
 	it('Match to snapshot', () => {
 		expect(app).toMatchSnapshot();

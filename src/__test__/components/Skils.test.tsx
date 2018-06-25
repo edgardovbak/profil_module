@@ -22,5 +22,5 @@ describe('<Skils /> shallow rendering', () => {
 		expect(toJson(skills)).toMatchSnapshot();
 	});
 		
-});
+}); 
    

@@ -245,7 +245,7 @@ ShallowWrapper {
                   value={undefined}
                 />
                 <UserInfoListItem
-                  infoType={2}
+                  infoType={1}
                   name="BirthDate"
                   value={undefined}
                 />
@@ -338,7 +338,7 @@ ShallowWrapper {
                     value={undefined}
                   />
                   <UserInfoListItem
-                    infoType={2}
+                    infoType={1}
                     name="BirthDate"
                     value={undefined}
                   />
@@ -433,7 +433,7 @@ ShallowWrapper {
                       value={undefined}
                     />
                     <UserInfoListItem
-                      infoType={2}
+                      infoType={1}
                       name="BirthDate"
                       value={undefined}
                     />
@@ -520,7 +520,7 @@ ShallowWrapper {
                         value={undefined}
                       />
                       <UserInfoListItem
-                        infoType={2}
+                        infoType={1}
                         name="BirthDate"
                         value={undefined}
                       />
@@ -652,7 +652,7 @@ ShallowWrapper {
                           value={undefined}
                         />,
                         <UserInfoListItem
-                          infoType={2}
+                          infoType={1}
                           name="BirthDate"
                           value={undefined}
                         />,
@@ -691,7 +691,7 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "class",
                         "props": Object {
-                          "infoType": 2,
+                          "infoType": 1,
                           "name": "BirthDate",
                           "value": undefined,
                         },
@@ -830,7 +830,7 @@ ShallowWrapper {
                     value={undefined}
                   />
                   <UserInfoListItem
-                    infoType={2}
+                    infoType={1}
                     name="BirthDate"
                     value={undefined}
                   />
@@ -923,7 +923,7 @@ ShallowWrapper {
                       value={undefined}
                     />
                     <UserInfoListItem
-                      infoType={2}
+                      infoType={1}
                       name="BirthDate"
                       value={undefined}
                     />
@@ -1018,7 +1018,7 @@ ShallowWrapper {
                         value={undefined}
                       />
                       <UserInfoListItem
-                        infoType={2}
+                        infoType={1}
                         name="BirthDate"
                         value={undefined}
                       />
@@ -1105,7 +1105,7 @@ ShallowWrapper {
                           value={undefined}
                         />
                         <UserInfoListItem
-                          infoType={2}
+                          infoType={1}
                           name="BirthDate"
                           value={undefined}
                         />
@@ -1237,7 +1237,7 @@ ShallowWrapper {
                             value={undefined}
                           />,
                           <UserInfoListItem
-                            infoType={2}
+                            infoType={1}
                             name="BirthDate"
                             value={undefined}
                           />,
@@ -1276,7 +1276,7 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "class",
                           "props": Object {
-                            "infoType": 2,
+                            "infoType": 1,
                             "name": "BirthDate",
                             "value": undefined,
                           },
@@ -1458,7 +1458,7 @@ ShallowWrapper {
                   value={undefined}
                 />
                 <UserInfoListItem
-                  infoType={2}
+                  infoType={1}
                   name="BirthDate"
                   value={undefined}
                 />
@@ -1555,7 +1555,7 @@ ShallowWrapper {
                     value={undefined}
                   />
                   <UserInfoListItem
-                    infoType={2}
+                    infoType={1}
                     name="BirthDate"
                     value={undefined}
                   />
@@ -1654,7 +1654,7 @@ ShallowWrapper {
                       value={undefined}
                     />
                     <UserInfoListItem
-                      infoType={2}
+                      infoType={1}
                       name="BirthDate"
                       value={undefined}
                     />
@@ -1745,7 +1745,7 @@ ShallowWrapper {
                         value={undefined}
                       />
                       <UserInfoListItem
-                        infoType={2}
+                        infoType={1}
                         name="BirthDate"
                         value={undefined}
                       />
@@ -1893,7 +1893,7 @@ ShallowWrapper {
                           value={undefined}
                         />,
                         <UserInfoListItem
-                          infoType={2}
+                          infoType={1}
                           name="BirthDate"
                           value={undefined}
                         />,
@@ -1932,7 +1932,7 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "class",
                         "props": Object {
-                          "infoType": 2,
+                          "infoType": 1,
                           "name": "BirthDate",
                           "value": undefined,
                         },
@@ -2075,7 +2075,7 @@ ShallowWrapper {
                     value={undefined}
                   />
                   <UserInfoListItem
-                    infoType={2}
+                    infoType={1}
                     name="BirthDate"
                     value={undefined}
                   />
@@ -2172,7 +2172,7 @@ ShallowWrapper {
                       value={undefined}
                     />
                     <UserInfoListItem
-                      infoType={2}
+                      infoType={1}
                       name="BirthDate"
                       value={undefined}
                     />
@@ -2271,7 +2271,7 @@ ShallowWrapper {
                         value={undefined}
                       />
                       <UserInfoListItem
-                        infoType={2}
+                        infoType={1}
                         name="BirthDate"
                         value={undefined}
                       />
@@ -2362,7 +2362,7 @@ ShallowWrapper {
                           value={undefined}
                         />
                         <UserInfoListItem
-                          infoType={2}
+                          infoType={1}
                           name="BirthDate"
                           value={undefined}
                         />
@@ -2510,7 +2510,7 @@ ShallowWrapper {
                             value={undefined}
                           />,
                           <UserInfoListItem
-                            infoType={2}
+                            infoType={1}
                             name="BirthDate"
                             value={undefined}
                           />,
@@ -2549,7 +2549,7 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "class",
                           "props": Object {
-                            "infoType": 2,
+                            "infoType": 1,
                             "name": "BirthDate",
                             "value": undefined,
                           },
@@ -2740,7 +2740,7 @@ ShallowWrapper {
                   value="asdasdasd"
                 />
                 <UserInfoListItem
-                  infoType={2}
+                  infoType={1}
                   name="BirthDate"
                   value="123123"
                 />
@@ -2846,7 +2846,7 @@ ShallowWrapper {
                     value="asdasdasd"
                   />
                   <UserInfoListItem
-                    infoType={2}
+                    infoType={1}
                     name="BirthDate"
                     value="123123"
                   />
@@ -2954,7 +2954,7 @@ ShallowWrapper {
                       value="asdasdasd"
                     />
                     <UserInfoListItem
-                      infoType={2}
+                      infoType={1}
                       name="BirthDate"
                       value="123123"
                     />
@@ -3064,7 +3064,7 @@ ShallowWrapper {
                         value="asdasdasd"
                       />
                       <UserInfoListItem
-                        infoType={2}
+                        infoType={1}
                         name="BirthDate"
                         value="123123"
                       />
@@ -3212,7 +3212,7 @@ ShallowWrapper {
                           value="asdasdasd"
                         />,
                         <UserInfoListItem
-                          infoType={2}
+                          infoType={1}
                           name="BirthDate"
                           value="123123"
                         />,
@@ -3251,7 +3251,7 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "class",
                         "props": Object {
-                          "infoType": 2,
+                          "infoType": 1,
                           "name": "BirthDate",
                           "value": "123123",
                         },
@@ -3403,7 +3403,7 @@ ShallowWrapper {
                     value="asdasdasd"
                   />
                   <UserInfoListItem
-                    infoType={2}
+                    infoType={1}
                     name="BirthDate"
                     value="123123"
                   />
@@ -3509,7 +3509,7 @@ ShallowWrapper {
                       value="asdasdasd"
                     />
                     <UserInfoListItem
-                      infoType={2}
+                      infoType={1}
                       name="BirthDate"
                       value="123123"
                     />
@@ -3617,7 +3617,7 @@ ShallowWrapper {
                         value="asdasdasd"
                       />
                       <UserInfoListItem
-                        infoType={2}
+                        infoType={1}
                         name="BirthDate"
                         value="123123"
                       />
@@ -3727,7 +3727,7 @@ ShallowWrapper {
                           value="asdasdasd"
                         />
                         <UserInfoListItem
-                          infoType={2}
+                          infoType={1}
                           name="BirthDate"
                           value="123123"
                         />
@@ -3875,7 +3875,7 @@ ShallowWrapper {
                             value="asdasdasd"
                           />,
                           <UserInfoListItem
-                            infoType={2}
+                            infoType={1}
                             name="BirthDate"
                             value="123123"
                           />,
@@ -3914,7 +3914,7 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "class",
                           "props": Object {
-                            "infoType": 2,
+                            "infoType": 1,
                             "name": "BirthDate",
                             "value": "123123",
                           },

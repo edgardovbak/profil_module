@@ -112,7 +112,7 @@ describe('<Profil /> rendering', () => {
                 params: {
                     user: 'loldon'
                 }
-			},
+			}, 
 		};
         profilComponentShallow = shallow(
 			<ProfilComponent {...props} />);
