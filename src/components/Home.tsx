@@ -1,15 +1,25 @@
 import * as React				            from 'react';
 import { PathHelper }                       from '@sensenet/client-utils';
 import { connect }                          from 'react-redux';
-import { Actions } from '@sensenet/redux';
+import { Actions }                          from '@sensenet/redux';
+import { KnowledgeBaseArticleV2 }           from '../type/KnowledgeBaseArticle_v_2';
+import { IODataParams }                     from '@sensenet/client-core';
+import Loader                               from './Loader';
 
 const DATA = require('../config.json');
 
-class Home extends React.Component<any, any> {
+export interface Props {
+	getHomeContent: 		(path: string, options: IODataParams<KnowledgeBaseArticleV2>) => Promise<{
+		action: any;
+		value: any;
+	}>;
+}
+
+export class HomeComponent extends React.Component<Props, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            isDataFetched: true,
+            isDataFetched: false,
             articles: {},
         };
     }
@@ -30,7 +40,7 @@ class Home extends React.Component<any, any> {
     
     render() {
         if ( !this.state.isDataFetched ) {
-            return null;
+            return (<Loader/>);
 		}
         
         let homePageItems = this.state.articles;
@@ -63,5 +73,5 @@ export default connect(
     (dispatch) => ({
         getHomeContent:    (path: string, options: any) => dispatch(Actions.requestContent( path, options )),
     })
-)(Home as any);
+)(HomeComponent as any);
  

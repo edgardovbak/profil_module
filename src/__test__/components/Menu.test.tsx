@@ -106,6 +106,6 @@ describe('<Menu /> rendering', () => {
         jest.spyOn(Menu.prototype, 'componentDidMount');
         expect(Menu.prototype.componentDidMount.call.length).toBe(1);
     });
-    
+     
 });
  

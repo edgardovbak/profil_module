@@ -39,7 +39,7 @@ describe('<UserAvatar /> rendering', () => {
 						Path: 'something'
 					}
 				}
-			},
+			}, 
 			onUpdate: Function
 		};
         
@@ -174,21 +174,21 @@ describe('<UserAvatar /> rendering', () => {
 		expect(spy).toHaveBeenCalledTimes(1);
 	});
 
-	it('test handleSave', () => {
-		const fff = useravatarMount.children().children();
-		const spy = jest.spyOn(fff.instance() as any, 'handleSave');
-		(fff.instance() as any).handleSave();
-		// fff.find('#rotate').simulate('change', event);
-		expect(spy).toHaveBeenCalledTimes(1);
-	});
+	// it('test handleSave', () => {
+	// 	const fff = useravatarMount.children().children();
+	// 	const spy = jest.spyOn(fff.instance() as any, 'handleSave');
+	// 	(fff.instance() as any).handleSave();
+	// 	// fff.find('#rotate').simulate('change', event);
+	// 	expect(spy).toHaveBeenCalledTimes(1);
+	// });
 
-	it('test setEditorRef', () => {
-		const fff = useravatarMount.children().children();
-		const spy = jest.spyOn(fff.instance() as any, 'setEditorRef');
-		let editor: any = 'something';
-		(fff.instance() as any).setEditorRef(editor);
-		// fff.find('#rotate').simulate('change', event);
-		expect(spy).toHaveBeenCalledTimes(1);
-	});
+	// it('test setEditorRef', () => {
+	// 	const fff = useravatarMount.children().children();
+	// 	const spy = jest.spyOn(fff.instance() as any, 'setEditorRef');
+	// 	let editor: any = 'something';
+	// 	(fff.instance() as any).setEditorRef(editor);
+	// 	// fff.find('#rotate').simulate('change', event);
+	// 	expect(spy).toHaveBeenCalledTimes(1);
+	// });
 		
 });  

@@ -40,7 +40,12 @@ describe('<Body /> mount rendering when data is added', () => {
 						userName: 'Visitor'
 					}
 				}
-			}
+            },
+            user: {
+				user: {
+
+				}
+			} 
         });
         const props = {
 			loginState:     'Unauthenticated',
