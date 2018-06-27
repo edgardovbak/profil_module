@@ -24,10 +24,17 @@ describe('<Logo /> shallow rendering', () => {
 				<Logo {...props}/>
 			</Router>
 		); 
+
+		const logoShallow = shallow(
+			<Router>
+				<Logo {...props}/>
+			</Router>
+		); 
 		
 		// test Snapshot 
 	it('Match to snapshot', () => {
 		expect(toJson(logo)).toMatchSnapshot();
+		expect(toJson(logoShallow)).toMatchSnapshot();
 	});
 
 	it('Contain one menu element ', () => {

@@ -31,7 +31,6 @@ export class HomeComponent extends React.Component<Props, any> {
             query: 'TypeIs:KnowledgeBaseArticle_v_2',
 		});
         
-        console.log(userGet);
         this.setState({ 
             isDataFetched : true,
             articles: userGet.value.entities.entities
@@ -44,7 +43,6 @@ export class HomeComponent extends React.Component<Props, any> {
 		}
         
         let homePageItems = this.state.articles;
-        console.log(homePageItems);
         const homePage = Object.keys(homePageItems).map( (key: any) => 
             (
                 <div key={key}>

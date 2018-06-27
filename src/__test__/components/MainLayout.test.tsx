@@ -15,7 +15,7 @@ describe('<MainLayout /> shallow rendering', () => {
 	// test Snapshot 
 	it('Match to snapshot', () => {
 		expect(toJson(mainLayout)).toMatchSnapshot();
-	});
+	}); 
 		
 });
    

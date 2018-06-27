@@ -11,7 +11,7 @@ const fontImportantClass = ' fi ';
 
 interface Props {
     userLoginState: string;
-    logout: Function;
+    logoutEvent: Function;
     getMenuItems: (path: string, options: IODataParams<MenuItemType>) => Promise<{
         value: {
             entities: any;
@@ -52,7 +52,6 @@ export class MenuComponent extends React.Component<Props, any> {
 
     handleLogoutClick = (e: any) => {
         console.log(12);
-        this.props.logout();
     }
 
 	public render () {
@@ -77,7 +76,7 @@ export class MenuComponent extends React.Component<Props, any> {
                 {this.state.status ? 
                     <MenuItem name={'Login'} icon={fontImportantClass + 'flaticon-folded-newspaper'} pathTo="/login"/>
                     : 
-                    <MenuItem name={'Log Out'} onClick={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
+                    <MenuItem name={'Log Out'} logoutEvent={this.handleLogoutClick} icon={fontImportantClass + 'flaticon-group-of-businessmen'} pathTo="/"/>
                 }
 				
 			</div>

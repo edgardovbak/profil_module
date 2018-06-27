@@ -67,14 +67,26 @@ describe('<Menu /> rendering', () => {
             };
         };
 
+        let logoutEvent: MenuComponent['props']['logoutEvent'] = async () => {
+            return 'Hello';
+        };
+
         menuComponentMount = mount(
             <Router>
-                <MenuComponent getMenuItems={getMenuItems} userLoginState="alma"/> 
+                <MenuComponent 
+                    getMenuItems={getMenuItems} 
+                    userLoginState="alma"
+                    logoutEvent={logoutEvent}
+                /> 
             </Router>
         );  
         
         menuComponentShallow = shallow(
-            <MenuComponent getMenuItems={getMenuItems} userLoginState="alma"/> 
+            <MenuComponent 
+                getMenuItems={getMenuItems} 
+                userLoginState="alma"
+                logoutEvent={logoutEvent}
+            /> 
         );   
     }); 
     // test Snapshot 
@@ -106,6 +118,24 @@ describe('<Menu /> rendering', () => {
         jest.spyOn(Menu.prototype, 'componentDidMount');
         expect(Menu.prototype.componentDidMount.call.length).toBe(1);
     });
+
+    it('Test to snapshot with status changing', () => {
+		const fff = menuComponentShallow
+		.instance();
+        fff.setState({
+            status: false
+        });
+		expect(fff).toMatchSnapshot();
+    });
+    
+    it('test handleLogoutClick', () => {
+		const fff = menuComponentMount
+		.children()
+		.children();
+		const spy = jest.spyOn(fff.instance(), 'handleLogoutClick'  as any);
+		const ddd = (fff.instance() as any).handleLogoutClick();
+		expect(spy).toHaveBeenCalledTimes(1);
+	});
      
 });
  

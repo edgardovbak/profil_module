@@ -12,10 +12,12 @@ configure( {adapter: new Adapter()} );
 describe('<About /> shallow rendering', () => {
 		
 	const about = mount(<About />); 
+	const aboutShallow = shallow(<About />); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => {
 		expect(toJson(about)).toMatchSnapshot();
+		expect(toJson(aboutShallow)).toMatchSnapshot();
 	});
 
 	it('Contain one text element ', () => {

@@ -185,5 +185,4 @@ export default connect(
         updatePassword:       (path: string, options: IODataParams<User>, body: ChangePasswordBody) => dispatch(updatePass( path, options, body )),
         userLogout:             () => dispatch( Actions.userLogout())
     })
-)(Usermanagement as any);
-
+)(UsermanagementComponent as any);

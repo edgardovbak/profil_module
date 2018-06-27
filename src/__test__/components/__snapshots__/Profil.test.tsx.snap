@@ -2670,7 +2670,7 @@ ShallowWrapper {
           >
             <img
               alt="loldon freeman"
-              src="https://knowledgebase-sn7.test.sensenet.comundefined"
+              src="https://profil_sn7undefined"
             />
           </div>
           <div
@@ -2776,7 +2776,7 @@ ShallowWrapper {
             >
               <img
                 alt="loldon freeman"
-                src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                src="https://profil_sn7undefined"
               />
             </div>,
             <div
@@ -2865,7 +2865,7 @@ ShallowWrapper {
             "props": Object {
               "children": <img
                 alt="loldon freeman"
-                src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                src="https://profil_sn7undefined"
               />,
               "className": "user__avatar",
             },
@@ -2876,7 +2876,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "alt": "loldon freeman",
-                "src": "https://knowledgebase-sn7.test.sensenet.comundefined",
+                "src": "https://profil_sn7undefined",
               },
               "ref": null,
               "rendered": null,
@@ -3333,7 +3333,7 @@ ShallowWrapper {
             >
               <img
                 alt="loldon freeman"
-                src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                src="https://profil_sn7undefined"
               />
             </div>
             <div
@@ -3439,7 +3439,7 @@ ShallowWrapper {
               >
                 <img
                   alt="loldon freeman"
-                  src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                  src="https://profil_sn7undefined"
                 />
               </div>,
               <div
@@ -3528,7 +3528,7 @@ ShallowWrapper {
               "props": Object {
                 "children": <img
                   alt="loldon freeman"
-                  src="https://knowledgebase-sn7.test.sensenet.comundefined"
+                  src="https://profil_sn7undefined"
                 />,
                 "className": "user__avatar",
               },
@@ -3539,7 +3539,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "alt": "loldon freeman",
-                  "src": "https://knowledgebase-sn7.test.sensenet.comundefined",
+                  "src": "https://profil_sn7undefined",
                 },
                 "ref": null,
                 "rendered": null,
