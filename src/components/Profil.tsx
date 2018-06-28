@@ -8,6 +8,7 @@ import Skils 								from './Skils';
 import About 								from './About';
 import Loader 								from './Loader';
 import UserInfoListItem 					from './UserInfoListItem';
+import Achievement							from './Achievement';
 
 // save config 
 const DATA = require('../config.json');
@@ -55,8 +56,10 @@ export class ProfilComponent extends React.Component<Props, State> {
 		let userGet = await this.props.getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 'Actions',
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
-					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path'],
-			expand : ['Actions', 'AvatarImageRef']
+					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path', 'Achievement/Name',
+					'Achievement/Description', 'Achievement/BackgroundcolorColor', 'Achievement/BorderColorIcon', 
+					'Achievement/BorderColorAchievement', 'Achievement/AchievementImageRef/Path'],
+			expand : ['Actions', 'AvatarImageRef', 'Achievement', 'Achievement/AchievementImageRef']
 		});
 		this.setState({ 
 			isDataFetched: true,
@@ -71,6 +74,7 @@ export class ProfilComponent extends React.Component<Props, State> {
 		}
 		// if curent user its on own page then save info to state
 		if ( !this.state.isForbidden ) {
+			console.log(userGet.value.d);
 			this.props.addToState(userGet.value.d);
 			this.setState({ 
 				isCurrentUser: true
@@ -191,6 +195,9 @@ export class ProfilComponent extends React.Component<Props, State> {
 
 				<Title name="About" />
 				<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
+
+				<Title name="Achievement" />
+				<Achievement />
 
 			</div>
 		);
