@@ -25,7 +25,7 @@ interface Props {
 class AchievementItem extends React.Component<Props, any> {
     render() {
         // if user is not updated then show loader
-		if ( this.props.achievement === undefined ) {
+		if ( this.props.achievement === undefined || this.props.achievement === null) {
 			return (<Loader/>);
         }
 
