@@ -26,5 +26,18 @@ export class CSTUser extends User {
      Linkedin?: string;
      Skype?: string;
      Skills?: string;
+     Achievement?: [Achievement];
  }
  
+ interface ImageRef {
+    Path: string;
+}
+
+interface Achievement {
+    Name: string;
+    Description:  string;
+    BackgroundcolorColor: string;
+    BorderColorIcon:  string;
+    BorderColorAchievement:  string;
+    AchievementImageRef: ImageRef;
+}

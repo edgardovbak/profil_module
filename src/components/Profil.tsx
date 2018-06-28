@@ -8,6 +8,7 @@ import Skils 								from './Skils';
 import About 								from './About';
 import Loader 								from './Loader';
 import UserInfoListItem 					from './UserInfoListItem';
+import Achievement							from './Achievement';
 
 // save config 
 const DATA = require('../config.json');
@@ -21,6 +22,7 @@ interface State {
 	userName: 		string;  
 	isForbidden:	boolean;
 	isCurrentUser:	boolean;
+	noAchevement: 	boolean;
 }
 
 interface Props {
@@ -44,7 +46,8 @@ export class ProfilComponent extends React.Component<Props, State> {
 			// value for all users
 			user: null,
 			// detect if current user open the page
-			isCurrentUser: false
+			isCurrentUser: false,
+			noAchevement: false
 		};
 	}
 
@@ -55,12 +58,15 @@ export class ProfilComponent extends React.Component<Props, State> {
 		let userGet = await this.props.getUserInfo(path, {
             select : ['Name', 'DisplayName', 'Skills', 'WorkPhone', 'Skype', 'Linkedin', 'Actions',
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
-					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path'],
-			expand : ['Actions', 'AvatarImageRef']
+					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path', 'Achievement/Name',
+					'Achievement/Description', 'Achievement/BackgroundcolorColor', 'Achievement/BorderColorIcon', 
+					'Achievement/BorderColorAchievement', 'Achievement/AchievementImageRef/Path'],
+			expand : ['Actions', 'AvatarImageRef', 'Achievement', 'Achievement/AchievementImageRef']
 		});
 		this.setState({ 
 			isDataFetched: true,
-			user: userGet.value.d
+			user: userGet.value.d,
+			noAchevement: userGet.value.d.Achievement === null ? true : false
 		});
 		// check if current user have permission to edit user
 		let editAction = this.state.user.Actions.find(function (obj: any) { return obj.Name === 'Edit'; });
@@ -71,9 +77,11 @@ export class ProfilComponent extends React.Component<Props, State> {
 		}
 		// if curent user its on own page then save info to state
 		if ( !this.state.isForbidden ) {
+			console.log(userGet.value.d);
 			this.props.addToState(userGet.value.d);
 			this.setState({ 
-				isCurrentUser: true
+				isCurrentUser: true,
+				noAchevement: userGet.value.d.Achievement === null ? true : false
 			});
 		}
 	}
@@ -191,7 +199,14 @@ export class ProfilComponent extends React.Component<Props, State> {
 
 				<Title name="About" />
 				<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
-
+									
+				{ this.state.noAchevement ? '' : 
+					(<Title name="Achievement" />)
+				}	
+				{ this.state.noAchevement ? '' : 
+					(<Achievement />)
+				}			
+			
 			</div>
 		);
 	}

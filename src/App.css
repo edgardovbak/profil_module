@@ -1727,6 +1727,28 @@ table td:first-child {
   font-family: "arial";
 }
 
+.achievement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.achievement_item {
+  width: 9.375rem;
+  height: 9.375rem;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 100%;
+  margin-right: 1.875rem;
+}
+
 @media only screen and (max-width: 75rem) and (min-width: 48rem) {
   .content_to_right:not(.open) {
     padding-left: 5rem;
