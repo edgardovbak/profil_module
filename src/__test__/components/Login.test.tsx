@@ -1,12 +1,16 @@
-import * as React 						from 'react';
-import Login 							from '../../components/Login';
+import * as React 						        from 'react';
+import Login 							        from '../../components/Login';
 import { 
 	configure, 
     shallow,
     mount, 
-    ReactWrapper } 						from 'enzyme';
-import * as Adapter 					from 'enzyme-adapter-react-16';
-import toJson 				      		from 'enzyme-to-json';
+    ReactWrapper, 
+    ShallowWrapper } 						    from 'enzyme';
+import * as Adapter 					        from 'enzyme-adapter-react-16';
+import toJson 				      		        from 'enzyme-to-json';
+import {
+    BrowserRouter as Router
+} 												from 'react-router-dom';
 
 configure( {adapter: new Adapter()} );
 
@@ -19,7 +23,7 @@ const updateInput = (login: any, instance: any, newValue: any) => {
 };
 
 const wrongEmails = ['somebody@', 'somebody@.', 'somebody@mail', 'somebodymail.com', 'somebody@mail.'];
-const wrongPasswords = ['aaaaaa', 'aaaa@', '@@@@###', 'AAAAAA', 'AAAdfsdd', 'AAA1234', 'gdfdf1234', 'sd'];
+const wrongPasswords = ['aaaa@', '@@@@###'];
 
 describe('<Login /> rendering', () => {
     const props = {
@@ -27,7 +31,17 @@ describe('<Login /> rendering', () => {
             return 'sucsces';
         }
     };
-    const login: ReactWrapper<any, any> = mount(<Login {...props} />); 
+    const login: ReactWrapper<any, any> = mount(
+        <Router>
+            <Login {...props} />
+        </Router>
+    ); 
+
+    const loginShallow: ShallowWrapper<any, any> = shallow(
+        <Router>
+            <Login {...props} />
+        </Router>
+    ); 
 
     Login.prototype.constructor(); 
     
@@ -36,7 +50,8 @@ describe('<Login /> rendering', () => {
     });
     // test Snapshot 
 	it('Match to snapshot', () => {
-		expect(toJson(login)).toMatchSnapshot();
+        expect(toJson(login)).toMatchSnapshot();
+        expect(toJson(loginShallow)).toMatchSnapshot();
     });
      
     it('Income values are same as in state ', () => {
@@ -49,14 +64,14 @@ describe('<Login /> rendering', () => {
     it('Email validation ', () => {
         for (let index = 0; index < wrongEmails.length; index++) {
             const email = updateInput(login, '[data-testid="email"]', wrongEmails[index]);
-            expect(login.state().emailValid).toBe(false);
+            expect(login.children().children().instance().state.emailValid).toBe(false);
         }
     }); 
     
     it('Password validation ', () => {
         for (let index = 0; index < wrongPasswords.length; index++) {
             const password = updateInput(login, '[data-testid="password"]', wrongPasswords[index]);
-            expect(login.state().passwordValid).toBe(false);
+            expect(login.children().children().instance().state.passwordValid).toBe(false);
         }
     }); 
 
@@ -91,7 +106,7 @@ describe('<Login /> rendering', () => {
         let spyPass = jest.spyOn(Login.prototype, 'handleUserPassword'); 
         
         let input = login.find('[data-testid="password"]');
-
+ 
         let event = {
             target: {value: 'abAB12'}
         };
@@ -100,7 +115,7 @@ describe('<Login /> rendering', () => {
         expect(spyPass).toHaveBeenCalledWith(event);
         expect(spyPass).toHaveBeenCalledTimes(1);
     }); 
-
+ 
     // it('onSubmit is called ', () => {
     //     let spyPass = jest.spyOn(Login.prototype, 'onSubmit'); 
     //     let event = {

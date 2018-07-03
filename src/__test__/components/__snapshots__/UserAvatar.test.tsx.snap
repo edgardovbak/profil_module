@@ -98,7 +98,6 @@ exports[`<UserAvatar /> rendering Match to snapshot 1`] = `
               <button
                 className="sn_btn"
                 name="save"
-                onClick={[Function]}
               >
                 Save Avatar
               </button>

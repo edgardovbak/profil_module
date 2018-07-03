@@ -1,19 +1,28 @@
-import * as React 						from 'react';
-import MenuItem 				        from '../../components/MenuItem';
+import * as React 						        from 'react';
+import MenuItem 				                from '../../components/MenuItem';
 import { 
 	configure, 
     shallow,
-    mount } 							from 'enzyme';
-import * as Adapter 					from 'enzyme-adapter-react-16';
-import toJson 				      		from 'enzyme-to-json';
+    mount } 							        from 'enzyme';
+import * as Adapter 					        from 'enzyme-adapter-react-16';
+import toJson 				      		        from 'enzyme-to-json';
+import {
+    BrowserRouter as Router
+}                                               from 'react-router-dom';
 
 configure( {adapter: new Adapter()} );
 
 describe('<MenuItem /> shallow rendering', () => {
     const menuItem = shallow(<MenuItem pathTo="/" name="home" icon="fi "/>);
+    const menuItemMount = mount(
+        <Router>
+            <MenuItem pathTo="/" name="home" icon="fi "/>
+        </Router>
+    );
     // test Snapshot 
 	it('Match to snapshot', () => {
-		expect(toJson(menuItem)).toMatchSnapshot();
+        expect(toJson(menuItem)).toMatchSnapshot();
+        expect(toJson(menuItemMount)).toMatchSnapshot();
     });
 
     it('Menu item have a name', () => {
@@ -47,6 +56,6 @@ describe('<MenuItem /> shallow rendering', () => {
 		const ddd = (menuItem.instance() as any).handleClick();
         expect(spy).toHaveBeenCalledTimes(1);
         expect(menuItem.state().isClicked).toBe(true);
-	});
+	}); 
 }); 
  

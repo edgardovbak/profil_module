@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> shallow rendering Match to snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(HomeComponent)>
+    <HomeComponent
+      getHomeContent={[Function]}
+    >
+      <Loader>
+        <div
+          className="loader"
+        >
+          <div
+            className="leftEye"
+          />
+          <div
+            className="rightEye"
+          />
+          <div
+            className="mouth"
+          />
+        </div>
+      </Loader>
+    </HomeComponent>
+  </Connect(HomeComponent)>
+</Provider>
+`;
+
+exports[`<Home /> shallow rendering Match to snapshot 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(HomeComponent)
+    getHomeContent={[Function]}
+  >
+    <HomeComponent
+      getHomeContent={[Function]}
+    >
+      <Loader>
+        <div
+          className="loader"
+        >
+          <div
+            className="leftEye"
+          />
+          <div
+            className="rightEye"
+          />
+          <div
+            className="mouth"
+          />
+        </div>
+      </Loader>
+    </HomeComponent>
+  </Connect(HomeComponent)>
+</Provider>
+`;
+
+exports[`<Home /> shallow rendering Match to snapshot 3`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(HomeComponent)>
+    <HomeComponent
+      getHomeContent={[Function]}
+    >
+      <Loader>
+        <div
+          className="loader"
+        >
+          <div
+            className="leftEye"
+          />
+          <div
+            className="rightEye"
+          />
+          <div
+            className="mouth"
+          />
+        </div>
+      </Loader>
+    </HomeComponent>
+  </Connect(HomeComponent)>
+</Provider>
+`;

@@ -5,7 +5,7 @@ interface Props {
 	pathTo:  string;
 	name: string;
 	icon: string;
-	onClick?: Function;
+	logoutEvent?: Function;
 }
 
 interface State {
@@ -25,6 +25,9 @@ class MenuItem extends React.Component<Props, State> {
 	}
 
 	handleClick = () => { 
+		if (this.props.logoutEvent !== undefined) {
+			this.props.logoutEvent();
+		}
 		this.setState({
 			isClicked: true
 		});

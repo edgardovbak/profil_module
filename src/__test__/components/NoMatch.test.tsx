@@ -7,7 +7,7 @@ import * as Adapter 					  	from 'enzyme-adapter-react-16';
 import toJson 				      			from 'enzyme-to-json';
 import {
     BrowserRouter as Router
-} 												from 'react-router-dom';
+} 									 			from 'react-router-dom';
 
 configure( {adapter: new Adapter()} );
 
@@ -25,4 +25,4 @@ describe('<NoMatch /> shallow rendering', () => {
 	});
 		 
 });
- 
+  

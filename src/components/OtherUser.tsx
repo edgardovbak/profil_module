@@ -40,7 +40,6 @@ export class OtherUserComponent extends React.Component<Props, Stats> {
             query: 'TypeIs:User',
         } as IODataParams<User>;
         let users = await this.props.getUsers(path, options);
-        console.log(users);
         this.setState({
             isDataFetched : true,
             users: users.value.entities.entities

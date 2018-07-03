@@ -69,7 +69,7 @@ export class UserAvatarComponent extends React.Component<Props, State> {
 		};
 		this.useDefaultImage = 	this.useDefaultImage.bind(this);
 		this.handleRotate = 	this.handleRotate.bind(this);
-		this.handleSave = 		this.handleSave.bind(this);
+		// this.handleSave = 		this.handleSave.bind(this);
 		this.b64toBlob = 		this.b64toBlob.bind(this);
 		this.makeid = 			this.makeid.bind(this);
 		this.imageChange = 		this.imageChange.bind(this);

@@ -1,7 +1,10 @@
-import * as React				 	from 'react';
-import Title                        from './Title';
-import axios                        from 'axios';
-import { connect }                  from 'react-redux';
+import * as React				 	    from 'react';
+import Title                            from './Title';
+import { connect }                      from 'react-redux';
+import { updatePass }                   from '../reducers/users';
+import { User }                         from '@sensenet/default-content-types';
+import { IODataParams }                 from '@sensenet/client-core';
+import { Actions }                      from '@sensenet/redux';
 
 interface ParamList {
     guid: string;
@@ -17,6 +20,9 @@ interface Props {
     actionType: boolean; // false - forrgot, true - change password
     userId: number;
     history: any;
+    updatePassword: Function;
+    userLogout: Function;
+    isPassUpdated: boolean;
 }
 
 interface State {
@@ -26,9 +32,14 @@ interface State {
     oldPass: string;
 }
 
-const DATA = require('../config.json');
+export interface ChangePasswordBody {
+    UserPsw: string;
+    OldPsw: string;
+}
 
-export class Usermanagement extends React.Component<Props, State> {
+// const DATA = require('../config.json');
+
+export class UsermanagementComponent extends React.Component<Props, State> {
 	constructor(prop: Props) {
         super(prop);
         this.state = {
@@ -47,10 +58,9 @@ export class Usermanagement extends React.Component<Props, State> {
         let guid = this.props.match.params.guid;
         let passChange;
         if ( this.props.actionType ) {
-            console.log(this.props.userId);
             passChange = {
                 UserPsw: this.state.newPass,
-                UserId: this.props.userId,
+                // UserId: this.props.userId,
                 OldPsw: this.state.oldPass
             };
         } else {
@@ -59,11 +69,7 @@ export class Usermanagement extends React.Component<Props, State> {
                 UserId: guid
             };
         }
-        axios.post(DATA.odataDomain + '/Root/Sites/Profil(\'ForgottenPassword\')/BisonProfileSetUserPassword', passChange)
-        .then(res => {
-            console.log(res);
-            this.props.history.push('/login');
-        });
+        this.props.updatePassword('/Root/Sites/Profil(\'ForgottenPassword\')', {},  passChange);
     }
 
     blurHandler = () => {
@@ -102,6 +108,12 @@ export class Usermanagement extends React.Component<Props, State> {
 	}
 	
 	public render () {
+
+        if ( this.props.isPassUpdated) {
+            this.props.userLogout();
+            this.props.history.push('/login');
+        }
+        
 		return (
 			<div className="sn_change_password">
                 <Title name={this.props.pageTitle} />
@@ -162,10 +174,15 @@ export class Usermanagement extends React.Component<Props, State> {
 
 export const mapStateToProps = (state: any, match: any) => {
     return {
-        userId :      state.user.user.Id,
+        userId :        state.user.user.Id,
+        isPassUpdated:  state.user.isPassUpdated
     };
 };
 
 export default connect(
     mapStateToProps,
-)(Usermanagement as any);
+    (dispatch) => ({
+        updatePassword:       (path: string, options: IODataParams<User>, body: ChangePasswordBody) => dispatch(updatePass( path, options, body )),
+        userLogout:             () => dispatch( Actions.userLogout())
+    })
+)(UsermanagementComponent as any);

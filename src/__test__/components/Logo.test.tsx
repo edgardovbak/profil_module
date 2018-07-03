@@ -15,7 +15,6 @@ configure( {adapter: new Adapter()} );
 describe('<Logo /> shallow rendering', () => {
 		const props = {
 			openMenu: () => {
-				console.log('success');
 				return 'success';
 			}
 		};
@@ -25,10 +24,17 @@ describe('<Logo /> shallow rendering', () => {
 				<Logo {...props}/>
 			</Router>
 		); 
+
+		const logoShallow = shallow(
+			<Router>
+				<Logo {...props}/>
+			</Router>
+		); 
 		
 		// test Snapshot 
 	it('Match to snapshot', () => {
 		expect(toJson(logo)).toMatchSnapshot();
+		expect(toJson(logoShallow)).toMatchSnapshot();
 	});
 
 	it('Contain one menu element ', () => {
@@ -45,3 +51,4 @@ describe('<Logo /> shallow rendering', () => {
 		expect(clickHandler).toHaveBeenCalledTimes(1);
 	});
 });
+ 

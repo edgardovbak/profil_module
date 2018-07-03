@@ -7,3 +7,9 @@ exports[`<About /> shallow rendering Match to snapshot 1`] = `
   />
 </About>
 `;
+
+exports[`<About /> shallow rendering Match to snapshot 2`] = `
+<div
+  className="about"
+/>
+`;

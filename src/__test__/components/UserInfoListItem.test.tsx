@@ -19,10 +19,12 @@ describe('<UserInfoListItem /> shallow rendering', () => {
 	};
 		
 	const userinfolist = mount(<UserInfoListItem {...props}/>); 
+	const userinfolistShallow = shallow(<UserInfoListItem {...props}/>); 
 		
 	// test Snapshot 
 	it('Match to snapshot', () => { 
 		expect(toJson(userinfolist)).toMatchSnapshot();
+		expect(toJson(userinfolistShallow)).toMatchSnapshot();
 	});
 
 	it('Get a simple text value', () => {
@@ -40,7 +42,7 @@ describe('<UserInfoListItem /> shallow rendering', () => {
 		expect(userinfolist2.find('.user__global_info__list__item--name').text()).toBe('Test item :');
 		expect(userinfolist2.find('.user__global_info__list__item--value a').text()).toBe('Item 1');
 	}); 
-
+ 
 	it('Get a select box value', () => {
 		const props3 = {
 			name: 'Test item',

@@ -40,31 +40,36 @@ exports[`<SidebarUser /> rendering Match to snapshot 1`] = `
         <SidebarUserComponent
           dispatch={[Function]}
           fullName="Test User 1"
-          user={null}
+          user={
+            Object {
+              "AvatarImageRef": Object {
+                "Path": "something.png",
+              },
+              "FullName": "Somebody",
+            }
+          }
           userName="TestUser1"
         >
           <Link
             replace={false}
-            to="/user/:TestUser1"
+            to="/user/TestUser1"
           >
             <a
-              href="/user/:TestUser1"
+              href="/user/TestUser1"
               onClick={[Function]}
             >
               <div
                 className="sn_sidebar__user"
               >
-                <span
-                  className="sn_sidebar__user__avatar--default"
-                >
-                  <i
-                    className="fi flaticon-user"
-                  />
-                </span>
+                <img
+                  alt="Somebody"
+                  className="sn_sidebar__user__avatar"
+                  src="https://knowledgebase-sn7.test.sensenet.comsomething.png"
+                />
                 <div
                   className="sn_sidebar__user__name"
                 >
-                  Test User 1
+                  Somebody
                 </div>
               </div>
             </a>
@@ -74,26 +79,4 @@ exports[`<SidebarUser /> rendering Match to snapshot 1`] = `
     </Provider>
   </Router>
 </BrowserRouter>
-`;
-
-exports[`<SidebarUser /> rendering Match to snapshot without avatar 1`] = `
-<Link
-  replace={false}
-  to="/user/:toto"
->
-  <div
-    className="sn_sidebar__user"
-  >
-    <img
-      alt="toto to"
-      className="sn_sidebar__user__avatar"
-      src="https://knowledgebase-sn7.test.sensenet.comsomeImage.png"
-    />
-    <div
-      className="sn_sidebar__user__name"
-    >
-      toto to
-    </div>
-  </div>
-</Link>
 `;
