@@ -8,7 +8,9 @@ import Skils 								from './Skils';
 import About 								from './About';
 import Loader 								from './Loader';
 import UserInfoListItem 					from './UserInfoListItem';
+import ProfileGroupComponent			from './ProfileGroup';
 import Achievement							from './Achievement';
+
 
 // save config 
 const DATA = require('../config.json');
@@ -199,6 +201,8 @@ export class ProfilComponent extends React.Component<Props, State> {
 
 				<Title name="About" />
 				<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
+				<Title name="Group" />
+			    <ProfileGroupComponent  />
 									
 				{ this.state.noAchevement ? '' : 
 					(<Title name="Achievement" />)
@@ -206,7 +210,6 @@ export class ProfilComponent extends React.Component<Props, State> {
 				{ this.state.noAchevement ? '' : 
 					(<Achievement />)
 				}			
-			
 			</div>
 		);
 	}
@@ -223,6 +226,6 @@ export default connect(
 	mapStateToProps,
 	(dispatch) => ({
         getUserInfo:    (path: string, options: any) => dispatch(Actions.loadContent( path, options )),
-        addToState:     (userInfo: any) => dispatch({ type: 'UPDATE_LOGINED_USER', payload: userInfo }),
+		addToState:     (userInfo: any) => dispatch({ type: 'UPDATE_LOGINED_USER', payload: userInfo })
     })
 )(ProfilComponent as any);
