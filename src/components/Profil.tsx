@@ -60,7 +60,7 @@ export class ProfilComponent extends React.Component<Props, State> {
                     'GitHub', 'JobTitle', 'Email', 'FullName', 'Description', 'Languages', 'Phone', 
 					'Gender', 'BirthDate', 'Education', 'AvatarImageRef/Path', 'Achievement/Name',
 					'Achievement/Description', 'Achievement/BackgroundcolorColor', 'Achievement/BorderColorIcon', 
-					'Achievement/BorderColorAchievement', 'Achievement/AchievementImageRef/Path'],
+					'Achievement/BorderColorAchievement', 'Achievement/AchievementImageRef/Path', 'Achievement/TextColor'],
 			expand : ['Actions', 'AvatarImageRef', 'Achievement', 'Achievement/AchievementImageRef']
 		});
 		this.setState({ 
@@ -201,10 +201,10 @@ export class ProfilComponent extends React.Component<Props, State> {
 				<About about={this.state.isCurrentUser ?  this.props.currentUser.Description : this.state.user.Description} />
 									
 				{ this.state.noAchevement ? '' : 
-					(<Title name="Achievement" />)
+					(<Title name="Achievement" pathTo={'/ahievement/' + this.props.match.params.user}/>)
 				}	
 				{ this.state.noAchevement ? '' : 
-					(<Achievement />)
+					(<Achievement achievement={this.state.user.Achievement}/>)
 				}			
 			
 			</div>

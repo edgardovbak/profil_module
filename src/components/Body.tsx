@@ -15,6 +15,7 @@ import EditProfil                           from './EditProfil';
 import Usermanagement                       from './Usermanagement';
 import ForgottenPass                        from './ForgottenPass';
 import Home                                 from './Home';
+import AchievementPage                      from './AchievementPage';
 
 export class BodyComponent extends React.Component<any, any> {
 
@@ -111,6 +112,15 @@ export class BodyComponent extends React.Component<any, any> {
                                     key="usermanagement"
                                     render={(routerProps) => {
                                         return <ForgottenPass 
+                                            {...routerProps} 
+                                        />;
+                                    }} 
+                                />
+                                <Route  
+                                    path="/ahievement/:user" 
+                                    key="ahievement"
+                                    render={(routerProps) => {
+                                        return <AchievementPage 
                                             {...routerProps} 
                                         />;
                                     }} 

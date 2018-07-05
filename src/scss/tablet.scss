@@ -102,3 +102,22 @@
         }
     }
 }
+
+
+@media only screen and (max-width: rem(1500)) {
+    .achievement_item--square {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: rem(980)) {
+    .achievement_item--square {
+        width: 45%;
+        height: 15.3125rem;
+
+        & img {
+            width: 10.4375rem;
+            height: 10.4375rem;
+        }
+    }
+}

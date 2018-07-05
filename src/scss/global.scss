@@ -26,12 +26,23 @@ body {
     width: 100%;
     text-align: left;
     font-family: $font_fira;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
     &--description {
         margin-bottom: rem(10);
         display: flex;
         justify-content: space-between;
         font-family: $font_roboto;
+    }
+
+    a {
+        font-size: rem(16);
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

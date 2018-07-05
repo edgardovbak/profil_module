@@ -816,6 +816,15 @@ body {
   width: 100%;
   text-align: left;
   font-family: "Fira Sans", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 .sn_title--description {
   margin-bottom: 0.625rem;
@@ -826,6 +835,12 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-family: "Roboto Condensed", sans-serif;
+}
+.sn_title a {
+  font-size: 1rem;
+}
+.sn_title a:hover {
+  text-decoration: underline;
 }
 
 a {
@@ -1736,6 +1751,17 @@ table td:first-child {
           justify-content: flex-start;
 }
 
+.achievement_page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .achievement_item {
   width: 9.375rem;
   height: 9.375rem;
@@ -1747,6 +1773,31 @@ table td:first-child {
   background-position: center center;
   border-radius: 100%;
   margin-right: 1.875rem;
+}
+.achievement_item--square {
+  width: 22%;
+  height: 20.3125rem;
+  border-radius: 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 0.625rem 0.625rem;
+}
+.achievement_item--square img {
+  width: 13.4375rem;
+  height: 13.4375rem;
+  border-radius: 100%;
+  margin-bottom: 1.25rem;
 }
 
 @media only screen and (max-width: 75rem) and (min-width: 48rem) {
@@ -1839,6 +1890,21 @@ table td:first-child {
     text-align: center;
   }
 }
+@media only screen and (max-width: 93.75rem) {
+  .achievement_item--square {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 61.25rem) {
+  .achievement_item--square {
+    width: 45%;
+    height: 15.3125rem;
+  }
+  .achievement_item--square img {
+    width: 10.4375rem;
+    height: 10.4375rem;
+  }
+}
 @media only screen and (max-width: 48rem) {
   .content_to_right {
     padding-left: 0;
@@ -1914,5 +1980,10 @@ table td:first-child {
         -ms-flex-direction: column;
             flex-direction: column;
     text-align: center;
+  }
+}
+@media only screen and (max-width: 35.625rem) {
+  .achievement_item--square {
+    width: 100%;
   }
 }

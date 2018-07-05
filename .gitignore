@@ -24,3 +24,6 @@ yarn-error.log*
 
 /psd
 package-lock.json
+.sass-cache/bb84e16b4b4b5f6757976f5edde51549e80f11a8/global.scssc
+.sass-cache/bb84e16b4b4b5f6757976f5edde51549e80f11a8/global.scssc
+*.scssc
