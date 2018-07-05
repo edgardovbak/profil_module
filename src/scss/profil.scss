@@ -54,6 +54,12 @@
             width: 49%;
             margin-bottom: rem(10);
         }
+
+        &--datepicker,
+        .react-datepicker-wrapper,
+        .react-datepicker__input-container {
+            width: 100%;
+        }
     } 
 
     &__avatar {

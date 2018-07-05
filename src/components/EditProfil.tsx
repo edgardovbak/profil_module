@@ -7,6 +7,12 @@ import { Actions }                			from '@sensenet/redux';
 import { CSTUser } 							from '../type/CSTUser';
 import Loader 								from './Loader';
 
+// for datepicker 
+import * as moment 							from 'moment';
+import DatePicker 							from 'react-datepicker';
+import { Moment } 							from 'moment';
+import 										'react-datepicker/dist/react-datepicker.css';
+
 // save config 
 const DATA = require('../config.json');
 
@@ -38,7 +44,7 @@ export interface State {
 	userEmail: string;
 	userLanguages: string;
 	userPhone: string;
-	userBirthDate: string;
+	userBirthDate: Moment;
 	userEducation: string;
 	userAbout: string;
 }
@@ -57,7 +63,7 @@ export class EditProfilComponent extends React.Component<Props, State> {
 			userEmail: this.props.user.Email,
 			userLanguages: this.props.user.Languages,
 			userPhone: this.props.user.Phone,
-			userBirthDate: this.props.user.BirthDate,
+			userBirthDate: moment(this.props.user.BirthDate),
 			userEducation: this.props.user.Education,
 			userAbout: this.props.user.Description
 		};
@@ -74,49 +80,51 @@ export class EditProfilComponent extends React.Component<Props, State> {
 	}
 
 	public changeHandler = (e: any) => {
-		switch (e.target.name) {
-			case 'userName':
-				this.setState({
-					userName: e.target.value
-				});
-				break;
-			case 'userPosition':
-				this.setState({
-					userPosition: e.target.value
-				});
-				break;
-			case 'userEmail':
-				this.setState({
-					userEmail: e.target.value
-				});
-				break;
-			case 'userLanguages':
-				this.setState({
-					userLanguages: e.target.value
-				});
-				break;
-			case 'userPhone':
-				this.setState({
-					userPhone: e.target.value
-				});
-				break;
-			case 'userBirthDate':
-				this.setState({
-					userBirthDate: e.target.value
-				});
-				break;
-			case 'userEducation':
-				this.setState({
-					userEducation: e.target.value
-				});
-				break;
-			case 'userAbout':
-				this.setState({
-					userAbout: e.target.value
-				});
-				break;
-			default:
-				break;
+		// save birthDate changes
+		if ( e._isAMomentObject === true) {
+			this.setState({
+				userBirthDate: e
+			});
+		} else {
+			switch (e.target.name) {
+				case 'userName':
+					this.setState({
+						userName: e.target.value
+					});
+					break;
+				case 'userPosition':
+					this.setState({
+						userPosition: e.target.value
+					});
+					break;
+				case 'userEmail':
+					this.setState({
+						userEmail: e.target.value
+					});
+					break;
+				case 'userLanguages':
+					this.setState({
+						userLanguages: e.target.value
+					});
+					break;
+				case 'userPhone':
+					this.setState({
+						userPhone: e.target.value
+					});
+					break;
+				case 'userEducation':
+					this.setState({
+						userEducation: e.target.value
+					});
+					break;
+				case 'userAbout':
+					this.setState({
+						userAbout: e.target.value
+					});
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
@@ -143,16 +151,16 @@ export class EditProfilComponent extends React.Component<Props, State> {
 			Email: 			this.state.userEmail,
 			Languages: 		this.state.userLanguages,
 			Phone: 			this.state.userPhone,
-			BirthDate: 		this.state.userBirthDate,
+			BirthDate: 		this.state.userBirthDate.utc().format(),
 			Education: 		this.state.userEducation,
 			Description: 	this.state.userAbout,
 			AvatarImageRef: imageRef
 			
 		} as CSTUser;
 		// and update user info in sensenet app
+		console.log(user);
 		let path = DATA.ims + '(\'' + this.props.user.Name + '\')';
 		let userUpdate = await this.props.updateUserSN(path, user);
-		console.log(userUpdate);	
 		if ( userUpdate.action.type === 'UPDATE_CONTENT_SUCCESS') {
 			console.log('success');	
 			let up = await this.props.saveChanges(user);
@@ -234,12 +242,17 @@ export class EditProfilComponent extends React.Component<Props, State> {
 									</div>
 									<div className="user__edit_global_info__item">
 										<label htmlFor="">BirthDate</label>
-										<input 
-											name="userBirthDate" 
-											type="text" 
-											placeholder="BirthDate" 
-											defaultValue={this.props.user.BirthDate}
+										<DatePicker
+											selected={this.state.userBirthDate}
 											onChange={this.changeHandler}
+											placeholderText="Click to select a date"
+											className="user__edit_global_info--datepicker"
+											locale="en-gb"
+											showMonthDropdown={true}
+											showYearDropdown={true}
+											dateFormatCalendar="MMMM"
+											scrollableYearDropdown={true}
+											yearDropdownItemNumber={45}
 										/>
 									</div>
 									<div className="user__edit_global_info__item">

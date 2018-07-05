@@ -1690,6 +1690,11 @@ table td:first-child {
   width: 49%;
   margin-bottom: 0.625rem;
 }
+.user__edit_global_info--datepicker,
+.user__edit_global_info .react-datepicker-wrapper,
+.user__edit_global_info .react-datepicker__input-container {
+  width: 100%;
+}
 .user__avatar {
   margin-right: 1.875rem;
 }
