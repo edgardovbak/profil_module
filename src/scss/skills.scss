@@ -1,0 +1,68 @@
+%skillItem {
+    height: rem(32);
+    line-height: rem(32);
+    padding: 0 rem(15);
+    border-radius: rem(20);
+    margin: 0 rem(10) rem(10) 0;
+    cursor: pointer;
+}
+
+.skills_list {
+
+    &__selected {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        &__item {
+            border:  3px solid $orange;
+            color:  $orange;
+            @extend %skillItem;
+
+            &:hover {
+                background-color: $orange;
+                color:  $white;
+            }
+        }
+    }
+    
+    &__input input {
+        border-radius: rem(20);
+        border: 1px solid $black;
+        max-width: rem(300);
+        outline: none;
+    }
+
+    &__available {
+        display: flex;
+
+        &__item {
+            display: inline-block;
+            border: 1px solid $black;
+            @extend %skillItem;
+            order: 3;
+
+            &:hover {
+                background-color: $gray_2;
+                color: $white;
+            }
+        }
+
+        .equal {
+            background-color: $light_brown;
+            color: $white;
+            order: 2;
+
+            &:hover {
+                background-color: $light_brown2;
+            }
+        }
+
+        .used {
+            background-color: $dark_brown;
+            color: $white;
+            cursor: none;
+            order: 1;
+        }
+    }
+}

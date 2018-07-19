@@ -10,6 +10,8 @@ import Loader 								from './Loader';
 import UserInfoListItem 					from './UserInfoListItem';
 import Achievement							from './Achievement';
 
+const Timestamp = require('react-timestamp');
+
 // save config 
 const DATA = require('../config.json');
 
@@ -77,7 +79,6 @@ export class ProfilComponent extends React.Component<Props, State> {
 		}
 		// if curent user its on own page then save info to state
 		if ( !this.state.isForbidden ) {
-			console.log(userGet.value.d);
 			this.props.addToState(userGet.value.d);
 			this.setState({ 
 				isCurrentUser: true,
@@ -185,9 +186,9 @@ export class ProfilComponent extends React.Component<Props, State> {
 									value={this.state.isCurrentUser ?  this.props.currentUser.Education : this.state.user.Education}
 								/>
 								<UserInfoListItem
-									name="BirthDate"
+									name="Birthdate"
 									infoType={1}
-									value={this.state.isCurrentUser ?  this.props.currentUser.BirthDate : this.state.user.BirthDate}
+									value={this.state.isCurrentUser ?  <Timestamp time={this.props.currentUser.BirthDate} format="full" /> : <Timestamp time={this.state.user.BirthDate} format="full" />}
 								/>
 							</div>
 						</div>

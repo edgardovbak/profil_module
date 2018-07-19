@@ -28,6 +28,10 @@ $green : #607d8b;
 $green_2 : #5cb85c;
 $green_3 : #46a03f;
 $light_green :  #7cc576;
+$light_brown: #c69c6d;
+$light_brown2: #9a6a35;
+
+$dark_brown: #736357;
 
 // global
 $sidebar_width: 350;
@@ -49,7 +53,7 @@ $sidebar_width_mobile: 250;
 
 // buttons 
 $btn_bg_default : $green_2;
-$btn_bg_default_border : $green_2;
+$btn_bg_default_border : $green_2; 
 $btn_bg_default--hover : $green_3;
 
 $btn_bg_error : $red_2;
@@ -73,5 +77,5 @@ $link_btn_bg--hover : $orange;
 $link_btn_border--hover : $orange_2;
 
 // input
-$input_height : 25;
+$input_height : 30;
 $input_lh : $input_height;

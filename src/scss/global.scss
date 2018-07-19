@@ -112,7 +112,7 @@ span.btn_link {
 
 input {
     height: rem($input_height);
-    line-height: $input_lh;
+    line-height: rem($input_lh);
     overflow: hidden;
 }
 

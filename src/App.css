@@ -903,8 +903,8 @@ span.btn_link:hover {
 }
 
 input {
-  height: 1.5625rem;
-  line-height: 25;
+  height: 1.875rem;
+  line-height: 1.875rem;
   overflow: hidden;
 }
 
@@ -996,8 +996,8 @@ input[type='file'] {
   color: #fff;
   width: 100%;
   padding: 0;
-  line-height: 1.5625rem;
-  height: 1.75rem;
+  line-height: 1.875rem;
+  height: 2.0625rem;
   border: none;
   border-radius: 1.25rem;
   overflow: hidden;
@@ -1803,6 +1803,74 @@ table td:first-child {
   height: 13.4375rem;
   border-radius: 100%;
   margin-bottom: 1.25rem;
+}
+
+.skills_list__selected__item, .skills_list__available__item {
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 0.9375rem;
+  border-radius: 1.25rem;
+  margin: 0 0.625rem 0.625rem 0;
+  cursor: pointer;
+}
+
+.skills_list__selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.skills_list__selected__item {
+  border: 3px solid #eea032;
+  color: #eea032;
+}
+.skills_list__selected__item:hover {
+  background-color: #eea032;
+  color: #fff;
+}
+.skills_list__input input {
+  border-radius: 1.25rem;
+  border: 1px solid #000;
+  max-width: 18.75rem;
+  outline: none;
+}
+.skills_list__available {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.skills_list__available__item {
+  display: inline-block;
+  border: 1px solid #000;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+.skills_list__available__item:hover {
+  background-color: #868686;
+  color: #fff;
+}
+.skills_list__available .equal {
+  background-color: #c69c6d;
+  color: #fff;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+.skills_list__available .equal:hover {
+  background-color: #9a6a35;
+}
+.skills_list__available .used {
+  background-color: #736357;
+  color: #fff;
+  cursor: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 @media only screen and (max-width: 75rem) and (min-width: 48rem) {
