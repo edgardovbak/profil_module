@@ -13,6 +13,8 @@ import DatePicker 							from 'react-datepicker';
 import { Moment } 							from 'moment';
 import 										'react-datepicker/dist/react-datepicker.css';
 
+import SkilllsEdit                          from './SkilllsEdit';
+
 // save config 
 const DATA = require('../config.json');
 
@@ -273,6 +275,11 @@ export class EditProfilComponent extends React.Component<Props, State> {
 					<fieldset>
 						<legend>About</legend>
 						<textarea name="userAbout" defaultValue={this.props.user.Description} onChange={this.changeHandler}/>
+					</fieldset>
+
+					<fieldset>
+						<legend>Skills</legend>
+						<SkilllsEdit />
 					</fieldset>
 					
 					<Link to={'user/' + this.props.user.Name} className="sn_btn" onClick={e => { this.onSaveChanges(e); }}>

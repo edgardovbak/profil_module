@@ -80,7 +80,9 @@ export class BodyComponent extends React.Component<any, any> {
                                     exact={true}
                                     path="/editUser"  
                                     render={(routerProps) => {
-                                        return <EditProfil {...routerProps} />;
+                                        return this.state.status ? 
+                                        <Redirect key="login" to="/login" />
+                                        : <EditProfil {...routerProps} />;
                                     }} 
                                 />
                                 <Route  

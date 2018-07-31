@@ -1,4 +1,5 @@
-import * as React				from 'react';
+import * as React				    from 'react';
+import { connect }                  from 'react-redux';
 
 interface Skills {
     name: string;
@@ -11,9 +12,13 @@ interface Stats {
     used: string[];
 }
 
-class SkilllsEdit extends React.Component<any, Stats> {
+export interface Props {
+	usedSkills: any;
+}
 
-    constructor(props: any) {
+class SkilllsEdit extends React.Component<Props, Stats> {
+
+    constructor(props: Props) {
         super(props);
         this.state = {
             skills: [   {name: 'lol', used: false, equal: false}, 
@@ -21,13 +26,19 @@ class SkilllsEdit extends React.Component<any, Stats> {
                         {name: 'json', used: false, equal: false},
                         {name: 'something', used: false, equal: false},
                         {name: 'water magic', used: false, equal: false},
-                        {name: '007', used: false, equal: false}],
-            used : ['json', 'something', 'water magic'],
+                        {name: '007', used: false, equal: false},
+                        {name: 'react', used: false, equal: false},
+                        {name: 'redux', used: false, equal: false},
+                        {name: 'git', used: false, equal: false},
+                        {name: 'c#', used: false, equal: false},
+                        {name: 'html5', used: false, equal: false}],
+            used : this.props.usedSkills,
         },
 
         this.handleClickUsedSkills =        this.handleClickUsedSkills.bind(this);
         this.handleClickAvailableSkills =   this.handleClickAvailableSkills.bind(this);
         this.handleChange =                 this.handleChange.bind(this);
+        this.keyPress =                     this.keyPress.bind(this);
     }
 
     componentDidMount () {
@@ -41,7 +52,6 @@ class SkilllsEdit extends React.Component<any, Stats> {
         this.setState({
             skills: skillsList
         });
-        // console.log(skillsList);
     }
 
     public handleClickUsedSkills = (e:  any) => {
@@ -82,6 +92,32 @@ class SkilllsEdit extends React.Component<any, Stats> {
         });
     }
 
+    public keyPress = (e: any) => {
+        if ( e.keyCode === 13) {
+           // find entered value in skill list
+           let updateSkills = this.state.skills;
+           let result = this.state.skills.find(function (obj: any) { 
+                if (obj.name === e.target.value ) {
+                    let index = updateSkills.indexOf(obj);
+                    updateSkills[index].used = true;
+                    return true;
+                }  else {
+                    return false;
+                }
+            });
+            if ( !result ) {
+                updateSkills.push({
+                    name: e.target.value,
+                    equal: false,
+                    used: true
+                });
+            }
+            this.setState({
+                skills: updateSkills
+            });
+        }
+     }
+
     render() {
 
         let usedSkills = this.state.skills.map( (item: Skills, key: number) => {
@@ -117,7 +153,7 @@ class SkilllsEdit extends React.Component<any, Stats> {
                 <hr/>
                 <div className="skills_list__input">
                     <p>Writwe skill Name</p>
-                    <input type="text" onChange={this.handleChange}/>
+                    <input type="text" onChange={this.handleChange} onKeyDown={this.keyPress}/>
                     <p>
                         <small>
                             Write skill name to serch or add new <br/>
@@ -127,8 +163,7 @@ class SkilllsEdit extends React.Component<any, Stats> {
                 </div>
                 <hr/>
                 <p>Available skills</p>
-                <div className="skills_list__available">
-                    <div className="skills_list__available__item used">Jquery</div>
+                <div className="skills_list__available">  
                     {availableSkills}
                 </div>  
 			</div>
@@ -136,5 +171,13 @@ class SkilllsEdit extends React.Component<any, Stats> {
 	}
 }
 
-export default SkilllsEdit;
- 
+const mapStateToProps = (state: any, match: any) => {
+	return {
+        usedSkills : 			state.user.user.Skills.split(';'),
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	{}
+)(SkilllsEdit);

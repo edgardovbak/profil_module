@@ -5,7 +5,6 @@ import { Actions }                          from '@sensenet/redux';
 import { KnowledgeBaseArticleV2 }           from '../type/KnowledgeBaseArticle_v_2';
 import { IODataParams }                     from '@sensenet/client-core';
 import Loader                               from './Loader';
-import SkilllsEdit                          from './SkilllsEdit';
 
 const DATA = require('../config.json');
 
@@ -57,8 +56,6 @@ export class HomeComponent extends React.Component<Props, any> {
 			<div className="about">
 				<h1>Home Page</h1>
                 {homePage}
-                <h2>Skills list or something like this i dont know</h2>
-                <SkilllsEdit />
 			</div>
 		);
 	}
