@@ -39,6 +39,18 @@ export const loadUsers = (path: string, options: IODataParams<User> = {}) => ({
     },
 });
 
+export const search = (path: string, options: IODataParams<User> = {}) => ({
+    type: 'SEARCH',
+    // tslint:disable:completed-docs
+    async payload(repository: Repository) {
+        const data = await repository.loadCollection({
+            path,
+            oDataOptions: options,
+        });
+        return data.d.results;
+    },
+});
+
 export default function updateInfo(
     state: {
         isLoading: boolean, 
@@ -102,6 +114,29 @@ export default function updateInfo(
     }   
 
     if (action.type === 'UPDATE_PASSWORD_FAIL') {
+        return {
+            ...state,
+            isPassUpdated: false,
+        };
+    }   
+
+    // search action
+    if (action.type === 'SEARCH') {
+        return {
+            ...state,
+            isPassUpdated: false,
+        };
+    }   
+
+    if (action.type === 'SEARCH_SUCCESS') {
+        return {
+            ...state,
+            isPassUpdated: true,
+            updatePass: action.payload.search
+        };
+    }   
+
+    if (action.type === 'SEARCH_FAIL') {
         return {
             ...state,
             isPassUpdated: false,
